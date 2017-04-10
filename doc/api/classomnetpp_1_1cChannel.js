@@ -1,0 +1,27 @@
+var classomnetpp_1_1cChannel =
+[
+    [ "MessageSentSignalValue", "classomnetpp_1_1cChannel_1_1MessageSentSignalValue.html", "classomnetpp_1_1cChannel_1_1MessageSentSignalValue" ],
+    [ "result_t", "structomnetpp_1_1cChannel_1_1result__t.html", "structomnetpp_1_1cChannel_1_1result__t" ],
+    [ "cChannel", "classomnetpp_1_1cChannel.html#a560269f7f2a294ea313f32bf78443df8", null ],
+    [ "~cChannel", "classomnetpp_1_1cChannel.html#acf81fb8aeb97a39ee2468a3f39e076fc", null ],
+    [ "finalizeParameters", "classomnetpp_1_1cChannel.html#a6053b9448540706eaaa8bc7071562100", null ],
+    [ "info", "classomnetpp_1_1cChannel.html#a38e94571d706500b3d1af108bd69be06", null ],
+    [ "forEachChild", "classomnetpp_1_1cChannel.html#ac764613051628e373bdd277d2dcc50bd", null ],
+    [ "parsimPack", "classomnetpp_1_1cChannel.html#a5da0f0e925717106aeb90ef7db703afd", null ],
+    [ "parsimUnpack", "classomnetpp_1_1cChannel.html#a879084e5e8f5f325f4ff2f3e17b7b1b1", null ],
+    [ "callInitialize", "classomnetpp_1_1cChannel.html#ae17272aee328900c96b8111d642dabf2", null ],
+    [ "callInitialize", "classomnetpp_1_1cChannel.html#abb973abd34144b0ea340df8d2de60ffc", null ],
+    [ "callFinish", "classomnetpp_1_1cChannel.html#a6ffefcbcab94d22d6712d7ded08ea5e3", null ],
+    [ "getComponentKind", "classomnetpp_1_1cChannel.html#a9e3014e58ed0e7dc7c4bd3a7391623f9", null ],
+    [ "getParentModule", "classomnetpp_1_1cChannel.html#a4688cd2b387d2d9608547a9055ca674a", null ],
+    [ "getChannelType", "classomnetpp_1_1cChannel.html#a7d4077d9ca79729777705b1512911a34", null ],
+    [ "getProperties", "classomnetpp_1_1cChannel.html#a43a21f306a3ed1811d31e9f1dfd3809f", null ],
+    [ "getSourceGate", "classomnetpp_1_1cChannel.html#a6b5e1022a6124367e4eb19079a952f42", null ],
+    [ "isTransmissionChannel", "classomnetpp_1_1cChannel.html#ac53b59d9f96b7607a5b47d198bce5f3a", null ],
+    [ "processMessage", "classomnetpp_1_1cChannel.html#a5f63dc06c7294df684b292bca0a80b43", null ],
+    [ "getNominalDatarate", "classomnetpp_1_1cChannel.html#ad948bdcb37b089a9bdcfbf7168f1236b", null ],
+    [ "calculateDuration", "classomnetpp_1_1cChannel.html#a173f98fe767b3ae9a706e02c357c3ef2", null ],
+    [ "getTransmissionFinishTime", "classomnetpp_1_1cChannel.html#a477f0af330192a9cb9930b2d9565faf1", null ],
+    [ "isBusy", "classomnetpp_1_1cChannel.html#abeb36e46a4679f3d29c28d783447a920", null ],
+    [ "forceTransmissionFinishTime", "classomnetpp_1_1cChannel.html#af16609bbae868ce2281aadd7240008eb", null ]
+];

@@ -1,0 +1,25 @@
+var classomnetpp_1_1nedxml_1_1PropertyElement =
+[
+    [ "PropertyElement", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a77d2df6d611146cd709cd75ec91cb80a", null ],
+    [ "PropertyElement", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a2d31a9f4105c8b3057349f253cbd9568", null ],
+    [ "~PropertyElement", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a011e46b18455c9ecbc12d3a40ec26264", null ],
+    [ "getTagName", "classomnetpp_1_1nedxml_1_1PropertyElement.html#ab85bfc57e78e21f9f572117b652dfdee", null ],
+    [ "getTagCode", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a7feb251862b4b3ca31a7fcc32734ca3c", null ],
+    [ "getNumAttributes", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a303cd3284a0e702b8c16ed57abb941c3", null ],
+    [ "getAttributeName", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a2fc9a79c270c612e02dafd6fd431bc6e", null ],
+    [ "getAttribute", "classomnetpp_1_1nedxml_1_1PropertyElement.html#ad339beadb3871cb6b634305b005c862b", null ],
+    [ "getAttribute", "classomnetpp_1_1nedxml_1_1PropertyElement.html#ad00ce38f5d073abf7d545486da6bed52", null ],
+    [ "setAttribute", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a2d2334973f9de1dca0dafcb843d82d74", null ],
+    [ "setAttribute", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a1de87ec72e38dcf3a9a4d5c9688d0ea2", null ],
+    [ "getAttributeDefault", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a9580cf145f823448fff8134d3faaa8fb", null ],
+    [ "dup", "classomnetpp_1_1nedxml_1_1PropertyElement.html#adda085a215281893a0664dd09f9c47ad", null ],
+    [ "getIsImplicit", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a100646e17e3d7b9f63cf8eaf85bac2b1", null ],
+    [ "setIsImplicit", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a128a7763b1cde41d649a790d07218fe3", null ],
+    [ "getName", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a2ad8ebd431528d7f92ce9a2fa14ccb34", null ],
+    [ "setName", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a341b1d3f16cd19dbd47c3a7198c0f90d", null ],
+    [ "getIndex", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a758e0afc4cfef968c86eb947b0f41ac0", null ],
+    [ "setIndex", "classomnetpp_1_1nedxml_1_1PropertyElement.html#afe4811ccd34a427a5238ba486568a856", null ],
+    [ "getNextPropertySibling", "classomnetpp_1_1nedxml_1_1PropertyElement.html#aaf946cb943add64a6fe52b3320dc1f9a", null ],
+    [ "getFirstCommentChild", "classomnetpp_1_1nedxml_1_1PropertyElement.html#a1586253dbc8451ba633b89424f32d237", null ],
+    [ "getFirstPropertyKeyChild", "classomnetpp_1_1nedxml_1_1PropertyElement.html#ac2fb179720dd091ad92ca286d58c6e6e", null ]
+];

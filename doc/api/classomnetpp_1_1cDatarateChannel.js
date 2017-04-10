@@ -1,0 +1,26 @@
+var classomnetpp_1_1cDatarateChannel =
+[
+    [ "cDatarateChannel", "classomnetpp_1_1cDatarateChannel.html#a5905dd960cbdf26e57ce23c048fe078f", null ],
+    [ "~cDatarateChannel", "classomnetpp_1_1cDatarateChannel.html#a6bad2fcfc7d581fdbcb8b6b107c673f6", null ],
+    [ "handleParameterChange", "classomnetpp_1_1cDatarateChannel.html#a32fae46a42035e2728e0b33397269cae", null ],
+    [ "finish", "classomnetpp_1_1cDatarateChannel.html#a7a74c8d74ce75e855bb3e5f84e4dfaa1", null ],
+    [ "info", "classomnetpp_1_1cDatarateChannel.html#a38e94571d706500b3d1af108bd69be06", null ],
+    [ "isTransmissionChannel", "classomnetpp_1_1cDatarateChannel.html#a03c80e11371ebcc5c22018ed00f08675", null ],
+    [ "setDelay", "classomnetpp_1_1cDatarateChannel.html#a8379f7caae708756cd413c718d571093", null ],
+    [ "setDatarate", "classomnetpp_1_1cDatarateChannel.html#ae7bb61b525d07321407c9fafd1ff13d5", null ],
+    [ "setBitErrorRate", "classomnetpp_1_1cDatarateChannel.html#af4048cd7af2b6ecde21c49df4261b3b7", null ],
+    [ "setPacketErrorRate", "classomnetpp_1_1cDatarateChannel.html#ac2550944936d4eec74acf4c7bd6d8903", null ],
+    [ "setDisabled", "classomnetpp_1_1cDatarateChannel.html#aef710a87c755c60f47e3f3bb655e861e", null ],
+    [ "getDelay", "classomnetpp_1_1cDatarateChannel.html#aa8a0a8c05944ac56975a6cec6c123607", null ],
+    [ "getDatarate", "classomnetpp_1_1cDatarateChannel.html#a743590939177b6d5a7cf577d76a9af44", null ],
+    [ "getBitErrorRate", "classomnetpp_1_1cDatarateChannel.html#a0ccd8e37a615d569971c8b3c806cb346", null ],
+    [ "getPacketErrorRate", "classomnetpp_1_1cDatarateChannel.html#a46920b55bf3b908934aca97b8af58573", null ],
+    [ "isDisabled", "classomnetpp_1_1cDatarateChannel.html#a5c6f3094f42d1ad43b8eb5ec97d1122a", null ],
+    [ "getNominalDatarate", "classomnetpp_1_1cDatarateChannel.html#a8b67d0f96021a19eb3c0a42e2d698d7a", null ],
+    [ "calculateDuration", "classomnetpp_1_1cDatarateChannel.html#ad4764a1ade6818df4d5722576001e812", null ],
+    [ "getTransmissionFinishTime", "classomnetpp_1_1cDatarateChannel.html#a6661f39e4d3fd131371efd055fe5f94a", null ],
+    [ "isBusy", "classomnetpp_1_1cDatarateChannel.html#aeb24b1340d426166718f51dcad736cd5", null ],
+    [ "forceTransmissionFinishTime", "classomnetpp_1_1cDatarateChannel.html#af861f779937974d90cd5ffc24cbb672c", null ],
+    [ "initialize", "classomnetpp_1_1cDatarateChannel.html#a93bf86397028a1470554607e94b31c08", null ],
+    [ "processMessage", "classomnetpp_1_1cDatarateChannel.html#a4ef096427b3d225fd8e0a79518a104f2", null ]
+];

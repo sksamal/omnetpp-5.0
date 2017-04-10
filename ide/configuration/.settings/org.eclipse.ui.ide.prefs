@@ -1,0 +1,5 @@
+MAX_RECENT_WORKSPACES=5
+RECENT_WORKSPACES=/home/ssamal/Downloads/omnetpp-5.0/samples
+RECENT_WORKSPACES_PROTOCOL=3
+SHOW_WORKSPACE_SELECTION_DIALOG=true
+eclipse.preferences.version=1
