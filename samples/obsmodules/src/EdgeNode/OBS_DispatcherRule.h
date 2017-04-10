@@ -28,7 +28,7 @@
 #include<UDPPacket.h>
 
 using namespace std;
-
+using namespace inet;
 //! Represents a single dispatcher rule which provides a match checking method.
 class OBS_DispatcherRule{
    protected:

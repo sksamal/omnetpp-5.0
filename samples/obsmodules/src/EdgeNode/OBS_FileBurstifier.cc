@@ -23,6 +23,7 @@
 #include "OBS_BurstifierInfo_m.h"
 #include <stdio.h>
 using namespace std;
+using namespace omnetpp;
 
 //! Generates 'fake' bursts based on a text file. See ned documentation for details.
 class OBS_FileBurstifier : public cSimpleModule

@@ -23,6 +23,7 @@
  #include "OBS_BCPControlInfo_m.h"
 
 using namespace std;
+using namespace omnetpp;
 
 
 //! Optical-Electrical converter. Gathers beginning/end BCP messages and creates an 'electrical BCP' including info concerning input fiber and iniBCP arrival time.

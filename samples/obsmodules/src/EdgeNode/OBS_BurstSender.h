@@ -26,8 +26,8 @@
 #include "OBS_BurstifierInfo_m.h"
 #include "INETDefs.h"
 #include "IInterfaceTable.h"
-#include "InterfaceTableAccess.h"
-#include "NotificationBoard.h"
+//#include "InterfaceTableAccess.h"
+//#include "NotificationBoard.h"
 #include "NotifierConsts.h"
 
 class InterfaceEntry;

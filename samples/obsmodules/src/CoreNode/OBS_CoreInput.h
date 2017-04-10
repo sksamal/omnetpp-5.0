@@ -22,6 +22,7 @@
 #include<map>
 
 using namespace std;
+using namespace omnetpp;
 
 //! This module acts as an interface to the core node's modules (control unit and OXC). Separates data and control channels.
 //! Also, this implements methods to translate "colours" to physical gate IDs.

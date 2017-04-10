@@ -23,6 +23,8 @@
 #include<vector>
 
 using namespace std;
+using namespace omnetpp;
+
 
 //! This module does the reverse task of CoreInput: Gather both control and data channels and reorder it in order to connect the core node with another OBS node.
 //! It also supports "colours" for data channels.

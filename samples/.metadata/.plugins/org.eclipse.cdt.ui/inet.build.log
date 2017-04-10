@@ -1,8 +1,8 @@
-15:52:14 **** Incremental Build of configuration gcc-release for project inet ****
+17:04:28 **** Incremental Build of configuration gcc-release for project inet ****
 make MODE=release CONFIGNAME=gcc-release all 
 cd src && make all
 make[1]: Entering directory '/home/ssamal/Downloads/omnetpp-5.0/samples/inet/src'
 make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/inet/src'
 
-15:52:14 Build Finished (took 370ms)
+17:04:28 Build Finished (took 317ms)
 

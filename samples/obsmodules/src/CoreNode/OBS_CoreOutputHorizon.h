@@ -20,6 +20,8 @@
 
 #include<omnetpp.h>
 
+using namespace omnetpp;
+
 //! The horizon table store the time where each optical channel is available (this time is often called the horizon).
 //! This table is structured as an bidimensional array where the first component represents the port number and the second component is the data channel:
 //!

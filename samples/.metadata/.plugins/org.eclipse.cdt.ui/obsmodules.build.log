@@ -1,9 +1,120 @@
-15:52:14 **** Incremental Build of configuration gcc-release for project obsmodules ****
-make MODE=release CONFIGNAME=gcc-release all 
-cd src && make all
-make[1]: Entering directory '/home/ssamal/Downloads/omnetpp-5.0/samples/obsmodules/src'
-make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/obsmodules/src'
-Creating executable: out/gcc-release//obsmodules
+17:04:28 **** Incremental Build of configuration gcc-debug for project obsmodules ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+src/EdgeNode/OBS_BurstSender.cc
+src/EdgeNode/OBS_BurstSender.cc: In member function ‘virtual void OBS_BurstSender::initialize()’:
+src/EdgeNode/OBS_BurstSender.cc:129:36: error: ‘NotificationBoardAccess’ was not declared in this scope
+       nb = NotificationBoardAccess().get();
+                                    ^
+src/EdgeNode/OBS_BurstSender.cc: In member function ‘InterfaceEntry* OBS_BurstSender::registerInterface(double)’:
+src/EdgeNode/OBS_BurstSender.cc:138:48: error: invalid use of incomplete type ‘class InterfaceEntry’
+     InterfaceEntry *e = new InterfaceEntry(this);
+                                                ^
+In file included from src/EdgeNode/OBS_BurstSender.cc:21:0:
+src/EdgeNode/OBS_BurstSender.h:33:7: note: forward declaration of ‘class InterfaceEntry’
+ class InterfaceEntry;
+       ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:147:6: error: invalid use of incomplete type ‘class InterfaceEntry’
+     e->setName(name.c_str());
+      ^~
+In file included from src/EdgeNode/OBS_BurstSender.cc:21:0:
+src/EdgeNode/OBS_BurstSender.h:33:7: note: forward declaration of ‘class InterfaceEntry’
+ class InterfaceEntry;
+       ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:150:6: error: invalid use of incomplete type ‘class InterfaceEntry’
+     e->setDatarate(datarate);
+      ^~
+In file included from src/EdgeNode/OBS_BurstSender.cc:21:0:
+src/EdgeNode/OBS_BurstSender.h:33:7: note: forward declaration of ‘class InterfaceEntry’
+ class InterfaceEntry;
+       ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:153:5: error: ‘InterfaceToken’ was not declared in this scope
+     InterfaceToken token(0, simulation.getUniqueNumber(), 64);
+     ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:153:5: note: suggested alternative:
+In file included from ../inet/src/inet/networklayer/common/InterfaceEntry.h:27:0,
+                 from ../inet/src/inet/networklayer/contract/IInterfaceTable.h:24,
+                 from src/EdgeNode/OBS_BurstSender.h:28,
+                 from src/EdgeNode/OBS_BurstSender.cc:21:
+../inet/src/inet/networklayer/common/InterfaceToken.h:31:16: note:   ‘inet::InterfaceToken’
+ class INET_API InterfaceToken
+                ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:154:6: error: invalid use of incomplete type ‘class InterfaceEntry’
+     e->setInterfaceToken(token);
+      ^~
+In file included from src/EdgeNode/OBS_BurstSender.cc:21:0:
+src/EdgeNode/OBS_BurstSender.h:33:7: note: forward declaration of ‘class InterfaceEntry’
+ class InterfaceEntry;
+       ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:154:26: error: ‘token’ was not declared in this scope
+     e->setInterfaceToken(token);
+                          ^~~~~
+src/EdgeNode/OBS_BurstSender.cc:158:6: error: invalid use of incomplete type ‘class InterfaceEntry’
+     e->setMtu(4470);
+      ^~
+In file included from src/EdgeNode/OBS_BurstSender.cc:21:0:
+src/EdgeNode/OBS_BurstSender.h:33:7: note: forward declaration of ‘class InterfaceEntry’
+ class InterfaceEntry;
+       ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:161:6: error: invalid use of incomplete type ‘class InterfaceEntry’
+     e->setMulticast(true);
+      ^~
+In file included from src/EdgeNode/OBS_BurstSender.cc:21:0:
+src/EdgeNode/OBS_BurstSender.h:33:7: note: forward declaration of ‘class InterfaceEntry’
+ class InterfaceEntry;
+       ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:162:6: error: invalid use of incomplete type ‘class InterfaceEntry’
+     e->setPointToPoint(true);
+      ^~
+In file included from src/EdgeNode/OBS_BurstSender.cc:21:0:
+src/EdgeNode/OBS_BurstSender.h:33:7: note: forward declaration of ‘class InterfaceEntry’
+ class InterfaceEntry;
+       ^~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:165:5: error: ‘IInterfaceTable’ was not declared in this scope
+     IInterfaceTable *ift = InterfaceTableAccess().getIfExists();
+     ^~~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:165:5: note: suggested alternative:
+In file included from src/EdgeNode/OBS_BurstSender.h:28:0,
+                 from src/EdgeNode/OBS_BurstSender.cc:21:
+../inet/src/inet/networklayer/contract/IInterfaceTable.h:46:16: note:   ‘inet::IInterfaceTable’
+ class INET_API IInterfaceTable
+                ^~~~~~~~~~~~~~~
+src/EdgeNode/OBS_BurstSender.cc:165:22: error: ‘ift’ was not declared in this scope
+     IInterfaceTable *ift = InterfaceTableAccess().getIfExists();
+                      ^~~
+src/EdgeNode/OBS_BurstSender.cc:165:49: error: ‘InterfaceTableAccess’ was not declared in this scope
+     IInterfaceTable *ift = InterfaceTableAccess().getIfExists();
+                                                 ^
+src/EdgeNode/OBS_BurstSender.cc: In member function ‘virtual void OBS_BurstSender::handleMessage(omnetpp::cMessage*)’:
+src/EdgeNode/OBS_BurstSender.cc:273:34: warning: ‘bool omnetpp::cQueue::empty() const’ is deprecated [-Wdeprecated-declarations]
+             if(!waitingBCP.empty()){
+                                  ^
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:83:0,
+                 from src/EdgeNode/OBS_BurstSender.h:21,
+                 from src/EdgeNode/OBS_BurstSender.cc:21:
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cqueue.h:298:25: note: declared here
+     _OPPDEPRECATED bool empty() const {return isEmpty();}
+                         ^~~~~
+src/EdgeNode/OBS_BurstSender.cc:333:31: warning: ‘bool omnetpp::cQueue::empty() const’ is deprecated [-Wdeprecated-declarations]
+          if(!waitingBCP.empty()){
+                               ^
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:83:0,
+                 from src/EdgeNode/OBS_BurstSender.h:21,
+                 from src/EdgeNode/OBS_BurstSender.cc:21:
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cqueue.h:298:25: note: declared here
+     _OPPDEPRECATED bool empty() const {return isEmpty();}
+                         ^~~~~
+src/EdgeNode/OBS_BurstSender.cc: In member function ‘virtual void OBS_BurstSender::finish()’:
+src/EdgeNode/OBS_BurstSender.cc:384:100: warning: ‘int omnetpp::cQueue::length() const’ is deprecated [-Wdeprecated-declarations]
+    recordScalar("BCPs pending to be sent (because the control channel is busy)", waitingBCP.length());
+                                                                                                    ^
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:83:0,
+                 from src/EdgeNode/OBS_BurstSender.h:21,
+                 from src/EdgeNode/OBS_BurstSender.cc:21:
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cqueue.h:293:24: note: declared here
+     _OPPDEPRECATED int length() const {return getLength();}
+                        ^~~~~~
+make: *** [out/gcc-debug//src/EdgeNode/OBS_BurstSender.o] Error 1
+Makefile:188: recipe for target 'out/gcc-debug//src/EdgeNode/OBS_BurstSender.o' failed
 
-15:52:15 Build Finished (took 585ms)
+17:04:29 Build Finished (took 866ms)
 

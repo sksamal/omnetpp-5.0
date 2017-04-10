@@ -20,6 +20,8 @@
 
 #include <omnetpp.h>
 
+using namespace omnetpp;
+
 //! Interconnection point where optical bursts pass through transparently. OBS_CoreControlUnit is the responsible of setting/unsetting lightpaths.
 class OBS_OpticalCrossConnect : public cSimpleModule{
    private:

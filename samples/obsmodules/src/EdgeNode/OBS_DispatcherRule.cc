@@ -121,7 +121,7 @@ bool OBS_DispatcherRule::match(cMessage *msg){
       // Lookup IP header in order to identify TCP/UDP header and then extract it.
       int recvSrcPort = 0;
       if(recvIP->getTransportProtocol() == IP_PROT_TCP){
-    	  TCPSegment *recvTCP = check_and_cast < TCPSegment* > (recvIP->getEncapsulatedPacket());
+    	  tcp::TCPSegment *recvTCP = check_and_cast < tcp::TCPSegment* > (recvIP->getEncapsulatedPacket());
          recvSrcPort = recvTCP->getSrcPort();
       }else if(recvIP->getTransportProtocol() == IP_PROT_UDP){
     	  UDPPacket *recvUDP = check_and_cast < UDPPacket* > (recvIP->getEncapsulatedPacket());
@@ -134,7 +134,7 @@ bool OBS_DispatcherRule::match(cMessage *msg){
       //The same thing than the isSet[3] case, but now we extract the destination port.
       int recvDestPort = 0;
       if(recvIP->getTransportProtocol() == IP_PROT_TCP){
-    	 TCPSegment *recvTCP = check_and_cast < TCPSegment* > (recvIP->getEncapsulatedPacket());
+    	 tcp::TCPSegment *recvTCP = check_and_cast < tcp::TCPSegment* > (recvIP->getEncapsulatedPacket());
          recvDestPort = recvTCP->getDestPort();
       }else if(recvIP->getTransportProtocol() == IP_PROT_UDP){
     	 UDPPacket *recvUDP = check_and_cast < UDPPacket* > (recvIP->getEncapsulatedPacket());

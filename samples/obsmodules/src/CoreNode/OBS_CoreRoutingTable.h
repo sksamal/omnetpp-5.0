@@ -24,6 +24,7 @@
 #include "OBS_CoreRoutingTableEntry_m.h"
 #include<list>
 using namespace std;
+using namespace omnetpp;
 
 
 //! Core node routing table. Converts the routing info stored in a file to a file structure and provides direct methods to request information.
