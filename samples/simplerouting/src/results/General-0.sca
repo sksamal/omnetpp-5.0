@@ -1,0 +1,117 @@
+version 2
+run General-0-20150901-01:28:02-17549
+attr configname General
+attr datetime 20150901-01:28:02
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Tictoc13
+attr processid 17549
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar Tictoc13.tic[0] 	#sent 	3
+scalar Tictoc13.tic[0] 	#received 	3
+statistic Tictoc13.tic[0] 	"hop count"
+field count 3
+field mean 2.3333333333333
+field stddev 1.1547005383793
+field sum 7
+field sqrsum 19
+field min 1
+field max 3
+attr type  int
+bin	-INF	0
+bin	0	0
+bin	1	1
+bin	2	0
+bin	3	2
+bin	4	0
+bin	5	0
+scalar Tictoc13.tic[1] 	#sent 	4
+scalar Tictoc13.tic[1] 	#received 	4
+statistic Tictoc13.tic[1] 	"hop count"
+field count 4
+field mean 1
+field stddev 0
+field sum 4
+field sqrsum 4
+field min 1
+field max 1
+attr type  int
+bin	-INF	0
+bin	0	0
+bin	1	4
+bin	2	0
+scalar Tictoc13.tic[2] 	#sent 	3
+scalar Tictoc13.tic[2] 	#received 	3
+statistic Tictoc13.tic[2] 	"hop count"
+field count 3
+field mean 2.3333333333333
+field stddev 0.57735026918963
+field sum 7
+field sqrsum 17
+field min 2
+field max 3
+attr type  int
+bin	-INF	0
+bin	0	0
+bin	1	0
+bin	2	2
+bin	3	1
+bin	4	0
+bin	5	0
+scalar Tictoc13.tic[3] 	#sent 	1
+scalar Tictoc13.tic[3] 	#received 	1
+statistic Tictoc13.tic[3] 	"hop count"
+field count 1
+field mean 1
+field stddev -nan
+field sum 1
+field sqrsum 1
+field min 1
+field max 1
+attr type  int
+bin	-INF	0
+bin	0	0
+bin	1	1
+bin	2	0
+scalar Tictoc13.tic[4] 	#sent 	3
+scalar Tictoc13.tic[4] 	#received 	3
+statistic Tictoc13.tic[4] 	"hop count"
+field count 3
+field mean 1.3333333333333
+field stddev 0.57735026918963
+field sum 4
+field sqrsum 6
+field min 1
+field max 2
+attr type  int
+bin	-INF	0
+bin	0	0
+bin	1	2
+bin	2	1
+bin	3	0
+scalar Tictoc13.tic[5] 	#sent 	3
+scalar Tictoc13.tic[5] 	#received 	3
+statistic Tictoc13.tic[5] 	"hop count"
+field count 3
+field mean 2.6666666666667
+field stddev 0.57735026918963
+field sum 8
+field sqrsum 22
+field min 2
+field max 3
+attr type  int
+bin	-INF	0
+bin	0	0
+bin	1	0
+bin	2	1
+bin	3	2
+bin	4	0
+bin	5	0
