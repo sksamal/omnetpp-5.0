@@ -22,7 +22,7 @@ package obsmodules.Examples.TreeTopologyOBS;
 
 import obsmodules.src.EdgeNode.OBS_EdgeNode;
 import obsmodules.src.CoreNode.OBS_CoreNode;
-import inet.nodes.inet.StandardHost;
+import inet.node.inet.StandardHost;
 
 
 network TreeTopologyOBS
@@ -41,27 +41,27 @@ network TreeTopologyOBS
         // 5 hosts which send and receive traffic
         host1: StandardHost {
             parameters:
-                routingFile = "H1.irt";
+                routingTable.routingFile = "H1.irt";
                 @display("p=76,157");
         }
         host2: StandardHost {
             parameters:
-                routingFile = "H2.irt";
+                routingTable.routingFile = "H2.irt";
                 @display("p=615,81");
         }
         host3: StandardHost {
             parameters:
-                routingFile = "H3.irt";
+                routingTable.routingFile = "H3.irt";
                 @display("p=107,456");
         }
         host4: StandardHost {
             parameters:
-                routingFile = "H4.irt";
+                routingTable.routingFile = "H4.irt";
                 @display("p=1013,149");
         }
         host5: StandardHost {
             parameters:
-                routingFile = "H5.irt";
+                routingTable.routingFile = "H5.irt";
                 @display("p=993,490");
         }
         // Edge Nodes

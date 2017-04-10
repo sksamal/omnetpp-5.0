@@ -85,14 +85,14 @@ void RTPAVProfileSampleBasedAudioReceiver::openOutputFile(const char *fileName) 
     afInitRate(_fileSetup, AF_DEFAULT_TRACK, (double)_samplingRate);
     _audioFile = afOpenFile(fileName, "w", _fileSetup);
     if (_audioFile == AF_NULL_FILEHANDLE) {
-        opp_error("payload receiver: error creating output file");
+        throw cRuntimeError("payload receiver: error creating output file");
     };
 };
 
 
 void RTPAVProfileSampleBasedAudioReceiver::closeOutputFile() {
     if (afCloseFile(_audioFile)) {
-        opp_error("payload receiver: error closing output file");
+        throw cRuntimeError("payload receiver: error closing output file");
     };
 };
 

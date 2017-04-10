@@ -316,7 +316,7 @@
 	- changed code style to enhance code readability
 	- renamed local variable from skip_sacks_array to dsack_inserted in addSacks()
 	- optimised length calculation in sendSegment()
-	- replaced 'opp_error' by 'throw cRuntimeError'
+	- replaced 'throw cRuntimeError' by 'throw cRuntimeError'
 	- changed uint32 nextSeg() to bool nextSeg()
 	- optimised setPipe(), nextSeg(), addSacks()
 

@@ -26,7 +26,7 @@ void testSource5::initialize(){
 	//Open the input file in read mode
 	inputFile.open(par("inputFile"));
 	if (!inputFile.is_open())
-		opp_error("Cannot open the input file for the test");
+		throw cRuntimeError("Cannot open the input file for the test");
 
 	//Read the first line and schedule the electrical BCP
 	processLine();
@@ -41,7 +41,7 @@ void testSource5::handleMessage(cMessage *msg){
 		processLine();
 	}
 	else
-		opp_error("Received an unknown packet");
+		throw cRuntimeError("Received an unknown packet");
 }
 
 void testSource5::finish(){
@@ -63,7 +63,7 @@ void testSource5::processLine(){
 			lineNum++;
 			val = sscanf(line.data(), "%s %s %s %s %s %s %s %s %lld %d %s", sendTimeChr, burstifierIdChr, numSeqChr, senderIdChr, labelChr, burstArrivalChr, colourChr, sizeChr, &length, &port, BCPArrivalChr);
 			if (val != 11){
-				opp_error("Wrong format on line %d", lineNum);
+				throw cRuntimeError("Wrong format on line %d", lineNum);
 			}
 			sendTime = SimTime::parse(sendTimeChr);
 			if(simTime()<=sendTime){//If the bcp is not scheduled to the past, schedule it
@@ -124,7 +124,7 @@ void testSource5::processLine(){
 				scheduleAt(sendTime,bcp);
 			}
 			else{
-				opp_error("Cannot send a BCP scheduled to the past");
+				throw cRuntimeError("Cannot send a BCP scheduled to the past");
 			}
 		}
 }

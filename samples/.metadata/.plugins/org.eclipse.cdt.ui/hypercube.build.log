@@ -1,0 +1,5 @@
+15:09:46 **** Incremental Build of configuration gcc-debug for project hypercube ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+
+15:09:46 Build Finished (took 68ms)
+

@@ -132,7 +132,7 @@ void OBS_CoreControlLogic::handleMessage(cMessage *msg){
 
    //Query Core Node routing table asking for output port,colour and label
    OBS_CoreRoutingTableEntry *result = routingTable->getEntry(arrivalPort,burstColour,destLabel);
-   if(result == NULL) opp_error("Error in routing table query (Control Unit id: %d)",getId());
+   if(result == NULL) throw cRuntimeError("Error in routing table query (Control Unit id: %d)",getId());
 
    int outPort = result->getOutPort();
    int outColour = result->getOutColour();

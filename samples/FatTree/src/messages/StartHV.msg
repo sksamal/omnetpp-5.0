@@ -1,0 +1,23 @@
+//
+// Author: Michael Klopf
+// 
+
+cplusplus {{
+#include "GenericAppMsg_m.h"
+}}
+packet GenericAppMsg;
+
+
+    enum SourceNames
+    {
+        VM = 0;
+        CONTROLLER = 1;
+    }
+//
+// Msg to initiate the start of a hypervisor/server.
+//
+packet StartHV extends GenericAppMsg {
+    string hvaddress;
+    int source @enum(SourceNames);
+    bool serverState;
+}

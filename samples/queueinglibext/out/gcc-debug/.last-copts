@@ -1,0 +1,1 @@
+-DHAVE_SWAPCONTEXT -DWITH_TKENV -DXMLPARSER=expat -DWITH_PARSIM -DWITH_NETBUILDER  -g -Wall -fPIC  -fno-stack-protector  -I../queueinglib -I. -I/home/ssamal/Downloads/omnetpp-5.0/include

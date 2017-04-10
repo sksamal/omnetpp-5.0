@@ -48,7 +48,7 @@ void OBS_OpticalCrossConnect::handleMessage(cMessage *msg){
 void OBS_OpticalCrossConnect::setGate(int inGate,int outGate){
    Enter_Method("programming gate connection %d -> %d",inGate,outGate);
 
-   if(schedulingTable[inGate] != -1) opp_error("Attempting to schedule an already scheduled input channel. Channel id: %d",inGate);
+   if(schedulingTable[inGate] != -1) throw cRuntimeError("Attempting to schedule an already scheduled input channel. Channel id: %d",inGate);
    schedulingTable[inGate] = outGate;
 }
 

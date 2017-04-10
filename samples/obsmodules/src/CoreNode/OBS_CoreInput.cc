@@ -32,7 +32,7 @@ void OBS_CoreInput::initialize(){
    numPorts = par("numPorts");
    
    const char* portLenStr = par("lambdasPerPort").stringValue();
-   if(strcmp(portLenStr,"") == 0) opp_error("OBS_CoreInput: lambdasPerPort not initialized");
+   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("OBS_CoreInput: lambdasPerPort not initialized");
 
    portLen = (int*)calloc(numPorts,sizeof(int));
    // inPortBegin contains the OMNeT++ input gate index where each logical fiber begins
@@ -164,7 +164,7 @@ int OBS_CoreInput::getLambdaByColour(int port, int colour){
 	   return colours[port][colour];
    }
    else{//If the colour does not exist
-	   opp_error("The colour \"%d\" does not exist", colour);
+	   throw cRuntimeError("The colour \"%d\" does not exist", colour);
 	   return -1;
    }
 }

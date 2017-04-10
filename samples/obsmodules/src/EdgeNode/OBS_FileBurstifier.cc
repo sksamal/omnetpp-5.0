@@ -43,7 +43,7 @@ void OBS_FileBurstifier::initialize(){
    //Open the file specified in "burstFile" ned parameter
    msgFile = fopen(par("burstFile"),"r");
    if(msgFile == NULL){
-	   opp_error("Cannot open burst generation file");
+	   throw cRuntimeError("Cannot open burst generation file");
    }
    
    int sal,burstsize; //sal contains the return value of sscanf
@@ -96,7 +96,7 @@ void OBS_FileBurstifier::initialize(){
 	      scheduleAt(tsend,fBurst);
 	  }
 	  else
-		  opp_error("Cannot send a burst scheduled to the past");
+		  throw cRuntimeError("Cannot send a burst scheduled to the past");
    }
    
    recordScalar("my ID",getId());    
@@ -152,6 +152,6 @@ void OBS_FileBurstifier::handleMessage(cMessage *msg){
 	      scheduleAt(tsend,burst);
 	  }
 	  else
-		  opp_error("Cannot send a burst scheduled to the past");
+		  throw cRuntimeError("Cannot send a burst scheduled to the past");
    }      
 }

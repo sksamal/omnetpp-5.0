@@ -1,0 +1,9 @@
+15:52:14 **** Incremental Build of configuration gcc-release for project obsmodules ****
+make MODE=release CONFIGNAME=gcc-release all 
+cd src && make all
+make[1]: Entering directory '/home/ssamal/Downloads/omnetpp-5.0/samples/obsmodules/src'
+make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/obsmodules/src'
+Creating executable: out/gcc-release//obsmodules
+
+15:52:15 Build Finished (took 585ms)
+

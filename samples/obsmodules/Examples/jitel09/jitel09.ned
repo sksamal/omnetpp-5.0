@@ -22,7 +22,7 @@ package obsmodules.Examples.jitel09;
 
 import obsmodules.src.EdgeNode.OBS_EdgeNode;
 import obsmodules.src.CoreNode.OBS_CoreNode;
-import inet.nodes.inet.StandardHost;
+import inet.node.inet.StandardHost;
 
 
 network jitel09Simulation
@@ -36,22 +36,22 @@ network jitel09Simulation
     submodules:
         host1: StandardHost {
             parameters:
-                routingFile = "H1.irt";
+                routingTable.routingFile = "H1.irt";
                 @display("p=46,112");
         }
         host2: StandardHost {
             parameters:
-                routingFile = "H2.irt";
+                routingTable.routingFile = "H2.irt";
                 @display("p=48,272");
         }
         host3: StandardHost {
             parameters:
-                routingFile = "H3.irt";
+                routingTable.routingFile = "H3.irt";
                 @display("p=639,120");
         }
         host4: StandardHost {
             parameters:
-                routingFile = "H4.irt";
+                routingTable.routingFile = "H4.irt";
                 @display("p=636,264");
         }
         edge1: OBS_EdgeNode {

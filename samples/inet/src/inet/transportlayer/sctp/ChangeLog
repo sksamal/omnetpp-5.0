@@ -388,7 +388,7 @@
 
 2011-03-02  Zoltan Bojthe
 
-	change opp_error to throw cRuntimeError
+	change throw cRuntimeError to throw cRuntimeError
 
 2011-01-03  Alberto Cortes
 

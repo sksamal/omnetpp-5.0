@@ -32,7 +32,7 @@ OBS_CoreRoutingTable::~OBS_CoreRoutingTable(){
 void OBS_CoreRoutingTable::initialize(){
 	FILE* routingFile = fopen(par("routeTableFile"),"r");
    if(routingFile == NULL)
-	   opp_error("Cannot open forwarding file");
+	   throw cRuntimeError("Cannot open forwarding file");
 
    routingTable.setName("routingTable");
 

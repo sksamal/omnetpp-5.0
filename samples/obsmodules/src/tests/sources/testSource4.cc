@@ -26,7 +26,7 @@ void testSource4::initialize(){
 	//Open the input file in read mode
 	inputFile.open(par("inputFile"));
 	if (!inputFile.is_open())
-		opp_error("Cannot open the input file for the test");
+		throw cRuntimeError("Cannot open the input file for the test");
 
 	//Read the first line and schedule the iniBCP, endBCP
 	processLine();
@@ -44,7 +44,7 @@ void testSource4::handleMessage(cMessage *msg){
 		}
 	}
 	else{
-		opp_error("Received an unknown packet");
+		throw cRuntimeError("Received an unknown packet");
 	}
 }
 
@@ -66,7 +66,7 @@ void testSource4::processLine(){
 			lineNum++;
 			val = sscanf(line.data(),"%s %s %d %s %s %s %d %d %s %s %s", sendTimeChr, BCPDeltaChr, &index, arrivalTimeChr, colourChr, labelChr, &burstifierId, &numSeq,  senderIdChr, burstSizeChr, lengthChr);
 			if (val != 11){
-				opp_error("Wrong format on line %d", lineNum);
+				throw cRuntimeError("Wrong format on line %d", lineNum);
 			}
 			sendTime = SimTime::parse(sendTimeChr);
 			if(simTime()<=sendTime){//If the BCP is not scheduled to the past, schedule it
@@ -135,7 +135,7 @@ void testSource4::processLine(){
 				scheduleAt(sendTime+BCPDelta, endBCP);
 			}
 			else{
-				opp_error("Cannot send a BCP scheduled to the past");
+				throw cRuntimeError("Cannot send a BCP scheduled to the past");
 			}
 		}
 }

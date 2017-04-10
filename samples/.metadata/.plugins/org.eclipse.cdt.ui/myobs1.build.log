@@ -1,0 +1,8 @@
+14:51:33 **** Incremental Build of configuration gcc-debug for project myobs1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+cd src && make
+make[1]: Entering directory '/home/ssamal/Downloads/omnetpp-5.0/samples/myobs1/src'
+make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/myobs1/src'
+
+14:51:33 Build Finished (took 65ms)
+

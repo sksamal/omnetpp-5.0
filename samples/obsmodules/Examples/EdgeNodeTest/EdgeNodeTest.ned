@@ -22,7 +22,7 @@ package obsmodules.Examples.EdgeNodeTest;
 
 import obsmodules.src.misc.OBS_OpticalMonitor;
 import obsmodules.src.EdgeNode.OBS_EdgeNode;
-import inet.nodes.inet.StandardHost;
+import inet.node.inet.StandardHost;
 
 // Edge Node testing network.
 // It consists of two hosts interconnected by an OBS network. Each host has its own edge node.
@@ -35,7 +35,7 @@ network EdgeNodeTest
     submodules:
         host1: StandardHost {
             parameters:
-                routingFile = "H1.irt";
+                routingTable.routingFile = "H1.irt";
                 @display("p=46,72;i=device/pc2");
         }
         edge1: OBS_EdgeNode {
@@ -63,7 +63,7 @@ network EdgeNodeTest
         }
         host2: StandardHost {
             parameters:
-                routingFile = "H2.irt";
+                routingTable.routingFile = "H2.irt";
                 @display("p=440,112;i=device/pc2");
         }
     connections:

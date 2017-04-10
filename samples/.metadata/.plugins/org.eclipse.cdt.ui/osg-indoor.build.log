@@ -1,0 +1,52 @@
+14:30:11 **** Incremental Build of configuration gcc-debug for project osg-indoor ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Creating executable: out/gcc-debug//osg-indoor
+out/gcc-debug//Person.o: In function `Person::initialize(int)':
+/home/ssamal/Downloads/omnetpp-5.0/samples/osg-indoor/Person.cc:51: undefined reference to `osg::PositionAttitudeTransform::PositionAttitudeTransform()'
+out/gcc-debug//Person.o: In function `osg::Referenced::unref() const':
+/usr/include/osg/Referenced:198: undefined reference to `osg::Referenced::signalObserversAndDelete(bool, bool) const'
+Makefile:95: recipe for target 'out/gcc-debug//osg-indoor' failed
+out/gcc-debug//Person.o: In function `osg::Quat::Quat(double, osg::Vec3d const&)':
+/usr/include/osg/Quat:70: undefined reference to `osg::Quat::makeRotate(double, osg::Vec3d const&)'
+out/gcc-debug//Person.o: In function `osgDB::readNodeFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/usr/include/osgDB/ReadFile:122: undefined reference to `osgDB::Registry::instance(bool)'
+/usr/include/osgDB/ReadFile:122: undefined reference to `osgDB::readNodeFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, osgDB::Options const*)'
+out/gcc-debug//Person.o: In function `osg::PositionAttitudeTransform::setPosition(osg::Vec3d const&)':
+/usr/include/osg/PositionAttitudeTransform:46: undefined reference to `osg::Node::dirtyBound()'
+out/gcc-debug//Person.o: In function `osg::PositionAttitudeTransform::setAttitude(osg::Quat const&)':
+/usr/include/osg/PositionAttitudeTransform:50: undefined reference to `osg::Node::dirtyBound()'
+out/gcc-debug//Person.o: In function `omnetpp::cObjectOsgNode::~cObjectOsgNode()':
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/osgutil.h:64: undefined reference to `osg::Group::~Group()'
+out/gcc-debug//Person.o: In function `omnetpp::cObjectOsgNode::cObjectOsgNode()':
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/osgutil.h:67: undefined reference to `osg::Group::Group()'
+out/gcc-debug//Person.o: In function `omnetpp::cObjectOsgNode::cObjectOsgNode(omnetpp::cObject const*)':
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/osgutil.h:68: undefined reference to `osg::Group::Group()'
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/osgutil.h:68: undefined reference to `osg::Group::~Group()'
+out/gcc-debug//Person.o: In function `omnetpp::cObjectOsgNode::isSameKindAs(osg::Object const*) const':
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/osgutil.h:70: undefined reference to `typeinfo for osg::Object'
+out/gcc-debug//Person.o: In function `omnetpp::cObjectOsgNode::cObjectOsgNode(omnetpp::cObjectOsgNode const&, osg::CopyOp const&)':
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/osgutil.h:76: undefined reference to `osg::Group::Group(osg::Group const&, osg::CopyOp const&)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x10): undefined reference to `osg::Group::setThreadSafeRefUnref(bool)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0xa0): undefined reference to `osg::Object::setUserData(osg::Referenced*)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0xa8): undefined reference to `osg::Object::getUserData()'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0xb0): undefined reference to `osg::Object::getUserData() const'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0xb8): undefined reference to `osg::Group::resizeGLObjectBuffers(unsigned int)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0xc0): undefined reference to `osg::Group::releaseGLObjects(osg::State*) const'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x150): undefined reference to `osg::Node::ascend(osg::NodeVisitor&)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x158): undefined reference to `osg::Group::traverse(osg::NodeVisitor&)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x160): undefined reference to `osg::Group::computeBound() const'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x168): undefined reference to `osg::Group::addChild(osg::Node*)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x170): undefined reference to `osg::Group::insertChild(unsigned int, osg::Node*)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x178): undefined reference to `osg::Group::removeChild(osg::Node*)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x180): undefined reference to `osg::Group::removeChildren(unsigned int, unsigned int)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x188): undefined reference to `osg::Group::replaceChild(osg::Node*, osg::Node*)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x190): undefined reference to `osg::Group::getNumChildren() const'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTVN7omnetpp14cObjectOsgNodeE[_ZTVN7omnetpp14cObjectOsgNodeE]+0x198): undefined reference to `osg::Group::setChild(unsigned int, osg::Node*)'
+out/gcc-debug//Person.o:(.data.rel.ro._ZTIN7omnetpp14cObjectOsgNodeE[_ZTIN7omnetpp14cObjectOsgNodeE]+0x10): undefined reference to `typeinfo for osg::Group'
+out/gcc-debug//OsgScene.o: In function `OsgScene::initialize()':
+/home/ssamal/Downloads/omnetpp-5.0/samples/osg-indoor/OsgScene.cc:43: undefined reference to `omnetpp::cOsgCanvas::setGenericViewpoint(omnetpp::cOsgCanvas::Viewpoint const&)'
+collect2: error: ld returned 1 exit status
+make: *** [out/gcc-debug//osg-indoor] Error 1
+
+14:30:12 Build Finished (took 339ms)
+

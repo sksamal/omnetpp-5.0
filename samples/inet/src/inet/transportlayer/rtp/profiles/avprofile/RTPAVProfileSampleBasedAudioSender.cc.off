@@ -33,21 +33,21 @@ void RTPAVProfileSampleBasedAudioSender::initializeSenderModule(RTPInnerPacket *
 void RTPAVProfileSampleBasedAudioSender::openSourceFile(const char *fileName) {
     _audioFile = afOpenFile(fileName, "r", 0);
     if (_audioFile == AF_NULL_FILEHANDLE) {
-        opp_error("sender module: error opening audio file");
+        throw cRuntimeError("sender module: error opening audio file");
     }
     else {
         if (_samplingRate != afGetRate(_audioFile, AF_DEFAULT_TRACK)) {
-            opp_error("sender module: audio file has wrong sampling rate");
+            throw cRuntimeError("sender module: audio file has wrong sampling rate");
         }
         else {
             int sampleFormat, sampleWidth;
             afGetSampleFormat(_audioFile, AF_DEFAULT_TRACK, &sampleFormat, &sampleWidth);
             if (_sampleWidth != sampleWidth) {
-                opp_error("sender module: audio file has wrong sample width");
+                throw cRuntimeError("sender module: audio file has wrong sample width");
             }
             else {
                 if (_numberOfChannels != afGetChannels(_audioFile, AF_DEFAULT_TRACK)) {
-                    opp_error("sender module: audio file has wrong number of channels");
+                    throw cRuntimeError("sender module: audio file has wrong number of channels");
                 }
             }
         }
@@ -58,7 +58,7 @@ void RTPAVProfileSampleBasedAudioSender::openSourceFile(const char *fileName) {
 void RTPAVProfileSampleBasedAudioSender::closeSourceFile() {
     int closeReturnValue = afCloseFile(_audioFile);
     if (closeReturnValue) {
-        opp_error("sender module: error closing audio file");
+        throw cRuntimeError("sender module: error closing audio file");
     }
 };
 

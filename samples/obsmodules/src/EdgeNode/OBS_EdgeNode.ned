@@ -20,12 +20,12 @@
 
 package obsmodules.src.EdgeNode;
 
-import inet.nodes.inet.NetworkLayer;
-import inet.networklayer.ipv4.RoutingTable;
+import inet.networklayer.ipv4.IPv4NetworkLayer;
+import inet.networklayer.ipv4.IPv4RoutingTable;
 import inet.networklayer.common.InterfaceTable;
 import inet.linklayer.ppp.PPPInterface;
 import inet.linklayer.ethernet.EthernetInterface;
-import inet.base.NotificationBoard;
+//import inet.base.NotificationBoard;
 
 
 //
@@ -45,21 +45,21 @@ module OBS_EdgeNode
         input obsIn[];  // OBS input
         output obsOut[]; //OBS output
     submodules:
-        notificationBoard: NotificationBoard {
-            parameters:
-                @display("p=60,60;i=block/control");
-        }
+//        notificationBoard: NotificationBoard {
+//            parameters:
+//                @display("p=60,60;i=block/control");
+//        }
         interfaceTable: InterfaceTable {
             parameters:
                 @display("p=150,60;i=block/table");
         }
-        routingTable: RoutingTable {
+        routingTable: IPv4RoutingTable {
             parameters:
-                IPForward = true;
+                forwarding = true;
                 routerId = "auto";
                 @display("p=240,60;i=block/table");
         }
-        networkLayer: NetworkLayer {
+        networkLayer: IPv4NetworkLayer {
             parameters:
                 @display("p=192,149;i=block/fork;q=queue");
 //            gates:

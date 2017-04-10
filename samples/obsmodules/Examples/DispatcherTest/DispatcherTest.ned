@@ -22,7 +22,7 @@ package obsmodules.Examples.DispatcherTest;
 
 import obsmodules.src.tests.PacketConverter;
 import obsmodules.src.EdgeNode.OBS_PacketDispatcher;
-import inet.base.Sink;
+import inet.common.queue.Sink;
 //import inet.applications.generic.IPTrafGen;
 import inet.applications.generic.IPvXTrafGen;
 

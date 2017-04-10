@@ -51,7 +51,7 @@ void OBS_PacketDispatcher::initialize(){
 
 	   //If rules file name is empty, show an error message and stop the simulation
 	   if(strlen(rulesFile) == 0){
-		   opp_error("Rules file not defined");
+		   throw cRuntimeError("Rules file not defined");
 	   }
 
 	   FILE *ruleFile = fopen(rulesFile,"r");
@@ -66,7 +66,7 @@ void OBS_PacketDispatcher::initialize(){
 		  }
 	   }
 	   else{
-		   opp_error("Cannot open rules file");
+		   throw cRuntimeError("Cannot open rules file");
 	   }
 
 	   fclose(ruleFile);

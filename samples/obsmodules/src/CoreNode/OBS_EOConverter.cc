@@ -81,7 +81,7 @@ void OBS_EOConverter::handleMessage(cMessage *msg){
 			delete msg;
 		}
 		else{
-			opp_error("Received an unknown message");
+			throw cRuntimeError("Received an unknown message");
 		}
 	}
 	else{

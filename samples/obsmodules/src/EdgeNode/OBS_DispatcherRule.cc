@@ -41,7 +41,7 @@ OBS_DispatcherRule::OBS_DispatcherRule(char* rule){
             isSet[0] = true;
          }
          else{
-        	 opp_error("Cannot parse the value of the source IP address in the rule");
+        	 throw cRuntimeError("Cannot parse the value of the source IP address in the rule");
          }
       }
       else if(strcmp(token,"destAddr") == 0){ //Rule has a destination IP Address
@@ -53,7 +53,7 @@ OBS_DispatcherRule::OBS_DispatcherRule(char* rule){
             isSet[1] = true;
          }
          else{
-        	 opp_error("Cannot parse the value of the destination IP address in the rule");
+        	 throw cRuntimeError("Cannot parse the value of the destination IP address in the rule");
          }
       }
       else if(strcmp(token,"protocol") == 0){ // Rule has a IP Protocol value
@@ -63,7 +63,7 @@ OBS_DispatcherRule::OBS_DispatcherRule(char* rule){
                isSet[2] = true;
          }
          else{
-        	 opp_error("Cannot parse the value of the IP protocol in the rule");
+        	 throw cRuntimeError("Cannot parse the value of the IP protocol in the rule");
          }
       }
       else if(strcmp(token,"srcPort") == 0){ //Rule has a TCP/UDP source port
@@ -72,12 +72,12 @@ OBS_DispatcherRule::OBS_DispatcherRule(char* rule){
          if(token != NULL){
             srcPort = atoi(token);
             if(srcPort == 0){
-            	opp_error("Wrong value for the source port");
+            	throw cRuntimeError("Wrong value for the source port");
             }
             isSet[3] = true;
          }
          else{
-        	 opp_error("Cannot parse the value of the source port in the rule");
+        	 throw cRuntimeError("Cannot parse the value of the source port in the rule");
          }
       }
       else if(strcmp(token,"destPort") == 0){ //Rule has a TCP/UDP destination port
@@ -87,12 +87,12 @@ OBS_DispatcherRule::OBS_DispatcherRule(char* rule){
 
             destPort = atoi(token);
             if(destPort == 0){
-               opp_error("Wrong value for the destination port");
+               throw cRuntimeError("Wrong value for the destination port");
             }
             isSet[4] = true;
          }
          else{
-        	 opp_error("Cannot parse the value of the destination port in the rule");
+        	 throw cRuntimeError("Cannot parse the value of the destination port in the rule");
          } //Any other char will return error.
       }
       token = strtok(NULL," ");

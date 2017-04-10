@@ -26,7 +26,7 @@ void testSource3::initialize(){
 	//Open the input file in read mode
 	inputFile.open(par("inputFile"));
 	if (!inputFile.is_open())
-		opp_error("Cannot open the input file for the test");
+		throw cRuntimeError("Cannot open the input file for the test");
 
 	//Read the first line and schedule the iniBCP, endBCP, iniBurst, endBurst
 	processLine();
@@ -50,7 +50,7 @@ void testSource3::handleMessage(cMessage *msg){
 		}
 	}
 	else{
-		opp_error("Received an unknown packet");
+		throw cRuntimeError("Received an unknown packet");
 	}
 }
 
@@ -74,10 +74,10 @@ void testSource3::processLine(){
 		if (val != 16){
 			string firstPos = line.substr(0,1);
 			if (firstPos.compare("P") == 0){
-				opp_error("Unexpected packet definition on line %d", lineNum);
+				throw cRuntimeError("Unexpected packet definition on line %d", lineNum);
 			}
 			else{
-				opp_error("Wrong format on line %d", lineNum);
+				throw cRuntimeError("Wrong format on line %d", lineNum);
 			}
 		}
 
@@ -180,10 +180,10 @@ void testSource3::processLine(){
 					if (val != 6){
 						string firstPos = line.substr(0,1);
 						if (firstPos.compare("P") != 0){
-							opp_error("Packet definition missing on line %d", lineNum);
+							throw cRuntimeError("Packet definition missing on line %d", lineNum);
 						}
 						else{
-							opp_error("Wrong format on line %d", lineNum);
+							throw cRuntimeError("Wrong format on line %d", lineNum);
 						}
 					}
 					//Create the IP datagram and fill it
@@ -286,7 +286,7 @@ void testSource3::processLine(){
 			scheduleAt(sendTime+endBurstDelta, endBurst);
 		}
 		else{
-			opp_error("Cannot send a BCP+burst scheduled to the past");
+			throw cRuntimeError("Cannot send a BCP+burst scheduled to the past");
 		}
 	}
 }

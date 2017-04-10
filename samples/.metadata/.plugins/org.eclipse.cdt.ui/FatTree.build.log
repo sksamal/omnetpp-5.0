@@ -1,0 +1,18 @@
+22:32:53 **** Build of configuration gcc-debug for project FatTree ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+cd src && make
+make[1]: Entering directory '/home/ssamal/Downloads/omnetpp-5.0/samples/FatTree/src'
+ecmp/IPECMP.cc
+In file included from ecmp/IPECMP.cc:23:0:
+ecmp/IPECMP.h:23:32: fatal error: RoutingTableAccess.h: No such file or directory
+Makefile:179: recipe for target '../out/gcc-debug/src/ecmp/IPECMP.o' failed
+ #include "RoutingTableAccess.h"
+                                ^
+make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/FatTree/src'
+Makefile:2: recipe for target 'all' failed
+compilation terminated.
+make[1]: *** [../out/gcc-debug/src/ecmp/IPECMP.o] Error 1
+make: *** [all] Error 2
+
+22:32:53 Build Finished (took 228ms)
+

@@ -94,7 +94,7 @@ void OBS_PacketBurstifier::handleMessage(cMessage *msg){
       }
       else if (overflowHappened && !overflowLastPacket){ // Enter if burst assembly is needed before the packet is inserted into the queue
       //If queue is empty at this moment, display an error message because something weird happened :S
-         if(burstContent.empty()) opp_error("Attempted to assemble a burst using an empty queue");
+         if(burstContent.empty()) throw cRuntimeError("Attempted to assemble a burst using an empty queue");
       //Assemble burst and restart counters
          assembleBurst();
          if(timeout_msg->isScheduled()) cancelEvent(timeout_msg); //Cancel current timeout and schedule a new one
@@ -112,7 +112,7 @@ void OBS_PacketBurstifier::handleMessage(cMessage *msg){
       numBurstPackets++;
 
       //If burst overflow is not allowed, but overflow happens when you insert the first message, show an error message
-      if(overflowHappened && !overflowLastPacket) opp_error("Queue overflow happened inserting the first message and you don't allow Queue overflow (overflowLastPacket is false)");
+      if(overflowHappened && !overflowLastPacket) throw cRuntimeError("Queue overflow happened inserting the first message and you don't allow Queue overflow (overflowLastPacket is false)");
       //If either overflow happened or maximum size/packets reached appending this message, assemble it now!
 	  if((overflowHappened || numBurstPackets == numPackets) || burstBits == maxSizeInBits){
          assembleBurst();

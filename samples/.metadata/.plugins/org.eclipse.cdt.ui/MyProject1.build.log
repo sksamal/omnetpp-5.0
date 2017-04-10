@@ -1,0 +1,75 @@
+15:09:33 **** Incremental Build of configuration gcc-debug for project MyProject1 ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+src/CoreNode/OBS_CoreInput.cc
+In file included from src/CoreNode/OBS_CoreInput.cc:21:0:
+src/CoreNode/OBS_CoreInput.h:28:43: error: expected class-name before ‘{’ token
+ class OBS_CoreInput : public cSimpleModule{
+                                           ^
+In file included from src/CoreNode/OBS_CoreInput.cc:21:0:
+src/CoreNode/OBS_CoreInput.h:43:34: error: ‘cMessage’ has not been declared
+       virtual void handleMessage(cMessage *msg);
+                                  ^~~~~~~~
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cobject.h:26:0,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cnamedobject.h:23,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:23,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from src/CoreNode/OBS_CoreInput.h:21,
+                 from src/CoreNode/OBS_CoreInput.cc:21:
+src/CoreNode/OBS_CoreInput.cc: In function ‘omnetpp::cObject* __factoryfunc_23()’:
+src/CoreNode/OBS_CoreInput.cc:23:15: error: cannot convert ‘OBS_CoreInput*’ to ‘omnetpp::cModule*’ in initialization
+ Define_Module(OBS_CoreInput);
+               ^
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/regmacros.h:144:92: note: in definition of macro ‘__REGISTER_CLASS’
+   static omnetpp::cObject *MAKE_UNIQUE_WITHIN_FILE(__factoryfunc_)() {BASECLASS *ret = new CLASSNAME; return ret; } \
+                                                                                            ^~~~~~~~~
+src/CoreNode/OBS_CoreInput.cc:23:1: note: in expansion of macro ‘Define_Module’
+ Define_Module(OBS_CoreInput);
+ ^~~~~~~~~~~~~
+src/CoreNode/OBS_CoreInput.cc: In member function ‘virtual void OBS_CoreInput::initialize()’:
+src/CoreNode/OBS_CoreInput.cc:32:29: error: ‘par’ was not declared in this scope
+    numPorts = par("numPorts");
+                             ^
+src/CoreNode/OBS_CoreInput.cc:35:92: error: ‘opp_error’ was not declared in this scope
+    if(strcmp(portLenStr,"") == 0) opp_error("OBS_CoreInput: lambdasPerPort not initialized");
+                                                                                            ^
+src/CoreNode/OBS_CoreInput.cc:43:4: error: ‘cStringTokenizer’ was not declared in this scope
+    cStringTokenizer tokenizer(portLenStr);
+    ^~~~~~~~~~~~~~~~
+src/CoreNode/OBS_CoreInput.cc:43:4: note: suggested alternative:
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:99:0,
+                 from src/CoreNode/OBS_CoreInput.h:21,
+                 from src/CoreNode/OBS_CoreInput.cc:21:
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cstringtokenizer.h:57:15: note:   ‘omnetpp::cStringTokenizer’
+ class SIM_API cStringTokenizer
+               ^~~~~~~~~~~~~~~~
+src/CoreNode/OBS_CoreInput.cc:46:10: error: ‘tokenizer’ was not declared in this scope
+    while(tokenizer.hasMoreTokens()){
+          ^~~~~~~~~
+src/CoreNode/OBS_CoreInput.cc:83:24: error: expected ‘;’ before ‘colourTokenizer’
+       cStringTokenizer colourTokenizer(colourString);
+                        ^~~~~~~~~~~~~~~
+src/CoreNode/OBS_CoreInput.cc:87:13: error: ‘colourTokenizer’ was not declared in this scope
+       while(colourTokenizer.hasMoreTokens()){
+             ^~~~~~~~~~~~~~~
+src/CoreNode/OBS_CoreInput.cc: At global scope:
+src/CoreNode/OBS_CoreInput.cc:105:35: error: variable or field ‘handleMessage’ declared void
+ void OBS_CoreInput::handleMessage(cMessage *msg){
+                                   ^~~~~~~~
+src/CoreNode/OBS_CoreInput.cc:105:35: error: ‘cMessage’ was not declared in this scope
+src/CoreNode/OBS_CoreInput.cc:105:35: note: suggested alternative:
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cchannel.h:21:0,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:28,
+                 from src/CoreNode/OBS_CoreInput.h:21,
+                 from src/CoreNode/OBS_CoreInput.cc:21:
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cmessage.h:95:15: note:   ‘omnetpp::cMessage’
+ class SIM_API cMessage : public cEvent
+               ^~~~~~~~
+src/CoreNode/OBS_CoreInput.cc:105:45: error: ‘msg’ was not declared in this scope
+ void OBS_CoreInput::handleMessage(cMessage *msg){
+                                             ^~~
+Makefile:178: recipe for target 'out/gcc-debug//src/CoreNode/OBS_CoreInput.o' failed
+make: *** [out/gcc-debug//src/CoreNode/OBS_CoreInput.o] Error 1
+
+15:09:33 Build Finished (took 925ms)
+

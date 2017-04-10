@@ -26,7 +26,7 @@ void testSource1::initialize(){
 	//Open the input file in read mode
 	inputFile.open(par("inputFile"));
 	if (!inputFile.is_open())
-		opp_error("Cannot open the input file for the test");
+		throw cRuntimeError("Cannot open the input file for the test");
 
 	//Read the first line and schedule the packet
 	processLine();
@@ -42,7 +42,7 @@ void testSource1::handleMessage(cMessage *msg){
 		processLine();
 	}
 	else
-		opp_error("Received an unknown packet");
+		throw cRuntimeError("Received an unknown packet");
 }
 
 void testSource1::finish(){
@@ -65,7 +65,7 @@ void testSource1::processLine(){
 			lineNum++;
 			val = sscanf(line.data(),"%s %s %s %s %s %s %lld", sendTimeChr, srcAddr, destAddr, protocolChr, srcPortChr, destPortChr, &length);
 			if (val != 7){
-				opp_error("Wrong format on line %d", lineNum);
+				throw cRuntimeError("Wrong format on line %d", lineNum);
 			}
 			sendTime = SimTime::parse(sendTimeChr);
 			if(simTime()<=sendTime){//If the datagram is not scheduled to the past, schedule it
@@ -132,7 +132,7 @@ void testSource1::processLine(){
 				scheduleAt(sendTime,datagram);
 			}
 			else{
-				opp_error("Cannot send a packet scheduled to the past");
+				throw cRuntimeError("Cannot send a packet scheduled to the past");
 			}
 		}
 }

@@ -1,0 +1,258 @@
+#
+# OMNeT++/OMNEST Makefile for libobsmodules
+#
+# This file was generated with the command:
+#  opp_makemake --make-so -f --deep -o obsmodules -O out --no-deep-includes -I.
+#
+
+# Name of target to be created (-o option)
+TARGET = libobsmodules$(SHARED_LIB_SUFFIX)
+
+# C++ include paths (with -I)
+INCLUDE_PATH = -I.
+
+# Additional object and library files to link with
+EXTRA_OBJS =
+
+# Additional libraries (-L, -l options)
+LIBS =
+
+# Output directory
+PROJECT_OUTPUT_DIR = ../out
+PROJECTRELATIVE_PATH = /src
+O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
+
+# Object files for local .cc, .msg and .sm files
+OBJS = \
+    $O/CoreNode/OBS_CoreControlLogic.o \
+    $O/CoreNode/OBS_CoreInput.o \
+    $O/CoreNode/OBS_CoreOutput.o \
+    $O/CoreNode/OBS_CoreOutputHorizon.o \
+    $O/CoreNode/OBS_CoreRoutingTable.o \
+    $O/CoreNode/OBS_EOConverter.o \
+    $O/CoreNode/OBS_OEConverter.o \
+    $O/CoreNode/OBS_OpticalCrossConnect.o \
+    $O/EdgeNode/BurstList.o \
+    $O/EdgeNode/OBS_BurstDisassembler.o \
+    $O/EdgeNode/OBS_BurstSender.o \
+    $O/EdgeNode/OBS_DispatcherRule.o \
+    $O/EdgeNode/OBS_FileBurstifier.o \
+    $O/EdgeNode/OBS_PacketBurstifier.o \
+    $O/EdgeNode/OBS_PacketDispatcher.o \
+    $O/messages/OBS_Burst.o \
+    $O/misc/OBS_DropBurst.o \
+    $O/misc/OBS_OpticalMonitor.o \
+    $O/tests/PacketConverter.o \
+    $O/tests/sinks/testSink1.o \
+    $O/tests/sinks/testSink2.o \
+    $O/tests/sinks/testSink3.o \
+    $O/tests/sinks/testSink4.o \
+    $O/tests/sinks/testSink5.o \
+    $O/tests/sources/testSource1.o \
+    $O/tests/sources/testSource2.o \
+    $O/tests/sources/testSource3.o \
+    $O/tests/sources/testSource4.o \
+    $O/tests/sources/testSource5.o \
+    $O/CoreNode/OBS_BCPControlInfo_m.o \
+    $O/CoreNode/OBS_ControlUnitInfo_m.o \
+    $O/CoreNode/OBS_CoreRoutingTableEntry_m.o \
+    $O/EdgeNode/OBS_BurstifierInfo_m.o \
+    $O/EdgeNode/OBS_BurstSenderInfo_m.o \
+    $O/EdgeNode/OBS_ScheduledBurstItem_m.o \
+    $O/messages/OBS_Burst_m.o \
+    $O/messages/OBS_BurstControlPacket_m.o \
+    $O/tests/sources/SourceControlInfo_m.o
+
+# Message files
+MSGFILES = \
+    CoreNode/OBS_BCPControlInfo.msg \
+    CoreNode/OBS_ControlUnitInfo.msg \
+    CoreNode/OBS_CoreRoutingTableEntry.msg \
+    EdgeNode/OBS_BurstifierInfo.msg \
+    EdgeNode/OBS_BurstSenderInfo.msg \
+    EdgeNode/OBS_ScheduledBurstItem.msg \
+    messages/OBS_Burst.msg \
+    messages/OBS_BurstControlPacket.msg \
+    tests/sources/SourceControlInfo.msg
+
+# SM files
+SMFILES =
+
+#------------------------------------------------------------------------------
+
+# Pull in OMNeT++ configuration (Makefile.inc or configuser.vc)
+
+ifneq ("$(OMNETPP_CONFIGFILE)","")
+CONFIGFILE = $(OMNETPP_CONFIGFILE)
+else
+ifneq ("$(OMNETPP_ROOT)","")
+CONFIGFILE = $(OMNETPP_ROOT)/Makefile.inc
+else
+CONFIGFILE = $(shell opp_configfilepath)
+endif
+endif
+
+ifeq ("$(wildcard $(CONFIGFILE))","")
+$(error Config file '$(CONFIGFILE)' does not exist -- add the OMNeT++ bin directory to the path so that opp_configfilepath can be found, or set the OMNETPP_CONFIGFILE variable to point to Makefile.inc)
+endif
+
+include $(CONFIGFILE)
+
+# Simulation kernel and user interface libraries
+OMNETPP_LIB_SUBDIR = $(OMNETPP_LIB_DIR)/$(TOOLCHAIN_NAME)
+OMNETPP_LIBS = -L"$(OMNETPP_LIB_SUBDIR)" -L"$(OMNETPP_LIB_DIR)" -loppenvir$D $(KERNEL_LIBS) $(SYS_LIBS)
+
+COPTS = $(CFLAGS)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
+MSGCOPTS = $(INCLUDE_PATH)
+SMCOPTS =
+
+# we want to recompile everything if COPTS changes,
+# so we store COPTS into $COPTS_FILE and have object
+# files depend on it (except when "make depend" was called)
+COPTS_FILE = $O/.last-copts
+ifneq ($(MAKECMDGOALS),depend)
+ifneq ("$(COPTS)","$(shell cat $(COPTS_FILE) 2>/dev/null || echo '')")
+$(shell $(MKPATH) "$O" && echo "$(COPTS)" >$(COPTS_FILE))
+endif
+endif
+
+#------------------------------------------------------------------------------
+# User-supplied makefile fragment(s)
+# >>>
+# <<<
+#------------------------------------------------------------------------------
+
+# Main target
+all: $O/$(TARGET)
+	$(Q)$(LN) $O/$(TARGET) .
+
+$O/$(TARGET): $(OBJS)  $(wildcard $(EXTRA_OBJS)) Makefile
+	@$(MKPATH) $O
+	@echo Creating shared library: $@
+	$(Q)$(SHLIB_LD) -o $O/$(TARGET)  $(OBJS) $(EXTRA_OBJS) $(AS_NEEDED_OFF) $(WHOLE_ARCHIVE_ON) $(LIBS) $(WHOLE_ARCHIVE_OFF) $(OMNETPP_LIBS) $(LDFLAGS)
+	$(Q)$(SHLIB_POSTPROCESS) $O/$(TARGET)
+
+.PHONY: all clean cleanall depend msgheaders smheaders
+
+.SUFFIXES: .cc
+
+$O/%.o: %.cc $(COPTS_FILE)
+	@$(MKPATH) $(dir $@)
+	$(qecho) "$<"
+	$(Q)$(CXX) -c $(CXXFLAGS) $(COPTS) -o $@ $<
+
+%_m.cc %_m.h: %.msg
+	$(qecho) MSGC: $<
+	$(Q)$(MSGC) -s _m.cc $(MSGCOPTS) $?
+
+%_sm.cc %_sm.h: %.sm
+	$(qecho) SMC: $<
+	$(Q)$(SMC) -c++ -suffix cc $(SMCOPTS) $?
+
+msgheaders: $(MSGFILES:.msg=_m.h)
+
+smheaders: $(SMFILES:.sm=_sm.h)
+
+clean:
+	$(qecho) Cleaning...
+	$(Q)-rm -rf $O
+	$(Q)-rm -f obsmodules obsmodules.exe libobsmodules.so libobsmodules.a libobsmodules.dll libobsmodules.dylib
+	$(Q)-rm -f ./*_m.cc ./*_m.h ./*_sm.cc ./*_sm.h
+	$(Q)-rm -f CoreNode/*_m.cc CoreNode/*_m.h CoreNode/*_sm.cc CoreNode/*_sm.h
+	$(Q)-rm -f EdgeNode/*_m.cc EdgeNode/*_m.h EdgeNode/*_sm.cc EdgeNode/*_sm.h
+	$(Q)-rm -f messages/*_m.cc messages/*_m.h messages/*_sm.cc messages/*_sm.h
+	$(Q)-rm -f misc/*_m.cc misc/*_m.h misc/*_sm.cc misc/*_sm.h
+	$(Q)-rm -f tests/*_m.cc tests/*_m.h tests/*_sm.cc tests/*_sm.h
+	$(Q)-rm -f tests/sinks/*_m.cc tests/sinks/*_m.h tests/sinks/*_sm.cc tests/sinks/*_sm.h
+	$(Q)-rm -f tests/sources/*_m.cc tests/sources/*_m.h tests/sources/*_sm.cc tests/sources/*_sm.h
+
+cleanall: clean
+	$(Q)-rm -rf $(PROJECT_OUTPUT_DIR)
+
+depend:
+	$(qecho) Creating dependencies...
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc CoreNode/*.cc EdgeNode/*.cc messages/*.cc misc/*.cc tests/*.cc tests/sinks/*.cc tests/sources/*.cc
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.
+$O/CoreNode/OBS_BCPControlInfo_m.o: CoreNode/OBS_BCPControlInfo_m.cc \
+  CoreNode/OBS_BCPControlInfo_m.h
+$O/CoreNode/OBS_ControlUnitInfo_m.o: CoreNode/OBS_ControlUnitInfo_m.cc \
+  CoreNode/OBS_ControlUnitInfo_m.h
+$O/CoreNode/OBS_CoreControlLogic.o: CoreNode/OBS_CoreControlLogic.cc \
+  CoreNode/OBS_BCPControlInfo_m.h \
+  CoreNode/OBS_ControlUnitInfo_m.h \
+  CoreNode/OBS_CoreControlLogic.h \
+  CoreNode/OBS_CoreInput.h \
+  CoreNode/OBS_CoreOutput.h \
+  CoreNode/OBS_CoreOutputHorizon.h \
+  CoreNode/OBS_CoreRoutingTable.h \
+  CoreNode/OBS_CoreRoutingTableEntry_m.h \
+  CoreNode/OBS_OpticalCrossConnect.h
+$O/CoreNode/OBS_CoreInput.o: CoreNode/OBS_CoreInput.cc \
+  CoreNode/OBS_CoreInput.h
+$O/CoreNode/OBS_CoreOutput.o: CoreNode/OBS_CoreOutput.cc \
+  CoreNode/OBS_CoreOutput.h
+$O/CoreNode/OBS_CoreOutputHorizon.o: CoreNode/OBS_CoreOutputHorizon.cc \
+  CoreNode/OBS_CoreOutputHorizon.h
+$O/CoreNode/OBS_CoreRoutingTable.o: CoreNode/OBS_CoreRoutingTable.cc \
+  CoreNode/OBS_CoreRoutingTable.h \
+  CoreNode/OBS_CoreRoutingTableEntry_m.h
+$O/CoreNode/OBS_CoreRoutingTableEntry_m.o: CoreNode/OBS_CoreRoutingTableEntry_m.cc \
+  CoreNode/OBS_CoreRoutingTableEntry_m.h
+$O/CoreNode/OBS_EOConverter.o: CoreNode/OBS_EOConverter.cc \
+  CoreNode/OBS_BCPControlInfo_m.h
+$O/CoreNode/OBS_OEConverter.o: CoreNode/OBS_OEConverter.cc \
+  CoreNode/OBS_BCPControlInfo_m.h
+$O/CoreNode/OBS_OpticalCrossConnect.o: CoreNode/OBS_OpticalCrossConnect.cc \
+  CoreNode/OBS_OpticalCrossConnect.h
+$O/EdgeNode/BurstList.o: EdgeNode/BurstList.cc \
+  EdgeNode/BurstList.h \
+  EdgeNode/OBS_ScheduledBurstItem_m.h
+$O/EdgeNode/OBS_BurstDisassembler.o: EdgeNode/OBS_BurstDisassembler.cc \
+  EdgeNode/OBS_BurstDisassembler.h
+$O/EdgeNode/OBS_BurstSender.o: EdgeNode/OBS_BurstSender.cc \
+  EdgeNode/BurstList.h \
+  EdgeNode/OBS_BurstSender.h \
+  EdgeNode/OBS_BurstSenderInfo_m.h \
+  EdgeNode/OBS_BurstifierInfo_m.h \
+  EdgeNode/OBS_ScheduledBurstItem_m.h
+$O/EdgeNode/OBS_DispatcherRule.o: EdgeNode/OBS_DispatcherRule.cc \
+  EdgeNode/OBS_DispatcherRule.h
+$O/EdgeNode/OBS_FileBurstifier.o: EdgeNode/OBS_FileBurstifier.cc \
+  EdgeNode/OBS_BurstifierInfo_m.h
+$O/EdgeNode/OBS_PacketBurstifier.o: EdgeNode/OBS_PacketBurstifier.cc \
+  EdgeNode/OBS_BurstifierInfo_m.h \
+  EdgeNode/OBS_PacketBurstifier.h
+$O/EdgeNode/OBS_PacketDispatcher.o: EdgeNode/OBS_PacketDispatcher.cc \
+  EdgeNode/OBS_DispatcherRule.h \
+  EdgeNode/OBS_PacketDispatcher.h
+$O/messages/OBS_Burst.o: messages/OBS_Burst.cc \
+  messages/OBS_Burst.h \
+  messages/OBS_Burst_m.h
+$O/misc/OBS_DropBurst.o: misc/OBS_DropBurst.cc
+$O/misc/OBS_OpticalMonitor.o: misc/OBS_OpticalMonitor.cc \
+  misc/OBS_OpticalMonitor.h
+$O/tests/PacketConverter.o: tests/PacketConverter.cc
+$O/tests/sinks/testSink1.o: tests/sinks/testSink1.cc \
+  tests/sinks/testSink1.h
+$O/tests/sinks/testSink2.o: tests/sinks/testSink2.cc \
+  tests/sinks/testSink2.h
+$O/tests/sinks/testSink3.o: tests/sinks/testSink3.cc \
+  tests/sinks/testSink3.h
+$O/tests/sinks/testSink4.o: tests/sinks/testSink4.cc \
+  tests/sinks/testSink4.h
+$O/tests/sinks/testSink5.o: tests/sinks/testSink5.cc \
+  tests/sinks/testSink5.h
+$O/tests/sources/testSource1.o: tests/sources/testSource1.cc \
+  tests/sources/testSource1.h
+$O/tests/sources/testSource2.o: tests/sources/testSource2.cc \
+  tests/sources/SourceControlInfo_m.h \
+  tests/sources/testSource2.h
+$O/tests/sources/testSource3.o: tests/sources/testSource3.cc \
+  tests/sources/SourceControlInfo_m.h \
+  tests/sources/testSource3.h
+$O/tests/sources/testSource4.o: tests/sources/testSource4.cc \
+  tests/sources/SourceControlInfo_m.h \
+  tests/sources/testSource4.h
+$O/tests/sources/testSource5.o: tests/sources/testSource5.cc \
+  tests/sources/testSource5.h

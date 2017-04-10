@@ -25,7 +25,7 @@ void testSink1::initialize(){
 	//Open the output file in write mode
 	outputFile.open(par("outputFile"));
 	if (!outputFile.is_open())
-		opp_error("Cannot create the output file for the test");
+		throw cRuntimeError("Cannot create the output file for the test");
 }
 
 void testSink1::handleMessage(cMessage *msg){
@@ -98,13 +98,13 @@ void testSink1::openFiles(){
 		//Open both files in read mode
 		currentFile.open(par("outputFile"));
 		if (!currentFile.is_open())
-			opp_error("Cannot open the output file for the test");
+			throw cRuntimeError("Cannot open the output file for the test");
 		patternFile.open(par("patternFile"));
 		if (!patternFile.is_open())
-			opp_error("Cannot open the pattern file for the test");
+			throw cRuntimeError("Cannot open the pattern file for the test");
 	}
 	else{
-		opp_error("Unknown comparison type");
+		throw cRuntimeError("Unknown comparison type");
 	}
 }
 
@@ -186,12 +186,12 @@ bool testSink1::compareFiles(){
 
 			val = sscanf(patternLine.data(), "%s %s %s %s %s %s %s %s", receivedTimePChr, gateIndexPChr, srcAddrPChr, destAddrPChr, protocolPChr, srcPortPChr, destPortPChr, lengthPChr);
 			if (val != 8){
-				opp_error("Pattern file: wrong format on line %d", line);
+				throw cRuntimeError("Pattern file: wrong format on line %d", line);
 			}
 
 			val = sscanf(currentLine.data(), "%s %d %s %s %d %d %d %lld", receivedTimeChr, &gateIndex, srcAddrChr, destAddrChr, &protocol, &srcPort, &destPort, &length);
 			if (val != 8){
-				opp_error("Output file: wrong format on line %d", line);
+				throw cRuntimeError("Output file: wrong format on line %d", line);
 			}
 
 			if(!strcmp(receivedTimePChr,"*") == 0){ //Compare this parameter
@@ -352,7 +352,7 @@ bool testSink1::compareFiles(){
 		}
 	}
 	else{
-		opp_error("Unknown comparison type");
+		throw cRuntimeError("Unknown comparison type");
 	}
 
 	return OK;

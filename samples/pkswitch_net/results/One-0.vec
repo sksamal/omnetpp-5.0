@@ -1,0 +1,79 @@
+version 2
+run One-0-20150901-01:38:32-17993
+attr configname One
+attr datetime 20150901-01:38:32
+attr experiment One
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network pkswitch_net
+attr processid 17993
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 8  pkswitch_net.host[2].pk_queue[0]  qLengthVector  ETV
+vector 15  pkswitch_net.router[1].pk_queue[0]  qLengthVector  ETV
+vector 5  pkswitch_net.host[1].pk_queue[0]  qLengthVector  ETV
+vector 14  pkswitch_net.router[0].pk_queue[2]  qLengthVector  ETV
+vector 16  pkswitch_net.router[1].pk_queue[1]  qLengthVector  ETV
+vector 6  pkswitch_net.host[2].app_sink  hopCountVector  ETV
+vector 7  pkswitch_net.host[2].app_sink  pkDelayVector  ETV
+vector 13  pkswitch_net.router[0].pk_queue[1]  qLengthVector  ETV
+vector 3  pkswitch_net.host[1].app_sink  hopCountVector  ETV
+vector 4  pkswitch_net.host[1].app_sink  pkDelayVector  ETV
+vector 11  pkswitch_net.host[3].pk_queue[0]  qLengthVector  ETV
+vector 12  pkswitch_net.router[0].pk_queue[0]  qLengthVector  ETV
+vector 0  pkswitch_net.host[0].app_sink  hopCountVector  ETV
+vector 1  pkswitch_net.host[0].app_sink  pkDelayVector  ETV
+vector 2  pkswitch_net.host[0].pk_queue[0]  qLengthVector  ETV
+vector 17  pkswitch_net.router[1].pk_queue[2]  qLengthVector  ETV
+vector 9  pkswitch_net.host[3].app_sink  hopCountVector  ETV
+vector 10  pkswitch_net.host[3].app_sink  pkDelayVector  ETV
+0	85	0.150833627298	3
+1	85	0.150833627298	0.0075598
+2	96	0.161139918998	0
+2	118	0.236810677233	0
+2	127	0.24006705816	0
+2	142	0.251029513914	0
+3	40	0.047059852359	3
+3	63	0.125964193569	3
+3	70	0.133684035427	3
+3	108	0.16641556015	3
+4	40	0.047059852359	0.02848918
+4	63	0.125964193569	0.00735478
+4	70	0.133684035427	0.00875728
+4	108	0.16641556015	0.0120631
+5	21	0.03497058454	0
+6	34	0.04392370454	3
+7	34	0.04392370454	0.00895312
+8	13	0.018570672359	0
+8	43	0.118609413569	0
+8	52	0.124926755427	0
+8	88	0.15435246015	0
+9	115	0.177046378998	3
+9	138	0.242815997233	3
+10	115	0.177046378998	0.01590646
+10	138	0.242815997233	0.00600532
+11	73	0.143273827298	0
+12	81	0.150798727298	0
+13	36	0.046819762359	0
+13	59	0.125931303569	0
+13	66	0.133637395427	0
+13	104	0.16633651015	0
+14	25	0.03501914454	0
+14	100	0.161256648998	0
+14	122	0.236830337233	0
+14	131	0.24018410816	0
+14	146	0.251171993914	0
+15	17	0.018810762359	0
+15	47	0.118642303569	0
+15	56	0.124973395427	0
+15	77	0.143308727298	0
+15	92	0.15443151015	0
+16	30	0.04387514454	0
+17	111	0.176929648998	0
+17	134	0.242796337233	0

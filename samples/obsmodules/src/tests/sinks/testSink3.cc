@@ -25,7 +25,7 @@ void testSink3::initialize(){
 	//Open the output file in write mode
 	outputFile.open(par("outputFile"));
 	if (!outputFile.is_open())
-		opp_error("Cannot create the output file for the test");
+		throw cRuntimeError("Cannot create the output file for the test");
 }
 
 void testSink3::handleMessage(cMessage *msg){
@@ -134,14 +134,14 @@ void testSink3::finish(){
 				currentReport.open(modulo->par("reportFile"));
 			}
 			else{
-				opp_error("The tested module has not a parameter named 'reportFile'");
+				throw cRuntimeError("The tested module has not a parameter named 'reportFile'");
 			}
 
 			if (!currentReport.is_open())
-				opp_error("Cannot open the report");
+				throw cRuntimeError("Cannot open the report");
 			patternReport.open(par("reportPattern"));
 			if (!patternReport.is_open())
-				opp_error("Cannot open the pattern of the report");
+				throw cRuntimeError("Cannot open the pattern of the report");
 
 			while(patternReport.good() && currentReport.good()){
 				getline(patternReport,patternRLine);
@@ -206,10 +206,10 @@ void testSink3::openFiles(){
 		//Open both files in read mode
 		currentFile.open(par("outputFile"));
 		if (!currentFile.is_open())
-			opp_error("Cannot open the output file for the test");
+			throw cRuntimeError("Cannot open the output file for the test");
 		patternFile.open(par("patternFile"));
 		if (!patternFile.is_open())
-			opp_error("Cannot open the pattern file for the test");
+			throw cRuntimeError("Cannot open the pattern file for the test");
 	}
 	else if (compType == 3){
 		//Get the file names without apostrophes
@@ -235,14 +235,14 @@ void testSink3::openFiles(){
 		//Open both files in read mode
 		currentFile.open(ordOutputName.c_str());
 		if (!currentFile.is_open())
-			opp_error("Cannot open the ordered output file for the test");
+			throw cRuntimeError("Cannot open the ordered output file for the test");
 		//patternFile.open("pOrd");
 		patternFile.open(ordPatternName.c_str());
 		if (!patternFile.is_open())
-			opp_error("Cannot open the ordered pattern file for the test");
+			throw cRuntimeError("Cannot open the ordered pattern file for the test");
 	}
 	else{
-		opp_error("Unknown comparison type");
+		throw cRuntimeError("Unknown comparison type");
 	}
 }
 
@@ -338,12 +338,12 @@ bool testSink3::compareFiles(){
 
 				val = sscanf(patternLine.data(), "1 %s %s %s %s %s %s %s %s %s %s", receivedTimePChr, gateIndexPChr, burstifierIdPChr, numSeqPChr, senderIdPChr, labelPChr, sizePChr, burstArrivalTimePChr, colourPChr, lengthPChr);
 				if (val != 10){
-					opp_error("Pattern file: wrong format on line %d", line);
+					throw cRuntimeError("Pattern file: wrong format on line %d", line);
 				}
 
 				val = sscanf(currentLine.data(), "1 %s %d %d %d %d %d %d %s %d %lld", receivedTimeChr, &gateIndex, &burstifierId, &numSeq, &senderId, &label, &size, burstArrivalTimeChr, &colour, &length);
 				if (val != 10){
-					opp_error("Output file: wrong format on line %d", line);
+					throw cRuntimeError("Output file: wrong format on line %d", line);
 				}
 
 				if(!strcmp(receivedTimePChr,"*") == 0){ //Compare this parameter
@@ -501,12 +501,12 @@ bool testSink3::compareFiles(){
 
 				val = sscanf(patternLine.data(), "2 %s %s %s %s", receivedTimePChr, gateIndexPChr, burstifierIdPChr, numSeqPChr);
 				if (val != 4){
-					opp_error("Pattern file: wrong format on line %d", line);
+					throw cRuntimeError("Pattern file: wrong format on line %d", line);
 				}
 
 				val = sscanf(currentLine.data(), "2 %s %d %d %d", receivedTimeChr, &gateIndex, &burstifierId, &numSeq);
 				if (val != 4){
-					opp_error("Output file: wrong format on line %d", line);
+					throw cRuntimeError("Output file: wrong format on line %d", line);
 				}
 
 				if(!strcmp(receivedTimePChr,"*") == 0){ //Compare this parameter
@@ -578,12 +578,12 @@ bool testSink3::compareFiles(){
 
 				val = sscanf(patternLine.data(), "3 %s %s %s %s %s %s %s %s %s", receivedTimePChr, gateIndexPChr, burstifierIdPChr, numSeqPChr, senderIdPChr, lengthPChr, numPacketsPChr, minOffsetPChr, maxOffsetPChr);
 				if (val != 9){
-					opp_error("Pattern file: wrong format on line %d", line);
+					throw cRuntimeError("Pattern file: wrong format on line %d", line);
 				}
 
 				val = sscanf(currentLine.data(), "3 %s %d %d %d %d %lld %d %s %s", receivedTimeChr, &gateIndex, &burstifierId, &numSeq, &senderId, &length, &numPackets, minOffsetChr, maxOffsetChr);
 				if (val != 9){
-					opp_error("Output file: wrong format on line %d", line);
+					throw cRuntimeError("Output file: wrong format on line %d", line);
 				}
 
 				if(!strcmp(receivedTimePChr,"*") == 0){ //Compare this parameter
@@ -726,12 +726,12 @@ bool testSink3::compareFiles(){
 
 				val = sscanf(patternLine.data(), "4 %s %s %s %s", receivedTimePChr, gateIndexPChr, burstifierIdPChr, numSeqPChr);
 				if (val != 4){
-					opp_error("Pattern file: wrong format on line %d", line);
+					throw cRuntimeError("Pattern file: wrong format on line %d", line);
 				}
 
 				val = sscanf(currentLine.data(), "4 %s %d %d %d", receivedTimeChr, &gateIndex, &burstifierId, &numSeq);
 				if (val != 4){
-					opp_error("Output file: wrong format on line %d", line);
+					throw cRuntimeError("Output file: wrong format on line %d", line);
 				}
 
 				if(!strcmp(receivedTimePChr,"*") == 0){ //Compare this parameter
@@ -803,12 +803,12 @@ bool testSink3::compareFiles(){
 
 				val = sscanf(patternLine.data(), "P %s %s %*s %*s %s %s %s %s", srcAddrPChr, destAddrPChr, protocolPChr, srcPortPChr, destPortPChr, lengthPChr);
 				if (val != 6){
-					opp_error("Pattern file: wrong format on line %d", line);
+					throw cRuntimeError("Pattern file: wrong format on line %d", line);
 				}
 
 				val = sscanf(currentLine.data(), "P %s %s %*d %*d %d %d %d %lld", srcAddrChr, destAddrChr, &protocol, &srcPort, &destPort, &length);
 				if (val != 6){
-					opp_error("Output file: wrong format on line %d", line);
+					throw cRuntimeError("Output file: wrong format on line %d", line);
 				}
 
 				if(!strcmp(srcAddrPChr,"*") == 0){ //Compare this parameter
@@ -902,7 +902,7 @@ bool testSink3::compareFiles(){
 				}
 			}
 			else{
-				opp_error("Pattern file: Unknown beginning character on line %d", line);
+				throw cRuntimeError("Pattern file: Unknown beginning character on line %d", line);
 			}
 		}
 
@@ -946,7 +946,7 @@ bool testSink3::compareFiles(){
 		}
 	}
 	else{
-		opp_error("Unknown comparison type");
+		throw cRuntimeError("Unknown comparison type");
 	}
 
 	return OK;

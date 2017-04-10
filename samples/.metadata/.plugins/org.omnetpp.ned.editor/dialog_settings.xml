@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ViewerSettings">
+	</section>
+	<section name="org.omnetpp.ned.editor.graph.dialogs.PropertiesDialog:compound-module">
+		<item value="693" key="DIALOG_WIDTH"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="2" key="activePage"/>
+		<item value="741" key="DIALOG_HEIGHT"/>
+		<item value="337" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.omnetpp.ned.editor.graph.misc.ParametersDialog">
+		<item value="840" key="DIALOG_WIDTH"/>
+		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="495" key="DIALOG_HEIGHT"/>
+		<item value="263" key="DIALOG_X_ORIGIN"/>
+		<item value="123" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

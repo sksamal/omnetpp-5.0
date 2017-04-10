@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportWizard">
+	</section>
+	<section name="TemplateBasedWizard">
+		<item value="bundleentry://291.fwk1557989809/templates/emptynetwork/" key="network.template"/>
+		<item value="bundleentry://291.fwk1557989809/templates/emptysimplemodule/" key="simplemodule.template"/>
+		<item value="bundleentry://277.fwk1557989809/template/emptyproject/" key="project.template"/>
+	</section>
+</section>

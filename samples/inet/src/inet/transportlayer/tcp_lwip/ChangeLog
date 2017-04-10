@@ -314,7 +314,7 @@
 
 2010-05-20  Zoltan Bojthe
 
-	change "opp_error()" calls to "throw cRuntimeError()"
+	change "throw cRuntimeError()" calls to "throw cRuntimeError()"
 
 2010-05-20  Zoltan Bojthe
 

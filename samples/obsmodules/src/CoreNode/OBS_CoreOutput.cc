@@ -36,7 +36,7 @@ void OBS_CoreOutput::initialize(){
    numPorts = par("numPorts");
    
    const char* portLenStr = par("lambdasPerPort").stringValue();
-   if(strcmp(portLenStr,"") == 0) opp_error("OBS_CoreOutput: lambdasPerPort not initialized");
+   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("OBS_CoreOutput: lambdasPerPort not initialized");
 
    portLen = (int*)calloc(numPorts,sizeof(int));
    inDataBegin = (int*)calloc(numPorts,sizeof(int));
@@ -155,7 +155,7 @@ int OBS_CoreOutput::getLambdaByColour(int port,int colour){
 	   return colours[port][colour];
    }
    else{//If the colour does not exist
-	   opp_error("The colour \"%d\" does not exist", colour);
+	   throw cRuntimeError("The colour \"%d\" does not exist", colour);
 	   return -1;
    }
 }
