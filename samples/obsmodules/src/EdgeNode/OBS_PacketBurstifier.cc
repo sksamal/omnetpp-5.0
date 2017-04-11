@@ -21,7 +21,7 @@
 #include "OBS_PacketBurstifier.h"
 
 Define_Module(OBS_PacketBurstifier);
-
+using namespace inet;
 OBS_PacketBurstifier::~OBS_PacketBurstifier(){
 	   burstContent.clear();
 	   cancelAndDelete(timeout_msg);

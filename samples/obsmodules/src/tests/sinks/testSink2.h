@@ -23,6 +23,7 @@
 #include "IPv4Datagram.h"
 #include "TCPSegment.h"
 #include "UDPPacket_m.h"
+#include "UDPPacket.h"
 #include "OBS_Burst.h"
 #include "OBS_BurstifierInfo_m.h"
 

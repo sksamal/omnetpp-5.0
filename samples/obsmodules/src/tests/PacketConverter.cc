@@ -25,6 +25,7 @@
 #include <IPv4ControlInfo.h>
 
 using namespace std;
+using namespace inet;
 
 //
 // Dummy class created for the use in simulations where packets are created using IPTrafGen (Dispatcher Test, for example)

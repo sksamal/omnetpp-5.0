@@ -29,12 +29,15 @@
 //#include "InterfaceTableAccess.h"
 //#include "NotificationBoard.h"
 #include "NotifierConsts.h"
+#include "inet/common/ModuleAccess.h"
+#include "inet/networklayer/common/InterfaceToken.h"
+#include "inet/networklayer/common/InterfaceEntry.h"
 
 class InterfaceEntry;
 class NotificationBoard;
 
 //! Responsible of burst sending through the OBS Network.
-class INET_API OBS_BurstSender : public cSimpleModule{
+class INET_API OBS_BurstSender : public cSimpleModule, public cListener{
    protected:
         //! @enum This enum contains all available values for msg's kind field into handleMessage().
         enum{
@@ -63,7 +66,7 @@ class INET_API OBS_BurstSender : public cSimpleModule{
         int burstSent; //!< Burst sent counter.
         int burstDroppedByOffset; //!< Number of bursts dropped because they reached the minimum offset.
         int burstDroppedByQueue; //!< Number of bursts dropped because scheduledBurst is full.
-        InterfaceEntry *interfaceEntry; //!< Points to InterfaceTable.
+        inet::InterfaceEntry *interfaceEntry; //!< Points to InterfaceTable.
 
         NotificationBoard *nb; //!< Pointer to the Notification Board.
 
@@ -72,7 +75,7 @@ class INET_API OBS_BurstSender : public cSimpleModule{
 
         cOutVector burstSize; //!< This vector stores received burst's sizes.
 
-        InterfaceEntry* registerInterface(double datarate);
+        inet::InterfaceEntry* registerInterface(double datarate);
         //! Initialize the scheduled and BCP queues, set the control channel as free, create the horizon array which size is the value of the lambda parameter and initialize them to 0's.
         virtual void initialize();
         //! Write scalars and make all the cleanup.

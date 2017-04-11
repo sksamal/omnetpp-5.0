@@ -23,22 +23,22 @@
 Register_Class(OBS_Burst);
 
 void OBS_Burst::insertMessage(cMessage *msg){
-   messages_var.insert(msg);
+   messages.insert(msg);
 }
 
 cMessage* OBS_Burst::retrieveMessage(){
    //Take the first element of the queue and retrieve it
-   if(!messages_var.empty()){
-        cMessage *msg = (cMessage*)messages_var.pop();
+   if(!messages.isEmpty()){
+        cMessage *msg = (cMessage*)messages.pop();
 	return msg;
    }else return NULL; //If empty, return NULL
 }
 
 bool OBS_Burst::hasMessages(){
-   if(messages_var.empty()) return false;
+   if(messages.isEmpty()) return false;
    else return true;
 }
 
 OBS_Burst::~OBS_Burst(){
-   messages_var.clear();
+   messages.clear();
 }

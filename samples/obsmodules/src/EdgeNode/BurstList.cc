@@ -69,7 +69,7 @@ void BurstList::removeBurst(int bId){
    OBS_ScheduledBurstItem *item;
    OBS_Burst *burst;
    while(!iter_list.end()){
-      item = (OBS_ScheduledBurstItem*)iter_list++;
+      item = (OBS_ScheduledBurstItem*)*(iter_list++);
       if(item->getBurstId() == bId){
          burst = check_and_cast <OBS_Burst *> (item->decapsulate());
          listSize -= burst->getBitLength();
@@ -88,7 +88,7 @@ OBS_Burst* BurstList::retrieveBurst(int index){
    OBS_ScheduledBurstItem *item;
 
    while(!iter_list.end()){
-      item = (OBS_ScheduledBurstItem*)iter_list++;
+      item = (OBS_ScheduledBurstItem*)*(iter_list++);
       if(item->getListIndex() == index) break;
    }
    
@@ -112,7 +112,7 @@ int BurstList::retrieveBurstSize(int index){
    OBS_ScheduledBurstItem *item;
 
    while(!iter_list.end()){
-      item = (OBS_ScheduledBurstItem*)iter_list++;
+      item = (OBS_ScheduledBurstItem*)*(iter_list++);
       if(item->getListIndex() == index) break;
    }
 
@@ -124,7 +124,7 @@ simtime_t BurstList::retrieveSendTime(int index){
    cQueue::Iterator iter_list(burstList,0);//front-back
    OBS_ScheduledBurstItem *item;
    while(!iter_list.end()){
-      item = (OBS_ScheduledBurstItem*)iter_list++;
+      item = (OBS_ScheduledBurstItem*)*(iter_list++);
       if(item->getListIndex() == index) break;
    }
 
@@ -136,7 +136,7 @@ simtime_t BurstList::retrieveMinOffset(int index){
    OBS_ScheduledBurstItem *item;
 
    while(!iter_list.end()){
-      item = (OBS_ScheduledBurstItem*)iter_list++;
+      item = (OBS_ScheduledBurstItem*)*(iter_list++);
       if(item->getListIndex() == index) break;
    }
 
@@ -147,7 +147,7 @@ simtime_t BurstList::retrieveMaxOffset(int index){
    OBS_ScheduledBurstItem *item;
 
    while(!iter_list.end()){
-      item = (OBS_ScheduledBurstItem*)iter_list++;
+      item = (OBS_ScheduledBurstItem*)*(iter_list++);
       if(item->getListIndex() == index) break;
    }
 

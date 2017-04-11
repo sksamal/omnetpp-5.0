@@ -293,6 +293,7 @@ $O/src/EdgeNode/OBS_BurstSender.o: src/EdgeNode/OBS_BurstSender.cc \
 	$(INET_PROJ)/src/inet/common/Compat.h \
 	$(INET_PROJ)/src/inet/common/INETDefs.h \
 	$(INET_PROJ)/src/inet/common/InitStages.h \
+	$(INET_PROJ)/src/inet/common/ModuleAccess.h \
 	$(INET_PROJ)/src/inet/common/NotifierConsts.h \
 	$(INET_PROJ)/src/inet/features.h \
 	$(INET_PROJ)/src/inet/linklayer/common/MACAddress.h \
@@ -476,6 +477,7 @@ $O/src/tests/sinks/testSink2.o: src/tests/sinks/testSink2.cc \
 	$(INET_PROJ)/src/inet/transportlayer/contract/ITransportPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment_m.h \
+	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket_m.h \
 	src/EdgeNode/OBS_BurstifierInfo_m.h \
 	src/messages/OBS_Burst.h \
