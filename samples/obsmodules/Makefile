@@ -453,6 +453,7 @@ $O/src/tests/sinks/testSink1.o: src/tests/sinks/testSink1.cc \
 	$(INET_PROJ)/src/inet/transportlayer/contract/ITransportPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment_m.h \
+	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket_m.h \
 	src/tests/sinks/testSink1.h
 $O/src/tests/sinks/testSink2.o: src/tests/sinks/testSink2.cc \
@@ -505,6 +506,7 @@ $O/src/tests/sinks/testSink3.o: src/tests/sinks/testSink3.cc \
 	$(INET_PROJ)/src/inet/transportlayer/contract/ITransportPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment_m.h \
+	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket_m.h \
 	src/CoreNode/OBS_BCPControlInfo_m.h \
 	src/CoreNode/OBS_ControlUnitInfo_m.h \
@@ -576,6 +578,7 @@ $O/src/tests/sources/testSource2.o: src/tests/sources/testSource2.cc \
 	$(INET_PROJ)/src/inet/transportlayer/contract/ITransportPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment_m.h \
+	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket_m.h \
 	src/EdgeNode/OBS_BurstifierInfo_m.h \
 	src/messages/OBS_Burst.h \
@@ -604,6 +607,7 @@ $O/src/tests/sources/testSource3.o: src/tests/sources/testSource3.cc \
 	$(INET_PROJ)/src/inet/transportlayer/contract/ITransportPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment.h \
 	$(INET_PROJ)/src/inet/transportlayer/tcp_common/TCPSegment_m.h \
+	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket.h \
 	$(INET_PROJ)/src/inet/transportlayer/udp/UDPPacket_m.h \
 	src/messages/OBS_Burst.h \
 	src/messages/OBS_BurstControlPacket_m.h \

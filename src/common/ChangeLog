@@ -1,0 +1,196 @@
+2016-04-13  ------ omnetpp-5.0 released ------
+
+2016-03-10  ------ omnetpp-5.0rc released ------
+
+2016-02-15  Attila Torok
+
+	* Fixed global colors map, it's guaranteed to be constructed before use.
+
+2016-01-18  Andras Varga
+
+	* Added opp_substringbeforelast() and opp_substringafterlast().
+
+2015-12-07  ------ omnetpp-5.0b3 released ------
+
+2015-11-17  Andras Varga
+
+	* UnitConversion: added femtosecond and attosecond, as they are needed
+	for the new simtime-resolution config option.
+
+2015-10-16  Andras Varga
+
+	* omnetpp namespace made permanent (cannot be turned off):
+	- removed configure option and preprocessor symbol USE_NAMESPACE
+	- removed related macros: NAMESPACE_BEGIN, NAMESPACE_END,
+	  USING_NAMESPACE, OPP, OPP_STR, OPP_PREFIX etc.
+
+2015-08-10  Attila Torok
+
+	Added the colorutil files with SVG color names, currently used by
+	cCanvas and Qtenv.
+
+2015-07-20  ------ omnetpp-5.0b2 released ------
+
+2015-06-30  Andras Varga
+
+	* opp_strnistr() fix (did not match at the end of the string)
+
+2015-06-19  Andras Varga
+
+	* expression.lex: fix #830 "kernel crashes when adding '//' to parameter
+	lines in ini-files". The expression parser was not supposed to support
+	"//" comments in the first place
+
+2015-06-11  Andras Varga
+
+	* UnitConversion: put back kB/MB/GB/TB with the correct (base 10) meaning.
+	Note: base 2 units also exist: KiB, MiB, GiB, TiB.
+
+2015-06-08  Andras Varga
+
+	* Cleanup: longer header guards
+
+2015-06-08  Andras Varga
+
+	* Cleanup: code formatting
+
+2015-05-15  Andras Varga
+
+	* CommonStringPool renamed to StringPool (due to namespaces, it no longer
+	conflicts with StringPools in other source folders)
+
+2015-05-15  Andras Varga
+
+	* Cleanup: use per-folder nested namespaces: omnetpp::envir, omnetpp::tkenv,
+	omnetpp::layout, omnetpp::common, omnetpp::eventlog, etc.
+
+2015-05-22  Andras Varga
+
+	* Modernizing: added the 'override' keyword (C++11) to overridden methods;
+	it becomes blank when using with an older compiler.
+
+2015-05-21  Rudolf Hornig
+
+	* Modernizing: replaced NULLs by 'nullptr' (C++11); it is defined as 0
+	when using an older compiler.
+
+2015-04-20  Andras Varga
+
+	* Cleanup: use C++ names of C headers (e.g. <cstdio> instead of <stdio.h>)
+
+2015-04-12  Andras Varga
+
+	* Cleanup: copyright years updated
+
+2015-04-08  Andras Varga
+
+	* Modernizing:
+
+	- Use a fixed include path (-Iinclude -Isrc) for all source folders
+	  under src/, and qualify cross-folder #includes with the folder
+	  name (e.g. change #include "stringutil.h" to #include "common/stringutil.h").
+	  This increases readbility and reduces the chance of including a wrong
+	  header.
+
+	- In source files, sort #include statements by folder.
+
+2015-03-04  ------ omnetpp-5.0b1 released ------
+
+2015-02-07  Andras Varga
+
+	During development in the 5.0 branch (2013-2014):
+
+	* stringutil.cc/h: new utility functions: opp_strnistr(), opp_urldecode(),
+	opp_makedatetimestring(), opp_join()
+
+	* TRACE macro renamed to TRACE_CALL due to conflict with new module logging API
+
+2014-11-27  ------ omnetpp-4.6 released ------
+
+2014-06-30  ------ omnetpp-4.5 released ------
+
+2014-02-13  ------ omnetpp-4.4.1 released ------
+
+2013-12-20  ------ omnetpp-4.4 released ------
+
+2013-11-21  Rudolf Hornig
+
+	* Updated to compile with both bison 2.3 and 3.0
+
+2013-11-14  Rudolf Hornig
+
+	* Fixes for compiling with clang
+
+2013-09-12  ------ omnetpp-4.3.1 released ------
+
+2013-04-02  ------ omnetpp-4.3 released ------
+
+2013-02-08  ------ omnetpp-4.3rc1 released ------
+
+2013-01-09  Andras Varga
+
+	* Renamed methods of cMatchExpression::Matchable:
+	    getDefaultAttribute() -> getAsString()
+	    getAttribute(const char *name) -> getAsString(const char *attribute)
+
+2012-10-03  Andras Varga
+
+	* fix in Expression: '-2m' was evaluated to '2' (meter was lost)
+
+2012-01-14  Andras Varga
+
+	* MatchExpression: OR operator made optional.
+	E.g. now "Host" or "Router" or "Switch" can be written as "Host Router Switch",
+	which is more natural at places (code that so far took a space-separated
+	list of possible items, like node selectors in INET's configurator,
+	can now be naturally extended to have more power by using
+	MatchExpression, without affecting existing users or making OR mandatory).
+
+2012-03-13  ------ omnetpp-4.2.2 released ------
+
+2012-01-17  ------ omnetpp-4.2.1 released ------
+
+2011-10-28  ------ omnetpp-4.2 released ------
+
+2011-09-11  ------ omnetpp-4.2rc1 released ------
+
+2011-05-06  Andras Varga
+
+	* unitconversion.cc: addressed bug #369:
+	- added "mps" (m/s) and "kmph" (km/h) as recognized units.
+	- several units have been renamed to be more standards compliant:
+	  Kbps -> kbps, KB -> KiB, MB -> MiB, GB -> GiB, TB -> TiB;
+	- added explanations to "Cannot convert" error messages about the
+	renamed units
+
+2011-05-06  Andras Varga
+
+	* fileutil.cc: fix bug #284: isDirectory() should not throw exception
+	if file or directory does not exist
+
+2011-05-05  ------ omnetpp-4.2b2 released ------
+
+2011-02-23  ------ omnetpp-4.2b1 released ------
+
+2010-06-11  ------ omnetpp-4.1 released ------
+
+2010-05-31  ------ omnetpp-4.1rc2 released ------
+
+2010-04-20  ------ omnetpp-4.1b4 released ------
+
+2010-03-14  ------ omnetpp-4.1b3 released ------
+
+2009-03-12  ------ omnetpp-4.0 released ------
+
+2009-02-27  ------ omnetpp-4.0rc2 released ------
+
+2008-12-12  ------ omnetpp-4.0rc1 released ------
+
+2008-11-26  Andras Varga
+
+	* library renamed to oppcommon ("common" was too common)
+
+2008-02-23  Andras Varga
+
+	* Started the ChangeLog. The Common library was added in omnetpp-4.0,
+	and it contains classes and functions used by all parts of OMNeT++.

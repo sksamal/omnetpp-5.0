@@ -23,12 +23,13 @@
 #include "IPv4Datagram.h"
 #include "TCPSegment.h"
 #include "UDPPacket_m.h"
+#include "UDPPacket.h"
 #include "OBS_CoreControlLogic.h"
 #include "OBS_OpticalMonitor.h"
 #include "OBS_BurstControlPacket_m.h"
 
 using namespace std;
-
+using namespace inet;
 //! BCP and burst receiver: receives iniBCP, endBCP, iniBurst (with or without packets inside of it) and endBurst packets.
 //! Output for OBS_BurstSender, OBS_CoreInput, OBS_CoreOutput, OBS_OpticalMonitor and OBS_DropBurst.
 class testSink3 : public cSimpleModule{

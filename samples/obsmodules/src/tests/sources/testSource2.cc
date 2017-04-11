@@ -20,11 +20,12 @@
 #include "testSource2.h"
 
 Define_Module(testSource2);
+using namespace inet;
 
 void testSource2::initialize(){
 
 	//Open the input file in read mode
-	inputFile.open(par("inputFile"));
+	inputFile.open((string&)par("inputFile"));
 	if (!inputFile.is_open())
 		throw cRuntimeError("Cannot open the input file for the test");
 
@@ -138,7 +139,7 @@ void testSource2::processLine(){
 						datagram->setTransportProtocol(protocol);
 						//Create the encapsulate packet and encapsulate it
 						if (protocol == IP_PROT_TCP){
-							TCPSegment *packet = new TCPSegment();
+							tcp::TCPSegment *packet = new tcp::TCPSegment();
 							if(!strcmp(srcPortChr,"*") == 0){ //Optional parameter
 								char2int.clear();
 								char2int << srcPortChr;

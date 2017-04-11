@@ -23,11 +23,13 @@
 #include "IPv4Datagram.h"
 #include "TCPSegment.h"
 #include "UDPPacket_m.h"
+#include "UDPPacket.h"
 #include "OBS_Burst.h"
 #include "OBS_BurstControlPacket_m.h"
 #include "SourceControlInfo_m.h"
 
 using namespace std;
+using namespace inet;
 
 //! BCP and burst generator: generates iniBCP, endBCP, iniBurst (with or without packets inside of it) and endBurst packets.
 //! Input for OBS_BurstDisassembler, OBS_CoreInput, OBS_CoreOutput, OBS_OpticalMonitor and OBS_DropBurst.

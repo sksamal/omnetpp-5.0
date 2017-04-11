@@ -22,6 +22,7 @@
 #include "OBS_BurstControlPacket_m.h"
 
 using namespace std;
+using namespace omnetpp;
 
 //! BCP receiver: receives iniBCP and endBCP packets.
 //! Output for OBS_EOConverter.

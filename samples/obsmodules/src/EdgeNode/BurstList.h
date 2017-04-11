@@ -23,6 +23,7 @@
 #include "OBS_Burst.h"
 #include <vector>
 using namespace std;
+using namespace omnetpp;
 
 //! Just a list that stores OBS_ScheduledBurstItem objects and allows random access to all elements.
 class BurstList : public cObject{ //NOTE: Inherits from cObject because it will be used as message Control field

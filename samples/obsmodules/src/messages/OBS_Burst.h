@@ -21,6 +21,7 @@
 #include <list>
 #include "OBS_Burst_m.h"
 using namespace std;
+using namespace omnetpp;
 
 //! This class extends OBS_Burst_Base (generated from OBS_Burst.msg) adding methods to access the message queue.
 class OBS_Burst : public OBS_Burst_Base

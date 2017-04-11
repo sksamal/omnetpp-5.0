@@ -23,6 +23,7 @@
 #include "SourceControlInfo_m.h"
 
 using namespace std;
+using namespace omnetpp;
 
 //! BCP generator: generates iniBCP and endBCP packets.
 //! Input for OBS_OEConverter.

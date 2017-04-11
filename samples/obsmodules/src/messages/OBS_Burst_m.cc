@@ -227,12 +227,12 @@ void OBS_Burst_Base::parsimUnpack(omnetpp::cCommBuffer *b)
     doParsimUnpacking(b,this->senderId);
 }
 
-cQueue& OBS_Burst_Base::getMessages()
+omnetpp::cQueue& OBS_Burst_Base::getMessages()
 {
     return this->messages;
 }
 
-void OBS_Burst_Base::setMessages(const cQueue& messages)
+void OBS_Burst_Base::setMessages(const omnetpp::cQueue& messages)
 {
     this->messages = messages;
 }
@@ -428,7 +428,7 @@ const char *OBS_BurstDescriptor::getFieldTypeString(int field) const
         field -= basedesc->getFieldCount();
     }
     static const char *fieldTypeStrings[] = {
-        "cQueue",
+        "omnetpp::cQueue",
         "int",
         "simtime_t",
         "simtime_t",
@@ -529,7 +529,7 @@ const char *OBS_BurstDescriptor::getFieldStructName(int field) const
         field -= basedesc->getFieldCount();
     }
     switch (field) {
-        case 0: return omnetpp::opp_typename(typeid(cQueue));
+        case 0: return omnetpp::opp_typename(typeid(omnetpp::cQueue));
         default: return nullptr;
     };
 }

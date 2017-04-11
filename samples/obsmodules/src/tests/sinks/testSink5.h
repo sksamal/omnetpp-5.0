@@ -23,6 +23,7 @@
 #include "OBS_BCPControlInfo_m.h"
 
 using namespace std;
+using namespace omnetpp;
 
 //! BCP receiver 2: receives electrical BCPs (with OBS_BCPControlInfo attached).
 //! Output for OBS_OEConverter.

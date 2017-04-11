@@ -23,8 +23,10 @@
 #include "IPv4Datagram.h"
 #include "TCPSegment.h"
 #include "UDPPacket_m.h"
+#include "UDPPacket.h"
 
 using namespace std;
+using namespace inet;
 
 //! Packet receiver: receives IP datagrams which encapsulate TCP segments or UDP packets.
 //! Output for OBS_PacketDispatcher and OBS_BurstDisassembler.

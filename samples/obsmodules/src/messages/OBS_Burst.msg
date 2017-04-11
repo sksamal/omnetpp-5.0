@@ -18,14 +18,14 @@
 // along with OBSModules.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-class cQueue;
+class omnetpp::cQueue;
 
 // Burst message. Contains a message queue and stores info such as the burst Id (using OMNeT's id() function), number of packets, offsets and destination label.
 // This message is extended by the OBS_Burst class (OBS_Burst.cc and .h) which implements methods to access the message queue.
 packet OBS_Burst
 {
     @customize(true); //Use this to extend this message with a subclass
-    cQueue messages; //Message queue
+    omnetpp::cQueue messages; //Message queue
     int numPackets = -1; //Number of packets inside the burst
     simtime_t minOffset = -1; //Minimum offset between BCP and Burst
     simtime_t maxOffset = -1; //Maximum offset between BCP and burst  

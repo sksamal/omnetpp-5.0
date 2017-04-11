@@ -22,7 +22,7 @@
 #include "OBS_Burst.h"
 #include <vector>
 using namespace std;
-
+using namespace omnetpp;
 
 //! Release the content of the burst when a burst finish message arrives.
 class OBS_BurstDisassembler : public cSimpleModule{

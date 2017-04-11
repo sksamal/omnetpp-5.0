@@ -23,7 +23,7 @@ Define_Module(testSink3);
 
 void testSink3::initialize(){
 	//Open the output file in write mode
-	outputFile.open(par("outputFile"));
+	outputFile.open((string&)par("outputFile"));
 	if (!outputFile.is_open())
 		throw cRuntimeError("Cannot create the output file for the test");
 }
@@ -56,7 +56,7 @@ void testSink3::handleMessage(cMessage *msg){
                 IPv4Datagram *datagram = check_and_cast <IPv4Datagram *> (burst->retrieveMessage());
 				protocol = datagram->getTransportProtocol();
 				if (protocol == IP_PROT_TCP){
-					TCPSegment *segment = check_and_cast <TCPSegment *> (datagram->getEncapsulatedPacket());
+					tcp::TCPSegment *segment = check_and_cast <tcp::TCPSegment *> (datagram->getEncapsulatedPacket());
 					outputFile << "P\t" << datagram->getSrcAddress() << "\t" << datagram->getDestAddress() << "\t" << bId << "\t" << seq << "\t" << protocol << "\t" << segment->getSrcPort() << "\t" << segment->getDestPort() << "\t" << datagram->getByteLength() << endl;
 					//delete segment;
 				}
@@ -131,7 +131,7 @@ void testSink3::finish(){
 				modulo = in->getPathStartGate()->getOwnerModule();
 			}
 			if(modulo->hasPar("reportFile")){
-				currentReport.open(modulo->par("reportFile"));
+				currentReport.open((string&)modulo->par("reportFile"));
 			}
 			else{
 				throw cRuntimeError("The tested module has not a parameter named 'reportFile'");
@@ -139,7 +139,7 @@ void testSink3::finish(){
 
 			if (!currentReport.is_open())
 				throw cRuntimeError("Cannot open the report");
-			patternReport.open(par("reportPattern"));
+			patternReport.open((string&)par("reportPattern"));
 			if (!patternReport.is_open())
 				throw cRuntimeError("Cannot open the pattern of the report");
 
@@ -180,7 +180,7 @@ void testSink3::finish(){
 			if(!reportOK){
 				cout << "WARNING: The report files don't match on line " << reportLine << endl;
 				//Return 4 as status if it is simulating in Cmdenv
-				cEnvir *env = simulation.getActiveSimulation()->getActiveEnvir();
+				cEnvir *env = this->getSimulation()->getActiveSimulation()->getActiveEnvir();
 				if (!env->isGUI()){
 					exit(4);
 				}
@@ -192,7 +192,7 @@ void testSink3::finish(){
 		cout << " ERROR" << endl;
 		cout << "\t" << errorPhrase << endl;
 		//Return 3 as status if it is simulating in Cmdenv
-		cEnvir *env = simulation.getActiveSimulation()->getActiveEnvir();
+		cEnvir *env = this->getSimulation()->getActiveSimulation()->getActiveEnvir();
 		if (!env->isGUI()){
 			exit(3);
 		}
@@ -204,10 +204,10 @@ void testSink3::openFiles(){
 
 	if (compType == 1 || compType == 2){
 		//Open both files in read mode
-		currentFile.open(par("outputFile"));
+		currentFile.open((string&)par("outputFile"));
 		if (!currentFile.is_open())
 			throw cRuntimeError("Cannot open the output file for the test");
-		patternFile.open(par("patternFile"));
+		patternFile.open((string&)par("patternFile"));
 		if (!patternFile.is_open())
 			throw cRuntimeError("Cannot open the pattern file for the test");
 	}

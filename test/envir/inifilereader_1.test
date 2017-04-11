@@ -1,0 +1,16 @@
+%description:
+Tests the inifile reader
+
+%includes:
+
+#include <envir/inifilereader.h>
+
+%activity:
+
+//TODO
+
+EV << ".\n";
+
+
+%contains: stdout
+.

@@ -25,6 +25,7 @@
 #include "UDPPacket.h"
 
 using namespace std;
+using namespace inet;
 
 //! Packet generator: generates IP datagrams which encapsulate TCP segments or UDP packets.
 //! Input for OBS_PacketDispatcher and OBS_PacketBurstifier.

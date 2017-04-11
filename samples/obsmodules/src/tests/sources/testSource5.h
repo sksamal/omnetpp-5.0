@@ -23,6 +23,7 @@
 #include "OBS_BCPControlInfo_m.h"
 
 using namespace std;
+using namespace omnetpp;
 
 //! BCP generator 2: generates electrical BCPs (with OBS_BCPControlInfo attached).
 //! Input for OBS_EOConverter.

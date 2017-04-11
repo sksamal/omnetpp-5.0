@@ -23,7 +23,7 @@ Define_Module(testSink1);
 
 void testSink1::initialize(){
 	//Open the output file in write mode
-	outputFile.open(par("outputFile"));
+	outputFile.open((string&)par("outputFile"));
 	if (!outputFile.is_open())
 		throw cRuntimeError("Cannot create the output file for the test");
 }
@@ -36,7 +36,7 @@ void testSink1::handleMessage(cMessage *msg){
 
 		int protocol = datagram->getTransportProtocol();
 		if(protocol == IP_PROT_TCP){
-			TCPSegment *segment = check_and_cast <TCPSegment *> (datagram->getEncapsulatedPacket());
+			tcp::TCPSegment *segment = check_and_cast <tcp::TCPSegment *> (datagram->getEncapsulatedPacket());
 			//Save datagram's information in the file
 			outputFile << simTime() << "\t" << datagram->getArrivalGate()->getIndex() << "\t" << datagram->getSrcAddress() << "\t" << datagram->getDestAddress() << "\t" << protocol << "\t" << segment->getSrcPort() << "\t" << segment->getDestPort() << "\t" << datagram->getByteLength() << endl;
 		}
@@ -84,7 +84,7 @@ void testSink1::finish(){
 		cout << " ERROR" << endl;
 		cout << "\t" << errorPhrase << endl;
 		//Return 3 as status if it is simulating in Cmdenv
-		cEnvir *env = simulation.getActiveSimulation()->getActiveEnvir();
+		cEnvir *env = this->getSimulation()->getActiveSimulation()->getActiveEnvir();
 		if (!env->isGUI()){
 			exit(3);
 		}
@@ -96,10 +96,10 @@ void testSink1::openFiles(){
 
 	if (compType == 1 || compType == 2){
 		//Open both files in read mode
-		currentFile.open(par("outputFile"));
+		currentFile.open((string&)par("outputFile"));
 		if (!currentFile.is_open())
 			throw cRuntimeError("Cannot open the output file for the test");
-		patternFile.open(par("patternFile"));
+		patternFile.open((string&)par("patternFile"));
 		if (!patternFile.is_open())
 			throw cRuntimeError("Cannot open the pattern file for the test");
 	}
