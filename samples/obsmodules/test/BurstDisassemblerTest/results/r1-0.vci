@@ -1,0 +1,27 @@
+file 1078 1492381250                                            
+version 2
+run r1-0-20170416-17:20:26-11110
+attr configname r1
+attr datetime 20170416-17:20:26
+attr experiment r1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network obsmodules.test.BurstDisassemblerTest.BurstDisassemblerTest
+attr processid 11110
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.inputFile "\"BurstDisassemblerInput_t1\""
+param **.numLambdas 4
+param **.outputFile "\"BurstDisassemblerOutput_t1\""
+param **.patternFile "\"BurstDisassemblerPattern_t1\""
+param **.timeTolerance 1e-10s
+
+vector 1  BurstDisassemblerTest.burstDisassembler  listSize  ETV
+vector 0  BurstDisassemblerTest.burstDisassembler  fakeBurstSize  ETV
+0	748 78 30 87 0.006096 0.0167476 4 5120 8192 23552 145752064
+1	826 252 19 89 0.001 0.017385 16 0 4 36 100

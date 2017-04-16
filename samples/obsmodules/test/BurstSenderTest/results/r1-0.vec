@@ -1,0 +1,39 @@
+version 2
+run r1-0-20170416-17:09:17-9710
+attr configname r1
+attr datetime 20170416-17:09:17
+attr experiment r1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network obsmodules.test.BurstSenderTest.BurstSenderTest
+attr processid 9710
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.BCPSize 256B
+param **.colours "\"\""
+param **.dataRate 10Mbps
+param **.guardTime 1e-6s
+param **.inputFile "\"BurstSenderInput_t1\""
+param **.maxSchedBurstElems 0
+param **.maxSchedBurstSize 0B
+param **.numBurstifiers 8
+param **.numLambdas 4
+param **.outputFile "\"BurstSenderOutput_t1\""
+param **.patternFile "\"BurstSenderPattern_t1\""
+param **.timeTolerance 1e-10s
+
+vector 5  BurstSenderTest.burstSender  burstSize  ETV
+vector 0  BurstSenderTest  burstListSize  ETV
+vector 1  BurstSenderTest.burstSender  horizonVector{0}  ETV
+vector 2  BurstSenderTest.burstSender  horizonVector{1}  ETV
+0	2	0	1
+0	5	0	2
+1	2	0	0.009193
+2	5	0	0.006097
+5	2	0	10240
+5	5	0	5120

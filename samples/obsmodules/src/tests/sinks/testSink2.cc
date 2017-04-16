@@ -23,7 +23,7 @@ Define_Module(testSink2);
 
 void testSink2::initialize(){
 	//Open the output file in write mode
-	outputFile.open((string&)par("outputFile"));
+	outputFile.open(par("outputFile").stringValue());
 	if (!outputFile.is_open())
 		throw cRuntimeError("Cannot create the output file for the test");
 }
@@ -108,10 +108,10 @@ void testSink2::openFiles(){
 
 	if (compType == 1 || compType == 2){
 		//Open both files in read mode
-		currentFile.open((string&)par("outputFile"));
+		currentFile.open(par("outputFile").stringValue());
 		if (!currentFile.is_open())
 			throw cRuntimeError("Cannot open the output file for the test");
-		patternFile.open((string&)par("patternFile"));
+		patternFile.open(par("patternFile").stringValue());
 		if (!patternFile.is_open())
 			throw cRuntimeError("Cannot open the pattern file for the test");
 	}

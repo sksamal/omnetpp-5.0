@@ -26,6 +26,7 @@ INCLUDE_PATH = \
     -I. \
     -IExamples \
     -IExamples/BurstifierTest \
+    -IExamples/BurstifierTest/results \
     -IExamples/DispatcherTest \
     -IExamples/EdgeNodeExample \
     -IExamples/EdgeNodeTest \
@@ -43,7 +44,9 @@ INCLUDE_PATH = \
     -Isrc/tests/sources \
     -Itest \
     -Itest/BurstDisassemblerTest \
+    -Itest/BurstDisassemblerTest/results \
     -Itest/BurstSenderTest \
+    -Itest/BurstSenderTest/results \
     -Itest/CoreInputTest \
     -Itest/CoreNodeTest \
     -Itest/CoreOutputTest \
@@ -208,6 +211,7 @@ clean:
 	$(Q)-rm -f ./*_m.cc ./*_m.h ./*_sm.cc ./*_sm.h
 	$(Q)-rm -f Examples/*_m.cc Examples/*_m.h Examples/*_sm.cc Examples/*_sm.h
 	$(Q)-rm -f Examples/BurstifierTest/*_m.cc Examples/BurstifierTest/*_m.h Examples/BurstifierTest/*_sm.cc Examples/BurstifierTest/*_sm.h
+	$(Q)-rm -f Examples/BurstifierTest/results/*_m.cc Examples/BurstifierTest/results/*_m.h Examples/BurstifierTest/results/*_sm.cc Examples/BurstifierTest/results/*_sm.h
 	$(Q)-rm -f Examples/DispatcherTest/*_m.cc Examples/DispatcherTest/*_m.h Examples/DispatcherTest/*_sm.cc Examples/DispatcherTest/*_sm.h
 	$(Q)-rm -f Examples/EdgeNodeExample/*_m.cc Examples/EdgeNodeExample/*_m.h Examples/EdgeNodeExample/*_sm.cc Examples/EdgeNodeExample/*_sm.h
 	$(Q)-rm -f Examples/EdgeNodeTest/*_m.cc Examples/EdgeNodeTest/*_m.h Examples/EdgeNodeTest/*_sm.cc Examples/EdgeNodeTest/*_sm.h
@@ -225,7 +229,9 @@ clean:
 	$(Q)-rm -f src/tests/sources/*_m.cc src/tests/sources/*_m.h src/tests/sources/*_sm.cc src/tests/sources/*_sm.h
 	$(Q)-rm -f test/*_m.cc test/*_m.h test/*_sm.cc test/*_sm.h
 	$(Q)-rm -f test/BurstDisassemblerTest/*_m.cc test/BurstDisassemblerTest/*_m.h test/BurstDisassemblerTest/*_sm.cc test/BurstDisassemblerTest/*_sm.h
+	$(Q)-rm -f test/BurstDisassemblerTest/results/*_m.cc test/BurstDisassemblerTest/results/*_m.h test/BurstDisassemblerTest/results/*_sm.cc test/BurstDisassemblerTest/results/*_sm.h
 	$(Q)-rm -f test/BurstSenderTest/*_m.cc test/BurstSenderTest/*_m.h test/BurstSenderTest/*_sm.cc test/BurstSenderTest/*_sm.h
+	$(Q)-rm -f test/BurstSenderTest/results/*_m.cc test/BurstSenderTest/results/*_m.h test/BurstSenderTest/results/*_sm.cc test/BurstSenderTest/results/*_sm.h
 	$(Q)-rm -f test/CoreInputTest/*_m.cc test/CoreInputTest/*_m.h test/CoreInputTest/*_sm.cc test/CoreInputTest/*_sm.h
 	$(Q)-rm -f test/CoreNodeTest/*_m.cc test/CoreNodeTest/*_m.h test/CoreNodeTest/*_sm.cc test/CoreNodeTest/*_sm.h
 	$(Q)-rm -f test/CoreOutputTest/*_m.cc test/CoreOutputTest/*_m.h test/CoreOutputTest/*_sm.cc test/CoreOutputTest/*_sm.h
@@ -243,7 +249,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/DispatcherTest/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstSenderTest/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketDispatcherTest/*.cc utils/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketDispatcherTest/*.cc utils/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/src/CoreNode/OBS_BCPControlInfo_m.o: src/CoreNode/OBS_BCPControlInfo_m.cc \

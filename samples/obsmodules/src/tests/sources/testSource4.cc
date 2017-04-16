@@ -24,7 +24,7 @@ Define_Module(testSource4);
 void testSource4::initialize(){
 
 	//Open the input file in read mode
-	inputFile.open((string&)par("inputFile"));
+	inputFile.open(par("inputFile").stringValue());
 	if (!inputFile.is_open())
 		throw cRuntimeError("Cannot open the input file for the test");
 
