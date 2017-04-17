@@ -21,8 +21,8 @@
 #include <string.h>
 
 #include "IPECMP.h"
-#include "IPDatagram.h"
-#include "IPControlInfo.h"
+#include "IPv4Datagram.h"
+#include "IPv4ControlInfo.h"
 #include "ICMPMessage_m.h"
 #include "IPv4InterfaceData.h"
 #include "ARPPacket_m.h"

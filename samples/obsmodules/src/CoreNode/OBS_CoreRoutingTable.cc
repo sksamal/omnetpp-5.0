@@ -23,7 +23,7 @@
 Define_Module(OBS_CoreRoutingTable);
 
 OBS_CoreRoutingTable::~OBS_CoreRoutingTable(){
-   while(routingTable.length() > 0){
+   while(routingTable.getLength() > 0){
       delete routingTable.pop();
    }
    routingTable.clear();
@@ -87,7 +87,7 @@ OBS_CoreRoutingTableEntry *OBS_CoreRoutingTable::getEntry(int inPort,int inColou
    OBS_CoreRoutingTableEntry *item;
 
    for(cQueue::Iterator iter_list(routingTable,1) ; !iter_list.end() ; iter_list--){//back-front
-      item = (OBS_CoreRoutingTableEntry*) iter_list();
+      item = (OBS_CoreRoutingTableEntry*) iter_list;
 
       if((item->getInPort() == inPort) && ((item->getInColour() == inColour) || (item->getInColour() == -9)) && ((item->getInLabel() == inLabel) || (item->getInLabel() == -9))) return item->dup();
    }

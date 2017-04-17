@@ -1,18 +1,1816 @@
-22:32:53 **** Build of configuration gcc-debug for project FatTree ****
+16:17:31 **** Incremental Build of configuration gcc-debug for project FatTree ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 cd src && make
 make[1]: Entering directory '/home/ssamal/Downloads/omnetpp-5.0/samples/FatTree/src'
 ecmp/IPECMP.cc
-In file included from ecmp/IPECMP.cc:23:0:
-ecmp/IPECMP.h:23:32: fatal error: RoutingTableAccess.h: No such file or directory
-Makefile:179: recipe for target '../out/gcc-debug/src/ecmp/IPECMP.o' failed
- #include "RoutingTableAccess.h"
+In file included from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++config.h:2414:0,
+                 from /usr/include/c++/6.3.1/exception:37,
+                 from /usr/include/c++/6.3.1/typeinfo:34,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/os_defines.h:44:19: error: missing binary operator before token "("
+ #if __GLIBC_PREREQ(2,15) && defined(_GNU_SOURCE)
+                   ^
+In file included from /usr/include/c++/6.3.1/cwchar:44:0,
+                 from /usr/include/c++/6.3.1/bits/postypes.h:40,
+                 from /usr/include/c++/6.3.1/iosfwd:40,
+                 from /usr/include/c++/6.3.1/ios:38,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/wchar.h:74:43: error: missing binary operator before token "("
+ # if defined __cplusplus && __GNUC_PREREQ (4, 4)
+                                           ^
+In file included from /usr/include/sched.h:43:0,
+                 from /usr/include/pthread.h:23,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:35,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr.h:148,
+                 from /usr/include/c++/6.3.1/ext/atomicity.h:35,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:39,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/bits/sched.h:131:20: error: missing binary operator before token "("
+ # if __GNUC_PREREQ (2, 91)
+                    ^
+/usr/include/bits/sched.h:169:20: error: missing binary operator before token "("
+ # if __GNUC_PREREQ (2, 91)
+                    ^
+In file included from /usr/include/libio.h:56:0,
+                 from /usr/include/stdio.h:74,
+                 from /usr/include/c++/6.3.1/cstdio:42,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:43,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/sys/cdefs.h:41:20: error: missing binary operator before token "("
+ # if __GNUC_PREREQ (4, 6) && !defined _LIBC
+                    ^
+/usr/include/sys/cdefs.h:54:44: error: missing binary operator before token "("
+ # if !defined __cplusplus && __GNUC_PREREQ (3, 3)
+                                            ^
+/usr/include/sys/cdefs.h:59:44: error: missing binary operator before token "("
+ #  if defined __cplusplus && __GNUC_PREREQ (2,8)
+                                            ^
+/usr/include/sys/cdefs.h:135:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (4,3)
+                   ^
+/usr/include/sys/cdefs.h:148:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (2,97)
+                   ^
+/usr/include/sys/cdefs.h:210:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (2,96)
+                   ^
+/usr/include/sys/cdefs.h:218:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (4, 3)
+                   ^
+/usr/include/sys/cdefs.h:228:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (2,96)
+                   ^
+/usr/include/sys/cdefs.h:235:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (2,5)
+                   ^
+/usr/include/sys/cdefs.h:244:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (3,1)
+                   ^
+/usr/include/sys/cdefs.h:253:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (3,2)
+                   ^
+/usr/include/sys/cdefs.h:265:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (2,8)
+                   ^
+/usr/include/sys/cdefs.h:275:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (2,97)
+                   ^
+/usr/include/sys/cdefs.h:284:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (3,3)
+                   ^
+/usr/include/sys/cdefs.h:292:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (3,4)
+                   ^
+/usr/include/sys/cdefs.h:306:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (3,2)
+                   ^
+/usr/include/sys/cdefs.h:314:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (4,3)
+                   ^
+/usr/include/sys/cdefs.h:329:44: error: missing binary operator before token "("
+ #if (!defined __cplusplus || __GNUC_PREREQ (4,3) \
+                                            ^
+/usr/include/sys/cdefs.h:348:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (4,3)
+                   ^
+/usr/include/sys/cdefs.h:357:20: error: missing binary operator before token "("
+ #if !__GNUC_PREREQ (2,8)
+                    ^
+/usr/include/sys/cdefs.h:362:20: error: missing binary operator before token "("
+ #if !__GNUC_PREREQ (2,92)
+                    ^
+/usr/include/sys/cdefs.h:369:19: error: missing binary operator before token "("
+ #if __GNUC_PREREQ (3,1) && !defined __GNUG__
+                   ^
+/usr/include/sys/cdefs.h:394:25: error: missing binary operator before token "("
+      &&  !__GNUC_PREREQ (4,7))
+                         ^
+/usr/include/sys/cdefs.h:404:25: error: missing binary operator before token "("
+      && (!__GNUC_PREREQ (4, 6) || defined __STRICT_ANSI__))
+                         ^
+In file included from /usr/include/math.h:35:0,
+                 from /usr/include/c++/6.3.1/cmath:45,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/simkerneldefs.h:21,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:21,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/bits/huge_val.h:26:18: error: missing binary operator before token "("
+ #if __GNUC_PREREQ(3,3)
+                  ^
+/usr/include/bits/huge_val.h:28:20: error: missing binary operator before token "("
+ #elif __GNUC_PREREQ(2,96)
+                    ^
+In file included from /usr/include/c++/6.3.1/cmath:45:0,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/simkerneldefs.h:21,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:21,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/math.h:455:42: error: missing binary operator before token "("
+ #if defined __USE_ISOC99 && __GNUC_PREREQ(2,97)
+                                          ^
+In file included from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++config.h:2414:0,
+                 from /usr/include/c++/6.3.1/exception:37,
+                 from /usr/include/c++/6.3.1/typeinfo:34,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/cmath:618:7: error: missing binary operator before token "("
+   && !_GLIBCXX_NO_OBSOLETE_ISINF_ISNAN_DYNAMIC
+       ^
+/usr/include/c++/6.3.1/cmath:645:7: error: missing binary operator before token "("
+   && !_GLIBCXX_NO_OBSOLETE_ISINF_ISNAN_DYNAMIC
+       ^
+In file included from /usr/include/c++/6.3.1/cstring:42:0,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/simutil.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:22,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/string.h:35:42: error: missing binary operator before token "("
+ #if defined __cplusplus && __GNUC_PREREQ (4, 4)
+                                          ^
+/usr/include/string.h:640:56: error: missing binary operator before token "("
+     && defined __extern_always_inline && __GNUC_PREREQ (3,2)
+                                                        ^
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/platdep/platmisc.h:61:0,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/simutil.h:25,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:22,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/sys/types.h:157:20: error: missing binary operator before token "("
+ #if !__GNUC_PREREQ (2, 7)
+                    ^
+In file included from /usr/include/c++/6.3.1/cwchar:44:0,
+                 from /usr/include/c++/6.3.1/bits/postypes.h:40,
+                 from /usr/include/c++/6.3.1/iosfwd:40,
+                 from /usr/include/c++/6.3.1/ios:38,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/wchar.h:104:1: error: ‘__BEGIN_NAMESPACE_C99’ does not name a type
+ __BEGIN_NAMESPACE_C99
+ ^~~~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:107:1: error: ‘__END_NAMESPACE_C99’ does not name a type
+ __END_NAMESPACE_C99
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:138:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:154:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/wchar.h:159:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/wchar.h:163:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/wchar.h:167:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__ __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/wchar.h:170:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__ __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/wchar.h:171:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:200:54: error: expected initializer before ‘__THROW’
+          const wchar_t *__restrict __s2, size_t __n) __THROW;
+                                                      ^~~~~~~
+/usr/include/wchar.h:201:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:241:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__;
+      ^~~~~~~
+/usr/include/wchar.h:243:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:260:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__;
+      ^~~~~~~
+/usr/include/wchar.h:270:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__;
+      ^~~~~~~
+/usr/include/wchar.h:281:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__;
+      ^~~~~~~
+/usr/include/wchar.h:287:32: error: expected initializer before ‘__THROW’
+    wchar_t **__restrict __ptr) __THROW;
+                                ^~~~~~~
+/usr/include/wchar.h:290:43: error: expected initializer before ‘__THROW’
+ extern size_t wcslen (const wchar_t *__s) __THROW __attribute_pure__;
+                                           ^~~~~~~
+/usr/include/wchar.h:291:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:329:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__;
+      ^~~~~~~
+/usr/include/wchar.h:333:49: error: expected initializer before ‘__THROW’
+     const wchar_t *__restrict __s2, size_t __n) __THROW;
+                                                 ^~~~~~~
+/usr/include/wchar.h:338:6: error: expected initializer before ‘__THROW’
+      __THROW;
+      ^~~~~~~
+/usr/include/wchar.h:341:65: error: expected initializer before ‘__THROW’
+ extern wchar_t *wmemset (wchar_t *__s, wchar_t __c, size_t __n) __THROW;
+                                                                 ^~~~~~~
+/usr/include/wchar.h:342:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:360:31: error: expected initializer before ‘__THROW’
+ extern int wctob (wint_t __c) __THROW;
+                               ^~~~~~~
+/usr/include/wchar.h:364:27: error: ‘mbstate_t’ does not name a type
+ extern int mbsinit (const mbstate_t *__ps) __THROW __attribute_pure__;
+                           ^~~~~~~~~
+/usr/include/wchar.h:364:44: error: expected initializer before ‘__THROW’
+ extern int mbsinit (const mbstate_t *__ps) __THROW __attribute_pure__;
+                                            ^~~~~~~
+/usr/include/wchar.h:370:10: error: ‘mbstate_t’ has not been declared
+          mbstate_t *__restrict __p) __THROW;
+          ^~~~~~~~~
+/usr/include/wchar.h:370:37: error: expected initializer before ‘__THROW’
+          mbstate_t *__restrict __p) __THROW;
+                                     ^~~~~~~
+/usr/include/wchar.h:374:10: error: ‘mbstate_t’ has not been declared
+          mbstate_t *__restrict __ps) __THROW;
+          ^~~~~~~~~
+/usr/include/wchar.h:374:38: error: expected initializer before ‘__THROW’
+          mbstate_t *__restrict __ps) __THROW;
+                                      ^~~~~~~
+/usr/include/wchar.h:378:4: error: ‘mbstate_t’ has not been declared
+    mbstate_t *__restrict __ps) __THROW;
+    ^~~~~~~~~
+/usr/include/wchar.h:378:32: error: expected initializer before ‘__THROW’
+    mbstate_t *__restrict __ps) __THROW;
+                                ^~~~~~~
+/usr/include/wchar.h:380:9: error: ‘mbstate_t’ has not been declared
+         mbstate_t *__restrict __ps) __THROW;
+         ^~~~~~~~~
+/usr/include/wchar.h:380:37: error: expected initializer before ‘__THROW’
+         mbstate_t *__restrict __ps) __THROW;
+                                     ^~~~~~~
+/usr/include/wchar.h:381:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:419:5: error: ‘mbstate_t’ has not been declared
+     mbstate_t *__restrict __ps) __THROW;
+     ^~~~~~~~~
+/usr/include/wchar.h:419:33: error: expected initializer before ‘__THROW’
+     mbstate_t *__restrict __ps) __THROW;
+                                 ^~~~~~~
+/usr/include/wchar.h:420:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:455:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:478:6: error: expected initializer before ‘__THROW’
+      __THROW;
+      ^~~~~~~
+/usr/include/wchar.h:479:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:793:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/wchar.h:861:1: error: ‘__END_NAMESPACE_C99’ does not name a type
+ __END_NAMESPACE_C99
+ ^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/bits/postypes.h:40:0,
+                 from /usr/include/c++/6.3.1/iosfwd:40,
+                 from /usr/include/c++/6.3.1/ios:38,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/cwchar:141:11: error: ‘::btowc’ has not been declared
+   using ::btowc;
+           ^~~~~
+/usr/include/c++/6.3.1/cwchar:142:11: error: ‘::fgetwc’ has not been declared
+   using ::fgetwc;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:146:11: error: ‘::fwide’ has not been declared
+   using ::fwide;
+           ^~~~~
+/usr/include/c++/6.3.1/cwchar:147:11: error: ‘::fwprintf’ has not been declared
+   using ::fwprintf;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:148:11: error: ‘::fwscanf’ has not been declared
+   using ::fwscanf;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:151:11: error: ‘::mbrlen’ has not been declared
+   using ::mbrlen;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:152:11: error: ‘::mbrtowc’ has not been declared
+   using ::mbrtowc;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:153:11: error: ‘::mbsinit’ has not been declared
+   using ::mbsinit;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:154:11: error: ‘::mbsrtowcs’ has not been declared
+   using ::mbsrtowcs;
+           ^~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:158:11: error: ‘::swprintf’ has not been declared
+   using ::swprintf;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:160:11: error: ‘::swscanf’ has not been declared
+   using ::swscanf;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:162:11: error: ‘::vfwprintf’ has not been declared
+   using ::vfwprintf;
+           ^~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:164:11: error: ‘::vfwscanf’ has not been declared
+   using ::vfwscanf;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:167:11: error: ‘::vswprintf’ has not been declared
+   using ::vswprintf;
+           ^~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:170:11: error: ‘::vswscanf’ has not been declared
+   using ::vswscanf;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:172:11: error: ‘::vwprintf’ has not been declared
+   using ::vwprintf;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:174:11: error: ‘::vwscanf’ has not been declared
+   using ::vwscanf;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:176:11: error: ‘::wcrtomb’ has not been declared
+   using ::wcrtomb;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:177:11: error: ‘::wcscat’ has not been declared
+   using ::wcscat;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:178:11: error: ‘::wcscmp’ has not been declared
+   using ::wcscmp;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:179:11: error: ‘::wcscoll’ has not been declared
+   using ::wcscoll;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:180:11: error: ‘::wcscpy’ has not been declared
+   using ::wcscpy;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:181:11: error: ‘::wcscspn’ has not been declared
+   using ::wcscspn;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:182:11: error: ‘::wcsftime’ has not been declared
+   using ::wcsftime;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:183:11: error: ‘::wcslen’ has not been declared
+   using ::wcslen;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:184:11: error: ‘::wcsncat’ has not been declared
+   using ::wcsncat;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:185:11: error: ‘::wcsncmp’ has not been declared
+   using ::wcsncmp;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:186:11: error: ‘::wcsncpy’ has not been declared
+   using ::wcsncpy;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:187:11: error: ‘::wcsrtombs’ has not been declared
+   using ::wcsrtombs;
+           ^~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:188:11: error: ‘::wcsspn’ has not been declared
+   using ::wcsspn;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:189:11: error: ‘::wcstod’ has not been declared
+   using ::wcstod;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:191:11: error: ‘::wcstof’ has not been declared
+   using ::wcstof;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:193:11: error: ‘::wcstok’ has not been declared
+   using ::wcstok;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:194:11: error: ‘::wcstol’ has not been declared
+   using ::wcstol;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:195:11: error: ‘::wcstoul’ has not been declared
+   using ::wcstoul;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:196:11: error: ‘::wcsxfrm’ has not been declared
+   using ::wcsxfrm;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:197:11: error: ‘::wctob’ has not been declared
+   using ::wctob;
+           ^~~~~
+/usr/include/c++/6.3.1/cwchar:198:11: error: ‘::wmemcmp’ has not been declared
+   using ::wmemcmp;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:199:11: error: ‘::wmemcpy’ has not been declared
+   using ::wmemcpy;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:200:11: error: ‘::wmemmove’ has not been declared
+   using ::wmemmove;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:201:11: error: ‘::wmemset’ has not been declared
+   using ::wmemset;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:202:11: error: ‘::wprintf’ has not been declared
+   using ::wprintf;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:203:11: error: ‘::wscanf’ has not been declared
+   using ::wscanf;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:204:11: error: ‘::wcschr’ has not been declared
+   using ::wcschr;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:205:11: error: ‘::wcspbrk’ has not been declared
+   using ::wcspbrk;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:206:11: error: ‘::wcsrchr’ has not been declared
+   using ::wcsrchr;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:207:11: error: ‘::wcsstr’ has not been declared
+   using ::wcsstr;
+           ^~~~~~
+/usr/include/c++/6.3.1/cwchar:208:11: error: ‘::wmemchr’ has not been declared
+   using ::wmemchr;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar: In function ‘wchar_t* std::wcschr(wchar_t*, wchar_t)’:
+/usr/include/c++/6.3.1/cwchar:213:19: error: invalid conversion from ‘const wchar_t*’ to ‘wchar_t*’ [-fpermissive]
+   { return wcschr(const_cast<const wchar_t*>(__p), __c); }
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:212:3: note:   initializing argument 1 of ‘wchar_t* std::wcschr(wchar_t*, wchar_t)’
+   wcschr(wchar_t* __p, wchar_t __c)
+   ^~~~~~
+/usr/include/c++/6.3.1/cwchar: In function ‘wchar_t* std::wcspbrk(wchar_t*, const wchar_t*)’:
+/usr/include/c++/6.3.1/cwchar:217:20: error: invalid conversion from ‘const wchar_t*’ to ‘wchar_t*’ [-fpermissive]
+   { return wcspbrk(const_cast<const wchar_t*>(__s1), __s2); }
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:216:3: note:   initializing argument 1 of ‘wchar_t* std::wcspbrk(wchar_t*, const wchar_t*)’
+   wcspbrk(wchar_t* __s1, const wchar_t* __s2)
+   ^~~~~~~
+/usr/include/c++/6.3.1/cwchar: In function ‘wchar_t* std::wcsrchr(wchar_t*, wchar_t)’:
+/usr/include/c++/6.3.1/cwchar:221:20: error: invalid conversion from ‘const wchar_t*’ to ‘wchar_t*’ [-fpermissive]
+   { return wcsrchr(const_cast<const wchar_t*>(__p), __c); }
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:220:3: note:   initializing argument 1 of ‘wchar_t* std::wcsrchr(wchar_t*, wchar_t)’
+   wcsrchr(wchar_t* __p, wchar_t __c)
+   ^~~~~~~
+/usr/include/c++/6.3.1/cwchar: In function ‘wchar_t* std::wcsstr(wchar_t*, const wchar_t*)’:
+/usr/include/c++/6.3.1/cwchar:225:19: error: invalid conversion from ‘const wchar_t*’ to ‘wchar_t*’ [-fpermissive]
+   { return wcsstr(const_cast<const wchar_t*>(__s1), __s2); }
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:224:3: note:   initializing argument 1 of ‘wchar_t* std::wcsstr(wchar_t*, const wchar_t*)’
+   wcsstr(wchar_t* __s1, const wchar_t* __s2)
+   ^~~~~~
+/usr/include/c++/6.3.1/cwchar: In function ‘wchar_t* std::wmemchr(wchar_t*, wchar_t, std::size_t)’:
+/usr/include/c++/6.3.1/cwchar:229:20: error: invalid conversion from ‘const wchar_t*’ to ‘wchar_t*’ [-fpermissive]
+   { return wmemchr(const_cast<const wchar_t*>(__p), __c, __n); }
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/6.3.1/cwchar:228:3: note:   initializing argument 1 of ‘wchar_t* std::wmemchr(wchar_t*, wchar_t, std::size_t)’
+   wmemchr(wchar_t* __p, wchar_t __c, size_t __n)
+   ^~~~~~~
+/usr/include/c++/6.3.1/cwchar: At global scope:
+/usr/include/c++/6.3.1/cwchar:248:11: error: ‘::wcstold’ has not been declared
+   using ::wcstold;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:257:11: error: ‘::wcstoll’ has not been declared
+   using ::wcstoll;
+           ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:258:11: error: ‘::wcstoull’ has not been declared
+   using ::wcstoull;
+           ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:264:22: error: ‘__gnu_cxx::wcstold’ has not been declared
+   using ::__gnu_cxx::wcstold;
+                      ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:265:22: error: ‘__gnu_cxx::wcstoll’ has not been declared
+   using ::__gnu_cxx::wcstoll;
+                      ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:266:22: error: ‘__gnu_cxx::wcstoull’ has not been declared
+   using ::__gnu_cxx::wcstoull;
+                      ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:280:14: error: ‘std::wcstof’ has not been declared
+   using std::wcstof;
+              ^~~~~~
+/usr/include/c++/6.3.1/cwchar:283:14: error: ‘std::vfwscanf’ has not been declared
+   using std::vfwscanf;
+              ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:286:14: error: ‘std::vswscanf’ has not been declared
+   using std::vswscanf;
+              ^~~~~~~~
+/usr/include/c++/6.3.1/cwchar:289:14: error: ‘std::vwscanf’ has not been declared
+   using std::vwscanf;
+              ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:293:14: error: ‘std::wcstold’ has not been declared
+   using std::wcstold;
+              ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:294:14: error: ‘std::wcstoll’ has not been declared
+   using std::wcstoll;
+              ^~~~~~~
+/usr/include/c++/6.3.1/cwchar:295:14: error: ‘std::wcstoull’ has not been declared
+   using std::wcstoull;
+              ^~~~~~~~
+In file included from /usr/include/c++/6.3.1/iosfwd:40:0,
+                 from /usr/include/c++/6.3.1/ios:38,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/bits/postypes.h:228:16: error: ‘mbstate_t’ was not declared in this scope
+   typedef fpos<mbstate_t> streampos;
+                ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/postypes.h:228:25: error: template argument 1 is invalid
+   typedef fpos<mbstate_t> streampos;
+                         ^
+/usr/include/c++/6.3.1/bits/postypes.h:230:16: error: ‘mbstate_t’ was not declared in this scope
+   typedef fpos<mbstate_t> wstreampos;
+                ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/postypes.h:230:25: error: template argument 1 is invalid
+   typedef fpos<mbstate_t> wstreampos;
+                         ^
+/usr/include/c++/6.3.1/bits/postypes.h:234:16: error: ‘mbstate_t’ was not declared in this scope
+   typedef fpos<mbstate_t> u16streampos;
+                ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/postypes.h:234:25: error: template argument 1 is invalid
+   typedef fpos<mbstate_t> u16streampos;
+                         ^
+/usr/include/c++/6.3.1/bits/postypes.h:236:16: error: ‘mbstate_t’ was not declared in this scope
+   typedef fpos<mbstate_t> u32streampos;
+                ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/postypes.h:236:25: error: template argument 1 is invalid
+   typedef fpos<mbstate_t> u32streampos;
+                         ^
+In file included from /usr/include/c++/6.3.1/ios:40:0,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/bits/char_traits.h:63:20: error: ‘mbstate_t’ in namespace ‘std’ does not name a type
+       typedef std::mbstate_t  state_type;
+                    ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/char_traits.h:239:15: error: ‘mbstate_t’ does not name a type
+       typedef mbstate_t         state_type;
+               ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/char_traits.h:334:15: error: ‘mbstate_t’ does not name a type
+       typedef mbstate_t         state_type;
+               ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/char_traits.h: In static member function ‘static int std::char_traits<wchar_t>::compare(const char_type*, const char_type*, std::size_t)’:
+/usr/include/c++/6.3.1/bits/char_traits.h:353:32: error: ‘wmemcmp’ was not declared in this scope
+  return wmemcmp(__s1, __s2, __n);
                                 ^
+/usr/include/c++/6.3.1/bits/char_traits.h: In static member function ‘static std::size_t std::char_traits<wchar_t>::length(const char_type*)’:
+/usr/include/c++/6.3.1/bits/char_traits.h:358:26: error: ‘wcslen’ was not declared in this scope
+       { return wcslen(__s); }
+                          ^
+/usr/include/c++/6.3.1/bits/char_traits.h: In static member function ‘static const char_type* std::char_traits<wchar_t>::find(const char_type*, std::size_t, const char_type&)’:
+/usr/include/c++/6.3.1/bits/char_traits.h:365:30: error: invalid conversion from ‘const char_type* {aka const wchar_t*}’ to ‘wchar_t*’ [-fpermissive]
+  return wmemchr(__s, __a, __n);
+                              ^
+In file included from /usr/include/c++/6.3.1/bits/postypes.h:40:0,
+                 from /usr/include/c++/6.3.1/iosfwd:40,
+                 from /usr/include/c++/6.3.1/ios:38,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/cwchar:228:3: note:   initializing argument 1 of ‘wchar_t* std::wmemchr(wchar_t*, wchar_t, std::size_t)’
+   wmemchr(wchar_t* __p, wchar_t __c, size_t __n)
+   ^~~~~~~
+In file included from /usr/include/c++/6.3.1/ios:40:0,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/bits/char_traits.h: In static member function ‘static std::char_traits<wchar_t>::char_type* std::char_traits<wchar_t>::move(std::char_traits<wchar_t>::char_type*, const char_type*, std::size_t)’:
+/usr/include/c++/6.3.1/bits/char_traits.h:373:33: error: ‘wmemmove’ was not declared in this scope
+  return wmemmove(__s1, __s2, __n);
+                                 ^
+/usr/include/c++/6.3.1/bits/char_traits.h: In static member function ‘static std::char_traits<wchar_t>::char_type* std::char_traits<wchar_t>::copy(std::char_traits<wchar_t>::char_type*, const char_type*, std::size_t)’:
+/usr/include/c++/6.3.1/bits/char_traits.h:381:32: error: ‘wmemcpy’ was not declared in this scope
+  return wmemcpy(__s1, __s2, __n);
+                                ^
+/usr/include/c++/6.3.1/bits/char_traits.h: In static member function ‘static std::char_traits<wchar_t>::char_type* std::char_traits<wchar_t>::assign(std::char_traits<wchar_t>::char_type*, std::size_t, std::char_traits<wchar_t>::char_type)’:
+/usr/include/c++/6.3.1/bits/char_traits.h:389:30: error: ‘wmemset’ was not declared in this scope
+  return wmemset(__s, __a, __n);
+                              ^
+In file included from /usr/include/c++/6.3.1/ios:40:0,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/bits/char_traits.h: At global scope:
+/usr/include/c++/6.3.1/bits/char_traits.h:433:15: error: ‘mbstate_t’ does not name a type
+       typedef mbstate_t         state_type;
+               ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/char_traits.h:530:15: error: ‘mbstate_t’ does not name a type
+       typedef mbstate_t         state_type;
+               ^~~~~~~~~
+In file included from /usr/include/c++/6.3.1/clocale:42:0,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:41,
+                 from /usr/include/c++/6.3.1/bits/localefwd.h:40,
+                 from /usr/include/c++/6.3.1/ios:41,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/locale.h:31:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+/usr/include/locale.h:124:63: error: expected initializer before ‘__THROW’
+ extern char *setlocale (int __category, const char *__locale) __THROW;
+                                                               ^~~~~~~
+/usr/include/locale.h:127:40: error: expected initializer before ‘__THROW’
+ extern struct lconv *localeconv (void) __THROW;
+                                        ^~~~~~~
+/usr/include/locale.h:129:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/bits/localefwd.h:40:0,
+                 from /usr/include/c++/6.3.1/ios:41,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:62:11: error: ‘__locale_t’ does not name a type
+Makefile:181: recipe for target '../out/gcc-debug/src/ecmp/IPECMP.o' failed
+   typedef __locale_t  __c_locale;
+           ^~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:69:26: error: ‘__c_locale’ does not name a type
+   __convert_from_v(const __c_locale& __cloc __attribute__ ((__unused__)),
+                          ^~~~~~~~~~
 make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/FatTree/src'
 Makefile:2: recipe for target 'all' failed
-compilation terminated.
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h: In function ‘int std::__convert_from_v(const int&, char*, int, const char*, ...)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:77:19: error: ‘setlocale’ is not a member of ‘std’
+     char* __old = std::setlocale(LC_NUMERIC, 0);
+                   ^~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:84:2: error: ‘setlocale’ is not a member of ‘std’
+  std::setlocale(LC_NUMERIC, "C");
+  ^~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:104:2: error: ‘setlocale’ is not a member of ‘std’
+  std::setlocale(LC_NUMERIC, __sav);
+  ^~~
+In file included from /usr/include/c++/6.3.1/cctype:42:0,
+                 from /usr/include/c++/6.3.1/bits/localefwd.h:42,
+                 from /usr/include/c++/6.3.1/ios:41,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/ctype.h: At global scope:
+/usr/include/ctype.h:28:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/cctype:42:0,
+                 from /usr/include/c++/6.3.1/bits/localefwd.h:42,
+                 from /usr/include/c++/6.3.1/ios:41,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/ctype.h:80:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute__ ((__const__));
+      ^~~~~~~
+/usr/include/ctype.h:82:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute__ ((__const__));
+      ^~~~~~~
+/usr/include/ctype.h:84:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute__ ((__const__));
+      ^~~~~~~
+/usr/include/ctype.h:104:1: error: ‘__BEGIN_NAMESPACE_STD’ does not name a type
+ __BEGIN_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~~~
+/usr/include/ctype.h:111:1: error: expected initializer before ‘__THROW’
+ __exctype (isalpha);
+ ^
+/usr/include/ctype.h:112:1: error: expected initializer before ‘__THROW’
+ __exctype (iscntrl);
+ ^
+/usr/include/ctype.h:113:1: error: expected initializer before ‘__THROW’
+ __exctype (isdigit);
+ ^
+/usr/include/ctype.h:114:1: error: expected initializer before ‘__THROW’
+ __exctype (islower);
+ ^
+/usr/include/ctype.h:115:1: error: expected initializer before ‘__THROW’
+ __exctype (isgraph);
+ ^
+/usr/include/ctype.h:116:1: error: expected initializer before ‘__THROW’
+ __exctype (isprint);
+ ^
+/usr/include/ctype.h:117:1: error: expected initializer before ‘__THROW’
+ __exctype (ispunct);
+ ^
+/usr/include/ctype.h:118:1: error: expected initializer before ‘__THROW’
+ __exctype (isspace);
+ ^
+/usr/include/ctype.h:119:1: error: expected initializer before ‘__THROW’
+ __exctype (isupper);
+ ^
+/usr/include/ctype.h:120:1: error: expected initializer before ‘__THROW’
+ __exctype (isxdigit);
+ ^
+/usr/include/ctype.h:124:30: error: expected initializer before ‘__THROW’
+ extern int tolower (int __c) __THROW;
+                              ^~~~~~~
+/usr/include/ctype.h:127:30: error: expected initializer before ‘__THROW’
+ extern int toupper (int __c) __THROW;
+                              ^~~~~~~
+/usr/include/ctype.h:129:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/bits/localefwd.h:42:0,
+                 from /usr/include/c++/6.3.1/ios:41,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/cctype:87:11: error: ‘::isblank’ has not been declared
+   using ::isblank;
+           ^~~~~~~
+In file included from /usr/include/c++/6.3.1/ios:41:0,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/bits/localefwd.h:139:40: error: ‘mbstate_t’ was not declared in this scope
+   template<> class codecvt<char, char, mbstate_t>;
+                                        ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/localefwd.h:139:49: error: template argument 3 is invalid
+   template<> class codecvt<char, char, mbstate_t>;
+                                                 ^
+/usr/include/c++/6.3.1/bits/localefwd.h:141:43: error: ‘mbstate_t’ was not declared in this scope
+   template<> class codecvt<wchar_t, char, mbstate_t>;
+                                           ^~~~~~~~~
+/usr/include/c++/6.3.1/bits/localefwd.h:141:52: error: template argument 3 is invalid
+   template<> class codecvt<wchar_t, char, mbstate_t>;
+                                                    ^
+In file included from /usr/include/sched.h:34:0,
+                 from /usr/include/pthread.h:23,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:35,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr.h:148,
+                 from /usr/include/c++/6.3.1/ext/atomicity.h:35,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:39,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/time.h:29:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+In file included from /usr/include/sched.h:34:0,
+                 from /usr/include/pthread.h:23,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:35,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr.h:148,
+                 from /usr/include/c++/6.3.1/ext/atomicity.h:35,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:39,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/time.h:60:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/time.h:76:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/time.h:153:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/time.h:192:8: error: ‘time_t’ does not name a type
+ extern time_t time (time_t *__timer) __THROW;
+        ^~~~~~
+/usr/include/time.h:195:25: error: ‘time_t’ was not declared in this scope
+ extern double difftime (time_t __time1, time_t __time0)
+                         ^~~~~~
+/usr/include/time.h:195:41: error: ‘time_t’ was not declared in this scope
+ extern double difftime (time_t __time1, time_t __time0)
+                                         ^~~~~~
+/usr/include/time.h:195:55: error: expression list treated as compound expression in initializer [-fpermissive]
+ extern double difftime (time_t __time1, time_t __time0)
+                                                       ^
+/usr/include/time.h:199:8: error: ‘time_t’ does not name a type
+ extern time_t mktime (struct tm *__tp) __THROW;
+        ^~~~~~
+/usr/include/time.h:207:38: error: expected initializer before ‘__THROW’
+    const struct tm *__restrict __tp) __THROW;
+                                      ^~~~~~~
+/usr/include/time.h:208:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/time.h:243:36: error: ‘time_t’ does not name a type
+ extern struct tm *localtime (const time_t *__timer) __THROW;
+                                    ^~~~~~
+/usr/include/time.h:243:53: error: expected initializer before ‘__THROW’
+ extern struct tm *localtime (const time_t *__timer) __THROW;
+                                                     ^~~~~~~
+/usr/include/time.h:244:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/time.h:264:27: error: ‘time_t’ does not name a type
+ extern char *ctime (const time_t *__timer) __THROW;
+                           ^~~~~~
+/usr/include/time.h:264:44: error: expected initializer before ‘__THROW’
+ extern char *ctime (const time_t *__timer) __THROW;
+                                            ^~~~~~~
+/usr/include/time.h:265:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/time.h:430:1: error: ‘__END_DECLS’ does not name a type
+ __END_DECLS
+ ^~~~~~~~~~~
+In file included from /usr/include/sched.h:43:0,
+                 from /usr/include/pthread.h:23,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:35,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr.h:148,
+                 from /usr/include/c++/6.3.1/ext/atomicity.h:35,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:39,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/bits/sched.h:77:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+/usr/include/bits/sched.h:201:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+/usr/include/bits/sched.h:205:53: error: expected initializer before ‘__THROW’
+ extern cpu_set_t *__sched_cpualloc (size_t __count) __THROW __wur;
+                                                     ^~~~~~~
+/usr/include/bits/sched.h:206:48: error: expected initializer before ‘__THROW’
+ extern void __sched_cpufree (cpu_set_t *__set) __THROW;
+                                                ^~~~~~~
+/usr/include/bits/sched.h:208:1: error: ‘__END_DECLS’ does not name a type
+ __END_DECLS
+ ^~~~~~~~~~~
+In file included from /usr/include/pthread.h:23:0,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:35,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr.h:148,
+                 from /usr/include/c++/6.3.1/ext/atomicity.h:35,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:39,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/sched.h:55:72: error: expected initializer before ‘__THROW’
+ extern int sched_getparam (__pid_t __pid, struct sched_param *__param) __THROW;
+                                                                        ^~~~~~~
+/usr/include/sched.h:59:46: error: expected initializer before ‘__THROW’
+           const struct sched_param *__param) __THROW;
+                                              ^~~~~~~
+/usr/include/sched.h:62:47: error: expected initializer before ‘__THROW’
+ extern int sched_getscheduler (__pid_t __pid) __THROW;
+                                               ^~~~~~~
+/usr/include/sched.h:65:31: error: expected initializer before ‘__THROW’
+ extern int sched_yield (void) __THROW;
+                               ^~~~~~~
+/usr/include/sched.h:68:53: error: expected initializer before ‘__THROW’
+ extern int sched_get_priority_max (int __algorithm) __THROW;
+                                                     ^~~~~~~
+/usr/include/sched.h:71:53: error: expected initializer before ‘__THROW’
+ extern int sched_get_priority_min (int __algorithm) __THROW;
+                                                     ^~~~~~~
+/usr/include/sched.h:74:72: error: expected initializer before ‘__THROW’
+ extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) __THROW;
+                                                                        ^~~~~~~
+/usr/include/sched.h:126:1: error: ‘__END_DECLS’ does not name a type
+ __END_DECLS
+ ^~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:35:0,
+                 from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr.h:148,
+                 from /usr/include/c++/6.3.1/ext/atomicity.h:35,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:39,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/pthread.h:228:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+/usr/include/pthread.h:250:26: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_join (pthread_t __th, void **__thread_return);
+                          ^~~~~~~~~
+/usr/include/pthread.h:250:42: error: expected primary-expression before ‘void’
+ extern int pthread_join (pthread_t __th, void **__thread_return);
+                                          ^~~~
+/usr/include/pthread.h:250:64: error: expression list treated as compound expression in initializer [-fpermissive]
+ extern int pthread_join (pthread_t __th, void **__thread_return);
+                                                                ^
+/usr/include/pthread.h:271:28: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_detach (pthread_t __th) __THROW;
+                            ^~~~~~~~~
+/usr/include/pthread.h:275:8: error: ‘pthread_t’ does not name a type
+ extern pthread_t pthread_self (void) __THROW __attribute__ ((__const__));
+        ^~~~~~~~~
+/usr/include/pthread.h:278:27: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_equal (pthread_t __thread1, pthread_t __thread2)
+                           ^~~~~~~~~
+/usr/include/pthread.h:278:48: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_equal (pthread_t __thread1, pthread_t __thread2)
+                                                ^~~~~~~~~
+/usr/include/pthread.h:278:67: error: expression list treated as compound expression in initializer [-fpermissive]
+ extern int pthread_equal (pthread_t __thread1, pthread_t __thread2)
+                                                                   ^
+/usr/include/pthread.h:287:55: error: expected initializer before ‘__THROW’
+ extern int pthread_attr_init (pthread_attr_t *__attr) __THROW __nonnull ((1));
+                                                       ^~~~~~~
+/usr/include/pthread.h:291:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:296:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:301:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:307:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:312:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:318:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:323:21: error: expected initializer before ‘__THROW’
+            __param) __THROW __nonnull ((1, 2));
+                     ^~~~~~~
+/usr/include/pthread.h:328:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:332:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:337:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:342:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:348:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:352:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:357:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2)) __attribute_deprecated__;
+      ^~~~~~~
+/usr/include/pthread.h:365:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1)) __attribute_deprecated__;
+      ^~~~~~~
+/usr/include/pthread.h:370:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:377:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:429:35: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_setschedparam (pthread_t __target_thread, int __policy,
+                                   ^~~~~~~~~
+/usr/include/pthread.h:429:62: error: expected primary-expression before ‘int’
+ extern int pthread_setschedparam (pthread_t __target_thread, int __policy,
+                                                              ^~~
+/usr/include/pthread.h:430:7: error: expected primary-expression before ‘const’
+       const struct sched_param *__param)
+       ^~~~~
+/usr/include/pthread.h:430:40: error: expression list treated as compound expression in initializer [-fpermissive]
+       const struct sched_param *__param)
+                                        ^
+/usr/include/pthread.h:434:35: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_getschedparam (pthread_t __target_thread,
+                                   ^~~~~~~~~
+/usr/include/pthread.h:435:7: error: expected primary-expression before ‘int’
+       int *__restrict __policy,
+       ^~~
+/usr/include/pthread.h:436:7: error: expected primary-expression before ‘struct’
+       struct sched_param *__restrict __param)
+       ^~~~~~
+/usr/include/pthread.h:436:45: error: expression list treated as compound expression in initializer [-fpermissive]
+       struct sched_param *__restrict __param)
+                                             ^
+/usr/include/pthread.h:440:34: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_setschedprio (pthread_t __target_thread, int __prio)
+                                  ^~~~~~~~~
+/usr/include/pthread.h:440:61: error: expected primary-expression before ‘int’
+ extern int pthread_setschedprio (pthread_t __target_thread, int __prio)
+                                                             ^~~
+/usr/include/pthread.h:440:71: error: expression list treated as compound expression in initializer [-fpermissive]
+ extern int pthread_setschedprio (pthread_t __target_thread, int __prio)
+                                                                       ^
+/usr/include/pthread.h:495:36: error: expected initializer before ‘__nonnull’
+     void (*__init_routine) (void)) __nonnull ((1, 2));
+                                    ^~~~~~~~~
+/usr/include/pthread.h:513:28: error: ‘pthread_t’ was not declared in this scope
+ extern int pthread_cancel (pthread_t __th);
+                            ^~~~~~~~~
+/usr/include/pthread.h:743:70: error: expected initializer before ‘__THROWNL’
+ extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __THROWNL;
+                                                                      ^~~~~~~~~
+/usr/include/pthread.h:751:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:755:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:759:6: error: expected initializer before ‘__THROWNL’
+      __THROWNL __nonnull ((1));
+      ^~~~~~~~~
+/usr/include/pthread.h:763:6: error: expected initializer before ‘__THROWNL’
+      __THROWNL __nonnull ((1));
+      ^~~~~~~~~
+/usr/include/pthread.h:774:6: error: expected initializer before ‘__THROWNL’
+      __THROWNL __nonnull ((1));
+      ^~~~~~~~~
+/usr/include/pthread.h:781:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:788:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 3));
+      ^~~~~~~
+/usr/include/pthread.h:807:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:811:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:817:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:822:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:841:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:847:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:853:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:858:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:970:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:974:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:978:6: error: expected initializer before ‘__THROWNL’
+      __THROWNL __nonnull ((1));
+      ^~~~~~~~~
+/usr/include/pthread.h:982:6: error: expected initializer before ‘__THROWNL’
+      __THROWNL __nonnull ((1));
+      ^~~~~~~~~
+/usr/include/pthread.h:991:6: error: expected initializer before ‘__nonnull’
+      __nonnull ((1, 2));
+      ^~~~~~~~~
+/usr/include/pthread.h:1003:6: error: expected initializer before ‘__nonnull’
+      __nonnull ((1, 2, 3));
+      ^~~~~~~~~
+/usr/include/pthread.h:1009:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:1013:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:1019:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1, 2));
+      ^~~~~~~
+/usr/include/pthread.h:1023:21: error: expected initializer before ‘__THROW’
+      int __pshared) __THROW __nonnull ((1));
+                     ^~~~~~~
+/usr/include/pthread.h:1113:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/pthread.h:1116:53: error: expected initializer before ‘__THROW’
+ extern int pthread_key_delete (pthread_key_t __key) __THROW;
+                                                     ^~~~~~~
+/usr/include/pthread.h:1119:56: error: expected initializer before ‘__THROW’
+ extern void *pthread_getspecific (pthread_key_t __key) __THROW;
+                                                        ^~~~~~~
+/usr/include/pthread.h:1123:28: error: expected initializer before ‘__THROW’
+     const void *__pointer) __THROW ;
+                            ^~~~~~~
+/usr/include/pthread.h:1147:31: error: expected initializer before ‘__THROW’
+       void (*__child) (void)) __THROW;
+                               ^~~~~~~
+/usr/include/pthread.h:1159:1: error: ‘__END_DECLS’ does not name a type
+ __END_DECLS
+ ^~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr.h:148:0,
+                 from /usr/include/c++/6.3.1/ext/atomicity.h:35,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:39,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:101:1: error: ‘pthread_once’ was not declared in this scope
+ __gthrw(pthread_once)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:102:1: error: ‘pthread_getspecific’ was not declared in this scope
+ __gthrw(pthread_getspecific)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:103:1: error: ‘pthread_setspecific’ was not declared in this scope
+ __gthrw(pthread_setspecific)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:105:1: error: ‘pthread_create’ was not declared in this scope
+ __gthrw(pthread_create)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:108:1: error: ‘pthread_self’ was not declared in this scope
+ __gthrw(pthread_self)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:113:1: error: ‘sched_yield’ was not declared in this scope
+ __gthrw(sched_yield)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:115:1: error: ‘pthread_mutex_lock’ was not declared in this scope
+ __gthrw(pthread_mutex_lock)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:116:1: error: ‘pthread_mutex_trylock’ was not declared in this scope
+ __gthrw(pthread_mutex_trylock)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:118:1: error: ‘pthread_mutex_timedlock’ was not declared in this scope
+ __gthrw(pthread_mutex_timedlock)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:120:1: error: ‘pthread_mutex_unlock’ was not declared in this scope
+ __gthrw(pthread_mutex_unlock)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:121:1: error: ‘pthread_mutex_init’ was not declared in this scope
+ __gthrw(pthread_mutex_init)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:122:1: error: ‘pthread_mutex_destroy’ was not declared in this scope
+ __gthrw(pthread_mutex_destroy)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:124:1: error: ‘pthread_cond_init’ was not declared in this scope
+ __gthrw(pthread_cond_init)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:125:1: error: ‘pthread_cond_broadcast’ was not declared in this scope
+ __gthrw(pthread_cond_broadcast)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:126:1: error: ‘pthread_cond_signal’ was not declared in this scope
+ __gthrw(pthread_cond_signal)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:127:1: error: ‘pthread_cond_wait’ was not declared in this scope
+ __gthrw(pthread_cond_wait)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:128:1: error: ‘pthread_cond_timedwait’ was not declared in this scope
+ __gthrw(pthread_cond_timedwait)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:129:1: error: ‘pthread_cond_destroy’ was not declared in this scope
+ __gthrw(pthread_cond_destroy)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:131:1: error: ‘pthread_key_create’ was not declared in this scope
+ __gthrw(pthread_key_create)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:132:1: error: ‘pthread_key_delete’ was not declared in this scope
+ __gthrw(pthread_key_delete)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:133:1: error: ‘pthread_mutexattr_init’ was not declared in this scope
+ __gthrw(pthread_mutexattr_init)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:134:1: error: ‘pthread_mutexattr_settype’ was not declared in this scope
+ __gthrw(pthread_mutexattr_settype)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:135:1: error: ‘pthread_mutexattr_destroy’ was not declared in this scope
+ __gthrw(pthread_mutexattr_destroy)
+ ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:659:19: error: ‘__gthread_create’ declared as an ‘inline’ variable
+ __gthread_create (__gthread_t *__threadid, void *(*__func) (void*),
+                   ^~~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:659:19: error: ‘__gthread_t’ was not declared in this scope
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:659:32: error: ‘__threadid’ was not declared in this scope
+ __gthread_create (__gthread_t *__threadid, void *(*__func) (void*),
+                                ^~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:659:44: error: expected primary-expression before ‘void’
+ __gthread_create (__gthread_t *__threadid, void *(*__func) (void*),
+                                            ^~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:660:5: error: expected primary-expression before ‘void’
+     void *__args)
+     ^~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:660:17: error: expression list treated as compound expression in initializer [-fpermissive]
+     void *__args)
+                 ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:666:17: error: ‘__gthread_join’ declared as an ‘inline’ variable
+ __gthread_join (__gthread_t __threadid, void **__value_ptr)
+                 ^~~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:666:17: error: ‘__gthread_t’ was not declared in this scope
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:666:41: error: expected primary-expression before ‘void’
+ __gthread_join (__gthread_t __threadid, void **__value_ptr)
+                                         ^~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:666:59: error: expression list treated as compound expression in initializer [-fpermissive]
+ __gthread_join (__gthread_t __threadid, void **__value_ptr)
+                                                           ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:672:19: error: ‘__gthread_detach’ declared as an ‘inline’ variable
+ __gthread_detach (__gthread_t __threadid)
+                   ^~~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:672:19: error: ‘__gthread_t’ was not declared in this scope
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:678:18: error: ‘__gthread_equal’ declared as an ‘inline’ variable
+ __gthread_equal (__gthread_t __t1, __gthread_t __t2)
+                  ^~~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:678:18: error: ‘__gthread_t’ was not declared in this scope
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:678:36: error: ‘__gthread_t’ was not declared in this scope
+ __gthread_equal (__gthread_t __t1, __gthread_t __t2)
+                                    ^~~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:678:52: error: expression list treated as compound expression in initializer [-fpermissive]
+ __gthread_equal (__gthread_t __t1, __gthread_t __t2)
+                                                    ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:683:15: error: ‘__gthread_t’ does not name a type
+ static inline __gthread_t
+               ^~~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_yield()’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:692:33: error: ‘__gthrw_sched_yield’ cannot be used as a function
+   return __gthrw_(sched_yield) ();
+                                 ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_once(__gthread_once_t*, void (*)())’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:699:50: error: ‘__gthrw_pthread_once’ cannot be used as a function
+     return __gthrw_(pthread_once) (__once, __func);
+                                                  ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_key_create(__gthread_key_t*, void (*)(void*))’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:707:53: error: ‘__gthrw_pthread_key_create’ cannot be used as a function
+   return __gthrw_(pthread_key_create) (__key, __dtor);
+                                                     ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_key_delete(__gthread_key_t)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:713:45: error: ‘__gthrw_pthread_key_delete’ cannot be used as a function
+   return __gthrw_(pthread_key_delete) (__key);
+                                             ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘void* __gthread_getspecific(__gthread_key_t)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:719:46: error: ‘__gthrw_pthread_getspecific’ cannot be used as a function
+   return __gthrw_(pthread_getspecific) (__key);
+                                              ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_setspecific(__gthread_key_t, const void*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:725:53: error: ‘__gthrw_pthread_setspecific’ cannot be used as a function
+   return __gthrw_(pthread_setspecific) (__key, __ptr);
+                                                     ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘void __gthread_mutex_init_function(__gthread_mutex_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:732:48: error: ‘__gthrw_pthread_mutex_init’ cannot be used as a function
+     __gthrw_(pthread_mutex_init) (__mutex, NULL);
+                                                ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_mutex_destroy(__gthread_mutex_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:739:52: error: ‘__gthrw_pthread_mutex_destroy’ cannot be used as a function
+     return __gthrw_(pthread_mutex_destroy) (__mutex);
+                                                    ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_mutex_lock(__gthread_mutex_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:748:49: error: ‘__gthrw_pthread_mutex_lock’ cannot be used as a function
+     return __gthrw_(pthread_mutex_lock) (__mutex);
+                                                 ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_mutex_trylock(__gthread_mutex_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:757:52: error: ‘__gthrw_pthread_mutex_trylock’ cannot be used as a function
+     return __gthrw_(pthread_mutex_trylock) (__mutex);
+                                                    ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_mutex_timedlock(__gthread_mutex_t*, const __gthread_time_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:768:69: error: ‘__gthrw_pthread_mutex_timedlock’ cannot be used as a function
+     return __gthrw_(pthread_mutex_timedlock) (__mutex, __abs_timeout);
+                                                                     ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_mutex_unlock(__gthread_mutex_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:778:51: error: ‘__gthrw_pthread_mutex_unlock’ cannot be used as a function
+     return __gthrw_(pthread_mutex_unlock) (__mutex);
+                                                   ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_recursive_mutex_init_function(__gthread_recursive_mutex_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:793:54: error: ‘__gthrw_pthread_mutexattr_init’ cannot be used as a function
+       __r = __gthrw_(pthread_mutexattr_init) (&__attr);
+                                                      ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:796:10: error: ‘PTHREAD_MUTEX_RECURSIVE’ was not declared in this scope
+          PTHREAD_MUTEX_RECURSIVE);
+          ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:796:33: error: ‘__gthrw_pthread_mutexattr_settype’ cannot be used as a function
+          PTHREAD_MUTEX_RECURSIVE);
+                                 ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:798:54: error: ‘__gthrw_pthread_mutex_init’ cannot be used as a function
+  __r = __gthrw_(pthread_mutex_init) (__mutex, &__attr);
+                                                      ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:800:52: error: ‘__gthrw_pthread_mutexattr_destroy’ cannot be used as a function
+  __r = __gthrw_(pthread_mutexattr_destroy) (&__attr);
+                                                    ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_cond_broadcast(__gthread_cond_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:852:50: error: ‘__gthrw_pthread_cond_broadcast’ cannot be used as a function
+   return __gthrw_(pthread_cond_broadcast) (__cond);
+                                                  ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_cond_signal(__gthread_cond_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:858:47: error: ‘__gthrw_pthread_cond_signal’ cannot be used as a function
+   return __gthrw_(pthread_cond_signal) (__cond);
+                                               ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_cond_wait(__gthread_cond_t*, __gthread_mutex_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:864:54: error: ‘__gthrw_pthread_cond_wait’ cannot be used as a function
+   return __gthrw_(pthread_cond_wait) (__cond, __mutex);
+                                                      ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_cond_timedwait(__gthread_cond_t*, __gthread_mutex_t*, const __gthread_time_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:871:74: error: ‘__gthrw_pthread_cond_timedwait’ cannot be used as a function
+   return __gthrw_(pthread_cond_timedwait) (__cond, __mutex, __abs_timeout);
+                                                                          ^
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h: In function ‘int __gthread_cond_destroy(__gthread_cond_t*)’:
+/usr/include/c++/6.3.1/x86_64-redhat-linux/bits/gthr-default.h:884:48: error: ‘__gthrw_pthread_cond_destroy’ cannot be used as a function
+   return __gthrw_(pthread_cond_destroy) (__cond);
+                                                ^
+In file included from /usr/include/c++/6.3.1/cstdlib:75:0,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:41,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/stdlib.h: At global scope:
+/usr/include/stdlib.h:34:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+/usr/include/stdlib.h:101:5: error: ‘div_t’ does not name a type
+   } div_t;
+     ^~~~~
+/usr/include/stdlib.h:112:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:142:1: error: ‘__BEGIN_NAMESPACE_STD’ does not name a type
+ __BEGIN_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:148:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__ __nonnull ((1)) __wur;
+      ^~~~~~~
+/usr/include/stdlib.h:151:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_pure__ __nonnull ((1)) __wur;
+      ^~~~~~~
+/usr/include/stdlib.h:152:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:167:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:189:6: error: expected initializer before ‘__THROW’
+      __THROW __nonnull ((1));
+      ^~~~~~~
+/usr/include/stdlib.h:190:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:376:41: error: expected initializer before ‘__THROW’
+ extern void srand (unsigned int __seed) __THROW;
+                                         ^~~~~~~
+/usr/include/stdlib.h:377:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:469:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute_malloc__ __wur;
+      ^~~~~~~
+/usr/include/stdlib.h:470:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:483:32: error: expected initializer before ‘__THROW’
+ extern void free (void *__ptr) __THROW;
+                                ^~~~~~~
+/usr/include/stdlib.h:484:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:519:43: error: expected initializer before ‘__THROW’
+ extern int atexit (void (*__func) (void)) __THROW __nonnull ((1));
+                                           ^~~~~~~
+/usr/include/stdlib.h:530:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:551:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:565:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:717:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:751:1: error: ‘__BEGIN_NAMESPACE_STD’ does not name a type
+ __BEGIN_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:765:6: error: ‘__compar_fn_t’ has not been declared
+      __compar_fn_t __compar) __nonnull ((1, 4));
+      ^~~~~~~~~~~~~
+/usr/include/stdlib.h:765:30: error: expected initializer before ‘__nonnull’
+      __compar_fn_t __compar) __nonnull ((1, 4));
+                              ^~~~~~~~~
+/usr/include/stdlib.h:774:26: error: expected initializer before ‘__THROW’
+ extern int abs (int __x) __THROW __attribute__ ((__const__)) __wur;
+                          ^~~~~~~
+/usr/include/stdlib.h:775:37: error: expected initializer before ‘__THROW’
+ extern long int labs (long int __x) __THROW __attribute__ ((__const__)) __wur;
+                                     ^~~~~~~
+/usr/include/stdlib.h:776:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:791:6: error: expected initializer before ‘__THROW’
+      __THROW __attribute__ ((__const__)) __wur;
+      ^~~~~~~
+/usr/include/stdlib.h:792:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+/usr/include/stdlib.h:866:46: error: expected initializer before ‘__THROW’
+      const char *__restrict __s, size_t __n) __THROW;
+                                              ^~~~~~~
+/usr/include/stdlib.h:869:48: error: expected initializer before ‘__THROW’
+ extern int wctomb (char *__s, wchar_t __wchar) __THROW;
+                                                ^~~~~~~
+/usr/include/stdlib.h:874:44: error: expected initializer before ‘__THROW’
+    const char *__restrict __s, size_t __n) __THROW;
+                                            ^~~~~~~
+/usr/include/stdlib.h:878:6: error: expected initializer before ‘__THROW’
+      __THROW;
+      ^~~~~~~
+/usr/include/stdlib.h:879:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/cstdio:42:0,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:43,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/stdio.h:29:1: error: ‘__BEGIN_DECLS’ does not name a type
+ __BEGIN_DECLS
+ ^~~~~~~~~~~~~
+In file included from /usr/include/c++/6.3.1/cstdio:42:0,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:43,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/stdio.h:46:1: error: ‘__BEGIN_NAMESPACE_STD’ does not name a type
+ __BEGIN_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~~~
+/usr/include/stdio.h:49:1: error: ‘__END_NAMESPACE_STD’ does not name a type
+ __END_NAMESPACE_STD
+ ^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/libio.h:31:0,
+                 from /usr/include/stdio.h:74,
+                 from /usr/include/c++/6.3.1/cstdio:42,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:43,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/_G_config.h:25:3: error: ‘_G_fpos_t’ does not name a type
+ } _G_fpos_t;
+   ^~~~~~~~~
+In file included from /usr/include/c++/6.3.1/cstdio:42:0,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:43,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/stdio.h:110:9: error: ‘_G_fpos_t’ does not name a type
+ typedef _G_fpos_t fpos_t;
+         ^~~~~~~~~
+In file included from /usr/include/c++/6.3.1/cstdio:42:0,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:43,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/stdio.h:195:8: error: ‘FILE’ does not name a type
+ extern FILE *tmpfile (void) __wur;
+        ^~~~
+/usr/include/stdio.h:237:20: error: ‘FILE’ was not declared in this scope
+ extern int fclose (FILE *__stream);
+                    ^~~~
+/usr/include/stdio.h:237:26: error: ‘__stream’ was not declared in this scope
+ extern int fclose (FILE *__stream);
+                          ^~~~~~~~
+/usr/include/stdio.h:242:20: error: ‘FILE’ was not declared in this scope
+ extern int fflush (FILE *__stream);
+                    ^~~~
+/usr/include/stdio.h:242:26: error: ‘__stream’ was not declared in this scope
+ extern int fflush (FILE *__stream);
+                          ^~~~~~~~
+/usr/include/stdio.h:272:8: error: ‘FILE’ does not name a type
+ extern FILE *fopen (const char *__restrict __filename,
+        ^~~~
+/usr/include/stdio.h:278:8: error: ‘FILE’ does not name a type
+ extern FILE *freopen (const char *__restrict __filename,
+        ^~~~
+/usr/include/stdio.h:332:21: error: variable or field ‘setbuf’ declared void
+ extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __THROW;
+                     ^~~~
+/usr/include/stdio.h:332:21: error: ‘FILE’ was not declared in this scope
+/usr/include/stdio.h:332:27: error: expected primary-expression before ‘__restrict’
+ extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __THROW;
+                           ^~~~~~~~~~
+/usr/include/stdio.h:332:48: error: expected primary-expression before ‘char’
+ extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __THROW;
+                                                ^~~~
+/usr/include/stdio.h:336:21: error: ‘FILE’ was not declared in this scope
+ extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
+                     ^~~~
+/usr/include/stdio.h:336:27: error: expected primary-expression before ‘__restrict’
+ extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
+                           ^~~~~~~~~~
+/usr/include/stdio.h:336:48: error: expected primary-expression before ‘char’
+ extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
+                                                ^~~~
+/usr/include/stdio.h:337:7: error: expected primary-expression before ‘int’
+       int __modes, size_t __n) __THROW;
+       ^~~
+/usr/include/stdio.h:337:27: error: expected primary-expression before ‘__n’
+       int __modes, size_t __n) __THROW;
+                           ^~~
+/usr/include/stdio.h:337:30: error: expression list treated as compound expression in initializer [-fpermissive]
+       int __modes, size_t __n) __THROW;
+                              ^
+/usr/include/stdio.h:356:21: error: ‘FILE’ was not declared in this scope
+ extern int fprintf (FILE *__restrict __stream,
+                     ^~~~
+/usr/include/stdio.h:356:27: error: expected primary-expression before ‘__restrict’
+ extern int fprintf (FILE *__restrict __stream,
+                           ^~~~~~~~~~
+/usr/include/stdio.h:357:7: error: expected primary-expression before ‘const’
+       const char *__restrict __format, ...);
+       ^~~~~
+/usr/include/stdio.h:357:40: error: expected primary-expression before ‘...’ token
+       const char *__restrict __format, ...);
+                                        ^~~
+/usr/include/stdio.h:357:43: error: expression list treated as compound expression in initializer [-fpermissive]
+       const char *__restrict __format, ...);
+                                           ^
+/usr/include/stdio.h:371:22: error: ‘FILE’ was not declared in this scope
+ extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+                      ^~~~
+/usr/include/stdio.h:371:28: error: expected primary-expression before ‘__restrict’
+ extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+                            ^~~~~~~~~~
+/usr/include/stdio.h:371:44: error: expected primary-expression before ‘const’
+ extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+                                            ^~~~~
+/usr/include/stdio.h:372:19: error: expected primary-expression before ‘__arg’
+        _G_va_list __arg);
+                   ^~~~~
+/usr/include/stdio.h:372:24: error: expression list treated as compound expression in initializer [-fpermissive]
+        _G_va_list __arg);
+                        ^
+/usr/include/stdio.h:425:20: error: ‘FILE’ was not declared in this scope
+ extern int fscanf (FILE *__restrict __stream,
+                    ^~~~
+/usr/include/stdio.h:425:26: error: expected primary-expression before ‘__restrict’
+ extern int fscanf (FILE *__restrict __stream,
+                          ^~~~~~~~~~
+/usr/include/stdio.h:426:6: error: expected primary-expression before ‘const’
+      const char *__restrict __format, ...) __wur;
+      ^~~~~
+/usr/include/stdio.h:426:39: error: expected primary-expression before ‘...’ token
+      const char *__restrict __format, ...) __wur;
+                                       ^~~
+/usr/include/stdio.h:426:42: error: expression list treated as compound expression in initializer [-fpermissive]
+      const char *__restrict __format, ...) __wur;
+                                          ^
+/usr/include/stdio.h:531:19: error: ‘FILE’ was not declared in this scope
+ extern int fgetc (FILE *__stream);
+                   ^~~~
+/usr/include/stdio.h:531:25: error: ‘__stream’ was not declared in this scope
+ extern int fgetc (FILE *__stream);
+                         ^~~~~~~~
+/usr/include/stdio.h:532:18: error: ‘FILE’ was not declared in this scope
+ extern int getc (FILE *__stream);
+                  ^~~~
+/usr/include/stdio.h:532:24: error: ‘__stream’ was not declared in this scope
+ extern int getc (FILE *__stream);
+                        ^~~~~~~~
+/usr/include/stdio.h:573:28: error: ‘FILE’ has not been declared
+ extern int fputc (int __c, FILE *__stream);
+                            ^~~~
+/usr/include/stdio.h:574:27: error: ‘FILE’ has not been declared
+ extern int putc (int __c, FILE *__stream);
+                           ^~~~
+/usr/include/stdio.h:622:52: error: ‘FILE’ has not been declared
+ extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+                                                    ^~~~
+/usr/include/stdio.h:689:47: error: ‘FILE’ has not been declared
+ extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
+                                               ^~~~
+/usr/include/stdio.h:702:29: error: ‘FILE’ has not been declared
+ extern int ungetc (int __c, FILE *__stream);
+                             ^~~~
+/usr/include/stdio.h:710:20: error: ‘FILE’ has not been declared
+        size_t __n, FILE *__restrict __stream) __wur;
+                    ^~~~
+/usr/include/stdio.h:716:21: error: ‘FILE’ has not been declared
+         size_t __n, FILE *__restrict __s);
+                     ^~~~
+/usr/include/stdio.h:749:19: error: ‘FILE’ was not declared in this scope
+ extern int fseek (FILE *__stream, long int __off, int __whence);
+                   ^~~~
+/usr/include/stdio.h:749:25: error: ‘__stream’ was not declared in this scope
+ extern int fseek (FILE *__stream, long int __off, int __whence);
+                         ^~~~~~~~
+/usr/include/stdio.h:749:35: error: expected primary-expression before ‘long’
+ extern int fseek (FILE *__stream, long int __off, int __whence);
+                                   ^~~~
+/usr/include/stdio.h:749:51: error: expected primary-expression before ‘int’
+ extern int fseek (FILE *__stream, long int __off, int __whence);
+                                                   ^~~
+/usr/include/stdio.h:749:63: error: expression list treated as compound expression in initializer [-fpermissive]
+ extern int fseek (FILE *__stream, long int __off, int __whence);
+                                                               ^
+/usr/include/stdio.h:754:24: error: ‘FILE’ was not declared in this scope
+ extern long int ftell (FILE *__stream) __wur;
+                        ^~~~
+/usr/include/stdio.h:754:30: error: ‘__stream’ was not declared in this scope
+ extern long int ftell (FILE *__stream) __wur;
+                              ^~~~~~~~
+/usr/include/stdio.h:759:21: error: variable or field ‘rewind’ declared void
+ extern void rewind (FILE *__stream);
+                     ^~~~
+/usr/include/stdio.h:759:21: error: ‘FILE’ was not declared in this scope
+/usr/include/stdio.h:759:27: error: ‘__stream’ was not declared in this scope
+ extern void rewind (FILE *__stream);
+                           ^~~~~~~~
+/usr/include/stdio.h:798:21: error: ‘FILE’ was not declared in this scope
+ extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+                     ^~~~
+/usr/include/stdio.h:798:27: error: expected primary-expression before ‘__restrict’
+ extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+                           ^~~~~~~~~~
+/usr/include/stdio.h:798:48: error: ‘fpos_t’ was not declared in this scope
+ extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+                                                ^~~~~~
+/usr/include/stdio.h:798:56: error: expected primary-expression before ‘__restrict’
+ extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+                                                        ^~~~~~~~~~
+/usr/include/stdio.h:798:72: error: expression list treated as compound expression in initializer [-fpermissive]
+ extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+                                                                        ^
+/usr/include/stdio.h:803:21: error: ‘FILE’ was not declared in this scope
+ extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+                     ^~~~
+/usr/include/stdio.h:803:27: error: ‘__stream’ was not declared in this scope
+ extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+                           ^~~~~~~~
+/usr/include/stdio.h:803:37: error: expected primary-expression before ‘const’
+ extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+                                     ^~~~~
+/usr/include/stdio.h:803:56: error: expression list treated as compound expression in initializer [-fpermissive]
+ extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+                                                        ^
+/usr/include/stdio.h:826:23: error: variable or field ‘clearerr’ declared void
+ extern void clearerr (FILE *__stream) __THROW;
+                       ^~~~
+/usr/include/stdio.h:826:23: error: ‘FILE’ was not declared in this scope
+/usr/include/stdio.h:826:29: error: ‘__stream’ was not declared in this scope
+ extern void clearerr (FILE *__stream) __THROW;
+                             ^~~~~~~~
+/usr/include/stdio.h:828:18: error: ‘FILE’ was not declared in this scope
+ extern int feof (FILE *__stream) __THROW __wur;
+                  ^~~~
+/usr/include/stdio.h:828:24: error: ‘__stream’ was not declared in this scope
+ extern int feof (FILE *__stream) __THROW __wur;
+                        ^~~~~~~~
+/usr/include/stdio.h:830:20: error: ‘FILE’ was not declared in this scope
+ extern int ferror (FILE *__stream) __THROW __wur;
+                    ^~~~
+/usr/include/stdio.h:830:26: error: ‘__stream’ was not declared in this scope
+ extern int ferror (FILE *__stream) __THROW __wur;
+                          ^~~~~~~~
+In file included from /usr/include/libio.h:56:0,
+                 from /usr/include/stdio.h:74,
+                 from /usr/include/c++/6.3.1/cstdio:42,
+                 from /usr/include/c++/6.3.1/ext/string_conversions.h:43,
+                 from /usr/include/c++/6.3.1/bits/basic_string.h:5402,
+                 from /usr/include/c++/6.3.1/string:52,
+                 from /usr/include/c++/6.3.1/bits/locale_classes.h:40,
+                 from /usr/include/c++/6.3.1/bits/ios_base.h:41,
+                 from /usr/include/c++/6.3.1/ios:42,
+                 from /usr/include/c++/6.3.1/ostream:38,
+                 from /usr/include/c++/6.3.1/iostream:39,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
+                 from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
+                 from ecmp/IPECMP.cc:19:
+/usr/include/stdio.h:942:1: error: expected declaration before ‘}’ token
+ __END_DECLS
+ ^
 make[1]: *** [../out/gcc-debug/src/ecmp/IPECMP.o] Error 1
 make: *** [all] Error 2
 
-22:32:53 Build Finished (took 228ms)
+16:17:31 Build Finished (took 468ms)
 

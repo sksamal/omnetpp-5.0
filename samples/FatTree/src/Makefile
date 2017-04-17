@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for FatTree
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I../../inet/src -I../../inet/src/inet/transportlayer/contract/tcp -I../../inet/src/inet/applications/tcpapp -I../../inet/src/inet/networklayer/common -I../../inet/src/inet/networklayer/ipv4 -I../../inet/src/inet/networklayer/contract -I../../inet/src/inet/common/queue -I../../inet/src/inet/common -I../../inet/src/inet/networklayer/arp/ipv4 -L../../inet/out/$$\(CONFIGNAME\)/src -lINET -KINET_PROJ=../../inet
+#  opp_makemake -f --deep -I../../inet/src -I../../inet/src/inet/transportlayer/contract/tcp -I../../inet/src/inet/applications/tcpapp -I../../inet/src/inet/networklayer/common -I../../inet/src/inet/networklayer/ipv4 -I../../inet/src/inet/networklayer/contract -I../../inet/src/inet/common/queue -I../../inet/src/inet -I../../inet/src/inet/networklayer/contract/ipv4 -I../../inet/src/inet/common -I../../inet/src/inet/networklayer/arp/ipv4 -L../../inet/out/$$\(CONFIGNAME\)/src -lINET -KINET_PROJ=../../inet
 #
 
 # Name of target to be created (-o option)
@@ -23,6 +23,8 @@ INCLUDE_PATH = \
     -I../../inet/src/inet/networklayer/ipv4 \
     -I../../inet/src/inet/networklayer/contract \
     -I../../inet/src/inet/common/queue \
+    -I../../inet/src/inet \
+    -I../../inet/src/inet/networklayer/contract/ipv4 \
     -I../../inet/src/inet/common \
     -I../../inet/src/inet/networklayer/arp/ipv4 \
     -I. \
@@ -238,20 +240,14 @@ $O/ecmp/ConfigECMPRouting.o: ecmp/ConfigECMPRouting.cc \
 	$(INET_PROJ)/src/inet/networklayer/contract/ipv4/IPv4Address.h \
 	$(INET_PROJ)/src/inet/networklayer/contract/ipv6/IPv6Address.h
 $O/ecmp/ECMPRoutingTable.o: ecmp/ECMPRoutingTable.cc \
-	ecmp/ECMPRoutingTable.h
-$O/ecmp/IPECMP.o: ecmp/IPECMP.cc \
 	ecmp/ECMPRoutingTable.h \
-	ecmp/IPECMP.h \
 	$(INET_PROJ)/src/inet/common/Compat.h \
 	$(INET_PROJ)/src/inet/common/INETDefs.h \
 	$(INET_PROJ)/src/inet/common/InitStages.h \
 	$(INET_PROJ)/src/inet/common/NotifierConsts.h \
-	$(INET_PROJ)/src/inet/common/ProtocolMap.h \
-	$(INET_PROJ)/src/inet/common/queue/AbstractQueue.h \
-	$(INET_PROJ)/src/inet/common/queue/QueueBase.h \
+	$(INET_PROJ)/src/inet/common/lifecycle/ILifecycle.h \
 	$(INET_PROJ)/src/inet/features.h \
 	$(INET_PROJ)/src/inet/linklayer/common/MACAddress.h \
-	$(INET_PROJ)/src/inet/networklayer/arp/ipv4/ARPPacket_m.h \
 	$(INET_PROJ)/src/inet/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/inet/networklayer/common/InterfaceToken.h \
 	$(INET_PROJ)/src/inet/networklayer/common/L3Address.h \
@@ -261,8 +257,50 @@ $O/ecmp/IPECMP.o: ecmp/IPECMP.cc \
 	$(INET_PROJ)/src/inet/networklayer/contract/IRoutingTable.h \
 	$(INET_PROJ)/src/inet/networklayer/contract/ipv4/IPv4Address.h \
 	$(INET_PROJ)/src/inet/networklayer/contract/ipv6/IPv6Address.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IIPv4RoutingTable.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4Route.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4RoutingTable.h
+$O/ecmp/IPECMP.o: ecmp/IPECMP.cc \
+	ecmp/ECMPRoutingTable.h \
+	ecmp/IPECMP.h \
+	$(INET_PROJ)/src/inet/common/Compat.h \
+	$(INET_PROJ)/src/inet/common/INETDefs.h \
+	$(INET_PROJ)/src/inet/common/InitStages.h \
+	$(INET_PROJ)/src/inet/common/NotifierConsts.h \
+	$(INET_PROJ)/src/inet/common/ProtocolMap.h \
+	$(INET_PROJ)/src/inet/common/ReassemblyBuffer.h \
+	$(INET_PROJ)/src/inet/common/TLVOption.h \
+	$(INET_PROJ)/src/inet/common/TLVOption_m.h \
+	$(INET_PROJ)/src/inet/common/lifecycle/ILifecycle.h \
+	$(INET_PROJ)/src/inet/common/queue/AbstractQueue.h \
+	$(INET_PROJ)/src/inet/common/queue/QueueBase.h \
+	$(INET_PROJ)/src/inet/features.h \
+	$(INET_PROJ)/src/inet/linklayer/common/MACAddress.h \
+	$(INET_PROJ)/src/inet/networklayer/arp/ipv4/ARPPacket_m.h \
+	$(INET_PROJ)/src/inet/networklayer/common/IPProtocolId_m.h \
+	$(INET_PROJ)/src/inet/networklayer/common/InterfaceEntry.h \
+	$(INET_PROJ)/src/inet/networklayer/common/InterfaceToken.h \
+	$(INET_PROJ)/src/inet/networklayer/common/L3Address.h \
+	$(INET_PROJ)/src/inet/networklayer/common/ModuleIdAddress.h \
+	$(INET_PROJ)/src/inet/networklayer/common/ModulePathAddress.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/INetworkDatagram.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/INetworkProtocolControlInfo.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/IRoute.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/IRoutingTable.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/ipv4/IPv4Address.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/ipv4/IPv4ControlInfo.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/ipv4/IPv4ControlInfo_m.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/ipv6/IPv6Address.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/ICMP.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/ICMPMessage.h \
 	$(INET_PROJ)/src/inet/networklayer/ipv4/ICMPMessage_m.h \
-	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4InterfaceData.h
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IIPv4RoutingTable.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4Datagram.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4Datagram_m.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4FragBuf.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4InterfaceData.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4Route.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4RoutingTable.h
 $O/ecmp/ecmpTopo.o: ecmp/ecmpTopo.cc \
 	ecmp/ecmpTopo.h \
 	$(INET_PROJ)/src/inet/common/Compat.h \

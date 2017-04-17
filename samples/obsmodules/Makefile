@@ -56,6 +56,7 @@ INCLUDE_PATH = \
     -Itest/OEConverterTest \
     -Itest/OpticalMonitorTest \
     -Itest/PacketBurstifierTest \
+    -Itest/PacketBurstifierTest/results \
     -Itest/PacketDispatcherTest \
     -Iutils
 
@@ -241,6 +242,7 @@ clean:
 	$(Q)-rm -f test/OEConverterTest/*_m.cc test/OEConverterTest/*_m.h test/OEConverterTest/*_sm.cc test/OEConverterTest/*_sm.h
 	$(Q)-rm -f test/OpticalMonitorTest/*_m.cc test/OpticalMonitorTest/*_m.h test/OpticalMonitorTest/*_sm.cc test/OpticalMonitorTest/*_sm.h
 	$(Q)-rm -f test/PacketBurstifierTest/*_m.cc test/PacketBurstifierTest/*_m.h test/PacketBurstifierTest/*_sm.cc test/PacketBurstifierTest/*_sm.h
+	$(Q)-rm -f test/PacketBurstifierTest/results/*_m.cc test/PacketBurstifierTest/results/*_m.h test/PacketBurstifierTest/results/*_sm.cc test/PacketBurstifierTest/results/*_sm.h
 	$(Q)-rm -f test/PacketDispatcherTest/*_m.cc test/PacketDispatcherTest/*_m.h test/PacketDispatcherTest/*_sm.cc test/PacketDispatcherTest/*_sm.h
 	$(Q)-rm -f utils/*_m.cc utils/*_m.h utils/*_sm.cc utils/*_sm.h
 
@@ -249,7 +251,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketDispatcherTest/*.cc utils/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketBurstifierTest/results/*.cc test/PacketDispatcherTest/*.cc utils/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/src/CoreNode/OBS_BCPControlInfo_m.o: src/CoreNode/OBS_BCPControlInfo_m.cc \

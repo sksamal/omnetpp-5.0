@@ -41,6 +41,7 @@ network TreeTopologyOBS
         // 5 hosts which send and receive traffic
         host1: StandardHost {
             parameters:
+          //      routingTableType = default("IPv4RoutingTable");
                 routingTable.routingFile = "H1.irt";
                 @display("p=76,157");
         }

@@ -4,7 +4,7 @@
 
 package fattree.router;
 
-import inet.nodes.inet.Router;
+import inet.node.inet.Router;
 
 //
 // Router to connect the elements in the controller subnetwork for

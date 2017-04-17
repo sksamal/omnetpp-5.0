@@ -87,14 +87,14 @@ void OBS_PacketBurstifier::handleMessage(cMessage *msg){
       if(((burstBits + arrivedMsg->getBitLength() + varHeaderInBits) > maxSizeInBits)) overflowHappened = true;
 
       // Check if burstifier is empty
-      if(burstContent.empty()){ // If so, start timeout and initialize queue
+      if(burstContent.isEmpty()){ // If so, start timeout and initialize queue
          scheduleAt(simTime()+timeout,timeout_msg); //Set the timeout
          //Register first packet arrival time
          firstPacket_t = simTime();            
       }
       else if (overflowHappened && !overflowLastPacket){ // Enter if burst assembly is needed before the packet is inserted into the queue
       //If queue is empty at this moment, display an error message because something weird happened :S
-         if(burstContent.empty()) throw cRuntimeError("Attempted to assemble a burst using an empty queue");
+         if(burstContent.isEmpty()) throw cRuntimeError("Attempted to assemble a burst using an empty queue");
       //Assemble burst and restart counters
          assembleBurst();
          if(timeout_msg->isScheduled()) cancelEvent(timeout_msg); //Cancel current timeout and schedule a new one
@@ -147,7 +147,7 @@ void OBS_PacketBurstifier::assembleBurst(){
    //SenderID will be set once the burst arrives at the sender 
    burstCounter++;
    cMessage *tempMsg;
-   while(!(burstContent.empty())){
+   while(!(burstContent.isEmpty())){
       tempMsg = (cMessage*)burstContent.pop();
       assembledBurst->insertMessage(tempMsg);
    }

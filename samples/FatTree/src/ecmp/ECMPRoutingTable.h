@@ -16,14 +16,14 @@
 #ifndef ECMPROUTINGTABLE_H_
 #define ECMPROUTINGTABLE_H_
 
-#include <RoutingTable.h>
+#include <networklayer/ipv4/IPv4RoutingTable.h>
 
-class ECMPRoutingTable: public RoutingTable {
+class ECMPRoutingTable: public IPv4RoutingTable {
 public:
     /**
      * The routing function.
      */
-    virtual std::vector<IPRoute*> findBestMatchingRoutes(const IPAddress& dest) const;
+    virtual std::vector<IPv4Route*> findBestMatchingRoutes(const IPv4Address& dest) const;
 };
 
 #endif /* ECMPROUTINGTABLE_H_ */

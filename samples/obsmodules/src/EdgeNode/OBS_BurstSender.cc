@@ -274,7 +274,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
             //Update the burst dropped counter
             burstDroppedByOffset++;
             // Now you can try to pick a queued BCP (if any available) in order to send it
-            if(!waitingBCP.empty()){
+            if(!waitingBCP.isEmpty()){
                //pick up a BCP and send it now
                cMessage *bcp_ini = (cMessage*)waitingBCP.pop();
                scheduleAt(simTime(),bcp_ini);
@@ -334,7 +334,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          
          control_is_busy = false; //Control channel is free now...
          //So, pick a pending BCP if any available
-         if(!waitingBCP.empty()){
+         if(!waitingBCP.isEmpty()){
             //Put the BCP off the queue and schedule it
             cMessage *bcp_ini = (cMessage*)waitingBCP.pop();
             scheduleAt(simTime(),bcp_ini);
@@ -385,7 +385,7 @@ void OBS_BurstSender::finish(){
    recordScalar("burst dropped by reaching Minimum Offset",burstDroppedByOffset);
    recordScalar("burst dropped by queue",burstDroppedByQueue);
 
-   recordScalar("BCPs pending to be sent (because the control channel is busy)", waitingBCP.length());
+   recordScalar("BCPs pending to be sent (because the control channel is busy)", waitingBCP.getLength());
 }
 
 //This method returns the first of the smallest lambdas available. Just a plain minimum algorithm

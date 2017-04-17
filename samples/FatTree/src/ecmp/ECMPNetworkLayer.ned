@@ -6,10 +6,10 @@
 
 package fattree.ecmp;
 
-import inet.networklayer.arp.ARP;
+import inet.networklayer.arp.ipv4.ARP;
 import inet.networklayer.ipv4.ErrorHandling;
 import inet.networklayer.ipv4.ICMP;
-import inet.networklayer.ipv4.IGMP;
+import inet.networklayer.ipv4.IGMPv3;
 //import inet.networklayer.ipv4.IP;
 
 
@@ -30,14 +30,14 @@ module ECMPNetworkLayer
         input sctpIn @labels(IPControlInfo/down,SCTPPacket);   //I.R.
         input rsvpIn @labels(IPControlInfo/down);
         input ospfIn @labels(IPControlInfo/down);
-        input pingIn;
+        input pingIn[];
         output ifOut[];
         output tcpOut @labels(TCPSegment,IPControlInfo/up);
         output udpOut @labels(UDPPacket,IPControlInfo/up);
         output sctpOut @labels(IPControlInfo/up,SCTPPacket); //I.R.
         output rsvpOut @labels(IPControlInfo/up);
         output ospfOut @labels(IPControlInfo/up);
-        output pingOut;
+        output pingOut[];
 
     submodules:
         // Adapted submodule from IP to ecmpIP.
@@ -55,16 +55,16 @@ module ECMPNetworkLayer
         }
         arp: ARP {
             parameters:
-                proxyARP = proxyARP;
+//                proxyARP = proxyARP;
                 @display("p=163,206;q=pendingQueue");
             gates:
-                nicOut[sizeof(ifOut)];
+//                netwOut[sizeof(ifOut)];
         }
         icmp: ICMP {
             parameters:
                 @display("p=160,63");
         }
-        igmp: IGMP {
+        igmp: IGMPv3 {
             parameters:
                 @display("p=160,122");
         }
@@ -83,8 +83,8 @@ module ECMPNetworkLayer
         ip.transportOut[2] --> icmp.localIn;
         ip.transportIn[2] <-- icmp.sendOut;
 
-        ip.transportOut[3] --> igmp.localIn;
-        ip.transportIn[3] <-- igmp.sendOut;
+        ip.transportOut[3] --> igmp.ipIn;
+        ip.transportIn[3] <-- igmp.ipOut;
 
         ip.transportOut[4] --> rsvpOut;
         ip.transportIn[4] <-- rsvpIn;
@@ -95,17 +95,17 @@ module ECMPNetworkLayer
         ip.transportOut[6] --> sctpOut;     //I.R.
         ip.transportIn[6] <-- sctpIn;
 
-        icmp.pingOut --> pingOut;
-        icmp.pingIn <-- pingIn;
+        icmp.pingOut[0] --> pingOut[0];
+        icmp.pingIn[0] <-- pingIn[0];
 
         icmp.errorOut --> errorHandling.in;
 
-        ip.queueOut --> arp.ipIn;
+        ip.queueOut --> arp.netwIn;
 
         // L2 interfaces to IP and from ARP
         for i=0..sizeof(ifOut)-1 {
             ifIn[i] --> { @display("m=s"); } --> ip.queueIn[i];
-            ifOut[i] <-- { @display("m=s"); } <-- arp.nicOut[i];
+            ifOut[i] <-- { @display("m=s"); } <-- arp.netwOut;
         }
 }
 

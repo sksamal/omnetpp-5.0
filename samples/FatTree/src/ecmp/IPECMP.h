@@ -20,12 +20,12 @@
 
 #include "QueueBase.h"
 //#include "InterfaceTableAccess.h"
-#include "RoutingTableAccess.h"
+//#include "RoutingTableAccess.h"
 #include "IRoutingTable.h"
-#include "ICMPAccess.h"
-#include "IPControlInfo.h"
-#include "IPDatagram.h"
-#include "IPFragBuf.h"
+#include "ICMP.h"
+#include "IPv4ControlInfo.h"
+#include "IPv4Datagram.h"
+#include "IPv4FragBuf.h"
 #include "ProtocolMap.h"
 
 
