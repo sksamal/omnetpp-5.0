@@ -1,14 +1,14 @@
 version 2
-run r1-0-20170416-17:20:26-11110
+run r1-0-20170505-16:38:15-8713
 attr configname r1
-attr datetime 20170416-17:20:26
+attr datetime 20170505-16:38:15
 attr experiment r1
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network obsmodules.test.BurstDisassemblerTest.BurstDisassemblerTest
-attr processid 11110
+attr processid 8713
 attr repetition 0
 attr replication #0
 attr resultdir results

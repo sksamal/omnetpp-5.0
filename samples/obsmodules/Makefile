@@ -30,6 +30,8 @@ INCLUDE_PATH = \
     -IExamples/DispatcherTest \
     -IExamples/EdgeNodeExample \
     -IExamples/EdgeNodeTest \
+    -IExamples/FSONodeExample \
+    -IExamples/FSONodeTest \
     -IExamples/TreeTopologyOBS \
     -IExamples/jitel09 \
     -Idoc \
@@ -37,6 +39,7 @@ INCLUDE_PATH = \
     -Isrc \
     -Isrc/CoreNode \
     -Isrc/EdgeNode \
+    -Isrc/FSONode \
     -Isrc/messages \
     -Isrc/misc \
     -Isrc/tests \
@@ -52,12 +55,16 @@ INCLUDE_PATH = \
     -Itest/CoreOutputTest \
     -Itest/DropBurstTest \
     -Itest/EOConverterTest \
+    -Itest/FSOInputTest \
+    -Itest/FSONodeTest \
+    -Itest/FSOOutputTest \
     -Itest/FileBurstifierTest \
     -Itest/OEConverterTest \
     -Itest/OpticalMonitorTest \
     -Itest/PacketBurstifierTest \
     -Itest/PacketBurstifierTest/results \
     -Itest/PacketDispatcherTest \
+    -Itest/PacketDispatcherTest/results \
     -Iutils
 
 # Additional object and library files to link with
@@ -89,6 +96,8 @@ OBJS = \
     $O/src/EdgeNode/BurstList.o \
     $O/src/EdgeNode/OBS_PacketBurstifier.o \
     $O/src/EdgeNode/OBS_PacketDispatcher.o \
+    $O/src/FSONode/FSO_Output.o \
+    $O/src/FSONode/FSO_Input.o \
     $O/src/messages/OBS_Burst.o \
     $O/src/misc/OBS_OpticalMonitor.o \
     $O/src/misc/OBS_DropBurst.o \
@@ -216,6 +225,8 @@ clean:
 	$(Q)-rm -f Examples/DispatcherTest/*_m.cc Examples/DispatcherTest/*_m.h Examples/DispatcherTest/*_sm.cc Examples/DispatcherTest/*_sm.h
 	$(Q)-rm -f Examples/EdgeNodeExample/*_m.cc Examples/EdgeNodeExample/*_m.h Examples/EdgeNodeExample/*_sm.cc Examples/EdgeNodeExample/*_sm.h
 	$(Q)-rm -f Examples/EdgeNodeTest/*_m.cc Examples/EdgeNodeTest/*_m.h Examples/EdgeNodeTest/*_sm.cc Examples/EdgeNodeTest/*_sm.h
+	$(Q)-rm -f Examples/FSONodeExample/*_m.cc Examples/FSONodeExample/*_m.h Examples/FSONodeExample/*_sm.cc Examples/FSONodeExample/*_sm.h
+	$(Q)-rm -f Examples/FSONodeTest/*_m.cc Examples/FSONodeTest/*_m.h Examples/FSONodeTest/*_sm.cc Examples/FSONodeTest/*_sm.h
 	$(Q)-rm -f Examples/TreeTopologyOBS/*_m.cc Examples/TreeTopologyOBS/*_m.h Examples/TreeTopologyOBS/*_sm.cc Examples/TreeTopologyOBS/*_sm.h
 	$(Q)-rm -f Examples/jitel09/*_m.cc Examples/jitel09/*_m.h Examples/jitel09/*_sm.cc Examples/jitel09/*_sm.h
 	$(Q)-rm -f doc/*_m.cc doc/*_m.h doc/*_sm.cc doc/*_sm.h
@@ -223,6 +234,7 @@ clean:
 	$(Q)-rm -f src/*_m.cc src/*_m.h src/*_sm.cc src/*_sm.h
 	$(Q)-rm -f src/CoreNode/*_m.cc src/CoreNode/*_m.h src/CoreNode/*_sm.cc src/CoreNode/*_sm.h
 	$(Q)-rm -f src/EdgeNode/*_m.cc src/EdgeNode/*_m.h src/EdgeNode/*_sm.cc src/EdgeNode/*_sm.h
+	$(Q)-rm -f src/FSONode/*_m.cc src/FSONode/*_m.h src/FSONode/*_sm.cc src/FSONode/*_sm.h
 	$(Q)-rm -f src/messages/*_m.cc src/messages/*_m.h src/messages/*_sm.cc src/messages/*_sm.h
 	$(Q)-rm -f src/misc/*_m.cc src/misc/*_m.h src/misc/*_sm.cc src/misc/*_sm.h
 	$(Q)-rm -f src/tests/*_m.cc src/tests/*_m.h src/tests/*_sm.cc src/tests/*_sm.h
@@ -238,12 +250,16 @@ clean:
 	$(Q)-rm -f test/CoreOutputTest/*_m.cc test/CoreOutputTest/*_m.h test/CoreOutputTest/*_sm.cc test/CoreOutputTest/*_sm.h
 	$(Q)-rm -f test/DropBurstTest/*_m.cc test/DropBurstTest/*_m.h test/DropBurstTest/*_sm.cc test/DropBurstTest/*_sm.h
 	$(Q)-rm -f test/EOConverterTest/*_m.cc test/EOConverterTest/*_m.h test/EOConverterTest/*_sm.cc test/EOConverterTest/*_sm.h
+	$(Q)-rm -f test/FSOInputTest/*_m.cc test/FSOInputTest/*_m.h test/FSOInputTest/*_sm.cc test/FSOInputTest/*_sm.h
+	$(Q)-rm -f test/FSONodeTest/*_m.cc test/FSONodeTest/*_m.h test/FSONodeTest/*_sm.cc test/FSONodeTest/*_sm.h
+	$(Q)-rm -f test/FSOOutputTest/*_m.cc test/FSOOutputTest/*_m.h test/FSOOutputTest/*_sm.cc test/FSOOutputTest/*_sm.h
 	$(Q)-rm -f test/FileBurstifierTest/*_m.cc test/FileBurstifierTest/*_m.h test/FileBurstifierTest/*_sm.cc test/FileBurstifierTest/*_sm.h
 	$(Q)-rm -f test/OEConverterTest/*_m.cc test/OEConverterTest/*_m.h test/OEConverterTest/*_sm.cc test/OEConverterTest/*_sm.h
 	$(Q)-rm -f test/OpticalMonitorTest/*_m.cc test/OpticalMonitorTest/*_m.h test/OpticalMonitorTest/*_sm.cc test/OpticalMonitorTest/*_sm.h
 	$(Q)-rm -f test/PacketBurstifierTest/*_m.cc test/PacketBurstifierTest/*_m.h test/PacketBurstifierTest/*_sm.cc test/PacketBurstifierTest/*_sm.h
 	$(Q)-rm -f test/PacketBurstifierTest/results/*_m.cc test/PacketBurstifierTest/results/*_m.h test/PacketBurstifierTest/results/*_sm.cc test/PacketBurstifierTest/results/*_sm.h
 	$(Q)-rm -f test/PacketDispatcherTest/*_m.cc test/PacketDispatcherTest/*_m.h test/PacketDispatcherTest/*_sm.cc test/PacketDispatcherTest/*_sm.h
+	$(Q)-rm -f test/PacketDispatcherTest/results/*_m.cc test/PacketDispatcherTest/results/*_m.h test/PacketDispatcherTest/results/*_sm.cc test/PacketDispatcherTest/results/*_sm.h
 	$(Q)-rm -f utils/*_m.cc utils/*_m.h utils/*_sm.cc utils/*_sm.h
 
 cleanall: clean
@@ -251,7 +267,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketBurstifierTest/results/*.cc test/PacketDispatcherTest/*.cc utils/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeTest/*.cc Examples/FSONodeExample/*.cc Examples/FSONodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/FSONode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FSOInputTest/*.cc test/FSONodeTest/*.cc test/FSOOutputTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketBurstifierTest/results/*.cc test/PacketDispatcherTest/*.cc test/PacketDispatcherTest/results/*.cc utils/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/src/CoreNode/OBS_BCPControlInfo_m.o: src/CoreNode/OBS_BCPControlInfo_m.cc \
@@ -403,6 +419,10 @@ $O/src/EdgeNode/OBS_PacketDispatcher.o: src/EdgeNode/OBS_PacketDispatcher.cc \
 	src/EdgeNode/OBS_PacketDispatcher.h
 $O/src/EdgeNode/OBS_ScheduledBurstItem_m.o: src/EdgeNode/OBS_ScheduledBurstItem_m.cc \
 	src/EdgeNode/OBS_ScheduledBurstItem_m.h
+$O/src/FSONode/FSO_Input.o: src/FSONode/FSO_Input.cc \
+	src/FSONode/FSO_Input.h
+$O/src/FSONode/FSO_Output.o: src/FSONode/FSO_Output.cc \
+	src/FSONode/FSO_Output.h
 $O/src/messages/OBS_Burst.o: src/messages/OBS_Burst.cc \
 	src/messages/OBS_Burst.h \
 	src/messages/OBS_Burst_m.h

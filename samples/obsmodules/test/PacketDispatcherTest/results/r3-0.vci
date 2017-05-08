@@ -1,0 +1,26 @@
+file 966 1492545230                                             
+version 2
+run r3-0-20170418-14:51:47-4988
+attr configname r3
+attr datetime 20170418-14:51:47
+attr experiment r3
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network obsmodules.test.PacketDispatcherTest.PacketDispatcherTest
+attr processid 4988
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.comparisonType 2
+param **.dispatcherRules "\"DispatcherRules_t1\""
+param **.inputFile "\"PacketDispatcherInput_t1\""
+param **.numPacketBurstifiers 16
+param **.outputFile "\"PacketDispatcherOutput_t3\""
+param **.patternFile "\"PacketDispatcherPattern_t3\""
+
+vector 0  PacketDispatcherTest.packetDispatcher  recvPacketSize  ETV
+0	732 234 2 44 0.001 0.013 15 40 1508 19652 29469776

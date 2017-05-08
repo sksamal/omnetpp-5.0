@@ -25,6 +25,7 @@ import obsmodules.src.EdgeNode.OBS_PacketBurstifier;
 import inet.common.queue.Sink;
 //import inet.applications.generic.IPTrafGen;
 import inet.applications.generic.IPvXTrafGen;
+import inet.common.lifecycle.NodeStatus;
 
 
 // Network used to check that the packet burstifier works properly.
@@ -37,6 +38,12 @@ network BurstifierTest
                 parameters:
                 @display("p=51,72;i=block/source");
         }
+        
+        status : NodeStatus {
+               @display("p=61,72;i=block/source");
+            
+        }
+        
         converter: PacketConverter {
             parameters:
                 @display("p=98,168;i=block/cogwheel");

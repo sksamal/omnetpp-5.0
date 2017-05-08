@@ -1,14 +1,14 @@
 version 2
-run r1-0-20170416-17:24:15-11358
+run r1-0-20170418-15:02:54-6022
 attr configname r1
-attr datetime 20170416-17:24:15
+attr datetime 20170418-15:02:54
 attr experiment r1
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network obsmodules.test.PacketBurstifierTest.PacketBurstifierTest
-attr processid 11358
+attr processid 6022
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -30,6 +30,3 @@ param **.timeout 0.01s
 param **.varHeader 2B
 
 scalar PacketBurstifierTest.packetBurstifier 	"my ID" 	3
-scalar PacketBurstifierTest.packetBurstifier 	"Packets received" 	45
-scalar PacketBurstifierTest.packetBurstifier 	"Average packet size" 	461.62222222222
-scalar PacketBurstifierTest.packetBurstifier 	"Packet size variance" 	219996.96767677
