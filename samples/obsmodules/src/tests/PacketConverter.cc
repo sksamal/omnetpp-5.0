@@ -45,6 +45,7 @@ PacketConverter::~PacketConverter(){}
 void PacketConverter::handleMessage(cMessage *msg){
    //IPTrafGen generates a cMessage packet which contains a IPControlInfo object encapsulated
 //   IPControlInfo *IPCtl = check_and_cast < IPControlInfo *> (msg->getControlInfo());
+    if(msg->getControlInfo() != nullptr) {
    IPv4ControlInfo *IPCtl = check_and_cast < IPv4ControlInfo *> (msg->getControlInfo());
 
    // Create a IPDatagram object
@@ -65,5 +66,6 @@ void PacketConverter::handleMessage(cMessage *msg){
    //Send the IPDatagram object
    send(IPSal,"out");
    //...and that's all!
+    }
    delete msg;      
 }

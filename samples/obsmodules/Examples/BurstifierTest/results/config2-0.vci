@@ -1,0 +1,48 @@
+file 10249263 1494309700                                        
+version 2
+run config2-0-20170509-01:00:56-19347
+attr configname config2
+attr datetime 20170509-01:00:56
+attr experiment config2
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network BurstifierTest
+attr processid 19347
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.burstifier.cteHeader 8B
+param **.burstifier.destLabel 42
+param **.burstifier.maxOffset 0.3s
+param **.burstifier.maxSize 12500B
+param **.burstifier.minOffset 0.1s
+param **.burstifier.minSizeWithPadding 1250B
+param **.burstifier.numPackets 100000
+param **.burstifier.overflowLastPacket false
+param **.burstifier.timeout 1s
+param **.burstifier.varHeader 1B
+param **.generator.destAddresses "\"10.0.0.2\""
+param **.generator.numPackets 100000
+param **.generator.packetLength 1000B
+param **.generator.protocol 17
+param **.generator.sendInterval exponential(1s)
+param **.generator.startTime 0
+
+vector 1  BurstifierTest.generator  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 4  BurstifierTest.burstifier  burstifierInPacketSize  ETV
+vector 5  BurstifierTest.burstifier  avgPacketTime  ETV
+vector 3  BurstifierTest.sink  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+1	1418 3250161 2 400085 0 99808.386340520765 100000 1000 1000 100000000 100000000000
+3	3251579 1626336 9 400089 1 99808.912721151605 50044 1250 10018 104926558 261715075782
+4	4877915 3250164 4 400087 0 99808.386340520765 100000 1000 1000 100000000 100000000000
+5	8128079 2121184 8 400088 1 99808.912721151605 50044 0.550719805758 0.775359902879 37519.850883359 28130.177246474

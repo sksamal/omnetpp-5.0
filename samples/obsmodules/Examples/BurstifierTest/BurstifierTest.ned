@@ -32,7 +32,10 @@ import inet.common.lifecycle.NodeStatus;
 // We use INET's IPTrafGen as a traffic generator. But this module creates messages that the burstifier can't read. For that reason, a converter module is needed.
 network BurstifierTest
 {
-    submodules:
+		parameters:
+		@networkNode();
+		    
+        submodules:
 //        generator: IPTrafGen {
         generator: IPvXTrafGen {
                 parameters:
@@ -41,17 +44,18 @@ network BurstifierTest
         
         status : NodeStatus {
                @display("p=61,72;i=block/source");
-            
         }
         
         converter: PacketConverter {
             parameters:
                 @display("p=98,168;i=block/cogwheel");
         }
+
         burstifier: OBS_PacketBurstifier {
             parameters:
                 @display("p=97,240;i=block/queue");
         }
+
         sink: Sink {
             parameters:
                 @display("p=143,360;i=block/sink");
@@ -61,6 +65,6 @@ network BurstifierTest
     connections allowunconnected:
         generator.ipOut --> converter.in;
         converter.out --> burstifier.in;
+      //  generator.ipOut -->burstifier.in;
         burstifier.out --> sink.in[0];
 }
-

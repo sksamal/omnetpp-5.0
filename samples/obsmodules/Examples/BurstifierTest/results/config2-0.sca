@@ -1,0 +1,107 @@
+version 2
+run config2-0-20170509-01:00:56-19347
+attr configname config2
+attr datetime 20170509-01:00:56
+attr experiment config2
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network BurstifierTest
+attr processid 19347
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.burstifier.cteHeader 8B
+param **.burstifier.destLabel 42
+param **.burstifier.maxOffset 0.3s
+param **.burstifier.maxSize 12500B
+param **.burstifier.minOffset 0.1s
+param **.burstifier.minSizeWithPadding 1250B
+param **.burstifier.numPackets 100000
+param **.burstifier.overflowLastPacket false
+param **.burstifier.timeout 1s
+param **.burstifier.varHeader 1B
+param **.generator.destAddresses "\"10.0.0.2\""
+param **.generator.numPackets 100000
+param **.generator.packetLength 1000B
+param **.generator.protocol 17
+param **.generator.sendInterval exponential(1s)
+param **.generator.startTime 0
+
+scalar BurstifierTest.burstifier 	"my ID" 	5
+scalar BurstifierTest.generator 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar BurstifierTest.generator 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic BurstifierTest.generator 	endToEndDelay:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "end-to-end delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar BurstifierTest.generator 	sentPk:count 	100000
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar BurstifierTest.generator 	sentPk:sum(packetBytes) 	100000000
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar BurstifierTest.burstifier 	"Packets received" 	100000
+scalar BurstifierTest.burstifier 	"Average packet size" 	1000
+scalar BurstifierTest.burstifier 	"Packet size variance" 	0
+scalar BurstifierTest.sink 	throughput 	8410.1954536382
+scalar BurstifierTest.sink 	packetPerSec 	0.50139810800078
+scalar BurstifierTest.sink 	rcvdPk:count 	50044
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar BurstifierTest.sink 	rcvdPk:sum(packetBytes) 	104926558
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
