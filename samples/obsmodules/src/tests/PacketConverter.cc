@@ -29,6 +29,7 @@ using namespace inet;
 
 //
 // Dummy class created for the use in simulations where packets are created using IPTrafGen (Dispatcher Test, for example)
+// Suraj: added a check to ignore if the msg is null (to get rid of initial control messages)
 //
 class PacketConverter : public cSimpleModule
 {

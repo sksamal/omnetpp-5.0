@@ -1,0 +1,113 @@
+version 2
+run General-0-20170510-15:26:48-13542
+attr configname General
+attr datetime 20170510-15:26:48
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network DispatcherTest
+attr processid 13542
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param DispatcherTest.numQueues 3
+param DispatcherTest.rulesFile "\"DispatcherRules.dat\""
+
+scalar DispatcherTest.generator 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar DispatcherTest.generator 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+statistic DispatcherTest.generator 	endToEndDelay:histogram
+field count 0
+field mean -nan
+field stddev -nan
+field sum 0
+field sqrsum 0
+field min -nan
+field max -nan
+attr interpolationmode  none
+attr source  messageAge(rcvdPk)
+attr title  "end-to-end delay, histogram"
+attr unit  s
+bin	-INF	0
+bin	-0.5	0
+bin	-0.46666666666667	0
+bin	-0.43333333333333	0
+bin	-0.4	0
+bin	-0.36666666666667	0
+bin	-0.33333333333333	0
+bin	-0.3	0
+bin	-0.26666666666667	0
+bin	-0.23333333333333	0
+bin	-0.2	0
+bin	-0.16666666666667	0
+bin	-0.13333333333333	0
+bin	-0.1	0
+bin	-0.066666666666667	0
+bin	-0.033333333333333	0
+bin	0	0
+bin	0.033333333333333	0
+bin	0.066666666666667	0
+bin	0.1	0
+bin	0.13333333333333	0
+bin	0.16666666666667	0
+bin	0.2	0
+bin	0.23333333333333	0
+bin	0.26666666666667	0
+bin	0.3	0
+bin	0.33333333333333	0
+bin	0.36666666666667	0
+bin	0.4	0
+bin	0.43333333333333	0
+bin	0.46666666666667	0
+bin	0.5	0
+scalar DispatcherTest.generator 	sentPk:count 	2
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, count"
+scalar DispatcherTest.generator 	sentPk:sum(packetBytes) 	2000
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, sum(packetBytes)"
+scalar DispatcherTest.dispatcher 	"Packets received" 	1
+scalar DispatcherTest.dispatcher 	"Average packet size" 	1000
+scalar DispatcherTest.dispatcher 	"Packet size variance" 	-nan
+scalar DispatcherTest.dispatcher 	"Dropped Packets" 	0
+scalar DispatcherTest.sink[0] 	throughput 	inf
+scalar DispatcherTest.sink[0] 	packetPerSec 	inf
+scalar DispatcherTest.sink[0] 	rcvdPk:count 	1
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar DispatcherTest.sink[0] 	rcvdPk:sum(packetBytes) 	1000
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar DispatcherTest.sink[1] 	throughput 	0
+scalar DispatcherTest.sink[1] 	packetPerSec 	0
+scalar DispatcherTest.sink[1] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar DispatcherTest.sink[1] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"
+scalar DispatcherTest.sink[2] 	throughput 	0
+scalar DispatcherTest.sink[2] 	packetPerSec 	0
+scalar DispatcherTest.sink[2] 	rcvdPk:count 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, count"
+scalar DispatcherTest.sink[2] 	rcvdPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, sum(packetBytes)"

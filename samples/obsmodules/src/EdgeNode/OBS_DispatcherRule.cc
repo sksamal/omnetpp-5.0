@@ -109,13 +109,32 @@ bool OBS_DispatcherRule::match(cMessage *msg){
 
    // Check which fields are set in this rule
    if(isSet[0]){
-      if(!(recvIP->getSrcAddress() == srcAddr)) return false;
+      if(!(recvIP->getSrcAddress() == srcAddr)) {
+ //     cout<< "srcAddr("<<recvIP->getSrcAddress()<<") not set, srcAddr="<<srcAddr<<"\n";
+ //     throw new cRuntimeError("srcAddr not set");
+
+          return false;
+      }
+      cout<< "srcAddr("<<recvIP->getSrcAddress()<<") matched \n";
    }
    if(isSet[1]){
-      if(!(recvIP->getDestAddress() == destAddr)) return false;
+      if(!(recvIP->getDestAddress() == destAddr)) {
+ //         cout<< "destAddr("<<recvIP->getDestAddress()<<") not set, destAddr="<<destAddr<<"\n";
+  //        throw new cRuntimeError("destAddr not set");
+
+          return false;
+
+      }
+      cout<< "destAddr("<<recvIP->getDestAddress()<<") matched \n";
+
    }
    if(isSet[2]){
-      if(!(recvIP->getTransportProtocol() == protocol)) return false;
+      if(!(recvIP->getTransportProtocol() == protocol)) {
+//          cout<< "protocol not set";
+//          throw new cRuntimeError("protocol not set");
+
+          return false;
+      }
    }
    if(isSet[3]){
       // Lookup IP header in order to identify TCP/UDP header and then extract it.
@@ -128,7 +147,13 @@ bool OBS_DispatcherRule::match(cMessage *msg){
          recvSrcPort = recvUDP->getSourcePort();         
       }
 
-      if(!(recvSrcPort == srcPort)) return false;
+      if(!(recvSrcPort == srcPort)) {
+//          cout<< "srcPort("<<srcPort<<") doesnot match with recvSrcPort("<<recvSrcPort<<")";
+//          throw new cRuntimeError("srcPort doesnot match with recvSrcPort");
+          return false;
+      }
+      cout<< "srcPort("<<srcPort<<") matched \n";
+
    }
    if(isSet[4]){
       //The same thing than the isSet[3] case, but now we extract the destination port.
@@ -141,8 +166,14 @@ bool OBS_DispatcherRule::match(cMessage *msg){
          recvDestPort = recvUDP->getDestinationPort();         
       }
 
-      if(!(recvDestPort == destPort)) return false;
+      if(!(recvDestPort == destPort))  {
+//          cout<< "destPort("<<destPort<<") doesnot match with recvDestPort("<<recvDestPort<<")";
+//          throw new cRuntimeError("destPort doesnot match with recvDestPort");
+          return false;
+      }
+      cout<< "destPort("<<destPort<<") matched \n";
    }
    //If everything is OK, return true and finish :)
+   cout<<"Rule Matched \n";
    return true;
 }

@@ -22,53 +22,63 @@ package obsmodules.Examples.FSONodeExample;
 
 import obsmodules.src.FSONode.FSO_Node;
 import inet.node.inet.StandardHost;
-
+import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 
 network FSONodeExample
 {
     parameters:
-        int lambdasEdge; //Number of data channels in the fiber connecting edges
+        int lambdas; //Number of data channels in the fiber connecting edges
+ 		int servers = default(1);
     submodules:
+ 
         host1: StandardHost {
             parameters:
-                routingTable.routingFile = "H1.irt";
+                forwarding = true;
                 @display("p=46,112");
         }
         host2: StandardHost {
             parameters:
-                routingTable.routingFile = "H2.irt";
+                forwarding = true;
                 @display("p=48,272");
         }
         fso1: FSO_Node {
             parameters:
-                numInLambdas = lambdasEdge;
-                numOutLambdas = lambdasEdge;
-                obs.assembler.dispatcher.dispatcherRules = "DispatcherRules.dat";
-                routingTable.routingFile = "Fso1.irt";
-                @display("p=159,112");
+                lambdasPerInPort = lambdas;
+                lambdasPerOutPort = lambdas;
+                oxcnumPorts = 2;
+                servernumPorts = servers;
+                @display("p=259,112");
             gates:
-                obsIn[lambdasEdge+1];
-                obsOut[lambdasEdge+1];
+ //               oxcin[lambdas];
+ //               oxcout[lambdas];
+ //               ethIO[servers];
         }
         fso2: FSO_Node {
             parameters:
-                numInLambdas = lambdasEdge;
-                numOutLambdas = lambdasEdge;
-                obs.assembler.dispatcher.dispatcherRules = "DispatcherRules.dat";
-                routingTable.routingFile = "Fso2.irt";
-                @display("p=158,272");
+                lambdasPerInPort = lambdas;
+                lambdasPerOutPort = lambdas;
+                oxcnumPorts = 1;
+                servernumPorts = servers;
+                @display("p=258,272");
             gates:
-                obsIn[lambdasEdge+1];
-                obsOut[lambdasEdge+1];
+ //               oxcin[lambdas];
+ //               oxcout[lambdas];
+ //               ethIO[servers];
         }
+        
+        configurator: IPv4NetworkConfigurator {
+            @display("p=62,127");
+            config = xmldoc("IPv4Config.xml");
+        }
+        
     connections:
-        //Connections between hosts and Edge Nodes
+        //Connections between hosts and FSO Nodes
         host1.ethg++ <--> { datarate=1Gbps; } <--> fso1.ethIO++;
         host2.ethg++ <--> { datarate=1Gbps; } <--> fso2.ethIO++;
 
-        //Core 1 connections
-        for i=0..lambdasEdge {
-            fso1.obsOut[i] --> fso2.obsIn[i];
-            fso2.obsOut[i] --> fso1.obsIn[i];
+        //Core Optical connections
+        for i=0..lambdas {
+            fso1.oxcout++ --> fso2.oxcin++;
+            fso2.oxcout++ --> fso1.oxcin++;
         }
 }

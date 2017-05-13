@@ -1,0 +1,97 @@
+version 2
+run config1-0-20170510-15:13:31-13226
+attr configname config1
+attr datetime 20170510-15:13:31
+attr experiment config1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network TreeTopologyOBS
+attr processid 13226
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.BCPProcessingDelay 0
+param **.EOConversionDelay 0
+param **.OEConversionDelay 0
+param **.arp.cacheTimeout 100s
+param **.core*.**.guardTime 0.000000001s
+param **.core*.inputColours "\"\""
+param **.core*.outputColours "\"\""
+param **.core1.lambdasPerInPort "\"1 1 1 1\""
+param **.core1.lambdasPerOutPort "\"1 1 1 1\""
+param **.core2.lambdasPerInPort "\"1 1\""
+param **.core2.lambdasPerOutPort "\"1 1\""
+param **.core3.lambdasPerInPort "\"1 1\""
+param **.core3.lambdasPerOutPort "\"1 1\""
+param **.core4.lambdasPerInPort "\"1 1 1\""
+param **.core4.lambdasPerOutPort "\"1 1 1\""
+param **.core5.lambdasPerInPort "\"1 1\""
+param **.core5.lambdasPerOutPort "\"1 1\""
+param **.dataRate 1e10bps
+param **.edge*.**.dispatcherRules "\"DispatcherRules.dat\""
+param **.edge*.**.guardTime 0.000000001s
+param **.edge*.**.numPacketBurstifiers 5
+param **.edge*.**.packetBurstifier[0].destLabel 1
+param **.edge*.**.packetBurstifier[1].destLabel 2
+param **.edge*.**.packetBurstifier[2].destLabel 3
+param **.edge*.**.packetBurstifier[3].destLabel 4
+param **.edge*.**.packetBurstifier[4].destLabel 5
+param **.edge*.outColours "\"\""
+param **.eth[*].mac.txrate 1e10bps
+param **.eth[*].queue.frameCapacity 100000000
+param **.host*.udpApp[*].destPort 10000
+param **.host*.udpApp[*].sendInterval exponential(0.000035328s)
+param **.host*.udpApp[*].typename "\"UDPBasicApp\""
+param **.host1.udpApp[0].destAddresses "\"host2\""
+param **.host1.udpApp[1].destAddresses "\"host3\""
+param **.host1.udpApp[2].destAddresses "\"host4\""
+param **.host1.udpApp[3].destAddresses "\"host5\""
+param **.host2.udpApp[0].destAddresses "\"host1\""
+param **.host2.udpApp[1].destAddresses "\"host3\""
+param **.host2.udpApp[2].destAddresses "\"host4\""
+param **.host2.udpApp[3].destAddresses "\"host5\""
+param **.host3.udpApp[0].destAddresses "\"host1\""
+param **.host3.udpApp[1].destAddresses "\"host2\""
+param **.host3.udpApp[2].destAddresses "\"host4\""
+param **.host3.udpApp[3].destAddresses "\"host5\""
+param **.host4.udpApp[0].destAddresses "\"host1\""
+param **.host4.udpApp[1].destAddresses "\"host2\""
+param **.host4.udpApp[2].destAddresses "\"host3\""
+param **.host4.udpApp[3].destAddresses "\"host5\""
+param **.host5.udpApp[0].destAddresses "\"host1\""
+param **.host5.udpApp[1].destAddresses "\"host2\""
+param **.host5.udpApp[2].destAddresses "\"host3\""
+param **.host5.udpApp[3].destAddresses "\"host4\""
+param **.ip.procDelay 0
+param **.lambdasCore1to2 1
+param **.lambdasCore1to3 1
+param **.lambdasCore1to4 1
+param **.lambdasCore4to5 1
+param **.lambdasEdge1 1
+param **.lambdasEdge2 1
+param **.lambdasEdge3 1
+param **.lambdasEdge4 1
+param **.lambdasEdge5 1
+param **.messageLength 1472B
+param **.numFileBurstifiers 0
+param **.numUdpApps 4
+param **.packetBurstifier[*].cteHeader 8B
+param **.packetBurstifier[*].maxOffset 0.0001024s
+param **.packetBurstifier[*].maxSize 125000000B
+param **.packetBurstifier[*].minOffset 0.00001024s
+param **.packetBurstifier[*].minSizeWithPadding 8B
+param **.packetBurstifier[*].numPackets 1000000000
+param **.packetBurstifier[*].overflowLastPacket true
+param **.packetBurstifier[*].timeout 100us
+param **.packetBurstifier[*].varHeader 1B
+param **.ppp[*].queue.frameCapacity 100000000
+param **.reportFile "\"\""
+param **.sender.BCPSize 256B
+param **.sender.maxSchedBurstElems 0
+param **.sender.maxSchedBurstSize 0
+param **.sender.testing false
+

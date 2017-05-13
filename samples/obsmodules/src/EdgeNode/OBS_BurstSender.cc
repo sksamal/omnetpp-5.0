@@ -164,7 +164,9 @@ inet::InterfaceEntry* OBS_BurstSender::registerInterface (double datarate){
     e->setPointToPoint(true);
 
     // add
-    IInterfaceTable *ift = findModuleFromPar<IInterfaceTable>(par("interfaceTableModule"), this);
+  IInterfaceTable *ift = check_and_cast<IInterfaceTable*>(this->getParentModule()->getParentModule()->getParentModule()->getSubmodule("interfaceTable"));
+ // IInterfaceTable *ift = findModule<IInterfaceTable>("interfaceTable", this->getParentModule());
+
 
   //  IInterfaceTable *ift = InterfaceTableAccess().getIfExists();
     if (ift)

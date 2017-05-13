@@ -34,11 +34,14 @@ import inet.linklayer.ethernet.EthernetInterface;
 module OBS_EdgeNode
 {
     parameters:
+        @networkNode;
         int numInLambdas; // Number of input data channels for the OBS interface.
         int numOutLambdas; // Number of output data channels for the OBS interface.
         //string inColours; // Colour array for input data channels.
         string outColours; // Colour array for output data channels.
         @display("i=block/classifier2");
+        *.interfaceTableModule = default(absPath(".interfaceTable"));
+        *.routingTableModule = default(absPath(".routingTable"));
     gates:
         inout pppIO[];	// PPP port
         inout ethIO[];	// Ethernet port
@@ -86,6 +89,7 @@ module OBS_EdgeNode
 //                physIn[sizeof(obsIn)];
 //                physOut[sizeof(obsOut)];
         }
+                
     connections allowunconnected:
         // connections to the outer world
         for i=0..sizeof(pppIO)-1 {

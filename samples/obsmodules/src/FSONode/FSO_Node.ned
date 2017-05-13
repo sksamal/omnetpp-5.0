@@ -32,109 +32,102 @@ module FSO_Node
 {
     parameters:
 
-        // Edge 
-        int edgenumInLambdas; // Number of input data channels for the OBS interface.
-        int edgenumOutLambdas; // Number of output data channels for the OBS interface.
-        string edgeinColours; // Colour array for input data channels.
-        string edgeoutColours; // Colour array for output data channels.
+ 		// FSO Optical switch parameters
+        int oxcnumPorts; //Number of control fibers
+        int lambdasPerInPort; //Number of input data channels for each fiber
+        int lambdasPerOutPort; //Number of output data channels for each fiber 
+        string inputColours; // Colour of each input data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
+        string outputColours; // Colour of each output data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
 
- 		// Core
-        int corenumPorts; //Number of fibers
-        string corelambdasPerInPort; //Number of input data channels for each fiber
-        string corelambdasPerOutPort; //Number of output data channels for each fiber 
-        string coreinputColours; // Colour of each input data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
-        string coreoutputColours; // Colour of each output data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
-
-        @display("bgb=434,264;i=block/switch");
+        // Electrical port parameters
+        int servernumPorts;
+        @display("bgb=434,264;i=block/wrx");
 
     gates:
 
-        // Edge side
-        inout edgepppIO[];	// PPP port
-        inout edgeethIO[];	// Ethernet port
-        input edgeobsIn[];  // OBS input
-        output edgeobsOut[]; //OBS output
+        // Electrical i/o (from servers)
+        inout pppIO[];	// PPP port
+        inout ethIO[];	// Ethernet port**.numPacketBurstifiers = 16
+        
 
-        // Core side
-        input corein[];
-        output coreout[];
+        // Optical i/o (towards the network)
+        input oxcin[];
+        output oxcout[];
 
     submodules:
 
-        elec_switch: OBS_EdgeNode {
+        torInterface: OBS_EdgeNode {
             parameters:
-                numInLambdas = edgenumInLambdas;
-                numOutLambdas = edgenumOutLambdas;
-                routingTable.routingFile = "Fso2.irt";
-                @display("i=block/classifier2;p=223,218");
+                numInLambdas = lambdasPerInPort;
+                numOutLambdas = lambdasPerOutPort;
+                outColours = outputColours;
+                @display("i=block/classifier2;p=125,177");
             gates:
-                obsIn[sizeof(edgeobsin)];
-                obsOut[sizeof(edgeobsout)];
+
+                // Interfaces towards the optical ports
+        //        obsIn[sizeof(oxcin)];
+        //        obsOut[sizeof(oxcout)];
+
+                // Interfaces towards individual hosts or servers
+  //              ethIO[sizeof(ethIO)];
+  //              pppIO[sizeof(pppIO)];
         }
 
-        fso_switch: OBS_OpticalCrossConnect {
+        oxcswitch: OBS_OpticalCrossConnect {
             parameters:
-                @display("i=block/switch;p=223,41");
+                @display("i=block/switch;p=206,121");
             gates:
-                in[corenumPorts];
-                out[corenumPorts];
+                in[2*sizeof(oxcin) + oxcnumPorts];
+                out[2*sizeof(oxcout) + oxcnumPorts];
         }
 
-        fso_input: FSO_Input {
-            @display("i=block/arrival,p,50,116;p=59,128");
-            numoxcPorts = corenumPorts;
-            numserverPorts = sizeof(edgeobsin);
-        }
-
-        fso_output: FSO_Output {
-            numoxcPorts = corenumPorts;
-            numserverPorts = sizeof(edgeobsout);
-            @display("i=block/departure,p,310,138;p=373,128");
-        }
-
-        ControlUnit: OBS_CoreControlUnit {
+		// Our control unit, decides the switching 
+        ControlUnit: FSO_CoreControlUnit {
             parameters:
-                numPorts = corenumPorts + edgenumPorts;
-                lambdasPerOutPort = lambdasPerOutPort;
-                @display("i=block/cogwheel;p=223,128");
+                numPorts = oxcnumPorts;
+                lambdasPerOutPort = default("1");//lambdasPerOutPort;
+                @display("i=block/cogwheel;p=295,76");
             gates:
-                in[corenumPorts + sizeof(obsin)]; //
-                out[corenumPorts + sizeof(obsout)]; //
-        }
-        
-        connections:
-        //Connect input control channels
-        for i=0..sizeof(corein)-1 {
-            corein++ --> fso_input.in[i];
-        }
-        
-        //Connect output control channels
-        for i=0..sizeof(coreout)-1 {
-            fso_output.out[i] --> coreout++;
-        }
-        
-        //Connect the control channels with the control unit
-        for i=0..numPorts-1 {
-            fso_input.out[i] --> ControlUnit.in[i];
-            ControlUnit.out[i] --> fso_output.in[i];
-        }
-        
-        //Connect input oxc data channels
-        for i=numPorts..sizeof(corein)-1 {
-            fso_input.out[i] --> fso_switch.in[i-numPorts];
-        }
-        
-        //Connect output oxc data channels
-        for i=numPorts..sizeof(coreout)-1 {
-            fso_switch.out[i-numPorts] --> fso_output.in[i];
-        }
-        
-        for i=0..sizeof(edgeobsOut)-1 {
-            elec_switch.obsOut[i] --> fso_output.in[corein+i];
+                in[oxcnumPorts]; //
+                out[oxcnumPorts]; //
         }
 
-        for i=0..sizeof(edgeobsOut)-1 {
-            fso_input.out[coreout+i] --> elec_switch.obsIn[i];
+
+    connections:
+
+		//Connect the control channels with the control unit
+        for i=0..oxcnumPorts-1 {
+            oxcswitch.out[i] --> ControlUnit.in[i];
+            ControlUnit.out[i] --> oxcswitch.in[i];
         }
-                
+
+        //Connect input from oxcin (optical core) data channels to oxc ports (first part)
+        for i=0..lambdasPerInPort {
+            oxcin[i] --> oxcswitch.in[i+oxcnumPorts];
+        }
+
+        //Connect input from obsin (tor/electrical side) data channels to oxc ports (second part)
+        for i=0..lambdasPerInPort {
+            torInterface.obsOut++ --> oxcswitch.in[1+i+lambdasPerInPort+oxcnumPorts];
+        }
+
+        //Connect output oxc ports (first part) data channels to oxcout (optical core)
+        for i=0..lambdasPerOutPort {
+            oxcswitch.out[i+oxcnumPorts] --> oxcout[i];
+        }
+
+        //Connect oxc ports (second part) data channels to obsOut (tor/electrical side)
+        for i=0..lambdasPerOutPort {
+            oxcswitch.out[1+ i + lambdasPerOutPort + oxcnumPorts] --> torInterface.obsIn++;
+        }
+
+        //Connect input eth/ppp ports to edgeNode eth/ppp ports
+        for i=0..sizeof(ethIO)-1 {
+            ethIO[i] <--> torInterface.ethIO++;
+        }
+
+        for i=0..sizeof(pppIO)-1 {
+            pppIO[i] <--> torInterface.pppIO++;
+        }
+
 }

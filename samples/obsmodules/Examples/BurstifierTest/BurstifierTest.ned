@@ -1,6 +1,4 @@
 //
-// Copyright (C) 2010-2012 Javier Armendariz Silva, Naiara Garcia Royo, Felix Espina Antolin
-// Copyright (C) 2010-2012 Universidad Publica de Navarra
 //
 // This file is part of OBSModules.
 //
@@ -17,6 +15,8 @@
 // You should have received a copy of the GNU General Public License
 // along with OBSModules.  If not, see <http://www.gnu.org/licenses/>.
 //
+// Suraj: Modified to support Omnet 5.0 . Added a node status and @networknode to make it 
+// run with omnet5.0
 
 package obsmodules.Examples.BurstifierTest;
 

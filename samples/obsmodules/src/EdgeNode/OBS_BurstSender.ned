@@ -42,8 +42,11 @@ simple OBS_BurstSender
         int maxSchedBurstElems; // Maximum number of elements of scheduled burst queue (0 = infinity).
         double guardTime @unit(s); // Offset placed between consecutive burst transmissions.
         bool testing; // If true, module won't try to register itself (use to test this module outside the Edge Node).
-    gates:
+		string interfaceTableModule = "interfaceTable";
+ 		
+   gates:
         input in[];
         output out[];
+
 }
 

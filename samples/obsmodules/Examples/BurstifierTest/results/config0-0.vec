@@ -1,0 +1,43 @@
+version 2
+run config0-0-20170510-15:25:07-13484
+attr configname config0
+attr datetime 20170510-15:25:07
+attr experiment config0
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network BurstifierTest
+attr processid 13484
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.burstifier.cteHeader 8B
+param **.burstifier.destLabel 42
+param **.burstifier.maxOffset 0.3s
+param **.burstifier.maxSize 12500B
+param **.burstifier.minOffset 0.1s
+param **.burstifier.minSizeWithPadding 8B
+param **.burstifier.numPackets 100000
+param **.burstifier.overflowLastPacket false
+param **.burstifier.timeout 5s
+param **.burstifier.varHeader 1B
+param **.generator.destAddresses "\"10.0.0.2\""
+param **.generator.numPackets 100000
+param **.generator.packetLength 1000B
+param **.generator.protocol 17
+param **.generator.sendInterval exponential(1s)
+param **.generator.startTime 0
+
+vector 1  BurstifierTest.generator  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 4  BurstifierTest.burstifier  burstifierInPacketSize  ETV
+1	2	0	1000
+1	5	0.898560388484	1000
+1	8	2.758164600559	1000
+4	4	0	1000
+4	7	0.898560388484	1000

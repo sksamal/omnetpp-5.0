@@ -25,15 +25,21 @@ import obsmodules.src.EdgeNode.OBS_PacketDispatcher;
 import inet.common.queue.Sink;
 //import inet.applications.generic.IPTrafGen;
 import inet.applications.generic.IPvXTrafGen;
+import inet.common.lifecycle.NodeStatus;
+
 
 // Module used to check that the dispatcher works properly.
 // The generator creates IP Packets varying the destination IP field.
 // This field is used by the dispatcher module to redirect them to one of the available sinks.
 // See README file for more details.
+// Suraj: Modified to support Omnet 5.0 . Added a node status and @networknode to make it 
+// run with omnet5.0
 //
 network DispatcherTest
 {
+    
     parameters:
+ 	@networkNode();
         int numQueues; // Number of queues of the dispatcher
         string rulesFile; // File with the dispatcher rules
     submodules:
@@ -49,6 +55,11 @@ network DispatcherTest
                 destAddresses = "127.0.0.1 127.0.0.2 127.0.0.3";
                 @display("i=block/source");
         }
+        
+           status : NodeStatus {
+               @display("p=61,72;i=block/source");
+        }
+ 
         converter: PacketConverter {
             parameters:
                 @display("i=block/cogwheel");

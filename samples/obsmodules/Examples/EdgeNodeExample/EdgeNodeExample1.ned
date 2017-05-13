@@ -1,0 +1,80 @@
+//
+// Copyright (C) 2010-2013 Felix Espina
+// Copyright (C) 2010-2013 Universidad Publica de Navarra
+//
+// This file is part of OBSModules.
+//
+// OBSModules is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// OBSModules is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with OBSModules.  If not, see <http://www.gnu.org/licenses/>.
+//
+
+package obsmodules.Examples.EdgeNodeExample;
+
+import obsmodules.src.EdgeNode.OBS_EdgeNode;
+import inet.node.inet.StandardHost;
+import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+
+network EdgeNodeExample1
+{
+    parameters:
+        int lambdasEdge; //Number of data channels in the fiber connecting edges
+    submodules:
+
+ 
+        host1: StandardHost {
+            parameters:
+                forwarding = true;
+ //               routingTable.routingFile = "H1.irt";
+                @display("p=46,112");
+        }
+        host2: StandardHost {
+            parameters:
+                forwarding = true;
+                @display("p=48,272");
+        }
+        edge1: OBS_EdgeNode {
+            parameters:
+                numInLambdas = lambdasEdge;
+                numOutLambdas = lambdasEdge;
+                @display("p=259,112");
+            gates:
+                obsIn[lambdasEdge+1];
+                obsOut[lambdasEdge+1];
+        }
+        edge2: OBS_EdgeNode {
+            parameters:
+                numInLambdas = lambdasEdge;
+                numOutLambdas = lambdasEdge;
+                obs.assembler.dispatcher.dispatcherRules = "DispatcherRules.dat";
+                @display("p=258,272");
+            gates:
+                obsIn[lambdasEdge+1];
+                obsOut[lambdasEdge+1];
+        }
+        
+        configurator: IPv4NetworkConfigurator {
+            @display("p=62,127");
+            config = xmldoc("IPv4Config.xml");
+        }
+        
+    connections:
+        //Connections between hosts and Edge Nodes
+        host1.ethg++ <--> { datarate=1Gbps; } <--> edge1.ethIO++;
+        host2.ethg++ <--> { datarate=1Gbps; } <--> edge2.ethIO++;
+
+        //Core 1 connections
+        for i=0..lambdasEdge {
+            edge1.obsOut[i] --> edge2.obsIn[i];
+            edge2.obsOut[i] --> edge1.obsIn[i];
+        }
+}

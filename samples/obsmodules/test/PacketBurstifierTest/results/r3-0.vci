@@ -1,0 +1,36 @@
+file 1133 1494447798                                            
+version 2
+run r3-0-20170510-15:22:31-13427
+attr configname r3
+attr datetime 20170510-15:22:31
+attr experiment r3
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network obsmodules.test.PacketBurstifierTest.PacketBurstifierTest
+attr processid 13427
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.comparisonType 1
+param **.cteHeader 8B
+param **.destLabel 5
+param **.inputFile "\"PacketBurstifierInput_t3\""
+param **.maxOffset 0.0009s
+param **.maxSize 10240B
+param **.minOffset 0.0001s
+param **.minSizeWithPadding 0
+param **.numPackets 16
+param **.outputFile "\"PacketBurstifierOutput_t3\""
+param **.overflowLastPacket false
+param **.patternFile "\"PacketBurstifierPattern_t3\""
+param **.timeout 0.01s
+param **.varHeader 2B
+
+vector 0  PacketBurstifierTest.packetBurstifier  burstifierInPacketSize  ETV
+vector 1  PacketBurstifierTest.packetBurstifier  avgPacketTime  ETV
+0	980 135 2 20 0.002 0.011 10 36 64 488 24864
+1	1115 18 21 21 0.012 0.012 1 0.0055 0.0055 0.0055 3.025e-05

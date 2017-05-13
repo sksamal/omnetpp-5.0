@@ -23,6 +23,7 @@ package obsmodules.Examples.TreeTopologyOBS;
 import obsmodules.src.EdgeNode.OBS_EdgeNode;
 import obsmodules.src.CoreNode.OBS_CoreNode;
 import inet.node.inet.StandardHost;
+import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 
 
 network TreeTopologyOBS
@@ -42,27 +43,27 @@ network TreeTopologyOBS
         host1: StandardHost {
             parameters:
           //      routingTableType = default("IPv4RoutingTable");
-                routingTable.routingFile = "H1.irt";
+//                routingTable.routingFile = "H1.irt";
                 @display("p=76,157");
         }
         host2: StandardHost {
             parameters:
-                routingTable.routingFile = "H2.irt";
+//                routingTable.routingFile = "H2.irt";
                 @display("p=615,81");
         }
         host3: StandardHost {
             parameters:
-                routingTable.routingFile = "H3.irt";
+//                routingTable.routingFile = "H3.irt";
                 @display("p=107,456");
         }
         host4: StandardHost {
             parameters:
-                routingTable.routingFile = "H4.irt";
+ //               routingTable.routingFile = "H4.irt";
                 @display("p=1013,149");
         }
         host5: StandardHost {
             parameters:
-                routingTable.routingFile = "H5.irt";
+//                routingTable.routingFile = "H5.irt";
                 @display("p=993,490");
         }
         // Edge Nodes
@@ -70,7 +71,7 @@ network TreeTopologyOBS
             parameters:
                 numInLambdas = lambdasEdge1;
                 numOutLambdas = lambdasEdge1;
-                routingTable.routingFile = "Edge1.irt";
+//                routingTable.routingFile = "Edge1.irt";
                 @display("p=207,239");
             gates:
                 obsIn[lambdasEdge1+1];
@@ -80,7 +81,7 @@ network TreeTopologyOBS
             parameters:
                 numInLambdas = lambdasEdge2;
                 numOutLambdas = lambdasEdge2;
-                routingTable.routingFile = "Edge2.irt";
+//                routingTable.routingFile = "Edge2.irt";
                 @display("p=471,81");
             gates:
                 obsIn[lambdasEdge2+1];
@@ -90,7 +91,7 @@ network TreeTopologyOBS
             parameters:
                 numInLambdas = lambdasEdge3;
                 numOutLambdas = lambdasEdge3;
-                routingTable.routingFile = "Edge3.irt";
+ //               routingTable.routingFile = "Edge3.irt";
                 @display("p=250,456");
             gates:
                 obsIn[lambdasEdge3+1];
@@ -100,7 +101,7 @@ network TreeTopologyOBS
             parameters:
                 numInLambdas = lambdasEdge4;
                 numOutLambdas = lambdasEdge4;
-                routingTable.routingFile = "Edge4.irt";
+//                routingTable.routingFile = "Edge4.irt";
                 @display("p=801,149");
             gates:
                 obsIn[lambdasEdge4+1];
@@ -110,7 +111,7 @@ network TreeTopologyOBS
             parameters:
                 numInLambdas = lambdasEdge5;
                 numOutLambdas = lambdasEdge5;
-                routingTable.routingFile = "Edge5.irt";
+ //               routingTable.routingFile = "Edge5.irt";
                 @display("p=829,490");
             gates:
                 obsIn[lambdasEdge5+1];
@@ -147,6 +148,16 @@ network TreeTopologyOBS
                 numPorts = 2;
                 @display("p=722,388");
         }
+        configurator: IPv4NetworkConfigurator {
+            @display("p=62,127");
+            config = xmldoc("IPv4Config.xml");
+            //assignAddresses = false;
+            //assignDisjunctSubnetAddresses = false;
+            addStaticRoutes = false;
+            addDefaultRoutes = false;
+            addSubnetRoutes = false;
+        }
+        
     connections:
         //First of all, connect hosts with Edge Nodes
         host1.ethg++ <--> { datarate=100Gbps; } <--> edge1.ethIO++;

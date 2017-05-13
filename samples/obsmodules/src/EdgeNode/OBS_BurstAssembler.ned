@@ -19,6 +19,7 @@
 //
 
 package obsmodules.src.EdgeNode;
+import inet.networklayer.common.InterfaceTable;
 
 //
 // This module groups packets into optical bursts and generates signalling messages (BCP).
@@ -52,6 +53,7 @@ module OBS_BurstAssembler
             parameters:
                 @display("p=243,275;i=block/queue");
         }
+        
         sender: OBS_BurstSender {
             parameters:
                 colours = colours;
@@ -61,6 +63,7 @@ module OBS_BurstAssembler
                 in[numPacketBurstifiers+numFileBurstifiers];
                 out[numLambdas+1];
         }
+               
     connections:
         // Connect the input with the dispatcher
         in --> dispatcher.in;

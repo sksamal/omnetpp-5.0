@@ -23,6 +23,8 @@ package obsmodules.Examples.EdgeNodeTest;
 import obsmodules.src.misc.OBS_OpticalMonitor;
 import obsmodules.src.EdgeNode.OBS_EdgeNode;
 import inet.node.inet.StandardHost;
+import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+
 
 // Edge Node testing network.
 // It consists of two hosts interconnected by an OBS network. Each host has its own edge node.
@@ -35,12 +37,12 @@ network EdgeNodeTest
     submodules:
         host1: StandardHost {
             parameters:
-                routingTable.routingFile = "H1.irt";
+ //               routingTable.routingFile = "H1.irt";
                 @display("p=46,72;i=device/pc2");
         }
         edge1: OBS_EdgeNode {
             parameters:
-                routingTable.routingFile = "Edge1.irt";
+  //              routingTable.routingFile = "Edge1.irt";
                 @display("p=191,168;i=block/classifier2");
             gates:
                 obsIn[numLambdas+1];
@@ -55,7 +57,7 @@ network EdgeNodeTest
         }
         edge2: OBS_EdgeNode {
             parameters:
-                routingTable.routingFile = "Edge2.irt";
+ //               routingTable.routingFile = "Edge2.irt";
                 @display("p=302,168;i=block/classifier2");
             gates:
                 obsIn[numLambdas+1];
@@ -63,8 +65,17 @@ network EdgeNodeTest
         }
         host2: StandardHost {
             parameters:
-                routingTable.routingFile = "H2.irt";
-                @display("p=440,112;i=device/pc2");
+ //               routingTable.routingFile = "H2.irt";
+                @display("p=440,112;i=device/pc2");               
+        }
+              configurator: IPv4NetworkConfigurator {
+            @display("p=62,127");
+            config = xmldoc("IPv4Config.xml");
+            //assignAddresses = false;
+            //assignDisjunctSubnetAddresses = false;
+ //           addStaticRoutes = false;
+ //           addDefaultRoutes = false;
+ //           addSubnetRoutes = false;
         }
     connections:
         host1.ethg++ <--> { datarate=100Gbps; } <--> edge1.ethIO++;

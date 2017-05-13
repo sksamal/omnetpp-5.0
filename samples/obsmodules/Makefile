@@ -28,11 +28,16 @@ INCLUDE_PATH = \
     -IExamples/BurstifierTest \
     -IExamples/BurstifierTest/results \
     -IExamples/DispatcherTest \
+    -IExamples/DispatcherTest/results \
     -IExamples/EdgeNodeExample \
+    -IExamples/EdgeNodeExample/results \
     -IExamples/EdgeNodeTest \
+    -IExamples/EdgeNodeTest/results \
     -IExamples/FSONodeExample \
+    -IExamples/FSONodeExample/results \
     -IExamples/FSONodeTest \
     -IExamples/TreeTopologyOBS \
+    -IExamples/TreeTopologyOBS/results \
     -IExamples/jitel09 \
     -Idoc \
     -Idoc/img \
@@ -98,6 +103,7 @@ OBJS = \
     $O/src/EdgeNode/OBS_PacketDispatcher.o \
     $O/src/FSONode/FSO_Output.o \
     $O/src/FSONode/FSO_Input.o \
+    $O/src/FSONode/FSO_CoreControlLogic.o \
     $O/src/messages/OBS_Burst.o \
     $O/src/misc/OBS_OpticalMonitor.o \
     $O/src/misc/OBS_DropBurst.o \
@@ -223,11 +229,16 @@ clean:
 	$(Q)-rm -f Examples/BurstifierTest/*_m.cc Examples/BurstifierTest/*_m.h Examples/BurstifierTest/*_sm.cc Examples/BurstifierTest/*_sm.h
 	$(Q)-rm -f Examples/BurstifierTest/results/*_m.cc Examples/BurstifierTest/results/*_m.h Examples/BurstifierTest/results/*_sm.cc Examples/BurstifierTest/results/*_sm.h
 	$(Q)-rm -f Examples/DispatcherTest/*_m.cc Examples/DispatcherTest/*_m.h Examples/DispatcherTest/*_sm.cc Examples/DispatcherTest/*_sm.h
+	$(Q)-rm -f Examples/DispatcherTest/results/*_m.cc Examples/DispatcherTest/results/*_m.h Examples/DispatcherTest/results/*_sm.cc Examples/DispatcherTest/results/*_sm.h
 	$(Q)-rm -f Examples/EdgeNodeExample/*_m.cc Examples/EdgeNodeExample/*_m.h Examples/EdgeNodeExample/*_sm.cc Examples/EdgeNodeExample/*_sm.h
+	$(Q)-rm -f Examples/EdgeNodeExample/results/*_m.cc Examples/EdgeNodeExample/results/*_m.h Examples/EdgeNodeExample/results/*_sm.cc Examples/EdgeNodeExample/results/*_sm.h
 	$(Q)-rm -f Examples/EdgeNodeTest/*_m.cc Examples/EdgeNodeTest/*_m.h Examples/EdgeNodeTest/*_sm.cc Examples/EdgeNodeTest/*_sm.h
+	$(Q)-rm -f Examples/EdgeNodeTest/results/*_m.cc Examples/EdgeNodeTest/results/*_m.h Examples/EdgeNodeTest/results/*_sm.cc Examples/EdgeNodeTest/results/*_sm.h
 	$(Q)-rm -f Examples/FSONodeExample/*_m.cc Examples/FSONodeExample/*_m.h Examples/FSONodeExample/*_sm.cc Examples/FSONodeExample/*_sm.h
+	$(Q)-rm -f Examples/FSONodeExample/results/*_m.cc Examples/FSONodeExample/results/*_m.h Examples/FSONodeExample/results/*_sm.cc Examples/FSONodeExample/results/*_sm.h
 	$(Q)-rm -f Examples/FSONodeTest/*_m.cc Examples/FSONodeTest/*_m.h Examples/FSONodeTest/*_sm.cc Examples/FSONodeTest/*_sm.h
 	$(Q)-rm -f Examples/TreeTopologyOBS/*_m.cc Examples/TreeTopologyOBS/*_m.h Examples/TreeTopologyOBS/*_sm.cc Examples/TreeTopologyOBS/*_sm.h
+	$(Q)-rm -f Examples/TreeTopologyOBS/results/*_m.cc Examples/TreeTopologyOBS/results/*_m.h Examples/TreeTopologyOBS/results/*_sm.cc Examples/TreeTopologyOBS/results/*_sm.h
 	$(Q)-rm -f Examples/jitel09/*_m.cc Examples/jitel09/*_m.h Examples/jitel09/*_sm.cc Examples/jitel09/*_sm.h
 	$(Q)-rm -f doc/*_m.cc doc/*_m.h doc/*_sm.cc doc/*_sm.h
 	$(Q)-rm -f doc/img/*_m.cc doc/img/*_m.h doc/img/*_sm.cc doc/img/*_sm.h
@@ -267,7 +278,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeTest/*.cc Examples/FSONodeExample/*.cc Examples/FSONodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/FSONode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FSOInputTest/*.cc test/FSONodeTest/*.cc test/FSOOutputTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketBurstifierTest/results/*.cc test/PacketDispatcherTest/*.cc test/PacketDispatcherTest/results/*.cc utils/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/DispatcherTest/results/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeExample/results/*.cc Examples/EdgeNodeTest/*.cc Examples/EdgeNodeTest/results/*.cc Examples/FSONodeExample/*.cc Examples/FSONodeExample/results/*.cc Examples/FSONodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/TreeTopologyOBS/results/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/FSONode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FSOInputTest/*.cc test/FSONodeTest/*.cc test/FSOOutputTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketBurstifierTest/results/*.cc test/PacketDispatcherTest/*.cc test/PacketDispatcherTest/results/*.cc utils/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/src/CoreNode/OBS_BCPControlInfo_m.o: src/CoreNode/OBS_BCPControlInfo_m.cc \
@@ -419,6 +430,17 @@ $O/src/EdgeNode/OBS_PacketDispatcher.o: src/EdgeNode/OBS_PacketDispatcher.cc \
 	src/EdgeNode/OBS_PacketDispatcher.h
 $O/src/EdgeNode/OBS_ScheduledBurstItem_m.o: src/EdgeNode/OBS_ScheduledBurstItem_m.cc \
 	src/EdgeNode/OBS_ScheduledBurstItem_m.h
+$O/src/FSONode/FSO_CoreControlLogic.o: src/FSONode/FSO_CoreControlLogic.cc \
+	src/CoreNode/OBS_BCPControlInfo_m.h \
+	src/CoreNode/OBS_ControlUnitInfo_m.h \
+	src/CoreNode/OBS_CoreInput.h \
+	src/CoreNode/OBS_CoreOutput.h \
+	src/CoreNode/OBS_CoreOutputHorizon.h \
+	src/CoreNode/OBS_CoreRoutingTable.h \
+	src/CoreNode/OBS_CoreRoutingTableEntry_m.h \
+	src/CoreNode/OBS_OpticalCrossConnect.h \
+	src/FSONode/FSO_CoreControlLogic.h \
+	src/messages/OBS_BurstControlPacket_m.h
 $O/src/FSONode/FSO_Input.o: src/FSONode/FSO_Input.cc \
 	src/FSONode/FSO_Input.h
 $O/src/FSONode/FSO_Output.o: src/FSONode/FSO_Output.cc \

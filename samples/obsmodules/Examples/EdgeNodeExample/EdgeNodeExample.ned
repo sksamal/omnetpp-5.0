@@ -22,6 +22,7 @@ package obsmodules.Examples.EdgeNodeExample;
 
 import obsmodules.src.EdgeNode.OBS_EdgeNode;
 import inet.node.inet.StandardHost;
+import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 
 
 network EdgeNodeExample
@@ -31,12 +32,14 @@ network EdgeNodeExample
     submodules:
         host1: StandardHost {
             parameters:
-                routingTable.routingFile = "H1.irt";
+                forwarding = true;
+ //               routingTable.routingFile = "H1.irt";
                 @display("p=46,112");
         }
         host2: StandardHost {
             parameters:
-                routingTable.routingFile = "H2.irt";
+                forwarding = true;
+//                routingTable.routingFile = "H2.irt";
                 @display("p=48,272");
         }
         edge1: OBS_EdgeNode {
@@ -44,7 +47,7 @@ network EdgeNodeExample
                 numInLambdas = lambdasEdge;
                 numOutLambdas = lambdasEdge;
                 obs.assembler.dispatcher.dispatcherRules = "DispatcherRules.dat";
-                routingTable.routingFile = "Edge1.irt";
+  //              routingTable.routingFile = "Edge1.irt";
                 @display("p=159,112");
             gates:
                 obsIn[lambdasEdge+1];
@@ -55,12 +58,23 @@ network EdgeNodeExample
                 numInLambdas = lambdasEdge;
                 numOutLambdas = lambdasEdge;
                 obs.assembler.dispatcher.dispatcherRules = "DispatcherRules.dat";
-                routingTable.routingFile = "Edge2.irt";
+  //              routingTable.routingFile = "Edge2.irt";
                 @display("p=158,272");
             gates:
                 obsIn[lambdasEdge+1];
                 obsOut[lambdasEdge+1];
         }
+        
+        configurator: IPv4NetworkConfigurator {
+            @display("p=62,127");
+            config = xmldoc("IPv4Config.xml");
+            //assignAddresses = false;
+            //assignDisjunctSubnetAddresses = false;
+            addStaticRoutes = false;
+            addDefaultRoutes = false;
+            addSubnetRoutes = false;
+        }
+        
     connections:
         //Connections between hosts and Edge Nodes
         host1.ethg++ <--> { datarate=1Gbps; } <--> edge1.ethIO++;
