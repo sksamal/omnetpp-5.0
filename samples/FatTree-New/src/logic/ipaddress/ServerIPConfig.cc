@@ -4,7 +4,7 @@
 
 #include "ServerIPConfig.h"
 #include <InterfaceTable.h>
-#include <IPAddressResolver.h>
+//#include <IPv4AddressResolver.h>
 #include <IPv4InterfaceData.h>
 
 Define_Module(ServerIPConfig);
@@ -18,17 +18,17 @@ void ServerIPConfig::initialize(int stage)
 
       //  EV << "Edge Router " << position << " lies in POD: " << podposition << ".\n";
 
-        IPAddress address = createAddress(serverIndex, rackIndex, k);
+        IPv4Address address = createAddress(serverIndex, rackIndex, k);
         EV << "Server " << serverIndex << " in POD " << rackIndex << " k " << k << " has IP " << address.str() << "\n";
 
-        setServerIPAddress(address);
+        setServerIPv4Address(address);
         setDisplayString(address);
     }
 }
 
-IPAddress ServerIPConfig::createAddress(int serverIndex, int rackIndex, int k) {
+IPv4Address ServerIPConfig::createAddress(int serverIndex, int rackIndex, int k) {
     // First byte determined by ned file.
-    int i0 = IPAddress((const char*)par("networkAddress")).getDByte(0);
+    int i0 = IPv4Address((const char*)par("networkAddress")).getDByte(0);
     // Number of the POD the router lies in.
     int i1 = rackIndex/(k/2);
     // Router the server is connected to.
@@ -36,26 +36,26 @@ IPAddress ServerIPConfig::createAddress(int serverIndex, int rackIndex, int k) {
     // Number of the server.
     int i3 = serverIndex+2;
 
-    return IPAddress(i0, i1, i2, i3);
+    return IPv4Address(i0, i1, i2, i3);
 }
 
-void ServerIPConfig::setServerIPAddress(IPAddress address) {
+void ServerIPConfig::setServerIPv4Address(IPv4Address address) {
 
     // find interface table and assign address to all (non-loopback) interfaces
-    IInterfaceTable *ift = IPAddressResolver().interfaceTableOf(getParentModule());
+    IInterfaceTable *ift = check_and_cast < IInterfaceTable *>(getParentModule());
     for (int i=0; i<ift->getNumInterfaces(); i++)
     {
         InterfaceEntry *ie = ift->getInterface(i);
         if (!ie->isLoopback())
         {
-            ie->ipv4Data()->setIPAddress(IPAddress(address));
-            ie->ipv4Data()->setNetmask(IPAddress::ALLONES_ADDRESS); // full address must match for local delivery
+            ie->ipv4Data()->setIPAddress(IPv4Address(address));
+            ie->ipv4Data()->setNetmask(IPv4Address::ALLONES_ADDRESS); // full address must match for local delivery
         }
     }
 }
 
-void ServerIPConfig::setDisplayString(IPAddress address) {
-    if (ev.isGUI()) {
+void ServerIPConfig::setDisplayString(IPv4Address address) {
+    if (this->getSimulation()->getActiveEnvir()->isGUI()) {
         // update display string
         this->getDisplayString().setTagArg("t",0,address.str().c_str());
     }

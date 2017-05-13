@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for hypercube
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out
+#  opp_makemake -f --deep
 #
 
 # Name of target to be created (-o option)
@@ -29,7 +29,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
-OBJS = $O/HCRouter.o $O/HCGenerator.o $O/HCSink.o $O/HCPacket_m.o
+OBJS = $O/HCGenerator.o $O/HCRouter.o $O/HCSink.o $O/HCPacket_m.o
 
 # Message files
 MSGFILES = \
@@ -127,14 +127,13 @@ depend:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/HCGenerator.o: HCGenerator.cc \
-	HCGenerator.h \
-	HCPacket_m.h
+  ./HCGenerator.h \
+  ./HCPacket_m.h
 $O/HCPacket_m.o: HCPacket_m.cc \
-	HCPacket_m.h
+  ./HCPacket_m.h
 $O/HCRouter.o: HCRouter.cc \
-	HCPacket_m.h \
-	HCRouter.h
+  ./HCPacket_m.h \
+  ./HCRouter.h
 $O/HCSink.o: HCSink.cc \
-	HCPacket_m.h \
-	HCSink.h
-
+  ./HCPacket_m.h \
+  ./HCSink.h

@@ -71,6 +71,7 @@ void IPvXTrafGen::initialize(int stage)
         nodeStatus = dynamic_cast<NodeStatus *>(findContainingNode(this)->getSubmodule("status"));
         isOperational = (!nodeStatus) || nodeStatus->getState() == NodeStatus::UP;
 
+
         if (isNodeUp())
             startApp();
     }

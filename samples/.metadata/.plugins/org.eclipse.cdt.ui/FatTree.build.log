@@ -1,5 +1,5 @@
-16:17:31 **** Incremental Build of configuration gcc-debug for project FatTree ****
-make MODE=debug CONFIGNAME=gcc-debug all 
+20:45:38 **** Incremental Build of configuration gcc-release for project FatTree ****
+make MODE=release CONFIGNAME=gcc-release all 
 cd src && make
 make[1]: Entering directory '/home/ssamal/Downloads/omnetpp-5.0/samples/FatTree/src'
 ecmp/IPECMP.cc
@@ -670,6 +670,9 @@ In file included from /usr/include/c++/6.3.1/clocale:42:0,
                  from /usr/include/c++/6.3.1/ostream:38,
                  from /usr/include/c++/6.3.1/iostream:39,
                  from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/cownedobject.h:20,
+Makefile:181: recipe for target '../out/gcc-release/src/ecmp/IPECMP.o' failed
+make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/FatTree/src'
+Makefile:2: recipe for target 'all' failed
                  from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/carray.h:19,
                  from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
                  from ecmp/IPECMP.cc:19:
@@ -694,14 +697,11 @@ In file included from /usr/include/c++/6.3.1/bits/localefwd.h:40:0,
                  from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:21,
                  from ecmp/IPECMP.cc:19:
 /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:62:11: error: ‘__locale_t’ does not name a type
-Makefile:181: recipe for target '../out/gcc-debug/src/ecmp/IPECMP.o' failed
    typedef __locale_t  __c_locale;
            ^~~~~~~~~~
 /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:69:26: error: ‘__c_locale’ does not name a type
    __convert_from_v(const __c_locale& __cloc __attribute__ ((__unused__)),
                           ^~~~~~~~~~
-make[1]: Leaving directory '/home/ssamal/Downloads/omnetpp-5.0/samples/FatTree/src'
-Makefile:2: recipe for target 'all' failed
 /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h: In function ‘int std::__convert_from_v(const int&, char*, int, const char*, ...)’:
 /usr/include/c++/6.3.1/x86_64-redhat-linux/bits/c++locale.h:77:19: error: ‘setlocale’ is not a member of ‘std’
      char* __old = std::setlocale(LC_NUMERIC, 0);
@@ -1809,8 +1809,8 @@ In file included from /usr/include/libio.h:56:0,
 /usr/include/stdio.h:942:1: error: expected declaration before ‘}’ token
  __END_DECLS
  ^
-make[1]: *** [../out/gcc-debug/src/ecmp/IPECMP.o] Error 1
+make[1]: *** [../out/gcc-release/src/ecmp/IPECMP.o] Error 1
 make: *** [all] Error 2
 
-16:17:31 Build Finished (took 468ms)
+20:45:39 Build Finished (took 856ms)
 

@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for osg-indoor
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -DWITH_OSG
+#  opp_makemake -f --deep
 #
 
 # Name of target to be created (-o option)
@@ -29,7 +29,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
-OBJS = $O/Person.o $O/OsgScene.o $O/fallback.o
+OBJS = $O/fallback.o $O/OsgScene.o $O/Person.o
 
 # Message files
 MSGFILES =
@@ -61,7 +61,7 @@ include $(CONFIGFILE)
 OMNETPP_LIB_SUBDIR = $(OMNETPP_LIB_DIR)/$(TOOLCHAIN_NAME)
 OMNETPP_LIBS = -L"$(OMNETPP_LIB_SUBDIR)" -L"$(OMNETPP_LIB_DIR)" -loppmain$D $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
 
-COPTS = $(CFLAGS) -DWITH_OSG $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
+COPTS = $(CFLAGS)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
 MSGCOPTS = $(INCLUDE_PATH)
 SMCOPTS =
 
@@ -131,10 +131,9 @@ depend:
 	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
-$O/OsgScene.o: OsgScene.cc \
-	OsgScene.h
-$O/Person.o: Person.cc \
-	OsgScene.h \
-	Person.h
 $O/fallback.o: fallback.cc
-
+$O/OsgScene.o: OsgScene.cc \
+  ./OsgScene.h
+$O/Person.o: Person.cc \
+  ./OsgScene.h \
+  ./Person.h

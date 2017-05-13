@@ -1,0 +1,82 @@
+[General]
+sim-time-limit = 100s	# Simulation length (in simtime)
+network = FSONodeExample
+tkenv-plugin-path = ../../INET/Etc/plugins
+**.vector-recording = false
+**.scalar-recording = false
+
+#**.pingApp[0].startTime = 0
+#**.pingApp[0].sendInterval = exponential(1s)
+#**.pingApp[0].count = 100000
+#**.pingApp[0].printPing = true
+#**.pingApp[0].packetSize = 1000B #NOTE: This value represents BYTES
+#**.host1.pingApp[0].destAddr = "10.0.2.1"
+#**.host2.pingApp[0].destAddr = "10.0.1.1"
+
+**.lambdas = 1
+**.dataRate = 1Gbps	#Optical channel data rate = 1Gb per lambda
+#Defining Edge Node colours for each lambda (defined only needed colours)
+#=========================================================================
+**.torInterface.outColours = ""
+**.fso2.outColours = ""
+
+# Dispatcher configuration
+#===========================
+**.dispatcherRules = "DispatcherRules.dat"
+
+# Burst Label field value
+#==============================
+**.packetBurstifier[*].destLabel = 1
+
+# Burstifier configuration (the same parameters for all)
+#===================================================================
+**.numFileBurstifiers = 0
+**.numPacketBurstifiers = 16
+**.packetBurstifier[*].timeout = 0.005s
+**.packetBurstifier[*].maxSize = 125000000B
+**.packetBurstifier[*].numPackets = 1
+**.packetBurstifier[*].minOffset = 0.001s
+**.packetBurstifier[*].maxOffset = 0.002s
+**.packetBurstifier[*].minSizeWithPadding = 8B
+**.packetBurstifier[*].overflowLastPacket = true
+**.packetBurstifier[*].cteHeader = 8B
+**.packetBurstifier[*].varHeader = 1B
+
+
+# Burst Sender configuration
+#===============================
+**.sender.BCPSize = 16B # BCP size
+**.sender.maxSchedBurstSize = 0 #maximum size (bits) of Sender's scheduled burst queue (0 = infinite queue)
+**.sender.maxSchedBurstElems = 0 #maximum number of queued bursts (0 = infinite)
+**.sender.testing = false # If true, the module doesn't try to register to Edge Node's interface table. Used for debugging purposes only
+
+#Guard time
+**.sender.guardTime = 0.000000001s
+
+#Host application configuration
+#==============================
+# udp app (on)
+**.numUdpApps = 1
+#**.numTcpApps = 1
+#**.host*.tcpApp[*].typename = "TCPBasicClientApp"
+#**.host1.tcpApp[*].connectAddress = "host2"
+#**.host1.tcpApp[*].localAddress = "host1"
+#**.host2.tcpApp[*].connectAddress = "host1"
+#**.host2.tcpApp[*].localAddress = "host2"
+#**.host*.tcpApp[*].requestLength = 64B
+#**.host*.tcpApp[*].idleInterval = 0.5s
+#**.host*.tcpApp[*].localPort = 80
+#**.host*.tcpApp[*].connectPort = 80
+#**.host*.tcpApp[*].thinkTime = 0.01s
+
+**.host*.udpApp[*].typename = "UDPBasicApp"
+**.host1.udpApp[*].destAddresses = "host2"
+**.host1.udpApp[*].localAddress = "host1"
+#**.host1.udpApp[*].srcAddresses = "host1"
+**.host2.udpApp[*].localAddress = "host2"
+**.host2.udpApp[*].destAddresses = "host1"
+#**.host1.udpApp[*].srcAddresses = "host1"
+**.host*.udpApp[*].messageLength = 64B
+**.host*.udpApp[*].sendInterval = 0.5s
+**.host*.udpApp[*].localPort = 80
+**.host*.udpApp[*].destPort = 80

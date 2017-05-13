@@ -10,7 +10,7 @@
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
 	</section>
 	<section name="TextSearchPage">
-		<item value="9" key="HISTORY_SIZE"/>
+		<item value="12" key="HISTORY_SIZE"/>
 		<item value="false" key="CASE_SENSITIVE"/>
 		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="true" key="WHOLE_WORD"/>
@@ -18,11 +18,11 @@
 		<section name="HISTORY6">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="*" key="textPattern"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="OBS_BurstDisassembler" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="EtherMacBase.cc"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -30,8 +30,8 @@
 		<section name="HISTORY7">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="cSimpleModule" key="textPattern"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="InterfaceToken" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -40,6 +40,18 @@
 			</list>
 		</section>
 		<section name="HISTORY4">
+			<item value="true" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="OBS_EOConverter" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY10">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
@@ -54,6 +66,32 @@
 		<section name="HISTORY5">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="OBS_EdgeInterface" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="EXTENSIONS">
+			<item value="UDPBasicApp*" key="0"/>
+			<item value="NodeStatus.ned" key="11"/>
+			<item value="IPvXAddressResolver*" key="1"/>
+			<item value="IPv4AddressResolver*" key="2"/>
+			<item value="IPv4Address*" key="3"/>
+			<item value="IPAddress.*" key="4"/>
+			<item value="IPAddress.cc" key="5"/>
+			<item value="IPAddress.h" key="6"/>
+			<item value="*.ned" key="7"/>
+			<item value="NodeBase.cc" key="8"/>
+			<item value="Router.cc" key="9"/>
+			<item value="*" key="10"/>
+		</section>
+		<section name="HISTORY11">
+			<item value="true" key="ignoreCase"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
 			<item value="getEncapsulatedPacket" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
@@ -63,44 +101,19 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="EXTENSIONS">
-			<item value="*" key="0"/>
-			<item value="*RoutingTable*" key="1"/>
-			<item value="RoutingTable.ned" key="2"/>
-			<item value="*StandardHost*" key="3"/>
-			<item value="StandardHost.h" key="4"/>
-			<item value="StandardHost.cc" key="5"/>
-			<item value="StandardHost" key="6"/>
-			<item value="Sink.cc" key="7"/>
-			<item value="*IPv4NetworkLayer*" key="8"/>
-			<item value="IPv4NetworkLayer.cc" key="9"/>
-			<item value="IPv4NetworkLayer" key="10"/>
-		</section>
 		<section name="HISTORY8">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
-			<item value="false" key="isWholeWord"/>
-			<item value="routingFile" key="textPattern"/>
-			<item value="false" key="isRegExSearch"/>
-			<list key="fileNamePatterns">
-				<item value="NodeBase.ned"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY2">
-			<item value="true" key="ignoreCase"/>
-			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
-			<item value="" key="textPattern"/>
+			<item value="registerInterface" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*RoutingTable*"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY3">
+		<section name="HISTORY9">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
@@ -112,14 +125,38 @@
 			<list key="workingSets">
 			</list>
 		</section>
+		<section name="HISTORY2">
+			<item value="true" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="RegisterTransportControl" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item value="true" key="ignoreCase"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="isWholeWord"/>
+			<item value="NodeStatus" key="textPattern"/>
+			<item value="false" key="isRegExSearch"/>
+			<list key="fileNamePatterns">
+				<item value="*.ned"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
 		<section name="HISTORY0">
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
-			<item value="InterfaceToken" key="textPattern"/>
+			<item value="" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="UDPBasicApp*"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -128,10 +165,10 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="isWholeWord"/>
-			<item value="registerInterface" key="textPattern"/>
+			<item value="IPv4RoutingTable" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.ned"/>
 			</list>
 			<list key="workingSets">
 			</list>

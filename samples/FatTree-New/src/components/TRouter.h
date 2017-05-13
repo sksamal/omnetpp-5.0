@@ -12,6 +12,7 @@
 #define __TROUTER_H_
 
 #include <omnetpp.h>
+using namespace omnetpp;
 
 #define STACKSIZE 16384
 

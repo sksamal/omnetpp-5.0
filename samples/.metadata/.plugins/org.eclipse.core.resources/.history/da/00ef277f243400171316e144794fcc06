@@ -1,0 +1,39 @@
+[General]
+network = obsmodules.test.FSOInputTest.FSOInputTest
+cmdenv-performance-display = false
+
+[Config r1]
+# Configuration to probe that the module works properly
+# Without colours
+**.inputFile = "FSOInputInput_t1"
+**.outputFile = "FSOInputOutput_t1"
+**.patternFile = "FSOInputPattern_t1"
+**.timeTolerance = 1e-10s
+**.numoxcPorts = 3
+**.totalLambdas = 9
+**.lambdasPerPort = "4 2 3"
+**.colours = ""
+
+[Config r2]
+# Configuration to probe that the module works properly
+# With colours
+**.inputFile = "FSOInputInput_t2"
+**.outputFile = "FSOInputOutput_t2"
+**.patternFile = "FSOInputPattern_t2"
+**.timeTolerance = 1e-10s
+**.numPorts = 3
+**.totalLambdas = 9
+**.lambdasPerPort = "4 2 3"
+**.colours = "100 101 102 103 | 110 111 | 120 121 122"
+
+[Config r3]
+#Configuration to show how this test can be configured
+#It has only the needed info on the input
+**.inputFile = "FSOInputInput_t3"
+**.outputFile = "FSOInputOutput_t3"
+**.patternFile = "FSOInputPattern_t3"
+**.comparisonType = 1
+**.numPorts = 3
+**.totalLambdas = 9
+**.lambdasPerPort = "4 2 3"
+**.colours = ""

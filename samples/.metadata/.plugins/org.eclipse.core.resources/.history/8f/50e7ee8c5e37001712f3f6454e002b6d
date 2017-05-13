@@ -1,0 +1,131 @@
+//
+// Copyright (C) 2010-2013 Javier Armendariz Silva, Naiara Garcia Royo, Felix Espina Antolin
+// Copyright (C) 2010-2013 Universidad Publica de Navarra
+//
+// This file is part of OBSModules.
+//
+// OBSModules is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// OBSModules is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with OBSModules.  If not, see <http://www.gnu.org/licenses/>.
+//
+
+package obsmodules.src.FSONode;
+
+import obsmodules.src.EdgeNode.OBS_EdgeNode;
+import obsmodules.src.CoreNode.OBS_CoreNode;
+import obsmodules.src.CoreNode.OBS_OpticalCrossConnect;
+import obsmodules.src.CoreNode.OBS_CoreControlUnit;
+//
+// FSO node for a OBS network. Its a complex module composed of functionalities of 
+// OBScore and OBSedge modules
+//
+module FSO_Node
+{
+    parameters:
+
+ 		// FSO Optical switch parameters
+        int oxcnumPorts; //Number of control fibers
+        int lambdasPerInPort; //Number of input data channels for each fiber
+        int lambdasPerOutPort; //Number of output data channels for each fiber 
+        string inputColours; // Colour of each input data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
+        string outputColours; // Colour of each output data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
+
+        // Electrical port parameters
+        int servernumPorts;
+        @display("bgb=434,264;i=block/wrx");
+
+    gates:
+
+        // Electrical i/o (from servers)
+        inout pppIO[];	// PPP port
+        inout ethIO[];	// Ethernet port
+
+        // Optical i/o (towards the network)
+        input oxcin[];
+        output oxcout[];
+
+    submodules:
+
+        torInterface: OBS_EdgeNode {
+            parameters:
+                numInLambdas = lambdasPerInPort;
+                numOutLambdas = lambdasPerOutPort;
+                @display("i=block/classifier2;p=125,177");
+            gates:
+
+                // Interfaces towards the optical ports
+                obsIn[sizeof(oxcin)];
+                obsOut[sizeof(oxcout)];
+
+                // Interfaces towards individual hosts or servers
+                ethIO[sizeof(servernumPorts)];
+                pppIO[sizeof(servernumPorts)];
+        }
+
+        oxcswitch: OBS_OpticalCrossConnect {
+            parameters:
+                @display("i=block/switch;p=206,121");
+            gates:
+                in[2*sizeof(oxcin) + oxcnumPorts];
+                out[2*sizeof(oxcin) + oxcnumPorts];
+        }
+
+		// Our control unit, decides the switching 
+        ControlUnit: OBS_CoreControlUnit {
+            parameters:
+                numPorts = oxcnumPorts;
+                lambdasPerOutPort = lambdasPerOutPort.cstr();
+                @display("i=block/cogwheel;p=295,76");
+            gates:
+                in[oxcnumPorts]; //
+                out[oxcnumPorts]; //
+        }
+
+
+    connections:
+
+		//Connect the control channels with the control unit
+        for i=0..oxcnumPorts-1 {
+            oxcswitch.out[i] --> ControlUnit.in[i];
+            ControlUnit.out[i] --> oxcswitch.in[i];
+        }
+
+        //Connect input from oxcin (optical core) data channels to oxc ports (first part)
+        for i=0..sizeof(oxcin)-1 {
+            oxcin[i] --> oxcswitch.in[i+oxcnumPorts];
+        }
+
+        //Connect input from obsin (tor/electrical side) data channels to oxc ports (second part)
+        for i=0..sizeof(oxcin)-1 {
+            torInterface.obsOut[i] --> oxcswitch.in[i+sizeof(oxcin)+oxcnumPorts];
+        }
+
+        //Connect output oxc ports (first part) data channels to oxcout (optical core)
+        for i=0..sizeof(oxcout)-1 {
+            oxcswitch.out[i+oxcnumPorts] --> oxcout[i];
+        }
+
+        //Connect oxc ports (second part) data channels to obsOut (tor/electrical side)
+        for i=0..sizeof(oxcout)-1 {
+            oxcswitch.out[i + sizeof(oxcout) + oxcnumPorts] --> torInterface.obsIn[i];
+        }
+
+        //Connect input eth/ppp ports to edgeNode eth/ppp ports
+        for i=0..sizeof(ethIO)-1 {
+            ethIO[i] <--> torInterface.ethIO[i];
+        }
+
+        for i=0..sizeof(pppIO)-1 {
+            pppIO[i] <--> torInterface.pppIO[i];
+        }
+
+}

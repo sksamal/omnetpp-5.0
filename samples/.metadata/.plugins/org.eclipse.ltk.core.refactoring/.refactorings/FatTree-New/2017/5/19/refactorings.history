@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;FatTree-New/src/components/BSink.cc&apos; to &apos;TSink.cc&apos;" description="Rename resource &apos;BSink.cc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/components/BSink.cc" name="TSink.cc" stamp="1494468234895" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;FatTree-New/src/components/BSink.h&apos; to &apos;TSink.h&apos;" description="Rename resource &apos;BSink.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/components/BSink.h" name="TSink.h" stamp="1494468248970" updateReferences="true"/>
+</session>

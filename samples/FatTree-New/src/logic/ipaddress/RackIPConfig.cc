@@ -4,7 +4,7 @@
 
 #include "RackIPConfig.h"
 #include <InterfaceTable.h>
-#include <IPAddressResolver.h>
+//#include <IPv4AddressResolver.h>
 #include <IPv4InterfaceData.h>
 
 Define_Module(RackIPConfig);
@@ -17,42 +17,42 @@ void RackIPConfig::initialize(int stage)
 
         //EV << "Edge Router " << position << " lies in POD: " << podposition << ".\n";
 
-        IPAddress address = createAddress(index, k);
+        IPv4Address address = createAddress(index, k);
         //EV << "Edge Router " << position << " in POD " << podposition << " has IP " << address.str() << "\n";
 
-        setRackIPAddress(address);
+        setRackIPv4Address(address);
 
         setDisplayString(address);
     }
 }
 
-IPAddress RackIPConfig::createAddress(int index, int k) {
+IPv4Address RackIPConfig::createAddress(int index, int k) {
     // First byte determined by ned file.
-    int i0 = IPAddress((const char*)par("networkAddress")).getDByte(0);
+    int i0 = IPv4Address((const char*)par("networkAddress")).getDByte(0);
     // Number of the POD the router lies in.
     int i1 = index/(k/2);
     // Position of switch in POD.
     int i2 = index%(k/2);
 
-    return IPAddress(i0, i1, i2, 1);    //i3 = 1, according to paper.
+    return IPv4Address(i0, i1, i2, 1);    //i3 = 1, according to paper.
 }
 
-void RackIPConfig::setRackIPAddress(IPAddress address) {
+void RackIPConfig::setRackIPv4Address(IPv4Address address) {
     // find interface table and assign address to all (non-loopback) interfaces
-    IInterfaceTable *ift = IPAddressResolver().interfaceTableOf(getParentModule()->getSubmodule("router"));
+    IInterfaceTable *ift = check_and_cast < IInterfaceTable *>(getParentModule()->getSubmodule("router"));
     for (int i=0; i<ift->getNumInterfaces(); i++)
     {
         InterfaceEntry *ie = ift->getInterface(i);
         if (!ie->isLoopback())
         {
-            ie->ipv4Data()->setIPAddress(IPAddress(address));
-            ie->ipv4Data()->setNetmask(IPAddress::ALLONES_ADDRESS); // full address must match for local delivery
+            ie->ipv4Data()->setIPAddress(IPv4Address(address));
+            ie->ipv4Data()->setNetmask(IPv4Address::ALLONES_ADDRESS); // full address must match for local delivery
         }
     }
 }
 
-void RackIPConfig::setDisplayString(IPAddress address) {
-    if (ev.isGUI()) {
+void RackIPConfig::setDisplayString(IPv4Address address) {
+    if (this->getSimulation()->getActiveEnvir()->isGUI()) {
         // update display string
         getParentModule()->getDisplayString().setTagArg("t",0,address.str().c_str());
     }

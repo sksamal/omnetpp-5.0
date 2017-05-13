@@ -1,0 +1,64 @@
+//
+// Author: Michael Klopf
+// 
+
+#include "RackIPConfig.h"
+#include <InterfaceTable.h>
+//#include <IPv4AddressResolver.h>
+#include <IPv4InterfaceData.h>
+
+Define_Module(RackIPConfig);
+
+void RackIPConfig::initialize(int stage)
+{
+    if (stage == 1) {
+        index = getParentModule()->par("address");
+        k = getParentModule()->par("k");
+
+        //EV << "Edge Router " << position << " lies in POD: " << podposition << ".\n";
+
+        IPv4Address address = createAddress(index, k);
+        //EV << "Edge Router " << position << " in POD " << podposition << " has IP " << address.str() << "\n";
+
+        setRackIPv4Address(address);
+
+        setDisplayString(address);
+    }
+}
+
+IPv4Address RackIPConfig::createAddress(int index, int k) {
+    // First byte determined by ned file.
+    int i0 = IPv4Address((const char*)par("networkAddress")).getDByte(0);
+    // Number of the POD the router lies in.
+    int i1 = index/(k/2);
+    // Position of switch in POD.
+    int i2 = index%(k/2);
+
+    return IPv4Address(i0, i1, i2, 1);    //i3 = 1, according to paper.
+}
+
+void RackIPConfig::setRackIPv4Address(IPv4Address address) {
+    // find interface table and assign address to all (non-loopback) interfaces
+    IInterfaceTable *ift = check_and_cast < IInterfaceTable *>(getParentModule()->getSubmodule("router"));
+    for (int i=0; i<ift->getNumInterfaces(); i++)
+    {
+        InterfaceEntry *ie = ift->getInterface(i);
+        if (!ie->isLoopback())
+        {
+            ie->ipv4Data()->setIPAddress(IPv4Address(address));
+            ie->ipv4Data()->setNetmask(IPv4Address::ALLONES_ADDRESS); // full address must match for local delivery
+        }
+    }
+}
+
+void RackIPConfig::setDisplayString(IPv4Address address) {
+    if (ev.isGUI()) {
+        // update display string
+        getParentModule()->getDisplayString().setTagArg("t",0,address.str().c_str());
+    }
+}
+
+void RackIPConfig::handleMessage(cMessage *msg)
+{
+    error("this module doesn't handle messages, it runs only in initialize()");
+}

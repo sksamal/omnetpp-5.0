@@ -11,7 +11,6 @@
 #include "TRouter.h"
 #include "TPacket_m.h"
 
-
 // Module registration:
 Define_Module( TRouter );
 
@@ -151,7 +150,7 @@ void TRouter::activity()
             sendDelayed(usr_cell[i], PROPDEL, "out$o[1]", usr_port[i]);
          }
       }
-      ev.printf("rte[%d]: Discarded %ld out of %ld\n", my_address, discarded_usr, total_usr);
+      EV<< ("rte[%d]: Discarded %ld out of %ld\n", my_address, discarded_usr, total_usr);
    }
 }
 

@@ -4,7 +4,7 @@
 
 #include "CoreIPConfig.h"
 #include <InterfaceTable.h>
-#include <IPAddressResolver.h>
+//#include <IPvXAddressResolver.h>
 #include <IPv4InterfaceData.h>
 
 Define_Module(CoreIPConfig);
@@ -16,7 +16,7 @@ void CoreIPConfig::initialize(int stage)
         position = getParentModule()->par("position");
         //EV << "Core Router " << position << " knows his k value: " << k << ".\n";
 
-        IPAddress address = createAddress(k, position);
+        IPv4Address address = createAddress(k, position);
         //EV << "Core Router " << position << " with IP " << address.str() << "\n";
 
         setRouterIPAddress(address);
@@ -25,33 +25,33 @@ void CoreIPConfig::initialize(int stage)
     }
 }
 
-IPAddress CoreIPConfig::createAddress(int k, int position) {
+IPv4Address CoreIPConfig::createAddress(int k, int position) {
     // First byte determined by ned file.
-    int i0 = IPAddress((const char*)par("networkAddress")).getDByte(0);
+    int i0 = IPv4Address((const char*)par("networkAddress")).getDByte(0);
     // Row value.
     int i2 = (int)(position/(k/2))+1;
     // Column value.
     int i3 = (int)(position%(k/2))+1;
 
-    return IPAddress(i0, k, i2, i3);
+    return IPv4Address(i0, k, i2, i3);
 }
 
-void CoreIPConfig::setRouterIPAddress(IPAddress address) {
+void CoreIPConfig::setRouterIPAddress(IPv4Address address) {
     // find interface table and assign address to all (non-loopback) interfaces
-    IInterfaceTable *ift = IPAddressResolver().interfaceTableOf(getParentModule());
+    IInterfaceTable *ift = check_and_cast < IInterfaceTable *>(this->getParentModule()->getSubmodule("interfaceTable"));
     for (int i=0; i<ift->getNumInterfaces(); i++)
     {
         InterfaceEntry *ie = ift->getInterface(i);
         if (!ie->isLoopback())
         {
-            ie->ipv4Data()->setIPAddress(IPAddress(address));
-            ie->ipv4Data()->setNetmask(IPAddress::ALLONES_ADDRESS); // full address must match for local delivery
+            ie->ipv4Data()->setIPAddress(IPv4Address(address));
+            ie->ipv4Data()->setNetmask(IPv4Address::ALLONES_ADDRESS); // full address must match for local delivery
         }
     }
 }
 
-void CoreIPConfig::setDisplayString(IPAddress address) {
-    if (ev.isGUI()) {
+void CoreIPConfig::setDisplayString(IPv4Address address) {
+    if (this->getSimulation()->getActiveEnvir()->isGUI()) {
         // update display string
         getParentModule()->getDisplayString().setTagArg("t",0,address.str().c_str());
     }

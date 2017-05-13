@@ -12,6 +12,7 @@
 #define __TSINK_H_
 
 #include <omnetpp.h>
+using namespace omnetpp;
 
 #define STACKSIZE 16384
 
@@ -21,12 +22,14 @@
 class TSink : public cSimpleModule
 {
   private:
+
     simsignal_t endToEndDelaySignal;
     simsignal_t hopCountSignal;
     simsignal_t hopRatioSignal;
+
   public:
     virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
+    virtual void handleMessage(omnetpp::cMessage *msg);
 };
 
 #endif

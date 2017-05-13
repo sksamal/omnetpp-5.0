@@ -1,12 +1,18 @@
-18:54:16 **** Incremental Build of configuration gcc-release for project obsmodules ****
+12:43:54 **** Build of configuration gcc-release for project obsmodules ****
 make MODE=release CONFIGNAME=gcc-release all 
-src/CoreNode/OBS_CoreRoutingTable.cc
-src/CoreNode/OBS_CoreRoutingTable.cc: In member function ‘OBS_CoreRoutingTableEntry* OBS_CoreRoutingTable::getEntry(int, int, int)’:
-src/CoreNode/OBS_CoreRoutingTable.cc:90:43: error: invalid cast from type ‘omnetpp::cQueue::Iterator’ to type ‘OBS_CoreRoutingTableEntry*’
-       item = (OBS_CoreRoutingTableEntry*) iter_list;
-                                           ^~~~~~~~~
-Makefile:192: recipe for target 'out/gcc-release//src/CoreNode/OBS_CoreRoutingTable.o' failed
-make: *** [out/gcc-release//src/CoreNode/OBS_CoreRoutingTable.o] Error 1
+src/FSONode/FSO_CoreControlLogic.cc
+src/FSONode/FSO_CoreControlLogic.cc: In member function ‘virtual void FSO_CoreControlLogic::handleMessage(omnetpp::cMessage*)’:
+src/FSONode/FSO_CoreControlLogic.cc:109:17: error: ‘coreInput’ was not declared in this scope
+    int inGate = coreInput->getOXCGate(arrivalPort, coreInput->getLambdaByColour(arrivalPort,burstColour)); //Request OXC input gate for incoming burst
+                 ^~~~~~~~~
+src/FSONode/FSO_CoreControlLogic.cc:164:17: error: ‘coreOutput’ was not declared in this scope
+        lambda = coreOutput->getLambdaByColour(outPort,outColour);
+                 ^~~~~~~~~~
+src/FSONode/FSO_CoreControlLogic.cc:191:28: error: ‘coreOutput’ was not declared in this scope
+    controlInfo->setOutGate(coreOutput->getOXCGate(outPort,lambda));
+                            ^~~~~~~~~~
+make: *** [out/gcc-release//src/FSONode/FSO_CoreControlLogic.o] Error 1
+Makefile:207: recipe for target 'out/gcc-release//src/FSONode/FSO_CoreControlLogic.o' failed
 
-18:54:17 Build Finished (took 924ms)
+12:43:55 Build Finished (took 829ms)
 

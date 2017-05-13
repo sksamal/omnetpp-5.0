@@ -1,0 +1,61 @@
+//
+// This file is part of an OMNeT++/OMNEST simulation example.
+//
+// Copyright (C) 1992-2008 Andras Varga
+//
+// This file is distributed WITHOUT ANY WARRANTY. See the file
+// `license' for details on this and other legal matters.
+//
+
+//
+// Building block of the deflection routing hypercube.
+//
+package fattree.components;
+
+import fattree.logic.ipaddress.ServerIPConfig;
+import inet.networklayer.common.InterfaceTable;
+//import inet.base.NotificationBoard;
+
+module Server
+{
+    parameters:
+        int address;
+        int dim;
+        @display("i=block/circle;is=vs");
+    gates:
+        inout port;
+    submodules:
+        gen: TGenerator {
+            parameters:
+                numStations = 2^dim;
+                address = address;
+                iaTime = default(exponential(1s));
+                @display("p=82,82");
+        }
+        sink: TSink {
+            parameters:
+                address = address;
+                @display("p=176,82");
+        }
+        
+        interfaceTable: InterfaceTable {
+            parameters:
+                @display("p=57,134");
+        }
+ 
+        ipconfig: ServerIPConfig {
+            @display("p=568,31");
+        }
+        
+        notificationBoard: NotificationBoard {
+            parameters:
+                @display("p=57,54");
+        }
+        
+    connections:
+        gen.out --> port$o;
+        sink.in <-- port$i;
+ 
+}
+
+

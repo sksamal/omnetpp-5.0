@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for osg-earth
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -DWITH_OSG
+#  opp_makemake -f --deep
 #
 
 # Name of target to be created (-o option)
@@ -42,11 +42,11 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
 OBJS = \
-    $O/fallback.o \
     $O/ChannelController.o \
+    $O/fallback.o \
+    $O/MobileNode.o \
     $O/OsgEarthScene.o \
     $O/RambleNode.o \
-    $O/MobileNode.o \
     $O/WaypointTrackerNode.o
 
 # Message files
@@ -79,7 +79,7 @@ include $(CONFIGFILE)
 OMNETPP_LIB_SUBDIR = $(OMNETPP_LIB_DIR)/$(TOOLCHAIN_NAME)
 OMNETPP_LIBS = -L"$(OMNETPP_LIB_SUBDIR)" -L"$(OMNETPP_LIB_DIR)" -loppmain$D $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
 
-COPTS = $(CFLAGS) -DWITH_OSG $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
+COPTS = $(CFLAGS)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
 MSGCOPTS = $(INCLUDE_PATH)
 SMCOPTS =
 
@@ -164,24 +164,23 @@ depend:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/ChannelController.o: ChannelController.cc \
-	ChannelController.h \
-	MobileNode.h \
-	OsgEarthScene.h
-$O/MobileNode.o: MobileNode.cc \
-	ChannelController.h \
-	MobileNode.h \
-	OsgEarthScene.h
-$O/OsgEarthScene.o: OsgEarthScene.cc \
-	OsgEarthScene.h
-$O/RambleNode.o: RambleNode.cc \
-	ChannelController.h \
-	MobileNode.h \
-	OsgEarthScene.h \
-	RambleNode.h
-$O/WaypointTrackerNode.o: WaypointTrackerNode.cc \
-	ChannelController.h \
-	MobileNode.h \
-	OsgEarthScene.h \
-	WaypointTrackerNode.h
+  ./ChannelController.h \
+  ./MobileNode.h \
+  ./OsgEarthScene.h
 $O/fallback.o: fallback.cc
-
+$O/MobileNode.o: MobileNode.cc \
+  ./ChannelController.h \
+  ./MobileNode.h \
+  ./OsgEarthScene.h
+$O/OsgEarthScene.o: OsgEarthScene.cc \
+  ./OsgEarthScene.h
+$O/RambleNode.o: RambleNode.cc \
+  ./ChannelController.h \
+  ./MobileNode.h \
+  ./OsgEarthScene.h \
+  ./RambleNode.h
+$O/WaypointTrackerNode.o: WaypointTrackerNode.cc \
+  ./ChannelController.h \
+  ./MobileNode.h \
+  ./OsgEarthScene.h \
+  ./WaypointTrackerNode.h

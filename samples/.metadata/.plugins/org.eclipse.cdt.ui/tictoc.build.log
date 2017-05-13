@@ -1,7 +1,6 @@
-18:54:29 **** Incremental Build of configuration gcc-release for project tictoc ****
+20:46:10 **** Incremental Build of configuration gcc-release for project tictoc ****
 make MODE=release CONFIGNAME=gcc-release all 
-txc14.cc
 Creating executable: out/gcc-release//tictoc
 
-18:54:31 Build Finished (took 1s.673ms)
+20:46:11 Build Finished (took 676ms)
 

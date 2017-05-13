@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for FatTree-New
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I../../inet/src -I../../inet/src/inet/networklayer/common -I../../inet/src/inet/networklayer/contract -I../../inet/src/inet/transportlayer/contract/tcp -I../../inet/src/inet/applications/tcpapp -I../../inet/src/inet/networklayer/ipv4 -L../../inet/out/$$\(CONFIGNAME\)/src -lINET -KINET_PROJ=../../inet
+#  opp_makemake -f --deep -I../../inet/src -I../../inet/src/inet/networklayer/contract/ipv4 -I../../inet/src/inet/networklayer/common -I../../inet/src/inet/networklayer/contract -I../../inet/src/inet/transportlayer/contract/tcp -I../../inet/src/inet/applications/tcpapp -I../../inet/src/inet/networklayer/ipv4 -L../../inet/out/$$\(CONFIGNAME\)/src -lINET -KINET_PROJ=../../inet
 #
 
 # Name of target to be created (-o option)
@@ -17,6 +17,7 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LI
 # C++ include paths (with -I)
 INCLUDE_PATH = \
     -I../../inet/src \
+    -I../../inet/src/inet/networklayer/contract/ipv4 \
     -I../../inet/src/inet/networklayer/common \
     -I../../inet/src/inet/networklayer/contract \
     -I../../inet/src/inet/transportlayer/contract/tcp \

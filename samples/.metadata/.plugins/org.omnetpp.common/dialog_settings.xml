@@ -6,5 +6,6 @@
 		<item value="bundleentry://291.fwk1557989809/templates/emptynetwork/" key="network.template"/>
 		<item value="bundleentry://291.fwk1557989809/templates/emptysimplemodule/" key="simplemodule.template"/>
 		<item value="bundleentry://277.fwk1557989809/template/emptyproject/" key="project.template"/>
+		<item value="bundleentry://291.fwk1557989809/templates/emptycompoundmodule/" key="compoundmodule.template"/>
 	</section>
 </section>

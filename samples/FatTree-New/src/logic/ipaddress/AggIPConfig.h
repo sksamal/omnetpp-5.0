@@ -6,8 +6,9 @@
 #define __FATTREEVMMIGRATIONCASE1_AGGIPCONFIG_H_
 
 #include <omnetpp.h>
-#include <IPAddress.h>
-
+#include <IPv4Address.h>
+using namespace omnetpp;
+using namespace inet;
 /**
  * Sets the IP address of the aggregation router at a certain position
  * in dependence to the k-value of the fat tree.
@@ -36,16 +37,16 @@ class AggIPConfig : public cSimpleModule
          * pod and the position of the pod among the pods to compute the
          * ip address.
          */
-        virtual IPAddress createAddress(int k, int position, int podposition);
+        virtual IPv4Address createAddress(int k, int position, int podposition);
         /**
          * Finds the interface table and assigns the ip address
          * to all non-loopback interfaces.
          */
-        virtual void setRouterIPAddress(IPAddress address);
+        virtual void setRouterIPAddress(IPv4Address address);
         /**
          * Sets the ip address as display string in graphical environment.
          */
-        virtual void setDisplayString(IPAddress address);
+        virtual void setDisplayString(IPv4Address address);
 
 };
 

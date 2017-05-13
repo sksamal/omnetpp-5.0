@@ -7,6 +7,7 @@
 
 #include <omnetpp.h>
 
+using namespace omnetpp;
 /**
  * Sets the IP addresses of all (possible) traffic generators
  * and the controller in the network.

@@ -7,8 +7,8 @@
 #include <IInterfaceTable.h>
 #include <InterfaceTable.h>
 #include <InterfaceEntry.h>
-#include <IPvXAddress.h>
-#include <IPAddressResolver.h>
+#include <IPv4Address.h>
+//#include <IPAddressResolver.h>
 
 Define_Module(ConfigRouting);
 
@@ -69,8 +69,8 @@ void ConfigRouting::addDefaultRoutes(cTopology& topo, NodeInfoVector& nodeInfo) 
 
         // add route
         IPRoute *e = new IPRoute();
-        e->setHost(IPAddress());
-        e->setNetmask(IPAddress());
+        e->setHost(IPv4Address());
+        e->setNetmask(IPv4Address());
         e->setInterface(ie);
         e->setType(IPRoute::REMOTE);
         e->setSource(IPRoute::MANUAL);

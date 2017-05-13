@@ -12,6 +12,7 @@
 #define __TGENERATOR_H_
 
 #include <omnetpp.h>
+using namespace omnetpp;
 
 #define STACKSIZE 16384
 

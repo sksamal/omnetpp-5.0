@@ -6,7 +6,9 @@
 #define __FATTREEVMMIGRATIONCASE1_COREIPCONFIG_H_
 
 #include <omnetpp.h>
-#include <IPAddress.h>
+#include <IPv4Address.h>
+using namespace omnetpp;
+using namespace inet;
 
 /**
  * Sets the IP address of the core router at a certain position
@@ -32,16 +34,16 @@ class CoreIPConfig : public cSimpleModule
          * Takes the k-value and the position of the core router in the
          * network and computes the address.
          */
-        virtual IPAddress createAddress(int k, int position);
+        virtual IPv4Address createAddress(int k, int position);
         /**
          * Finds the interface table and assigns the ip address
          * to all non-loopback interfaces.
          */
-        virtual void setRouterIPAddress(IPAddress address);
+        virtual void setRouterIPAddress(IPv4Address address);
         /**
          * Sets the ip address as display string in graphical environment.
          */
-        virtual void setDisplayString(IPAddress address);
+        virtual void setDisplayString(IPv4Address address);
 };
 
 #endif

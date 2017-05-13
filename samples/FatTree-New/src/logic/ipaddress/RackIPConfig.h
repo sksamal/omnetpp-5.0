@@ -6,7 +6,10 @@
 #define __FATTREEVMMIGRATIONCASE1_EDGEIPCONFIG_H_
 
 #include <omnetpp.h>
-#include <IPAddress.h>
+#include <IPv4Address.h>
+
+using namespace omnetpp;
+using namespace inet;
 
 /**
  * Sets the IP address of the edge router respectively rack/ToR at a certain position
@@ -32,16 +35,16 @@ class RackIPConfig : public cSimpleModule
      * pod and the position of the pod among the pods to compute the
      * ip address.
      */
-    virtual IPAddress createAddress(int position, int podposition);
+    virtual IPv4Address createAddress(int position, int podposition);
     /**
      * Finds the interface table and assigns the ip address
      * to all non-loopback interfaces.
      */
-    virtual void setRackIPAddress(IPAddress address);
+    virtual void setRackIPv4Address(IPv4Address address);
     /**
      * Sets the ip address as display string in graphical environment.
      */
-    virtual void setDisplayString(IPAddress address);
+    virtual void setDisplayString(IPv4Address address);
 };
 
 #endif
