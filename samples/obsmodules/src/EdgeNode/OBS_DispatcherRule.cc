@@ -107,6 +107,7 @@ bool OBS_DispatcherRule::match(cMessage *msg){
    IPv4Datagram *recvIP = check_and_cast< IPv4Datagram* > (msg);
    // Later we'll extract TCP/UDP header if necessary
 
+//   cout<<"Dispatcher : ";
    // Check which fields are set in this rule
    if(isSet[0]){
       if(!(recvIP->getSrcAddress() == srcAddr)) {
@@ -115,7 +116,7 @@ bool OBS_DispatcherRule::match(cMessage *msg){
 
           return false;
       }
-      cout<< "srcAddr("<<recvIP->getSrcAddress()<<") matched \n";
+//      cout<< "srcAddr("<<recvIP->getSrcAddress()<<") matched, ";
    }
    if(isSet[1]){
       if(!(recvIP->getDestAddress() == destAddr)) {
@@ -125,7 +126,7 @@ bool OBS_DispatcherRule::match(cMessage *msg){
           return false;
 
       }
-      cout<< "destAddr("<<recvIP->getDestAddress()<<") matched \n";
+//      cout<< "destAddr("<<recvIP->getDestAddress()<<") matched, ";
 
    }
    if(isSet[2]){
@@ -152,7 +153,7 @@ bool OBS_DispatcherRule::match(cMessage *msg){
 //          throw new cRuntimeError("srcPort doesnot match with recvSrcPort");
           return false;
       }
-      cout<< "srcPort("<<srcPort<<") matched \n";
+//      cout<< "srcPort("<<srcPort<<") matched, ";
 
    }
    if(isSet[4]){
@@ -171,9 +172,9 @@ bool OBS_DispatcherRule::match(cMessage *msg){
 //          throw new cRuntimeError("destPort doesnot match with recvDestPort");
           return false;
       }
-      cout<< "destPort("<<destPort<<") matched \n";
+ //     cout<< "destPort("<<destPort<<") matched, ";
    }
    //If everything is OK, return true and finish :)
-   cout<<"Rule Matched \n";
+//   cout<<", Entire Rule Matched [Success] \n";
    return true;
 }

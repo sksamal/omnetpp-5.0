@@ -19,6 +19,7 @@
 //
 
 #include "OBS_CoreInput.h"
+//#define COMPILETIME_LOGLEVEL LOGLEVEL_TRACE
 
 Define_Module(OBS_CoreInput);
 
@@ -30,7 +31,6 @@ OBS_CoreInput::~OBS_CoreInput(){
 
 void OBS_CoreInput::initialize(){
    numPorts = par("numPorts");
-   
    const char* portLenStr = par("lambdasPerPort").stringValue();
    if(strcmp(portLenStr,"") == 0) throw cRuntimeError("OBS_CoreInput: lambdasPerPort not initialized");
 
@@ -44,10 +44,14 @@ void OBS_CoreInput::initialize(){
    int i = 0;
 
    while(tokenizer.hasMoreTokens()){
-      portLen[i] = atoi(tokenizer.nextToken()) + 1; // lambdasPerPort considers only data channels. In this array we include a control channel for each fiber.
+      portLen[i] = atoi(tokenizer.nextToken()) + 1; // lambdasPerPort considers only data+ sizeof(obsin) -1) channels. In this array we include a control channel for each fiber.
       i++; 
    }
-   
+
+   // Suraj - copy from previous value of not all lambas provided
+   for(;i<numPorts;i++)
+       portLen[i] = portLen[i-1];
+
    inPortBegin[0] = 0;
    for(i=1;i<numPorts;i++)
       // i-th fiber begins just after (i-1)-th last channel. 
@@ -57,6 +61,12 @@ void OBS_CoreInput::initialize(){
    outDataBegin[0] = numPorts; //First data channel will be just after control channels.
    for(i=1;i<numPorts;i++)
       outDataBegin[i] = outDataBegin[i-1] + (portLen[i-1] - 1);
+
+   cout<<"OBS_CoreInput: (numPorts="<<numPorts<<")\n";
+   for(i=0;i<numPorts;i++)
+   {
+       cout<<"Fiber "<<i<<"--> starts at "<<inPortBegin[i]<< " data channel begins at "<<outDataBegin[i]<<endl;
+   }
 
 
    //Create colour structures
@@ -107,7 +117,9 @@ void OBS_CoreInput::handleMessage(cMessage *msg){
     // Convert OMNeT input port value to (fiber,lambda) identifier
     int port = getInPort(gate->getIndex());
     int lambda = getInLambda(gate->getIndex());
-
+    cout << "Gate "<<gate<<" maps to port="<<port<<" lambda="<<lambda<<endl;
+//    throw cRuntimeError("Gate %s maps to port=%d and lamba=%d",gate,port,lambda);
+//    cout<<"Gate "<<gate<<" maps to port="<<port<<" lambda="<<lambda;
     if((portLen[port] -1) == lambda){ // If lambda value is the last one for this fiber, output it as a BCP
        send(msg,"out",port); // First numPorts output gates are assigned to BCP channels. Send this message to the corresponding output
     }

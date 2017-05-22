@@ -1,0 +1,2 @@
+vector 1 "OBS_OpticalMonitor id:5" "Received Burst info" 1
+vector 2 "OBS_OpticalMonitor id:5" "Received BCP info" 1

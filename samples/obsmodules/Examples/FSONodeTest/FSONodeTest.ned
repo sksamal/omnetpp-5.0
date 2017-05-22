@@ -19,7 +19,7 @@
 //
 
 package obsmodules.Examples.FSONodeTest;
-
+import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 import obsmodules.src.misc.OBS_OpticalMonitor;
 import obsmodules.src.FSONode.FSO_Node;
 import inet.node.inet.StandardHost;
@@ -28,52 +28,57 @@ import inet.node.inet.StandardHost;
 // It consists of two hosts interconnected by an OBS network. Each host has its own edge node.
 // Between each edge, an optical monitor module is connected in order to collect information about bursts that pass through the network.
 //
-network EdgeNodeTest
+network FSONodeTest
 {
     parameters:
-        int numLambdas; // Number of data channels (same for all fibers)
+        int lambdas; // Number of data channels (same for all fibers)
+		int servers;
+		
     submodules:
+
         host1: StandardHost {
             parameters:
-                routingTable.routingFile = "H1.irt";
                 @display("p=46,72;i=device/pc2");
         }
+
         fso1: FSO_Node {
             parameters:
-                routingTable.routingFile = "Fso1.irt";
-                @display("p=191,168;i=block/classifier2");
-            gates:
-                obsIn[numLambdas+1];
-                obsOut[numLambdas+1];
+                lambdasPerInPort = lambdas;
+                lambdasPerOutPort = lambdas;
+                servernumPorts = servers;
         }
+
+        configurator: IPv4NetworkConfigurator {
+            @display("p=62,127");
+            config = xmldoc("IPv4Config.xml");
+        }
+
         monitor: OBS_OpticalMonitor {
             parameters:
                 @display("p=246,240;i=block/process");
             gates:
-                in[numLambdas+1];
-                out[numLambdas+1];
+                in[lambdas+1];
+                out[lambdas+1];
         }
+
         fso2: FSO_Node {
             parameters:
-                routingTable.routingFile = "Fso2.irt";
-                @display("p=302,168;i=block/classifier2");
-            gates:
-                obsIn[numLambdas+1];
-                obsOut[numLambdas+1];
+                lambdasPerInPort = lambdas;
+                lambdasPerOutPort = lambdas;
+                servernumPorts = servers;
         }
+
         host2: StandardHost {
             parameters:
-                routingTable.routingFile = "H2.irt";
                 @display("p=440,112;i=device/pc2");
         }
     connections:
         host1.ethg++ <--> { datarate=100Gbps; } <--> fso1.ethIO++;
-
         host2.ethg++ <--> { datarate=100Gbps; } <--> fso2.ethIO++;
 
-        for i=0..numLambdas {
-            fso1.obsOut[i] --> monitor.in[i];
-            monitor.out[i] --> fso2.obsIn[i];
-            fso2.obsOut[i] --> fso1.obsIn[i];
+        for i=0..lambdas {
+            fso1.oxcout++ --> monitor.in[i];
+            monitor.out[i] --> fso2.oxcin++;
+            fso2.oxcout++ --> fso1.oxcin++;
         }
 }

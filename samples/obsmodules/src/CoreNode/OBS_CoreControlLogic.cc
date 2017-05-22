@@ -51,9 +51,9 @@ void OBS_CoreControlLogic::initialize(){
    // As long as there are no module arrays, it shouldn't give any problem.
    routingTable = check_and_cast<OBS_CoreRoutingTable*>(parent->getSubmodule("RoutingTable"));
    gatesHorizon = check_and_cast<OBS_CoreOutputHorizon*>(parent->getSubmodule("GatesHorizon"));
-   coreInput = check_and_cast<OBS_CoreInput*>((parent->getParentModule())->getSubmodule("Input"));
-   coreOutput = check_and_cast<OBS_CoreOutput*>((parent->getParentModule())->getSubmodule("Output"));
-   oxc = check_and_cast<OBS_OpticalCrossConnect*>((parent->getParentModule())->getSubmodule("OXC"));
+   coreInput = check_and_cast<OBS_CoreInput*>((parent->getParentModule())->getSubmodule("oxcInput"));
+   coreOutput = check_and_cast<OBS_CoreOutput*>((parent->getParentModule())->getSubmodule("oxcOutput"));
+   oxc = check_and_cast<OBS_OpticalCrossConnect*>((parent->getParentModule())->getSubmodule("oxcSwitch"));
 
    //Initialize all statistics
    int numInPorts = coreInput->par("numPorts");

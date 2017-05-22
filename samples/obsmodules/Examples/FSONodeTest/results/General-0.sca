@@ -1,0 +1,548 @@
+version 2
+run General-0-20170519-16:26:26-14134
+attr configname General
+attr datetime 20170519-16:26:26
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network FSONodeTest
+attr processid 14134
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.BCPProcessingDelay 0s
+param **.EOConversionDelay 0s
+param **.OEConversionDelay 0s
+param **.dataRate 10e6bps
+param **.dispatcherRules "\"\""
+param **.fileBurstifier[*].burstFile "\"bursts.txt\""
+param **.fileBurstifier[*].destLabel 2
+param **.fso1.inputColours "\"1\""
+param **.fso1.outputColours "\"\""
+param **.fso2.inputColours "\"1\""
+param **.fso2.outputColours "\"\""
+param **.fsoSwitch.ctrlPorts 1
+param **.guardTime 0.000004s
+param **.lambdas 1
+param **.monitor.reportFile "\"dataTest.dat\""
+param **.numFileBurstifiers 1
+param **.numPacketBurstifiers 0
+param **.packetBurstifier[*].cteHeader 812B
+param **.packetBurstifier[*].destLabel 0
+param **.packetBurstifier[*].maxOffset 0.01s
+param **.packetBurstifier[*].maxSize 450000000B
+param **.packetBurstifier[*].minOffset 0.001s
+param **.packetBurstifier[*].minSizeWithPadding 8B
+param **.packetBurstifier[*].numPackets 5000
+param **.packetBurstifier[*].overflowLastPacket true
+param **.packetBurstifier[*].timeout 10ms
+param **.packetBurstifier[*].varHeader 18B
+param **.reportFile "\"FSONodeOXCReport\""
+param **.routeTableFile "\"FSONodeRouting\""
+param **.sender.BCPSize 125B
+param **.sender.guardTime 0.0000001s
+param **.sender.maxSchedBurstElems 0
+param **.sender.maxSchedBurstSize 0
+param **.sender.testing false
+param **.servers 1
+
+scalar FSONodeTest.fso1.torInterface.obs.assembler.fileBurstifier[0] 	"my ID" 	64
+scalar FSONodeTest.fso2.torInterface.obs.assembler.fileBurstifier[0] 	"my ID" 	101
+scalar FSONodeTest.host1.networkLayer.arp 	failedARPResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar FSONodeTest.host1.networkLayer.arp 	completedARPResolution:count 	0
+attr title  "ARP completed resolutions, count"
+scalar FSONodeTest.host1.networkLayer.arp 	initiatedARPResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar FSONodeTest.host1.networkLayer.arp 	sentReply:count 	0
+attr title  "ARP replies sent, count"
+scalar FSONodeTest.host1.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar FSONodeTest.host1.lo0.lo 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar FSONodeTest.host1.lo0.lo 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar FSONodeTest.host1.lo0.lo 	rcvdPkFromHL:count 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, count"
+scalar FSONodeTest.host1.lo0.lo 	rcvdPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, sum(packetBytes)"
+scalar FSONodeTest.host1.lo0.lo 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar FSONodeTest.host1.lo0.lo 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].mac 	"simulated time" 	124.3500087
+scalar FSONodeTest.host1.eth[0].mac 	full-duplex 	1
+scalar FSONodeTest.host1.eth[0].mac 	"frames/sec sent" 	0
+scalar FSONodeTest.host1.eth[0].mac 	"frames/sec rcvd" 	0
+scalar FSONodeTest.host1.eth[0].mac 	"bits/sec sent" 	0
+scalar FSONodeTest.host1.eth[0].mac 	"bits/sec rcvd" 	0
+scalar FSONodeTest.host1.eth[0].mac 	"rx channel idle (%)" 	100
+scalar FSONodeTest.host1.eth[0].mac 	"rx channel utilization (%)" 	0
+scalar FSONodeTest.host1.eth[0].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar FSONodeTest.host1.eth[0].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar FSONodeTest.host1.eth[0].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar FSONodeTest.host1.eth[0].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].mac 	rxPkFromHL:count 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar FSONodeTest.host1.eth[0].mac 	rxPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar FSONodeTest.host1.eth[0].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar FSONodeTest.host1.eth[0].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar FSONodeTest.host1.eth[0].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar FSONodeTest.host1.eth[0].mac 	rxPkOk:count 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar FSONodeTest.host1.eth[0].mac 	rxPkOk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].mac 	txPk:count 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar FSONodeTest.host1.eth[0].mac 	txPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].mac 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar FSONodeTest.host1.eth[0].mac 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar FSONodeTest.host1.eth[0].encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar FSONodeTest.host1.eth[0].encap 	decapPk:count 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar FSONodeTest.host1.eth[0].encap 	decapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar FSONodeTest.host1.eth[0].encap 	encapPk:count 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar FSONodeTest.host1.eth[0].encap 	encapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.networkLayer.arp 	failedARPResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar FSONodeTest.fso1.torInterface.networkLayer.arp 	completedARPResolution:count 	0
+attr title  "ARP completed resolutions, count"
+scalar FSONodeTest.fso1.torInterface.networkLayer.arp 	initiatedARPResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar FSONodeTest.fso1.torInterface.networkLayer.arp 	sentReply:count 	0
+attr title  "ARP replies sent, count"
+scalar FSONodeTest.fso1.torInterface.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	"simulated time" 	124.3500087
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	full-duplex 	1
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	"frames/sec sent" 	0
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	"frames/sec rcvd" 	0
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	"bits/sec sent" 	0
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	"bits/sec rcvd" 	0
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	"rx channel idle (%)" 	100
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	"rx channel utilization (%)" 	0
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	rxPkFromHL:count 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	rxPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	rxPkOk:count 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	rxPkOk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	txPk:count 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	txPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].mac 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar FSONodeTest.fso1.torInterface.eth[0].encap 	decapPk:count 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].encap 	decapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.eth[0].encap 	encapPk:count 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar FSONodeTest.fso1.torInterface.eth[0].encap 	encapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar FSONodeTest.fso1.torInterface.obs.assembler.dispatcher 	"Packets received" 	0
+scalar FSONodeTest.fso1.torInterface.obs.assembler.dispatcher 	"Average packet size" 	-nan
+scalar FSONodeTest.fso1.torInterface.obs.assembler.dispatcher 	"Packet size variance" 	-nan
+scalar FSONodeTest.fso1.torInterface.obs.assembler.dispatcher 	"Dropped Packets" 	0
+scalar FSONodeTest.fso1.torInterface.obs.assembler.sender 	"burst sent" 	88
+scalar FSONodeTest.fso1.torInterface.obs.assembler.sender 	"burst dropped by reaching Minimum Offset" 	0
+scalar FSONodeTest.fso1.torInterface.obs.assembler.sender 	"burst dropped by queue" 	0
+scalar FSONodeTest.fso1.torInterface.obs.assembler.sender 	"BCPs pending to be sent (because the control channel is busy)" 	0
+scalar FSONodeTest.fso1.torInterface.obs.disassembler 	"received Bursts" 	0
+scalar FSONodeTest.fso1.fsoSwitch.oxcControl.OE 	"BCPs pending to be converted in electrical" 	0
+scalar FSONodeTest.fso1.fsoSwitch.oxcControl.ControlLogic 	"Burst dropped in Core Node" 	0
+scalar FSONodeTest.fso2.torInterface.networkLayer.arp 	failedARPResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar FSONodeTest.fso2.torInterface.networkLayer.arp 	completedARPResolution:count 	0
+attr title  "ARP completed resolutions, count"
+scalar FSONodeTest.fso2.torInterface.networkLayer.arp 	initiatedARPResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar FSONodeTest.fso2.torInterface.networkLayer.arp 	sentReply:count 	0
+attr title  "ARP replies sent, count"
+scalar FSONodeTest.fso2.torInterface.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	"simulated time" 	124.3500087
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	full-duplex 	1
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	"frames/sec sent" 	0
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	"frames/sec rcvd" 	0
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	"bits/sec sent" 	0
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	"bits/sec rcvd" 	0
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	"rx channel idle (%)" 	100
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	"rx channel utilization (%)" 	0
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	rxPkFromHL:count 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	rxPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	rxPkOk:count 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	rxPkOk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	txPk:count 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	txPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].mac 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar FSONodeTest.fso2.torInterface.eth[0].encap 	decapPk:count 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].encap 	decapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.eth[0].encap 	encapPk:count 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar FSONodeTest.fso2.torInterface.eth[0].encap 	encapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"
+scalar FSONodeTest.fso2.torInterface.obs.assembler.dispatcher 	"Packets received" 	0
+scalar FSONodeTest.fso2.torInterface.obs.assembler.dispatcher 	"Average packet size" 	-nan
+scalar FSONodeTest.fso2.torInterface.obs.assembler.dispatcher 	"Packet size variance" 	-nan
+scalar FSONodeTest.fso2.torInterface.obs.assembler.dispatcher 	"Dropped Packets" 	0
+scalar FSONodeTest.fso2.torInterface.obs.assembler.sender 	"burst sent" 	88
+scalar FSONodeTest.fso2.torInterface.obs.assembler.sender 	"burst dropped by reaching Minimum Offset" 	0
+scalar FSONodeTest.fso2.torInterface.obs.assembler.sender 	"burst dropped by queue" 	0
+scalar FSONodeTest.fso2.torInterface.obs.assembler.sender 	"BCPs pending to be sent (because the control channel is busy)" 	0
+scalar FSONodeTest.fso2.torInterface.obs.disassembler 	"received Bursts" 	0
+scalar FSONodeTest.fso2.fsoSwitch.oxcControl.OE 	"BCPs pending to be converted in electrical" 	0
+scalar FSONodeTest.fso2.fsoSwitch.oxcControl.ControlLogic 	"Burst dropped in Core Node" 	0
+scalar FSONodeTest.host2.networkLayer.arp 	failedARPResolution:count 	0
+attr title  "ARP failed resolutions, count"
+scalar FSONodeTest.host2.networkLayer.arp 	completedARPResolution:count 	0
+attr title  "ARP completed resolutions, count"
+scalar FSONodeTest.host2.networkLayer.arp 	initiatedARPResolution:count 	0
+attr title  "ARP initiated resolutions, count"
+scalar FSONodeTest.host2.networkLayer.arp 	sentReply:count 	0
+attr title  "ARP replies sent, count"
+scalar FSONodeTest.host2.networkLayer.arp 	sentReq:count 	0
+attr title  "ARP request sent, count"
+scalar FSONodeTest.host2.lo0.lo 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar FSONodeTest.host2.lo0.lo 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar FSONodeTest.host2.lo0.lo 	rcvdPkFromHL:count 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, count"
+scalar FSONodeTest.host2.lo0.lo 	rcvdPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, sum(packetBytes)"
+scalar FSONodeTest.host2.lo0.lo 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar FSONodeTest.host2.lo0.lo 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].mac 	"simulated time" 	124.3500087
+scalar FSONodeTest.host2.eth[0].mac 	full-duplex 	1
+scalar FSONodeTest.host2.eth[0].mac 	"frames/sec sent" 	0
+scalar FSONodeTest.host2.eth[0].mac 	"frames/sec rcvd" 	0
+scalar FSONodeTest.host2.eth[0].mac 	"bits/sec sent" 	0
+scalar FSONodeTest.host2.eth[0].mac 	"bits/sec rcvd" 	0
+scalar FSONodeTest.host2.eth[0].mac 	"rx channel idle (%)" 	100
+scalar FSONodeTest.host2.eth[0].mac 	"rx channel utilization (%)" 	0
+scalar FSONodeTest.host2.eth[0].mac 	droppedPkNotForUs:count 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, count"
+scalar FSONodeTest.host2.eth[0].mac 	droppedPkNotForUs:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkNotForUs
+attr title  "packets dropped/not for us, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].mac 	droppedPkIfaceDown:count 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, count"
+scalar FSONodeTest.host2.eth[0].mac 	droppedPkIfaceDown:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkIfaceDown
+attr title  "packets dropped/interface down, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].mac 	droppedPkBitError:count 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, count"
+scalar FSONodeTest.host2.eth[0].mac 	droppedPkBitError:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  dropPkBitError
+attr title  "packets dropped/bit error, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].mac 	rxPkFromHL:count 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, count"
+scalar FSONodeTest.host2.eth[0].mac 	rxPkFromHL:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkFromHL
+attr title  "packet bytes from higher layer, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].mac 	rxPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units received, count"
+scalar FSONodeTest.host2.eth[0].mac 	rxPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units received, sum"
+scalar FSONodeTest.host2.eth[0].mac 	txPausePkUnits:count 	0
+attr interpolationmode  none
+attr title  "pause units sent, count"
+scalar FSONodeTest.host2.eth[0].mac 	txPausePkUnits:sum 	0
+attr interpolationmode  none
+attr title  "pause units sent, sum"
+scalar FSONodeTest.host2.eth[0].mac 	rxPkOk:count 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, count"
+scalar FSONodeTest.host2.eth[0].mac 	rxPkOk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  rxPkOk
+attr title  "packets received OK, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].mac 	txPk:count 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, count"
+scalar FSONodeTest.host2.eth[0].mac 	txPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  txPk
+attr title  "packets transmitted, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].mac 	passedUpPk:count 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, count"
+scalar FSONodeTest.host2.eth[0].mac 	passedUpPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].encap 	pauseSent:count 	0
+attr title  "pause sent, count"
+scalar FSONodeTest.host2.eth[0].encap 	pauseSent:sum 	0
+attr title  "pause sent, sum"
+scalar FSONodeTest.host2.eth[0].encap 	decapPk:count 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, count"
+scalar FSONodeTest.host2.eth[0].encap 	decapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  decapPk
+attr title  "packets decapsulated, sum(packetBytes)"
+scalar FSONodeTest.host2.eth[0].encap 	encapPk:count 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, count"
+scalar FSONodeTest.host2.eth[0].encap 	encapPk:sum(packetBytes) 	0
+attr interpolationmode  none
+attr source  encapPk
+attr title  "packets encapsulated, sum(packetBytes)"

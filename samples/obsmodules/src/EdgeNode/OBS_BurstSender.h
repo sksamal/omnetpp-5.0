@@ -26,18 +26,20 @@
 #include "OBS_BurstifierInfo_m.h"
 #include "INETDefs.h"
 #include "IInterfaceTable.h"
+#include "IPv4NetworkConfigurator.h"
 //#include "InterfaceTableAccess.h"
 //#include "NotificationBoard.h"
 #include "NotifierConsts.h"
 #include "inet/common/ModuleAccess.h"
 #include "inet/networklayer/common/InterfaceToken.h"
 #include "inet/networklayer/common/InterfaceEntry.h"
+#include "ModuleAccess.h"
 
 class InterfaceEntry;
 class NotificationBoard;
 
 //! Responsible of burst sending through the OBS Network.
-class INET_API OBS_BurstSender : public cSimpleModule, public cListener{
+class INET_API OBS_BurstSender : public cSimpleModule, public cListener {
    protected:
         //! @enum This enum contains all available values for msg's kind field into handleMessage().
         enum{

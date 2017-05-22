@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for obsmodules
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -I../inet/src -I../inet/src/inet/networklayer/contract/ipv4 -I../inet/src/inet/networklayer/ipv4 -I../inet/src/inet/transportlayer/tcp_common -I../inet/src/inet/transportlayer/udp -I../inet/src/inet/common -I../inet/src/inet/networklayer/contract -L../inet/out/$$\(CONFIGNAME\)/src -lINET -KINET_PROJ=../inet
+#  opp_makemake -f --deep -O out -I../inet/src -I../inet/src/inet/networklayer/contract/ipv4 -I../inet/src/inet/networklayer/ipv4 -I../inet/src/inet/networklayer/configurator/ipv4 -I../inet/src/inet/transportlayer/tcp_common -I../inet/src/inet/transportlayer/udp -I../inet/src/inet/common -I../inet/src/inet/networklayer/contract -L../inet/out/$$\(CONFIGNAME\)/src -lINET -KINET_PROJ=../inet
 #
 
 # Name of target to be created (-o option)
@@ -19,6 +19,7 @@ INCLUDE_PATH = \
     -I../inet/src \
     -I../inet/src/inet/networklayer/contract/ipv4 \
     -I../inet/src/inet/networklayer/ipv4 \
+    -I../inet/src/inet/networklayer/configurator/ipv4 \
     -I../inet/src/inet/transportlayer/tcp_common \
     -I../inet/src/inet/transportlayer/udp \
     -I../inet/src/inet/common \
@@ -36,6 +37,7 @@ INCLUDE_PATH = \
     -IExamples/FSONodeExample \
     -IExamples/FSONodeExample/results \
     -IExamples/FSONodeTest \
+    -IExamples/FSONodeTest/results \
     -IExamples/TreeTopologyOBS \
     -IExamples/TreeTopologyOBS/results \
     -IExamples/jitel09 \
@@ -61,7 +63,6 @@ INCLUDE_PATH = \
     -Itest/DropBurstTest \
     -Itest/EOConverterTest \
     -Itest/FSOInputTest \
-    -Itest/FSONodeTest \
     -Itest/FSOOutputTest \
     -Itest/FileBurstifierTest \
     -Itest/OEConverterTest \
@@ -103,7 +104,6 @@ OBJS = \
     $O/src/EdgeNode/OBS_PacketDispatcher.o \
     $O/src/FSONode/FSO_Output.o \
     $O/src/FSONode/FSO_Input.o \
-    $O/src/FSONode/FSO_CoreControlLogic.o \
     $O/src/messages/OBS_Burst.o \
     $O/src/misc/OBS_OpticalMonitor.o \
     $O/src/misc/OBS_DropBurst.o \
@@ -237,6 +237,7 @@ clean:
 	$(Q)-rm -f Examples/FSONodeExample/*_m.cc Examples/FSONodeExample/*_m.h Examples/FSONodeExample/*_sm.cc Examples/FSONodeExample/*_sm.h
 	$(Q)-rm -f Examples/FSONodeExample/results/*_m.cc Examples/FSONodeExample/results/*_m.h Examples/FSONodeExample/results/*_sm.cc Examples/FSONodeExample/results/*_sm.h
 	$(Q)-rm -f Examples/FSONodeTest/*_m.cc Examples/FSONodeTest/*_m.h Examples/FSONodeTest/*_sm.cc Examples/FSONodeTest/*_sm.h
+	$(Q)-rm -f Examples/FSONodeTest/results/*_m.cc Examples/FSONodeTest/results/*_m.h Examples/FSONodeTest/results/*_sm.cc Examples/FSONodeTest/results/*_sm.h
 	$(Q)-rm -f Examples/TreeTopologyOBS/*_m.cc Examples/TreeTopologyOBS/*_m.h Examples/TreeTopologyOBS/*_sm.cc Examples/TreeTopologyOBS/*_sm.h
 	$(Q)-rm -f Examples/TreeTopologyOBS/results/*_m.cc Examples/TreeTopologyOBS/results/*_m.h Examples/TreeTopologyOBS/results/*_sm.cc Examples/TreeTopologyOBS/results/*_sm.h
 	$(Q)-rm -f Examples/jitel09/*_m.cc Examples/jitel09/*_m.h Examples/jitel09/*_sm.cc Examples/jitel09/*_sm.h
@@ -262,7 +263,6 @@ clean:
 	$(Q)-rm -f test/DropBurstTest/*_m.cc test/DropBurstTest/*_m.h test/DropBurstTest/*_sm.cc test/DropBurstTest/*_sm.h
 	$(Q)-rm -f test/EOConverterTest/*_m.cc test/EOConverterTest/*_m.h test/EOConverterTest/*_sm.cc test/EOConverterTest/*_sm.h
 	$(Q)-rm -f test/FSOInputTest/*_m.cc test/FSOInputTest/*_m.h test/FSOInputTest/*_sm.cc test/FSOInputTest/*_sm.h
-	$(Q)-rm -f test/FSONodeTest/*_m.cc test/FSONodeTest/*_m.h test/FSONodeTest/*_sm.cc test/FSONodeTest/*_sm.h
 	$(Q)-rm -f test/FSOOutputTest/*_m.cc test/FSOOutputTest/*_m.h test/FSOOutputTest/*_sm.cc test/FSOOutputTest/*_sm.h
 	$(Q)-rm -f test/FileBurstifierTest/*_m.cc test/FileBurstifierTest/*_m.h test/FileBurstifierTest/*_sm.cc test/FileBurstifierTest/*_sm.h
 	$(Q)-rm -f test/OEConverterTest/*_m.cc test/OEConverterTest/*_m.h test/OEConverterTest/*_sm.cc test/OEConverterTest/*_sm.h
@@ -278,7 +278,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/DispatcherTest/results/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeExample/results/*.cc Examples/EdgeNodeTest/*.cc Examples/EdgeNodeTest/results/*.cc Examples/FSONodeExample/*.cc Examples/FSONodeExample/results/*.cc Examples/FSONodeTest/*.cc Examples/TreeTopologyOBS/*.cc Examples/TreeTopologyOBS/results/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/FSONode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FSOInputTest/*.cc test/FSONodeTest/*.cc test/FSOOutputTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketBurstifierTest/results/*.cc test/PacketDispatcherTest/*.cc test/PacketDispatcherTest/results/*.cc utils/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES) $(SM_CC_FILES)  ./*.cc Examples/*.cc Examples/BurstifierTest/*.cc Examples/BurstifierTest/results/*.cc Examples/DispatcherTest/*.cc Examples/DispatcherTest/results/*.cc Examples/EdgeNodeExample/*.cc Examples/EdgeNodeExample/results/*.cc Examples/EdgeNodeTest/*.cc Examples/EdgeNodeTest/results/*.cc Examples/FSONodeExample/*.cc Examples/FSONodeExample/results/*.cc Examples/FSONodeTest/*.cc Examples/FSONodeTest/results/*.cc Examples/TreeTopologyOBS/*.cc Examples/TreeTopologyOBS/results/*.cc Examples/jitel09/*.cc doc/*.cc doc/img/*.cc src/*.cc src/CoreNode/*.cc src/EdgeNode/*.cc src/FSONode/*.cc src/messages/*.cc src/misc/*.cc src/tests/*.cc src/tests/sinks/*.cc src/tests/sources/*.cc test/*.cc test/BurstDisassemblerTest/*.cc test/BurstDisassemblerTest/results/*.cc test/BurstSenderTest/*.cc test/BurstSenderTest/results/*.cc test/CoreInputTest/*.cc test/CoreNodeTest/*.cc test/CoreOutputTest/*.cc test/DropBurstTest/*.cc test/EOConverterTest/*.cc test/FSOInputTest/*.cc test/FSOOutputTest/*.cc test/FileBurstifierTest/*.cc test/OEConverterTest/*.cc test/OpticalMonitorTest/*.cc test/PacketBurstifierTest/*.cc test/PacketBurstifierTest/results/*.cc test/PacketDispatcherTest/*.cc test/PacketDispatcherTest/results/*.cc utils/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/src/CoreNode/OBS_BCPControlInfo_m.o: src/CoreNode/OBS_BCPControlInfo_m.cc \
@@ -327,19 +327,30 @@ $O/src/EdgeNode/OBS_BurstDisassembler.o: src/EdgeNode/OBS_BurstDisassembler.cc \
 $O/src/EdgeNode/OBS_BurstSender.o: src/EdgeNode/OBS_BurstSender.cc \
 	$(INET_PROJ)/src/inet/common/Compat.h \
 	$(INET_PROJ)/src/inet/common/INETDefs.h \
+	$(INET_PROJ)/src/inet/common/INETMath.h \
 	$(INET_PROJ)/src/inet/common/InitStages.h \
 	$(INET_PROJ)/src/inet/common/ModuleAccess.h \
 	$(INET_PROJ)/src/inet/common/NotifierConsts.h \
+	$(INET_PROJ)/src/inet/common/PatternMatcher.h \
+	$(INET_PROJ)/src/inet/common/Topology.h \
 	$(INET_PROJ)/src/inet/features.h \
 	$(INET_PROJ)/src/inet/linklayer/common/MACAddress.h \
 	$(INET_PROJ)/src/inet/networklayer/common/InterfaceEntry.h \
 	$(INET_PROJ)/src/inet/networklayer/common/InterfaceToken.h \
 	$(INET_PROJ)/src/inet/networklayer/common/L3Address.h \
+	$(INET_PROJ)/src/inet/networklayer/common/L3AddressResolver.h \
 	$(INET_PROJ)/src/inet/networklayer/common/ModuleIdAddress.h \
 	$(INET_PROJ)/src/inet/networklayer/common/ModulePathAddress.h \
+	$(INET_PROJ)/src/inet/networklayer/configurator/base/NetworkConfiguratorBase.h \
+	$(INET_PROJ)/src/inet/networklayer/configurator/ipv4/IPv4NetworkConfigurator.h \
 	$(INET_PROJ)/src/inet/networklayer/contract/IInterfaceTable.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/IRoute.h \
+	$(INET_PROJ)/src/inet/networklayer/contract/IRoutingTable.h \
 	$(INET_PROJ)/src/inet/networklayer/contract/ipv4/IPv4Address.h \
 	$(INET_PROJ)/src/inet/networklayer/contract/ipv6/IPv6Address.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IIPv4RoutingTable.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4InterfaceData.h \
+	$(INET_PROJ)/src/inet/networklayer/ipv4/IPv4Route.h \
 	src/EdgeNode/BurstList.h \
 	src/EdgeNode/OBS_BurstSender.h \
 	src/EdgeNode/OBS_BurstSenderInfo_m.h \
@@ -430,17 +441,6 @@ $O/src/EdgeNode/OBS_PacketDispatcher.o: src/EdgeNode/OBS_PacketDispatcher.cc \
 	src/EdgeNode/OBS_PacketDispatcher.h
 $O/src/EdgeNode/OBS_ScheduledBurstItem_m.o: src/EdgeNode/OBS_ScheduledBurstItem_m.cc \
 	src/EdgeNode/OBS_ScheduledBurstItem_m.h
-$O/src/FSONode/FSO_CoreControlLogic.o: src/FSONode/FSO_CoreControlLogic.cc \
-	src/CoreNode/OBS_BCPControlInfo_m.h \
-	src/CoreNode/OBS_ControlUnitInfo_m.h \
-	src/CoreNode/OBS_CoreInput.h \
-	src/CoreNode/OBS_CoreOutput.h \
-	src/CoreNode/OBS_CoreOutputHorizon.h \
-	src/CoreNode/OBS_CoreRoutingTable.h \
-	src/CoreNode/OBS_CoreRoutingTableEntry_m.h \
-	src/CoreNode/OBS_OpticalCrossConnect.h \
-	src/FSONode/FSO_CoreControlLogic.h \
-	src/messages/OBS_BurstControlPacket_m.h
 $O/src/FSONode/FSO_Input.o: src/FSONode/FSO_Input.cc \
 	src/FSONode/FSO_Input.h
 $O/src/FSONode/FSO_Output.o: src/FSONode/FSO_Output.cc \

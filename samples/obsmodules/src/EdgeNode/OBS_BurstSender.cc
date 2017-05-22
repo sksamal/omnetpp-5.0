@@ -147,7 +147,6 @@ inet::InterfaceEntry* OBS_BurstSender::registerInterface (double datarate){
          }
     }
     e->setName(name.c_str());
-
     // data rate
     e->setDatarate(datarate);
 
@@ -174,6 +173,12 @@ inet::InterfaceEntry* OBS_BurstSender::registerInterface (double datarate){
     //Maybe this could be useful in the future...
 //  e->setNodeOutputGateId(e->getNodeOutputGateId()-lambda*idInterfaz);
     //e->setNodeOutputGateId(e->getNodeOutputGateId()-lambda+1);
+
+//    INetworkConfigurator *cfg = findModule<INetworkConfigurator>("configurator", this->getParentModule()->getParentModule());
+  //  IPv4NetworkConfigurator *cfg = getModuleFromPar<IPv4NetworkConfigurator>(par("configurator"),this);
+//    IPv4NetworkConfigurator *cfg = check_and_cast<IPv4NetworkConfigurator*>(this->getParentModule()->getSubmodule("configurator"));
+//    cfg->configureInterface(e);
+//    cfg->configureAllRoutingTables();
 
     return e;
 }
@@ -208,7 +213,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          
          //create the automessage "schedule the bcp_ini send"
          cMessage *ctlMsg=new cMessage("Sched");
-
+//         cout<<"Created a new BCP Send message"<<endl;
          
          //Enter here if the burst can be sent just when channel wl sets free. (there will be enough time to send the bcp and wait the max offset time)
          if(horizon[wl] - burst->getMaxOffset() >= simTime()){ // Note the =. It means we could schedule a burst at the same value than the horizon value
@@ -218,9 +223,10 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
                delete msg;
                delete ctlMsg;
                burstDroppedByQueue++;
+               cout<<"ScheduledBurst is full, pos=-1, dropping"<<endl;
                return;
             }
-            //Insert Bust position on scheduledBurst queue
+            //Insert Burst position on scheduledBurst queue
             myinfo->setBurstId(pos);
             // Fill ctlMsgs fields (this message will travel across all Sender's states)
             ctlMsg->setControlInfo(myinfo);
@@ -228,6 +234,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
 
 	    //Schedule BCP send 
             scheduleAt(horizon[wl] - burst->getMaxOffset(), ctlMsg);
+//            cout<<"BCP Send scheduled successfully at time "<<horizon[wl] - burst->getMaxOffset()<<endl;
 
             //update horizon value
             horizon[wl] = horizon[wl] + (burst->getBitLength()/dataRate) + guardTime;
@@ -243,16 +250,18 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
                delete msg;
                delete ctlMsg;
                burstDroppedByQueue++;
+               cout<<"ScheduledBurst is full, pos=-1, dropping"<<endl;
                return;
             }
-            //Insert Bust position on scheduledBurst queue
+            //Insert Burst position on scheduledBurst queue
             myinfo->setBurstId(pos);
             // Fill ctlMsgs fields (this message will pass across all Sender's states)
             ctlMsg->setControlInfo(myinfo);
             ctlMsg->setKind(OBS_SCHEDULE_BCP);
             //Schedule BCP send to now
             scheduleAt(simTime(), ctlMsg);
-            
+ //           cout<<"BCP Send scheduled for now"<<endl;
+
             //Update horizon value
             horizon[wl] = simTime() + burst->getMaxOffset() + (burst->getBitLength()/dataRate) + guardTime;
 
@@ -262,6 +271,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
    }else{ 
       /*
        * Automessages section. msg's kind will determine which section to enter
+       * These are messages scheduled by the if section
        */
 
       if(msg->getKind() == OBS_SCHEDULE_BCP){ //First step: Send BCP beginning message and schedule the end message.
@@ -275,12 +285,16 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
             delete msg;
             //Update the burst dropped counter
             burstDroppedByOffset++;
+            cout<<"Burst cannot be sent, time is already passed, dropping, ";
+
             // Now you can try to pick a queued BCP (if any available) in order to send it
             if(!waitingBCP.isEmpty()){
                //pick up a BCP and send it now
                cMessage *bcp_ini = (cMessage*)waitingBCP.pop();
                scheduleAt(simTime(),bcp_ini);
+//               cout<<"Picked up a queued bcp";
             }
+              cout<<endl;
             return;
          }
 
@@ -288,6 +302,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          if(control_is_busy){
             //If so, put current BCP into a queue (waitingBCP)
             waitingBCP.insert(msg);
+            cout<<"Control channel busy, queuing the BCP"<<endl;
          }else{
             //If not, take the control channel
             control_is_busy = true;
@@ -311,11 +326,13 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
 
 	    //Send BCP to control channel (the last one)
             send(bcp,"out",numLambdas);
+            cout<<"Sent BCP Init message (color="<<bcp->getBurstColour()<<" burstifierId="<<bcp->getBurstifierId()<<" senderId="<<bcp->getSenderId()<<" label="<<bcp->getLabel()<<") on channel "<<numLambdas<<endl;
             //Retransmit received message (ctlMsg = *msg here)
             msg->setKind(OBS_SCHEDULE_END_BCP);
             //Schedule endBCP sending
             int BCPSizeInBits = BCPSize*8;
             scheduleAt(simTime()+(BCPSizeInBits/dataRate),msg);
+//            cout<<"Scheduled BCP End message at time "<<simTime()+(BCPSizeInBits/dataRate)<<endl;
          }
 
       }
@@ -329,17 +346,21 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          bcp->setNumSeq(info->getNumSeq());
          //Send endBCP to control channel
          send(bcp,"out",numLambdas);
+         cout<<"Sent BCP End message (color="<<bcp->getBurstColour()<<" burstifierId="<<bcp->getBurstifierId()<<" senderId="<<bcp->getSenderId()<<" label="<<bcp->getLabel()<<") on channel "<<numLambdas<<endl;
+
          //Retransmit received message (ctlMsg = *msg here)
          msg->setKind(OBS_SCHEDULE_BURST);
          //Schedule BurstIni sending    
          scheduleAt(scheduledBurst.retrieveSendTime(info->getBurstId()),msg);
-         
+//         cout<<"Scheduled Burst message at time "<<scheduledBurst.retrieveSendTime(info->getBurstId())<<endl;
+
          control_is_busy = false; //Control channel is free now...
          //So, pick a pending BCP if any available
          if(!waitingBCP.isEmpty()){
             //Put the BCP off the queue and schedule it
             cMessage *bcp_ini = (cMessage*)waitingBCP.pop();
             scheduleAt(simTime(),bcp_ini);
+            cout<<"Picked up a queued bcp";
          }
 
       }
@@ -352,6 +373,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          burst->setName("iniBurst");
          burst->setKind(1); //kind 1= send burst
          send(burst,"out",info->getAssignedLambda());
+         cout<<"Sent Burst Message (burstifierId="<<burst->getBurstifierId()<<" senderId="<<burst->getSenderId()<<" kind="<<burst->getKind()<<") on channel "<<info->getAssignedLambda()<<endl;
 
          //Retransmit received message (ctlMsg = *msg here)
          msg->setKind(OBS_SCHEDULE_END_BURST);
@@ -370,6 +392,8 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          burst->setNumSeq(info->getNumSeq());
 
          send(burst,"out",info->getAssignedLambda());
+         cout<<"Sent Burst End Message (burstifierId="<<burst->getBurstifierId()<<" senderId="<<burst->getSenderId()<<" kind="<<burst->getKind()<<") on channel "<<info->getAssignedLambda()<<endl;
+
          //Delete burst from scheduled list
          scheduledBurst.removeBurst(info->getBurstId());
          
