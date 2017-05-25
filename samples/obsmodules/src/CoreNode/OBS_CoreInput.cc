@@ -117,11 +117,12 @@ void OBS_CoreInput::handleMessage(cMessage *msg){
     // Convert OMNeT input port value to (fiber,lambda) identifier
     int port = getInPort(gate->getIndex());
     int lambda = getInLambda(gate->getIndex());
-    cout << "Gate "<<gate<<" maps to port="<<port<<" lambda="<<lambda<<endl;
+//    cout << "Gate "<<gate<<" maps to port="<<port<<" lambda="<<lambda<<endl;
 //    throw cRuntimeError("Gate %s maps to port=%d and lamba=%d",gate,port,lambda);
 //    cout<<"Gate "<<gate<<" maps to port="<<port<<" lambda="<<lambda;
     if((portLen[port] -1) == lambda){ // If lambda value is the last one for this fiber, output it as a BCP
        send(msg,"out",port); // First numPorts output gates are assigned to BCP channels. Send this message to the corresponding output
+       cout<< "BCP sent over gate="<<port<<" lambda="<<lambda<<endl;
     }
     else{ //Not a BCP, then it's a data burst
 
@@ -132,6 +133,8 @@ void OBS_CoreInput::handleMessage(cMessage *msg){
        else
     	   msg->setSchedulingPriority(0);
        send(msg,"out",outDataBegin[port] + lambda); // Use outDataBegin to calculate output OMNeT++ gate index.
+       cout<< "Burst sent with port="<<port<<" on gate="<<outDataBegin[port] + lambda<<" lambda="<<lambda<<endl;
+
     }
 }
 

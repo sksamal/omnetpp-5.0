@@ -69,18 +69,18 @@ module FSO_CrossConnect
 
         oxcControl: OBS_CoreControlUnit {
             parameters:
-                numPorts = sizeof(in)+ sizeof(obs);   // size of input ports + size of obs
+                numPorts = sizeof(in)+ sizeof(obsin);   // size of input ports + size of obs
                 lambdasPerOutPort = string(lambdasPerOutPort);  
                 @display("i=block/cogwheel;p=243,77");
             gates:
  //               in[sizeof(in)]; // size of input ports
  //               out[sizeof(in)]; // size of input ports
         }
-
+	
         oxcInput: OBS_CoreInput {
             parameters:
                 lambdasPerPort = string(lambdasPerInPort+1);
-                numPorts = sizeof(in)+sizeof(obs);  // each lambda from edge on separate port
+                numPorts = sizeof(in)+sizeof(obsin);  // each lambda from edge on separate port
                 									// may not be good design
                 colours = inputColours;
                 @display("i=block/arrival;p=89,177");

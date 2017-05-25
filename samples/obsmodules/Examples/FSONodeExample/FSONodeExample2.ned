@@ -11,7 +11,7 @@ import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 network FSONodeExample2
 {
     parameters:
-        int numPorts; // Number of fibers (oxc ports)
+        int oxcnumPorts; // Number of fibers (oxc ports)
         int lambdas; //Number of data channels per fiber port
  		int servers = default(1);
     submodules:
@@ -60,7 +60,7 @@ network FSONodeExample2
         host2.ethg++ <--> { datarate=1Gbps; } <--> fso2.ethIO++;
 
         //Core Optical connections
-        for i=0..numPorts-1 {
+        for i=0..oxcnumPorts-1 {
             fso1.oxcout++ --> fso2.oxcin++;
             fso2.oxcout++ --> fso1.oxcin++;
         }
