@@ -43,6 +43,8 @@ void OBS_OpticalCrossConnect::handleMessage(cMessage *msg){
    if(schedulingTable[gate->getIndex()] == -1) delete msg; // Output gate not assigned. Drop burst
    else
       send(msg,"out",schedulingTable[gate->getIndex()]);
+   std::cout<<"OXConnect:: forwarding msg on gate "<<gate->getIndex()<<" to gate "<< schedulingTable[gate->getIndex()]<<endl;
+
 }
 
 void OBS_OpticalCrossConnect::setGate(int inGate,int outGate){
@@ -50,9 +52,12 @@ void OBS_OpticalCrossConnect::setGate(int inGate,int outGate){
 
    if(schedulingTable[inGate] != -1) throw cRuntimeError("Attempting to schedule an already scheduled input channel. Channel id: %d",inGate);
    schedulingTable[inGate] = outGate;
+   std::cout<<"OXConnect:: Connected gate "<<inGate<<" to "<< outGate<<endl;
 }
 
 void OBS_OpticalCrossConnect::unsetGate(int inGate){
    Enter_Method("unprogramming gate %d",inGate);
    schedulingTable[inGate] = -1;
+   std::cout<<"OXConnect:: Disconnected gate "<<inGate<<endl;
+
 }

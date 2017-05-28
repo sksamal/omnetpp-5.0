@@ -326,7 +326,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
 
 	    //Send BCP to control channel (the last one)
             send(bcp,"out",numLambdas);
-            cout<<"Sent BCP Init message (color="<<bcp->getBurstColour()<<" burstifierId="<<bcp->getBurstifierId()<<" senderId="<<bcp->getSenderId()<<" label="<<bcp->getLabel()<<") on channel "<<numLambdas<<endl;
+//            cout<<"Sent BCP Init message (color="<<bcp->getBurstColour()<<" burstifierId="<<bcp->getBurstifierId()<<" senderId="<<bcp->getSenderId()<<" label="<<bcp->getLabel()<<") on channel "<<numLambdas<<endl;
             //Retransmit received message (ctlMsg = *msg here)
             msg->setKind(OBS_SCHEDULE_END_BCP);
             //Schedule endBCP sending
@@ -346,7 +346,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          bcp->setNumSeq(info->getNumSeq());
          //Send endBCP to control channel
          send(bcp,"out",numLambdas);
-         cout<<"Sent BCP End message (color="<<bcp->getBurstColour()<<" burstifierId="<<bcp->getBurstifierId()<<" senderId="<<bcp->getSenderId()<<" label="<<bcp->getLabel()<<") on channel "<<numLambdas<<endl;
+//         cout<<"Sent BCP End message (color="<<bcp->getBurstColour()<<" burstifierId="<<bcp->getBurstifierId()<<" senderId="<<bcp->getSenderId()<<" label="<<bcp->getLabel()<<") on channel "<<numLambdas<<endl;
 
          //Retransmit received message (ctlMsg = *msg here)
          msg->setKind(OBS_SCHEDULE_BURST);
@@ -373,7 +373,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          burst->setName("iniBurst");
          burst->setKind(1); //kind 1= send burst
          send(burst,"out",info->getAssignedLambda());
-         cout<<"Sent Burst Message (burstifierId="<<burst->getBurstifierId()<<" senderId="<<burst->getSenderId()<<" kind="<<burst->getKind()<<") on channel "<<info->getAssignedLambda()<<endl;
+//         cout<<"Sent Burst Message (burstifierId="<<burst->getBurstifierId()<<" senderId="<<burst->getSenderId()<<" kind="<<burst->getKind()<<") on channel "<<info->getAssignedLambda()<<endl;
 
          //Retransmit received message (ctlMsg = *msg here)
          msg->setKind(OBS_SCHEDULE_END_BURST);
@@ -392,7 +392,7 @@ void OBS_BurstSender::handleMessage(cMessage *msg){
          burst->setNumSeq(info->getNumSeq());
 
          send(burst,"out",info->getAssignedLambda());
-         cout<<"Sent Burst End Message (burstifierId="<<burst->getBurstifierId()<<" senderId="<<burst->getSenderId()<<" kind="<<burst->getKind()<<") on channel "<<info->getAssignedLambda()<<endl;
+//         cout<<"Sent Burst End Message (burstifierId="<<burst->getBurstifierId()<<" senderId="<<burst->getSenderId()<<" kind="<<burst->getKind()<<") on channel "<<info->getAssignedLambda()<<endl;
 
          //Delete burst from scheduled list
          scheduledBurst.removeBurst(info->getBurstId());

@@ -18,45 +18,70 @@
 // along with OBSModules.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include <FSO_Input.h>
+#include <FSO_CoreInput.h>
+//#define COMPILETIME_LOGLEVEL LOGLEVEL_TRACE
 
-Define_Module(FSO_Input);
+Define_Module(FSO_CoreInput);
 
-FSO_Input::~FSO_Input(){
+FSO_CoreInput::~FSO_CoreInput(){
    free(portLen);
    free(inPortBegin);
    free(outDataBegin);
 }
 
-void FSO_Input::initialize(){
-   numoxcPorts = par("numoxcPorts");
-   
-   const char* portLenStr = par("lambdasPerPort").stringValue();
-   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("FSO_Input: lambdasPerPort not initialized");
+void FSO_CoreInput::initialize(){
+   numPorts = par("numPorts");
 
-   portLen = (int*)calloc(numoxcPorts,sizeof(int));
+   const char* portLenStr = par("lambdasPerPort").stringValue();
+   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("FSO_CoreInput: lambdasPerPort not initialized");
+
+   const char* obsportLenStr = par("lambdasEdge").stringValue();
+   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("FSO_CoreInput: lambdasEdge not initialized");
+
+   portLen = (int*)calloc(numPorts,sizeof(int));
    // inPortBegin contains the OMNeT++ input gate index where each logical fiber begins
-   inPortBegin = (int*)calloc(numoxcPorts,sizeof(int));
+   inPortBegin = (int*)calloc(numPorts,sizeof(int));
    // outDataBegin contains the OMNeT++ output gate index where each logical fiber begins for data channels
-   outDataBegin = (int*)calloc(numoxcPorts,sizeof(int));
+   outDataBegin = (int*)calloc(numPorts,sizeof(int));
  
    cStringTokenizer tokenizer(portLenStr);
    int i = 0;
 
    while(tokenizer.hasMoreTokens()){
-      portLen[i] = atoi(tokenizer.nextToken()) + 1; // lambdasPerPort considers only data channels. In this array we include a control channel for each fiber.
+      portLen[i] = atoi(tokenizer.nextToken())  ; // lambdasPerPort considers only data+ sizeof(obsin) -1) channels. In this array we include a control channel for each fiber.
       i++; 
    }
-   
+
+   // Suraj - copy from previous value of not all lambas provided
+   for(;i<numPorts-1;i++)
+       portLen[i] = portLen[i-1];
+
+   cStringTokenizer obsporttokenizer(obsportLenStr);
+
+   while(obsporttokenizer.hasMoreTokens()){
+      portLen[i] = atoi(obsporttokenizer.nextToken()); // lambdasEdge considers only data+ sizeof(obsin) -1) channels. In this array we include a control channel for each fiber.
+      i++;
+   }
+
+   // Suraj - copy from previous value of not all lambas provided
+   for(;i<numPorts;i++)
+       portLen[i] = portLen[i-1];
+
    inPortBegin[0] = 0;
-   for(i=1;i<numoxcPorts;i++)
-      // i-th fiber begins just after (i-1)-th last channel. 
+   for(i=1;i<numPorts;i++)
+      // i-th fiber begins just after (i-1)-th last channel.
       // So, if you add the number of i-1 fiber channels to the number where i-1 fiber begins, you'll have the beginning gate index for i-th fiber
       inPortBegin[i] = inPortBegin[i-1] + (portLen[i-1]);
 
-   outDataBegin[0] = numoxcPorts; //First data channel will be just after control channels.
-   for(i=1;i<numoxcPorts;i++)
-      outDataBegin[i] = outDataBegin[i-1] + (portLen[i-1] - 1);
+   outDataBegin[0] = numPorts; //First data channel will be just after control channels.
+   for(i=1;i<numPorts;i++)
+      outDataBegin[i] = outDataBegin[i-1] + (portLen[i-1] - 1);  // add lambdas for each specified port
+
+   cout<<"FSO_CoreInput: (numPorts="<<numPorts<<")\n";
+   for(i=0;i<numPorts;i++)
+   {
+       cout<<"Fiber "<<i<<" input-->(start="<< inPortBegin[i]<<",end="<<inPortBegin[i] + portLen[i]-1<<") output --> control channel= "<<i<<", data channel from (start="<<outDataBegin[i]<< ", end="<<(outDataBegin[i] + portLen[i] - 1-1)<<")"<<endl;
+   }
 
 
    //Create colour structures
@@ -66,12 +91,12 @@ void FSO_Input::initialize(){
    
    // Create a temporary map to initialize colour vector
    map<int,int> tempMap;
-   colours.reserve(numoxcPorts); // Pre-allocate memory to improve efficiency
+   colours.reserve(numPorts); // Pre-allocate memory to improve efficiency
 
    //Add the empty string case:
    if(strcmp(colourString,"") == 0){
       int j=0;
-      for(i=0;i<numoxcPorts;i++){
+      for(i=0;i<numPorts;i++){
 		 for(j=0;j<(portLen[i]-1);j++){
             tempMap[j] = j; // colour = lambda
          }
@@ -102,14 +127,17 @@ void FSO_Input::initialize(){
    }
 }
 
-void FSO_Input::handleMessage(cMessage *msg){
+void FSO_CoreInput::handleMessage(cMessage *msg){
     cGate *gate = msg->getArrivalGate();
     // Convert OMNeT input port value to (fiber,lambda) identifier
     int port = getInPort(gate->getIndex());
     int lambda = getInLambda(gate->getIndex());
-
+//    cout << "Gate "<<gate<<" maps to port="<<port<<" lambda="<<lambda<<endl;
+//    throw cRuntimeError("Gate %s maps to port=%d and lamba=%d",gate,port,lambda);
+    cout<<"CoreInput:: Msg arrived on gate "<<gate->getIndex()<<" (port="<<port<<", lambda="<<lambda<<")"<<endl;
     if((portLen[port] -1) == lambda){ // If lambda value is the last one for this fiber, output it as a BCP
-       send(msg,"out",port); // First numoxcPorts output gates are assigned to BCP channels. Send this message to the corresponding output
+       send(msg,"out",port); // First numPorts output gates are assigned to BCP channels. Send this message to the corresponding output
+       cout<< "CoreInput:: BCP sent over gate="<<port<<" (port="<<port<<", lambda="<<lambda<<")"<<endl;
     }
     else{ //Not a BCP, then it's a data burst
 
@@ -120,26 +148,28 @@ void FSO_Input::handleMessage(cMessage *msg){
        else
     	   msg->setSchedulingPriority(0);
        send(msg,"out",outDataBegin[port] + lambda); // Use outDataBegin to calculate output OMNeT++ gate index.
+       cout<< "CoreInput:: Burst sent on gate="<<outDataBegin[port] + lambda<<" (port="<<port<<" and lambda="<<lambda<<")"<<endl;
+
     }
 }
 
 // Given OMNeT++ input gate index, calculate its corresponding fiber number
-int FSO_Input::getInPort(int gateIndex){
-   int i;
-   // Using inPortBegin and portLen in the last case, look for the fiber where this index belongs to.
-   for(i=0;i<numoxcPorts-1;i++)
+int FSO_CoreInput::getInPort(int gateIndex){
+       int i;
+ //   Using inPortBegin and portLen in the last case, look for the fiber where this index belongs to.
+   for(i=0;i<numPorts-1;i++)
       // Do gateIndex parameter belong to fiber i channels?
       if((gateIndex >= inPortBegin[i]) && (gateIndex < inPortBegin[i+1]))
          return i;
 
-   // If gateIndex parameter is placed in the last portLen[numoxcPorts-1] channels, then it belongs to the last fiber
-   if((gateIndex >= inPortBegin[numoxcPorts-1]) && (gateIndex < inPortBegin[numoxcPorts-1] + portLen[numoxcPorts-1])) return numoxcPorts - 1;
+   // If gateIndex parameter is placed in the last portLen[numPorts-1] channels, then it belongs to the last fiber
+   if((gateIndex >= inPortBegin[numPorts-1]) && (gateIndex < inPortBegin[numPorts-1] + portLen[numPorts-1])) return numPorts - 1;
 
    return -1;
 }
 
 // Using OMNeT++ input gate index, calculate lambda number inside the corresponding fiber
-int FSO_Input::getInLambda(int gateIndex){
+int FSO_CoreInput::getInLambda(int gateIndex){
   // First calculate fiber number
   int port = getInPort(gateIndex);
   // Now, subtract the index where this port belongs to. This will make the first lambda in the fiber counts as zero, second fiber as one, etc. instead of OMNeT port value.
@@ -147,18 +177,18 @@ int FSO_Input::getInLambda(int gateIndex){
 }
 
 // Convert data links identified by it's fiber Id and lambda (no colour) to OMNeT's output gate to OXC
-int FSO_Input::getOXCGate(int port, int lambda){
+int FSO_CoreInput::getOXCGate(int port, int lambda){
    Enter_Method("requesting OXC input gate for port %d and lambda %d\n",port,lambda);
    if((portLen[port] -1) == lambda) // If it's the last lambda of the fiber, it's a BCP
        return -1; // Return -1 as error. Modules that call this method shouldn't do this to control links
     else // Else, data channel...
        // Using outDataBegin for the desired fiber, calculate output channel for this link
-       return outDataBegin[port] + lambda - numoxcPorts;
+       return outDataBegin[port] + lambda - numPorts;
 }
 
 // This method receive a link identified by fiber id + colour.
 // Convert colour to lambda
-int FSO_Input::getLambdaByColour(int port, int colour){
+int FSO_CoreInput::getLambdaByColour(int port, int colour){
 	Enter_Method_Silent();
    if (colours[port].count(colour) != 0){//If the colour exists
 	   return colours[port][colour];

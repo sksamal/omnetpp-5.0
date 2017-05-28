@@ -116,7 +116,8 @@ void OBS_CoreOutput::handleMessage(cMessage *msg){
     cGate *gate = msg->getArrivalGate();
     int msgPort = getOutPort(gate->getIndex());
     int msgLambda = getOutLambda(gate->getIndex());
-    
+        cout << "CoreOutput:: Msg arrived on gate "<<gate->getIndex()<<" maps to port="<<msgPort<<" lambda="<<msgLambda<<endl;
+
     msg->setSchedulingPriority(0); //Restore message original priority
 
     send(msg,"out",outPortBegin[msgPort] + msgLambda); // Simply forward incoming message to the corresponding output gate

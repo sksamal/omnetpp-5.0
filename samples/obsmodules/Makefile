@@ -102,8 +102,9 @@ OBJS = \
     $O/src/EdgeNode/BurstList.o \
     $O/src/EdgeNode/OBS_PacketBurstifier.o \
     $O/src/EdgeNode/OBS_PacketDispatcher.o \
-    $O/src/FSONode/FSO_Output.o \
-    $O/src/FSONode/FSO_Input.o \
+    $O/src/FSONode/FSO_CoreOutput.o \
+    $O/src/FSONode/FSO_CoreInput.o \
+    $O/src/FSONode/FSO_CoreControlLogic.o \
     $O/src/messages/OBS_Burst.o \
     $O/src/misc/OBS_OpticalMonitor.o \
     $O/src/misc/OBS_DropBurst.o \
@@ -441,10 +442,21 @@ $O/src/EdgeNode/OBS_PacketDispatcher.o: src/EdgeNode/OBS_PacketDispatcher.cc \
 	src/EdgeNode/OBS_PacketDispatcher.h
 $O/src/EdgeNode/OBS_ScheduledBurstItem_m.o: src/EdgeNode/OBS_ScheduledBurstItem_m.cc \
 	src/EdgeNode/OBS_ScheduledBurstItem_m.h
-$O/src/FSONode/FSO_Input.o: src/FSONode/FSO_Input.cc \
-	src/FSONode/FSO_Input.h
-$O/src/FSONode/FSO_Output.o: src/FSONode/FSO_Output.cc \
-	src/FSONode/FSO_Output.h
+$O/src/FSONode/FSO_CoreControlLogic.o: src/FSONode/FSO_CoreControlLogic.cc \
+	src/CoreNode/OBS_BCPControlInfo_m.h \
+	src/CoreNode/OBS_ControlUnitInfo_m.h \
+	src/CoreNode/OBS_CoreOutputHorizon.h \
+	src/CoreNode/OBS_CoreRoutingTable.h \
+	src/CoreNode/OBS_CoreRoutingTableEntry_m.h \
+	src/CoreNode/OBS_OpticalCrossConnect.h \
+	src/FSONode/FSO_CoreControlLogic.h \
+	src/FSONode/FSO_CoreInput.h \
+	src/FSONode/FSO_CoreOutput.h \
+	src/messages/OBS_BurstControlPacket_m.h
+$O/src/FSONode/FSO_CoreInput.o: src/FSONode/FSO_CoreInput.cc \
+	src/FSONode/FSO_CoreInput.h
+$O/src/FSONode/FSO_CoreOutput.o: src/FSONode/FSO_CoreOutput.cc \
+	src/FSONode/FSO_CoreOutput.h
 $O/src/messages/OBS_Burst.o: src/messages/OBS_Burst.cc \
 	src/messages/OBS_Burst.h \
 	src/messages/OBS_Burst_m.h

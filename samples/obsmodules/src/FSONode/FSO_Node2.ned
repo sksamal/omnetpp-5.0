@@ -102,6 +102,10 @@ module FSO_Node2
                 outputColours = outputColours;
                 lambdasPerInPort = lambdasPerInPort;
                 lambdasPerOutPort = lambdasPerOutPort;
+                lambdasEdge = lambdasEdge;
+                numInPorts = sizeof(oxcin)/lambdasPerInPort;
+                numOutPorts = sizeof(oxcin)/lambdasPerInPort;
+                
                 @display("i=block/switch;p=261.53848,49.23077");
 
             gates:

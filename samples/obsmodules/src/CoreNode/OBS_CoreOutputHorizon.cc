@@ -43,6 +43,10 @@ void OBS_CoreOutputHorizon::initialize(){
       i++;
    }
 
+   // Suraj - copy from previous value of not all lambas provided
+   for(;i<numPorts;i++)
+       portLambdas[i] = portLambdas[i-1];
+
    horizon = (simtime_t**)calloc(numPorts,sizeof(simtime_t*));
 
    for(i=0;i<numPorts;i++){

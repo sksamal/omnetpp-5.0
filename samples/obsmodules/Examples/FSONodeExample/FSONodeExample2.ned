@@ -13,7 +13,7 @@ network FSONodeExample2
     parameters:
         int oxcnumPorts; // Number of fibers (oxc ports)
         int lambdas; //Number of data channels per fiber port
- 		int servers = default(1);
+ 		int servers = default(1); // Number or servers or lambdaEdge
     submodules:
  
         host1: StandardHost {
@@ -60,7 +60,7 @@ network FSONodeExample2
         host2.ethg++ <--> { datarate=1Gbps; } <--> fso2.ethIO++;
 
         //Core Optical connections
-        for i=0..oxcnumPorts-1 {
+        for i=0..oxcnumPorts*lambdas-1 {
             fso1.oxcout++ --> fso2.oxcin++;
             fso2.oxcout++ --> fso1.oxcin++;
         }

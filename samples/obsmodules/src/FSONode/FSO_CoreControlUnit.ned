@@ -18,24 +18,25 @@
 // along with OBSModules.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-package obsmodules.src.CoreNode;
-
+package obsmodules.src.FSONode;
+import obsmodules.src.CoreNode.OBS_OEConverter;
+import obsmodules.src.CoreNode.OBS_EOConverter;
+import obsmodules.src.CoreNode.OBS_CoreRoutingTable;
+import obsmodules.src.CoreNode.OBS_CoreOutputHorizon;
 //
 // Control unit compound module. It enables to separate OE/EO conversion and the control logic into separate modules.
 //
 // See submodules documentation for more info.
 //
-module OBS_CoreControlUnit
+module FSO_CoreControlUnit
 {
     parameters:
         double dataRate @unit(bps); //Optical channel data rate
         int numPorts; // Number of fibers
         string lambdasPerOutPort; //Number of output data channels for each fiber
         @display("bgb=339,249");
-        
-      
     gates:
-        input in[]; //Optical inputOBS_CoreOutputHorizon
+        input in[]; //Optical input
         output out[]; //Optical output
     submodules:
         OE: OBS_OEConverter {
@@ -44,9 +45,10 @@ module OBS_CoreControlUnit
             gates:
                 in[sizeof(in)];
         }
-        ControlLogic: OBS_CoreControlLogic {
+        ControlLogic: FSO_CoreControlLogic {
             parameters:
                 dataRate = dataRate;
+                lambdasPerOutPort = lambdasPerOutPort;
                 @display("p=180,160;i=block/cogwheel");
         }
         EO: OBS_EOConverter {

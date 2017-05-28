@@ -23,7 +23,8 @@ package obsmodules.src.FSONode;
 import obsmodules.src.EdgeNode.OBS_EdgeNode;
 import obsmodules.src.CoreNode.OBS_CoreNode;
 import obsmodules.src.CoreNode.OBS_CoreInput;
-import obsmodules.src.CoreNode.OBS_CoreOutput;
+import obsmodules.src.FSONode.FSO_CoreInput;
+import obsmodules.src.FSONode.FSO_CoreOutput;
 import obsmodules.src.CoreNode.OBS_OpticalCrossConnect;
 import obsmodules.src.CoreNode.OBS_CoreControlUnit;
 //
@@ -37,15 +38,18 @@ module FSO_CrossConnect
  		// Optical switch parameters
         int lambdasPerInPort; //Number of input data channels for each fiber
         int lambdasPerOutPort; //Number of output data channels for each fiber 
+        int lambdasEdge;
         string inputColours; // Colour of each input data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
         string outputColours; // Colour of each output data channel of each fiber. Should be a list of int numbers and vertical bars separated by spaces (each vertical bar separates a fiber). Use an empty string if you don't want to use colours. Example: "2 3 4 | 4 3 2 | 5 4 3" (3 fibers with 3 lambdas each one)
 
+		int numInPorts;
+		int numOutPorts;
         @display("bgb=434,264;i=block/wrx");
 
     gates:
 
         // Optical i/o (towards the network)
-        // Number of optical ports, not channels
+        // Number of optical ports multiplied by lambdas
         input in[];
         output out[];
         
@@ -67,9 +71,9 @@ module FSO_CrossConnect
                 	// and lambda times the number of ports + lambdas in obsout
         }
 
-        oxcControl: OBS_CoreControlUnit {
+        oxcControl: FSO_CoreControlUnit {
             parameters:
-                numPorts = sizeof(in)+ sizeof(obsin);   // size of input ports + size of obs
+				  numPorts = numInPorts + 1;   // one for obsInterface
                 lambdasPerOutPort = string(lambdasPerOutPort);  
                 @display("i=block/cogwheel;p=243,77");
             gates:
@@ -77,11 +81,11 @@ module FSO_CrossConnect
  //               out[sizeof(in)]; // size of input ports
         }
 	
-        oxcInput: OBS_CoreInput {
+        oxcInput: FSO_CoreInput {
             parameters:
-                lambdasPerPort = string(lambdasPerInPort+1);
-                numPorts = sizeof(in)+sizeof(obsin);  // each lambda from edge on separate port
-                									// may not be good design
+                lambdasPerPort = string(lambdasPerInPort);
+                lambdasEdge = string(lambdasEdge+1);
+                numPorts = numInPorts+1;  // one for obsIn
                 colours = inputColours;
                 @display("i=block/arrival;p=89,177");
             gates:
@@ -89,10 +93,11 @@ module FSO_CrossConnect
  //               out[sizeof(in)*lambdasPerInPort];
         }
 
-        oxcOutput: OBS_CoreOutput {
+        oxcOutput: FSO_CoreOutput {
             parameters:
-                lambdasPerPort = string(lambdasPerOutPort+1);
-                numPorts = sizeof(out) + sizeof(obsout);  // each obs lambda on separate port
+                lambdasPerPort = string(lambdasPerOutPort);
+                numPorts = numOutPorts + 1;  // one for ObsOut
+                lambdasEdge = string(lambdasEdge+1);
                 colours = outputColours;
                 @display("i=block/arrival;p=350,177");
             gates:
@@ -125,20 +130,25 @@ module FSO_CrossConnect
         
 		//Connect the control channels form oxcInput to the control unit
 		//Control channels are exactly the number of input ports (one wavelength per port)
-        for i=0..sizeof(in) + sizeof(obsin)-1 {
+//        for i=0..sizeof(in) + sizeof(obsin)-1 {
+
+        for i=0..numInPorts {
             oxcInput.out++ --> oxcControl.in++;
+        }
+
+        for i=0..numOutPorts {
             oxcControl.out++ --> oxcOutput.in++;
         }
 
 		// Connect oxcin (optical core) data channels to oxcInput and to OXC cross-connect
 		// lambda-1 times the number of ports
-        for i=0..((lambdasPerInPort)*(sizeof(in))+ sizeof(obsin)) -1 {
+        for i=numInPorts+1..(sizeof(in)+ sizeof(obsin) -1) {
             oxcInput.out++ --> oxcSwitch.in++;
         }
 
         //Connect OXC cross-connect to OXcOutput and then to oxcout (optical core)
         // lambda-1 times the number of ports
-        for i=0..((lambdasPerOutPort)*(sizeof(out))+ sizeof(obsout)) -1 {
+        for i=numOutPorts+1..(sizeof(out)+ sizeof(obsout) -1) {
             oxcSwitch.out++ --> oxcOutput.in++;
         }
 

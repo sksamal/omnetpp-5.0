@@ -1,14 +1,14 @@
 version 2
-run General-0-20170523-21:34:38-7836
+run General-0-20170528-00:05:22-6908
 attr configname General
-attr datetime 20170523-21:34:38
+attr datetime 20170528-00:05:22
 attr experiment General
 attr inifile omnetpp2.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network FSONodeExample2
-attr processid 7836
+attr processid 6908
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -24,19 +24,20 @@ param **.fso1.outputColours "\"\""
 param **.fso2.inputColours "\"\""
 param **.fso2.outputColours "\"\""
 param **.guardTime 0.000004s
-param **.host*.udpApp[*].destPort 80
-param **.host*.udpApp[*].localPort 80
-param **.host*.udpApp[*].messageLength 64B
-param **.host*.udpApp[*].sendInterval 0.5s
-param **.host*.udpApp[*].typename "\"UDPBasicApp\""
-param **.host1.udpApp[*].destAddresses "\"host2\""
-param **.host1.udpApp[*].localAddress "\"host1\""
-param **.host2.udpApp[*].destAddresses "\"host1\""
-param **.host2.udpApp[*].localAddress "\"host2\""
-param **.lambdas 3
+param **.host*.tcpApp[*].connectPort 80
+param **.host*.tcpApp[*].idleInterval 0.5s
+param **.host*.tcpApp[*].localPort 80
+param **.host*.tcpApp[*].requestLength 64B
+param **.host*.tcpApp[*].thinkTime 0.01s
+param **.host*.tcpApp[*].typename "\"TCPBasicClientApp\""
+param **.host1.tcpApp[*].connectAddress "\"host2\""
+param **.host1.tcpApp[*].localAddress "\"host1\""
+param **.host2.tcpApp[*].connectAddress "\"host1\""
+param **.host2.tcpApp[*].localAddress "\"host2\""
+param **.lambdas 5
 param **.numFileBurstifiers 0
 param **.numPacketBurstifiers 16
-param **.numUdpApps 1
+param **.numTcpApps 1
 param **.packetBurstifier[*].cteHeader 8B
 param **.packetBurstifier[*].destLabel 1
 param **.packetBurstifier[*].maxOffset 0.002s
@@ -54,5 +55,6 @@ param **.sender.guardTime 0.000000001s
 param **.sender.maxSchedBurstElems 0
 param **.sender.maxSchedBurstSize 0
 param **.sender.testing false
-param *.oxcnumPorts 4
+param *.oxcnumPorts 3
+param *.servers 6
 

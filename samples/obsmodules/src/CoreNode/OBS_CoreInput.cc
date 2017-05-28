@@ -65,7 +65,7 @@ void OBS_CoreInput::initialize(){
    cout<<"OBS_CoreInput: (numPorts="<<numPorts<<")\n";
    for(i=0;i<numPorts;i++)
    {
-       cout<<"Fiber "<<i<<"--> starts at "<<inPortBegin[i]<< " data channel begins at "<<outDataBegin[i]<<endl;
+       cout<<"Fiber "<<i<<"--> starts at inPortBegin["<<i<<"]"<<inPortBegin[i]<< " data channel begins at outDataBegin["<<i<<"]"<<outDataBegin[i]<<endl;
    }
 
 

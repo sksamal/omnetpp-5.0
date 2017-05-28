@@ -1,30 +1,14 @@
 //
-// Copyright (C) 2010-2012 Javier Armendariz Silva, Naiara Garcia Royo
-// Copyright (C) 2010-2012 Universidad Publica de Navarra
 //
-// This file is part of OBSModules.
-//
-// OBSModules is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-// 
-// OBSModules is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Lesser General Public License for more details.
-// 
-// You should have received a copy of the GNU General Public License
-// along with OBSModules.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include <FSO_Output.h>
+#include <FSO_CoreOutput.h>
 
-Define_Module(FSO_Output);
+Define_Module(FSO_CoreOutput);
 
-FSO_Output::~FSO_Output(){
+FSO_CoreOutput::~FSO_CoreOutput(){
    int i;
-   for(i=0;i<numoxcPorts;i++)
+   for(i=0;i<numPorts;i++)
       free(gate2Colour[i]);
    free(gate2Colour);
    free(portLen);
@@ -32,51 +16,74 @@ FSO_Output::~FSO_Output(){
    free(outPortBegin);
 }
 
-void FSO_Output::initialize(){
-   numoxcPorts = par("numoxcPorts");
+void FSO_CoreOutput::initialize(){
+   numPorts = par("numPorts");
    
    const char* portLenStr = par("lambdasPerPort").stringValue();
-   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("FSO_Output: lambdasPerPort not initialized");
+   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("FSO_CoreOutput: lambdasPerPort not initialized");
 
-   portLen = (int*)calloc(numoxcPorts,sizeof(int));
-   inDataBegin = (int*)calloc(numoxcPorts,sizeof(int));
-   outPortBegin = (int*)calloc(numoxcPorts,sizeof(int));
+   const char* obsportLenStr = par("lambdasEdge").stringValue();
+   if(strcmp(portLenStr,"") == 0) throw cRuntimeError("FSO_CoreInput: lambdasEdge not initialized");
+
+   portLen = (int*)calloc(numPorts,sizeof(int));
+   inDataBegin = (int*)calloc(numPorts,sizeof(int));
+   outPortBegin = (int*)calloc(numPorts,sizeof(int));
 
    cStringTokenizer tokenizer(portLenStr);
    int i = 0;
    while(tokenizer.hasMoreTokens()){
-      portLen[i] = atoi(tokenizer.nextToken()) + 1; // lambdasPerPort considers only data channels. In this array we include a control channel for each fiber.
+      portLen[i] = atoi(tokenizer.nextToken()); // lambdasPerPort considers only data channels. In this array we include a control channel for each fiber.
       i++;
    }
 
-   inDataBegin[0] = numoxcPorts; // First fiber begins just after control channels
+   // Suraj - copy from previous value of not all lambas provided
+   for(;i<numPorts-1;i++)
+       portLen[i] = portLen[i-1];
 
-   for(i=1;i<numoxcPorts;i++)
+   cStringTokenizer obsporttokenizer(obsportLenStr);
+
+   while(obsporttokenizer.hasMoreTokens()){
+      portLen[i] = atoi(obsporttokenizer.nextToken()); // lambdasEdge considers only data+ sizeof(obsin) -1) channels. In this array we include a control channel for each fiber.
+      i++;
+   }
+
+   // Suraj - copy from previous value of not all lambas provided
+   for(;i<numPorts;i++)
+       portLen[i] = portLen[i-1];
+
+   inDataBegin[0] = numPorts; // First fiber begins just after control channels
+   for(i=1;i<numPorts;i++)
       inDataBegin[i] = inDataBegin[i-1] + (portLen[i-1] - 1); //Adds number of channels (except control) to the previous fiber index
 
    //This array stores the beginning index of each output fiber
    //Here, we will include control channel
    outPortBegin[0] = 0;
 
-   for(i=1;i<numoxcPorts;i++) //Similar to inDataBegin but here we won't subtract 1 because we will include control channels
+   for(i=1;i<numPorts;i++) //Similar to inDataBegin but here we won't subtract 1 because we will include control channels
       outPortBegin[i] = outPortBegin[i-1] + (portLen[i-1]);
+
+   cout<<"FSO_CoreOutPut: (numPorts="<<numPorts<<")\n";
+   for(i=0;i<numPorts;i++)
+   {
+       cout<<"Fiber "<<i<<" input--> control channel= "<<i<<" data (start="<< inDataBegin[i]<<",end="<<inDataBegin[i] + portLen[i]-1 -1<<") output --> (start="<<outPortBegin[i]<< ", end="<<(outPortBegin[i] + portLen[i] - 1)<<")"<<endl;
+   }
 
    //Create the inverse colour map: lambda to colour
    //Indexed by port number and lambda, returns the colour
-   gate2Colour = (int**)calloc(numoxcPorts,sizeof(int*));
-   for(i=0;i<numoxcPorts;i++)
+   gate2Colour = (int**)calloc(numPorts,sizeof(int*));
+   for(i=0;i<numPorts;i++)
       gate2Colour[i] = (int*)calloc(portLen[i]-1,sizeof(int));
 
    //Create colour map as a vector of maps. Just the same as CoreInput
    const char* colourString = par("colours");
 
    map<int,int> tempMap;
-   colours.reserve(numoxcPorts);
+   colours.reserve(numPorts);
 
    //Add the empty string case:
    if(strcmp(colourString,"") == 0){
       int j=0;
-      for(i=0;i<numoxcPorts;i++){
+      for(i=0;i<numPorts;i++){
 		 for(j=0;j<(portLen[i]-1);j++){
             tempMap[j] = j;
             gate2Colour[i][j] = j; // Colour = lambda
@@ -111,45 +118,47 @@ void FSO_Output::initialize(){
    }
 }
 
-void FSO_Output::handleMessage(cMessage *msg){
+void FSO_CoreOutput::handleMessage(cMessage *msg){
 
     cGate *gate = msg->getArrivalGate();
     int msgPort = getOutPort(gate->getIndex());
     int msgLambda = getOutLambda(gate->getIndex());
-    
+    cout << "CoreOutput:: Msg arrived on gate "<<gate->getIndex()<<" (port="<<msgPort<<" lambda="<<msgLambda<<")"<<endl;
+
     msg->setSchedulingPriority(0); //Restore message original priority
 
     send(msg,"out",outPortBegin[msgPort] + msgLambda); // Simply forward incoming message to the corresponding output gate
+    cout<< "CoreOutput:: Msg sent on gate="<<outPortBegin[msgPort] + msgLambda<<"(port="<<msgPort<<", msgLambda="<<msgLambda<<")"<<endl;
 }
 
-int FSO_Output::getOutPort(int gateIndex){
-   if(gateIndex < numoxcPorts) //It's a BCP
+int FSO_CoreOutput::getOutPort(int gateIndex){
+   if(gateIndex < numPorts) //It's a BCP
       return gateIndex;
    else{ // Data channel
       int i;
-      for(i=0;i<numoxcPorts-1;i++){
+      for(i=0;i<numPorts-1;i++){
          if((gateIndex >= inDataBegin[i]) && (gateIndex < inDataBegin[i+1]))
             return i;
       }
-      if((gateIndex >= inDataBegin[numoxcPorts-1]) && (gateIndex < inDataBegin[numoxcPorts-1] + portLen[numoxcPorts-1])) return numoxcPorts - 1;
+      if((gateIndex >= inDataBegin[numPorts-1]) && (gateIndex < inDataBegin[numPorts-1] + portLen[numPorts-1])) return numPorts - 1;
    }
    return -1;
 }
 
-int FSO_Output::getOutLambda(int gateIndex){
+int FSO_CoreOutput::getOutLambda(int gateIndex){
    int port = getOutPort(gateIndex); //Use getOutPort to know the fiber where this channel belongs to (in this case, port refers to fiber and gateIndex to OMNeT gate)
-   if(gateIndex < numoxcPorts) //BCP
+   if(gateIndex < numPorts) //BCP
       return portLen[port] - 1; // Return last lambda for this fiber
    else
-      return gateIndex - (outPortBegin[port] + (numoxcPorts - port)); // The last sum is made to take into account the first data channel is in a location proportional of the number of fibers
+      return gateIndex - (outPortBegin[port] + (numPorts - port)); // The last sum is made to take into account the first data channel is in a location proportional of the number of fibers
 }
 
-int FSO_Output::getOXCGate(int port,int lambda){
+int FSO_CoreOutput::getOXCGate(int port,int lambda){
    Enter_Method("requesting OXC output gate for port %d, lambda %d\n",port,lambda);
-   return inDataBegin[port] + lambda - numoxcPorts;
+   return inDataBegin[port] + lambda - numPorts;
 }
 
-int FSO_Output::getLambdaByColour(int port,int colour){
+int FSO_CoreOutput::getLambdaByColour(int port,int colour){
    Enter_Method("requesting lambda by port %d and colour %d\n",port,colour);
    if (colours[port].count(colour) != 0){//If the colour exists
 	   return colours[port][colour];
@@ -160,7 +169,7 @@ int FSO_Output::getLambdaByColour(int port,int colour){
    }
 }
 
-int FSO_Output::getColourByLambda(int port,int lambda){
+int FSO_CoreOutput::getColourByLambda(int port,int lambda){
 	Enter_Method_Silent();
    return gate2Colour[port][lambda];
 }
