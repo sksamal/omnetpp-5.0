@@ -1,14 +1,14 @@
 version 2
-run General-0-20170528-00:05:22-6908
+run General-0-20170606-12:33:39-4045
 attr configname General
-attr datetime 20170528-00:05:22
+attr datetime 20170606-12:33:39
 attr experiment General
-attr inifile omnetpp2.ini
+attr inifile omnetpp3.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
-attr network FSONodeExample2
-attr processid 6908
+attr network FSONodeExample3
+attr processid 4045
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -24,20 +24,18 @@ param **.fso1.outputColours "\"\""
 param **.fso2.inputColours "\"\""
 param **.fso2.outputColours "\"\""
 param **.guardTime 0.000004s
-param **.host*.tcpApp[*].connectPort 80
-param **.host*.tcpApp[*].idleInterval 0.5s
-param **.host*.tcpApp[*].localPort 80
-param **.host*.tcpApp[*].requestLength 64B
-param **.host*.tcpApp[*].thinkTime 0.01s
-param **.host*.tcpApp[*].typename "\"TCPBasicClientApp\""
-param **.host1.tcpApp[*].connectAddress "\"host2\""
-param **.host1.tcpApp[*].localAddress "\"host1\""
-param **.host2.tcpApp[*].connectAddress "\"host1\""
-param **.host2.tcpApp[*].localAddress "\"host2\""
+param **.host*[0].numTcpApps 1
+param **.host*[0].tcpApp[*].connectAddress "\"host2[0]\""
+param **.host*[0].tcpApp[*].connectPort 80
+param **.host*[0].tcpApp[*].idleInterval 0.5s
+param **.host*[0].tcpApp[*].localAddress "\"127.0.0.1\""
+param **.host*[0].tcpApp[*].localPort 80
+param **.host*[0].tcpApp[*].requestLength 64B
+param **.host*[0].tcpApp[*].thinkTime 0.01s
+param **.host*[0].tcpApp[*].typename "\"TCPBasicClientApp\""
 param **.lambdas 5
 param **.numFileBurstifiers 0
 param **.numPacketBurstifiers 16
-param **.numTcpApps 1
 param **.packetBurstifier[*].cteHeader 8B
 param **.packetBurstifier[*].destLabel 1
 param **.packetBurstifier[*].maxOffset 0.002s

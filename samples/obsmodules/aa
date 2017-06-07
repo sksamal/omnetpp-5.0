@@ -1,0 +1,34 @@
+src/FSONode/FSO_StandardHost.cc
+src/FSONode/FSO_StandardHost.cc: In member function ‘virtual void FSO_StandardHost::initialize()’:
+src/FSONode/FSO_StandardHost.cc:30:5: error: ‘TCPBasicClientApp’ was not declared in this scope
+     TCPBasicClientApp* tcpApp1 = check_and_cast<TCPBasicClientApp*>(this->getSubmodule("tcpApp"));
+     ^~~~~~~~~~~~~~~~~
+src/FSONode/FSO_StandardHost.cc:30:5: note: suggested alternative:
+In file included from src/FSONode/FSO_StandardHost.cc:17:0:
+../inet/src/inet/applications/tcpapp/TCPBasicClientApp.h:32:16: note:   ‘inet::TCPBasicClientApp’
+ class INET_API TCPBasicClientApp : public TCPAppBase, public ILifecycle
+                ^~~~~~~~~~~~~~~~~
+src/FSONode/FSO_StandardHost.cc:30:24: error: ‘tcpApp1’ was not declared in this scope
+     TCPBasicClientApp* tcpApp1 = check_and_cast<TCPBasicClientApp*>(this->getSubmodule("tcpApp"));
+                        ^~~~~~~
+src/FSONode/FSO_StandardHost.cc:30:34: error: parse error in template argument list
+     TCPBasicClientApp* tcpApp1 = check_and_cast<TCPBasicClientApp*>(this->getSubmodule("tcpApp"));
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/FSONode/FSO_StandardHost.cc:30:97: error: no matching function for call to ‘check_and_cast(omnetpp::cModule*)’
+     TCPBasicClientApp* tcpApp1 = check_and_cast<TCPBasicClientApp*>(this->getSubmodule("tcpApp"));
+                                                                                                 ^
+In file included from /home/ssamal/Downloads/omnetpp-5.0/include/omnetpp.h:46:0,
+                 from src/FSONode/FSO_StandardHost.h:3,
+                 from src/FSONode/FSO_StandardHost.cc:16:
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/checkandcast.h:61:3: note: candidate: template<class P, class T> P omnetpp::check_and_cast(T*)
+ P check_and_cast(T *p)
+   ^~~~~~~~~~~~~~
+/home/ssamal/Downloads/omnetpp-5.0/include/omnetpp/checkandcast.h:61:3: note:   template argument deduction/substitution failed:
+src/FSONode/FSO_StandardHost.cc:30:97: error: template argument 1 is invalid
+     TCPBasicClientApp* tcpApp1 = check_and_cast<TCPBasicClientApp*>(this->getSubmodule("tcpApp"));
+                                                                                                 ^
+src/FSONode/FSO_StandardHost.cc:27:9: warning: unused variable ‘index’ [-Wunused-variable]
+     int index = par("index");
+         ^~~~~
+Makefile:209: recipe for target 'out/gcc-debug//src/FSONode/FSO_StandardHost.o' failed
+make: *** [out/gcc-debug//src/FSONode/FSO_StandardHost.o] Error 1

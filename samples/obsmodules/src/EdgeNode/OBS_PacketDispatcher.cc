@@ -88,6 +88,11 @@ void OBS_PacketDispatcher::handleMessage(cMessage *msg){
    recvPackSize.collect(pkt->getByteLength());
    //end of register
  
+   // Suraj bypass and randomize the queue number
+   i = rand()%numQueues;
+   send(msg,"out",i);
+   return;
+
    //Check if the packet matches any rule. It will be sent to the first gate where the rule matches.
    for(i=0;i < numQueues;i++){
       if(rules[i].match(msg)){
