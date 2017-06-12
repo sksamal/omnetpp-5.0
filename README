@@ -1,3 +1,11 @@
+OMNeT++ 
+-------
+  Suraj: Version 5.0 installed on linux (Fedora 24). It has the following projects integrated with it
+
+1. inet (3.4.0)
+2. obsmodules version(updated) - tested to compile and work with OMNeT++ 5.0 and INET 3.4.0
+3. anasainet 3.3.0 - extension of inet for real time simulation of networks based on TCP/IP
+
 OMNeT++
 ~~~~~~~
 
