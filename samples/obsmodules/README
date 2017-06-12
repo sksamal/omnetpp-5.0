@@ -3,5 +3,6 @@ OBS Modules for OMNeT++ and OMNEST
 
 OBSmodules is a set of modules to simulate Optical Burst Switching networks in the OMNeT++ framework
 
-
+Suraj: I have modified the original version to compile and work with Omnet++ 5.0 and inet 3.4.0
+On top of that, designed an FSO module as per required design for a node in server-centric architecture.
 
